@@ -1,0 +1,15 @@
+table {
+  width: 100%;
+}
+
+.litotable-container {
+  margin: 1rem;
+}
+
+.mat-row:hover .mat-cell {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.row-is-selected {
+  font-weight: bold;
+}
