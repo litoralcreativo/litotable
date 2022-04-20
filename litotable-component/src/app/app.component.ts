@@ -1,5 +1,7 @@
 import { Component, OnInit, Type } from '@angular/core';
 import { UsersService } from './services/users-service.service';
+import { User } from './models/User';
+import { TableConfigurations } from './litotable/configurations/litotable.config';
 
 @Component({
   selector: 'app-root',
@@ -8,20 +10,14 @@ import { UsersService } from './services/users-service.service';
 })
 export class AppComponent implements OnInit {
   datos!: any;
-  type!: any;
+  type: User = new User();
+  usersTableConfig: TableConfigurations;
 
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService) {
+    this.usersTableConfig = { paginationSizes: [5, 7, 11, 23] };
+  }
 
   ngOnInit() {
-    this.type = {
-      age: 0,
-      firstName: '',
-      lastName: '',
-      pass: '',
-      phone: 0,
-      username: '',
-    };
-    //this.datos = this.getDatos();
     this.datos = this.usersService.getAll();
   }
 

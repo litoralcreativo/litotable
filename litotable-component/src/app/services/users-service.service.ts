@@ -1,19 +1,25 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpClient,
-  HttpHeaders,
-  HttpHandler,
-  HttpParams,
-  HttpRequest,
-} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { User } from '../models/User';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
   constructor(private http: HttpClient) {}
-  getAll(): Promise<any[]> {
-    return this.http.get<any[]>(environment.usersApi).toPromise();
+  async getAll(): Promise<User[]> {
+    let response: User[] = [];
+    await this.http
+      .get<User[]>(environment.usersApi)
+      .toPromise()
+      .then((res) => {
+        res.forEach((user: any) => {
+          let u = Object.assign(new User(), user);
+          u.bday = new Date(user.bday);
+          response.push(u);
+        });
+      });
+    return response;
   }
 }

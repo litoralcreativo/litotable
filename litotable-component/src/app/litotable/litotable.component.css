@@ -11,5 +11,16 @@ table {
 }
 
 .row-is-selected {
-  font-weight: bold;
+  filter: brightness(1.2) contrast(0.8);
+}
+
+/* COLUMNS CONTENT ALIGNMENT */
+::ng-deep .column-content-alignment-1 > div {
+  text-align: left;
+}
+::ng-deep .column-content-alignment-2 > div {
+  text-align: center;
+}
+::ng-deep .column-content-alignment-3 > div {
+  text-align: right;
 }
