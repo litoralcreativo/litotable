@@ -31,6 +31,7 @@ export enum ColumnType {
   DATE = 3,
   CURRENCY = 4,
   CUIT = 5,
+  PHONE = 6,
 }
 
 export enum ColumnContentAlignment {

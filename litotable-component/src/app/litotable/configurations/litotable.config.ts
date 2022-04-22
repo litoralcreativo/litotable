@@ -1,4 +1,7 @@
+import { RowStyle } from '../decorators/row.decorator';
+
 export interface TableConfigurations {
   paginationSizes?: number[];
-  selectedStyle?: {};
+  hoverStyle?: RowStyle;
+  selectionStyle?: RowStyle;
 }

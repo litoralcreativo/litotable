@@ -1,4 +1,5 @@
 import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { SelectionModel } from '@angular/cdk/collections';
 import {
   AfterViewInit,
   Component,
@@ -16,7 +17,7 @@ import { ColumnType, TableColumnMetadata } from './decorators/column.decorator';
 import { TableRowMetadata } from './decorators/row.decorator';
 
 @Component({
-  selector: 'app-litotable',
+  selector: 'lito-table',
   templateUrl: './litotable.component.html',
   styleUrls: ['./litotable.component.css'],
 })
@@ -26,17 +27,18 @@ export class LitotableComponent implements OnInit, AfterViewInit {
   displayedColumns: DisplayedColumns = new DisplayedColumns();
   rowConstrains: RowConstrain[] = [];
   dataSource = new MatTableDataSource();
+  selectedDataSource = new MatTableDataSource();
   fetching: boolean = false;
   selectedRows = new Set();
   constrainedRows = new Set();
+  showSelectedOnly: boolean = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @Input('source') inputSource!: Promise<[]>;
   @Input('type') dataType!: Object;
+  @Input('selection') selection!: boolean;
   @Input('configurations') tableConfigurations?: TableConfigurations;
   @ViewChild(MatSort) sort!: MatSort;
-
-  dateFormat: string = 'yyyy-MM-dd';
 
   constructor(private _liveAnnouncer: LiveAnnouncer) {}
 
@@ -79,10 +81,7 @@ export class LitotableComponent implements OnInit, AfterViewInit {
   }
 
   setRowsConstrains(source: any[]) {
-    const rowsConstrain: any[] = Reflect.getMetadata(
-      'rowConstrain',
-      this.dataType
-    );
+    const rowsConstrain: any[] = Reflect.getMetadata('rowStyle', this.dataType);
     this.rowConstrains = rowsConstrain.map((x) => {
       return new RowConstrain(
         x.propertyKey,
@@ -96,16 +95,16 @@ export class LitotableComponent implements OnInit, AfterViewInit {
         const value = element[rc.name];
         if (rc.constrain(value)) {
           if (rc.enable) {
-            if (!element['constrain']) {
-              Object.defineProperty(element, 'constrain', {
+            if (!element['rowStyle']) {
+              Object.defineProperty(element, 'rowStyle', {
                 configurable: true,
                 enumerable: false,
                 value: { style: rc.style },
                 writable: true,
               });
-            } else if (element['constrain']) {
-              element['constrain'].style = {
-                ...element['constrain'].style,
+            } else if (element['rowStyle']) {
+              element['rowStyle'].style = {
+                ...element['rowStyle'].style,
                 ...rc.style,
               };
             }
@@ -114,7 +113,6 @@ export class LitotableComponent implements OnInit, AfterViewInit {
         }
       });
     });
-    console.log(this.constrainedRows);
   }
 
   hasConstrain(propertyKey: string, value: any): boolean {
@@ -151,7 +149,27 @@ export class LitotableComponent implements OnInit, AfterViewInit {
         return a.order! - b.order!;
       });
     }
-    this.displayedColumns = new DisplayedColumns(this.columns);
+    this.displayedColumns = new DisplayedColumns(this.columns, this.selection);
+  }
+
+  isAllSelected() {
+    const numSelected = this.selectedRows.size;
+    const numRows = this.dataSource.data.length;
+    return numSelected == numRows && numRows != 0;
+  }
+
+  masterToggle() {
+    this.isAllSelected()
+      ? this.selectedRows.clear()
+      : this.dataSource.data.forEach((row) => this.selectedRows.add(row));
+  }
+
+  selectionToogle(state: boolean, row: any) {
+    if (state) {
+      this.selectedRows.add(row);
+    } else {
+      if (this.selectedRows.has(row)) this.selectedRows.delete(row);
+    }
   }
 }
 
@@ -159,10 +177,23 @@ export class DisplayedColumns {
   columns: Column[];
   columnNames: string[];
   columnTypes: ColumnType[];
-  constructor(columns: Column[] = []) {
+  selectable: boolean;
+  constructor(columns: Column[] = [], selectable: boolean = false) {
     this.columns = columns;
-    this.columnNames = columns.map((x) => x.name);
+    this.columnNames = columns
+      .filter((c) => c.visible == true)
+      .map((x) => x.name);
     this.columnTypes = columns.map((x) => x.type);
+    this.selectable = selectable;
+    if (selectable) this.columnNames.unshift('selection');
+  }
+
+  changeColumnVisivility(column: Column) {
+    this.columns.filter((c) => c == column)[0].visible = !column.visible;
+    this.columnNames = this.columns
+      .filter((c) => c.visible == true)
+      .map((x) => x.name);
+    if (this.selectable) this.columnNames.unshift('selection');
   }
 }
 

@@ -5,9 +5,9 @@ export interface TableRowMetadata<T> {
   style: Object;
 }
 
-export function TableRowConstrain(rowMetadata: TableRowMetadata<Object>) {
+export function TableRowStyle(rowMetadata: TableRowMetadata<Object>) {
   return (target: Object, propertyKey: string) => {
-    const prevData = Reflect.getMetadata('rowConstrain', target);
+    const prevData = Reflect.getMetadata('rowStyle', target);
     const newData = {
       propertyKey: propertyKey,
       metadata: rowMetadata,
@@ -17,6 +17,11 @@ export function TableRowConstrain(rowMetadata: TableRowMetadata<Object>) {
       data.push(...prevData);
     }
     data.push(newData);
-    Reflect.defineMetadata('rowConstrain', data, target);
+    Reflect.defineMetadata('rowStyle', data, target);
   };
+}
+
+export enum RowStyle {
+  BORDER = 1,
+  SHADOW = 2,
 }

@@ -14,6 +14,7 @@ export class UsersService {
       .get<User[]>(environment.usersApi)
       .toPromise()
       .then((res) => {
+        // parseo de objeto plano a clase concreta
         res.forEach((user: any) => {
           let u = Object.assign(new User(), user);
           u.bday = new Date(user.bday);

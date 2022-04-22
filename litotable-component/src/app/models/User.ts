@@ -3,7 +3,7 @@ import {
   ColumnType,
   TableColumn,
 } from '../litotable/decorators/column.decorator';
-import { TableRowConstrain } from '../litotable/decorators/row.decorator';
+import { TableRowStyle } from '../litotable/decorators/row.decorator';
 
 export class User {
   @TableColumn({
@@ -21,6 +21,8 @@ export class User {
 
   @TableColumn({
     columnName: 'Telefono',
+    type: ColumnType.PHONE,
+    format: '(###) ####-####',
     order: 3,
   })
   phone: number;
@@ -31,7 +33,7 @@ export class User {
   })
   username: string;
 
-  @TableRowConstrain({
+  @TableRowStyle({
     enable: false,
     style: {
       'background-color': 'rgb(200, 150, 150, 0.5)',
@@ -41,7 +43,7 @@ export class User {
       else return false;
     },
   })
-  @TableRowConstrain({
+  @TableRowStyle({
     enable: false,
     style: {
       'background-color': 'rgb(150, 200, 150, 0.5)',
@@ -66,14 +68,18 @@ export class User {
   })
   bday: Date;
 
-  /* @TableRowConstrain({
+  @TableRowStyle({
     enable: true,
-    style: { filter: 'brightness(1.2) contrast(0.9)' },
+    style: {
+      'background-color': 'rgb(200, 120, 200, 0.5)',
+      color: 'rgba(255, 255, 255, 0.9)',
+      'font-weight': 200,
+    },
     trigger: (e: number) => {
-      if (e < 60000) return true;
+      if (e < 100000) return true;
       else return false;
     },
-  }) */
+  })
   @TableColumn({
     columnName: 'Salario',
     type: ColumnType.CURRENCY,

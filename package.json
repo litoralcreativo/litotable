@@ -1,0 +1,16 @@
+{
+  "name": "litotable",
+  "version": "1.0.0",
+  "description": "angular/material table component with testing server",
+  "main": "index.js",
+  "scripts": {
+    "server": "npm run dev --prefix litotable-server/server",
+    "client": "npm run start --prefix litotable-component",
+    "start": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Gaston Chatelet",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^7.1.0"
+  }
+}

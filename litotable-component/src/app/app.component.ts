@@ -2,6 +2,7 @@ import { Component, OnInit, Type } from '@angular/core';
 import { UsersService } from './services/users-service.service';
 import { User } from './models/User';
 import { TableConfigurations } from './litotable/configurations/litotable.config';
+import { RowStyle } from './litotable/decorators/row.decorator';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,11 @@ export class AppComponent implements OnInit {
   usersTableConfig: TableConfigurations;
 
   constructor(private usersService: UsersService) {
-    this.usersTableConfig = { paginationSizes: [5, 7, 11, 23] };
+    this.usersTableConfig = {
+      paginationSizes: [7, 11, 23, 51],
+      hoverStyle: RowStyle.BORDER,
+      selectionStyle: RowStyle.SHADOW,
+    };
   }
 
   ngOnInit() {
