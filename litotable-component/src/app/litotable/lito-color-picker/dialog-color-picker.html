@@ -1,0 +1,85 @@
+<div mat-dialog-title>
+  <span>{{data.title?data.title:'Colors'}}</span>
+</div>
+<div mat-dialog-content>
+  <mat-tab-group style="width: 100%">
+    <mat-tab cdkFocusInitial>
+      <div class="colors-container" style="margin-top: 1rem">
+        <button
+          mat-icon-button
+          *ngFor="let c of mainColors"
+          [mat-dialog-close]="c.value"
+        >
+          <mat-icon
+            [style]="{
+                color: c.value
+              }"
+            >circle</mat-icon
+          >
+        </button>
+        <!-- <button
+          mat-icon-button
+          *ngFor="let c of data.colors"
+          [mat-dialog-close]="c.value"
+        >
+          <mat-icon
+            matSuffix
+            [style]="{
+                color: c.value
+              }"
+            >circle</mat-icon
+          >
+        </button> -->
+      </div>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">add_circle</mat-icon>
+      </ng-template>
+      <div class="newcolor-sliders-container">
+        <mat-slider
+          thumbLabel
+          step="1"
+          min="0"
+          max="255"
+          aria-label="units"
+          color="primary"
+          (change)="changeNewColorValue('r', $event.value)"
+        >
+        </mat-slider>
+        <mat-slider
+          thumbLabel
+          step="1"
+          min="0"
+          max="255"
+          aria-label="units"
+          color="primary"
+          (change)="changeNewColorValue('g', $event.value)"
+        >
+        </mat-slider>
+        <mat-slider
+          thumbLabel
+          step="1"
+          min="0"
+          max="255"
+          aria-label="units"
+          color="primary"
+          (change)="changeNewColorValue('b', $event.value)"
+        >
+        </mat-slider>
+      </div>
+      <div>
+        <button
+          mat-button
+          [style]="{
+            width: '100%',
+            'background-color': newColorString, 
+            color: fgc
+          }"
+        >
+          Add
+        </button>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

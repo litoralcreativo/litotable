@@ -1,3 +1,63 @@
+<mat-accordion class="table-operations">
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title style="align-items: center">
+        Operaciones
+      </mat-panel-title>
+      <div class="table-top-container">
+        <button
+          mat-icon-button
+          [matMenuTriggerFor]="export"
+          aria-label="Exportar"
+          (click)="$event.stopPropagation()"
+        >
+          <mat-icon>download</mat-icon>
+        </button>
+
+        <button
+          mat-icon-button
+          [matMenuTriggerFor]="columns"
+          aria-label="Columnas"
+          (click)="$event.stopPropagation()"
+        >
+          <mat-icon>view_column</mat-icon>
+        </button>
+
+        <button
+          mat-icon-button
+          [matMenuTriggerFor]="constrains"
+          aria-label="Constrains"
+          (click)="$event.stopPropagation()"
+        >
+          <mat-icon>brush</mat-icon>
+        </button>
+      </div>
+    </mat-expansion-panel-header>
+    <div class="operation-buttons-container" *ngIf="operations">
+      <div *ngFor="let operation of operations.operations">
+        <div *ngIf="operation.type == operationTypes.CREATE">
+          <button
+            mat-raised-button
+            aria-label="Crear"
+            (click)="$event.stopPropagation()"
+          >
+            CREAR
+          </button>
+        </div>
+        <div *ngIf="operation.type == operationTypes.DELETE">
+          <button
+            mat-raised-button
+            aria-label="Eliminar"
+            (click)="$event.stopPropagation()"
+          >
+            ELIMINAR
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
 <div class="litotable-container mat-elevation-z8">
   <div class="table-container">
     <div *ngIf="dataSource" class="table-responsive">
@@ -17,7 +77,11 @@
             >
             </mat-checkbox>
           </th>
-          <td mat-cell *matCellDef="let row">
+          <td
+            mat-cell
+            *matCellDef="let row"
+            style="background-color: rgba(255, 255, 255, 1)"
+          >
             <mat-checkbox
               (click)="$event.stopPropagation()"
               (change)="selectionToogle($event.checked, row)"
@@ -105,14 +169,6 @@
     </div>
   </div>
   <div class="table-bottom-container">
-    <button
-      mat-icon-button
-      [matMenuTriggerFor]="menu"
-      aria-label="Example icon-button with a menu"
-      style="margin: auto"
-    >
-      <mat-icon>more_vert</mat-icon>
-    </button>
     <mat-paginator
       [pageSizeOptions]="tableConfigurations?.paginationSizes || [5, 10, 20]"
       showFirstLastButtons
@@ -125,24 +181,264 @@
   ></mat-progress-bar>
 </div>
 
-<mat-menu #menu="matMenu">
-  <button mat-menu-item>
-    <mat-icon>download</mat-icon>
-    <span>Exportar</span>
-  </button>
-  <button mat-menu-item [matMenuTriggerFor]="vertebrates">
-    <mat-icon>columns</mat-icon>
-    <span>Columnas</span>
-  </button>
+<mat-menu #export="matMenu" xPosition="before">
+  <div
+    mat-menu-item
+    style="text-align: center"
+    (click)="$event.stopPropagation()"
+  >
+    Exportar
+  </div>
 </mat-menu>
 
-<mat-menu #vertebrates="matMenu">
-  <div *ngFor="let column of displayedColumns.columns" mat-menu-item>
+<mat-menu #columns="matMenu" xPosition="before">
+  <div
+    mat-menu-item
+    style="text-align: center"
+    (click)="$event.stopPropagation()"
+  >
+    Columnas
+  </div>
+  <div
+    *ngFor="let column of displayedColumns.columns"
+    mat-menu-item
+    (click)="$event.stopPropagation()"
+  >
     <mat-slide-toggle
+      color="primary"
+      (click)="$event.stopPropagation()"
       (change)="displayedColumns.changeColumnVisivility(column)"
       [checked]="column.visible"
     >
       {{ column.name }}
     </mat-slide-toggle>
   </div>
+  <button
+    mat-menu-item
+    style="text-align: center"
+    (click)="displayedColumns.allVisible(); $event.stopPropagation()"
+  >
+    Todas
+  </button>
+</mat-menu>
+
+<mat-menu
+  #constrains="matMenu"
+  xPosition="before"
+  style="padding: 0.5rem !important"
+>
+  <div
+    mat-menu-item
+    style="text-align: center"
+    (click)="$event.stopPropagation()"
+  >
+    Estilos
+  </div>
+  <div
+    mat-menu-item
+    *ngFor="let const of fieldConstrians"
+    (click)="$event.stopPropagation()"
+    [matMenuTriggerFor]="constrain"
+    [matMenuTriggerData]="{ data: const }"
+    [style]="{
+      color: const.constrain.style['color'],
+      'background-color': const.constrain.style['background-color']
+    }"
+  >
+    {{ const.constrainName }}
+  </div>
+  <div
+    mat-menu-item
+    style="text-align: center"
+    (click)="$event.stopPropagation()"
+  >
+    <mat-icon style="margin: auto">add_circle</mat-icon>
+  </div>
+</mat-menu>
+
+<mat-menu #constrain="matMenu" xPosition="before">
+  <ng-template matMenuContent let-data="data">
+    <mat-card
+      (click)="$event.stopPropagation()"
+      (keypress)="$event.stopPropagation()"
+    >
+      <mat-card-content
+        (click)="$event.stopPropagation()"
+        (keypress)="$event.stopPropagation()"
+        class="constrain-mat-content"
+      >
+        <div
+          class="constrain-mat-content-dual"
+          (click)="$event.stopPropagation()"
+          (keypress)="$event.stopPropagation()"
+        >
+          <app-lito-color-picker
+            [colors]="tableConfigurations?.rowStyleColors"
+            (result)="
+              changeConstrainState($event, data.constrain, 'background-color')
+            "
+            content="Background"
+          ></app-lito-color-picker>
+          <app-lito-color-picker
+            [colors]="tableConfigurations?.rowStyleColors"
+            (result)="changeConstrainState($event, data.constrain, 'color')"
+            content="Foreground"
+          ></app-lito-color-picker>
+        </div>
+        <div
+          [style]="{
+            color: data.constrain.style['color'],
+            'background-color': data.constrain.style['background-color'],
+            'margin-bottom': '1rem',
+            'text-align': 'center',
+            padding: '0.5rem 0',
+            width: '100%'
+          }"
+        >
+          {{ data.constrain.values[0] }}
+        </div>
+        <mat-button-toggle-group
+          name="fontStyle"
+          aria-label="Font Style"
+          (click)="$event.stopPropagation()"
+          value="{{ data.constrain.type }}"
+          (change)="
+            changeConstrainState($event, data.constrain, 'number-type', false)
+          "
+        >
+          <mat-button-toggle value="1">=</mat-button-toggle>
+          <mat-button-toggle value="2">{{ "\>" }}</mat-button-toggle>
+          <mat-button-toggle value="3">{{ "\<" }}</mat-button-toggle>
+          <mat-button-toggle value="4">{{ "\<\>" }}</mat-button-toggle>
+        </mat-button-toggle-group>
+        <div
+          *ngIf="data.constrain.type != numberConstrainType.BETWEEN"
+          (click)="$event.stopPropagation()"
+          (keydown)="$event.stopPropagation()"
+          (keypress)="$event.stopPropagation()"
+          style="display: flex; justify-content: space-between"
+        >
+          <mat-form-field
+            style="width: 100%"
+            appearance="fill"
+            (click)="$event.stopPropagation()"
+            (keypress)="$event.stopPropagation()"
+            (keydown)="$event.stopPropagation()"
+          >
+            <mat-label (click)="$event.stopPropagation()">VALOR</mat-label>
+            <input
+              type="number"
+              step="100"
+              (keydown)="$event.stopPropagation()"
+              (keypress)="$event.stopPropagation()"
+              (click)="$event.stopPropagation()"
+              (change)="
+                $event.stopPropagation();
+                changeConstrainState(
+                  $event,
+                  data.constrain,
+                  'number-value',
+                  false
+                )
+              "
+              (keyup)="
+                $event.stopPropagation();
+                changeConstrainState(
+                  $event,
+                  data.constrain,
+                  'number-value',
+                  false
+                )
+              "
+              matInput
+              placeholder=""
+              value="{{ data.constrain.values[0] }}"
+            />
+          </mat-form-field>
+        </div>
+        <!-- BETWEEN -->
+        <div
+          *ngIf="data.constrain.type == numberConstrainType.BETWEEN"
+          (click)="$event.stopPropagation()"
+          (keypress)="$event.stopPropagation()"
+          (keydown)="$event.stopPropagation()"
+          style="max-width: fit-content; display: flow-root"
+        >
+          <mat-form-field
+            style="max-width: 45%; float: left"
+            appearance="fill"
+            (click)="$event.stopPropagation()"
+            (keypress)="$event.stopPropagation()"
+            (keydown)="$event.stopPropagation()"
+          >
+            <mat-label (click)="$event.stopPropagation()">DESDE</mat-label>
+            <input
+              type="number"
+              (click)="$event.stopPropagation()"
+              (keydown)="$event.stopPropagation()"
+              (keypress)="$event.stopPropagation()"
+              (change)="
+                changeConstrainState(
+                  $event,
+                  data.constrain,
+                  'number-value1',
+                  false
+                )
+              "
+              (keyup)="
+                changeConstrainState(
+                  $event,
+                  data.constrain,
+                  'number-value1',
+                  false
+                )
+              "
+              matInput
+              placeholder=""
+              value="{{ data.constrain.values[0] }}"
+            />
+          </mat-form-field>
+          <mat-form-field
+            style="max-width: 45%; float: right"
+            appearance="fill"
+            (click)="$event.stopPropagation()"
+            (keypress)="$event.stopPropagation()"
+            (keydown)="$event.stopPropagation()"
+          >
+            <mat-label
+              (click)="$event.stopPropagation()"
+              (keypress)="$event.stopPropagation()"
+              >HASTA</mat-label
+            >
+            <input
+              type="number"
+              step="100"
+              (change)="
+                changeConstrainState(
+                  $event,
+                  data.constrain,
+                  'number-value2',
+                  false
+                )
+              "
+              (click)="$event.stopPropagation()"
+              (keydown)="$event.stopPropagation()"
+              (keypress)="$event.stopPropagation()"
+              (keyup)="
+                changeConstrainState(
+                  $event,
+                  data.constrain,
+                  'number-value2',
+                  false
+                )
+              "
+              matInput
+              placeholder=""
+              value="{{ data.constrain.values[1] }}"
+            />
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </ng-template>
 </mat-menu>

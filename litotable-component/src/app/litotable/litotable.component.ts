@@ -11,10 +11,19 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import 'reflect-metadata';
+import { Observable } from 'rxjs';
 import { Column } from './column';
+import {
+  Constrain,
+  FieldConstrianStyle,
+  NumberConstrainType,
+} from './configurations/fieldConstriansStyle';
 import { TableConfigurations } from './configurations/litotable.config';
+import {
+  TableOperation,
+  TableOperationConfig,
+} from './configurations/tableCrud.config';
 import { ColumnType, TableColumnMetadata } from './decorators/column.decorator';
-import { TableRowMetadata } from './decorators/row.decorator';
 
 @Component({
   selector: 'lito-table',
@@ -24,20 +33,23 @@ import { TableRowMetadata } from './decorators/row.decorator';
 export class LitotableComponent implements OnInit, AfterViewInit {
   columns: Column[] = [];
   columnTypes = ColumnType;
+  numberConstrainType = NumberConstrainType;
+  operationTypes = TableOperation;
   displayedColumns: DisplayedColumns = new DisplayedColumns();
   rowConstrains: RowConstrain[] = [];
   dataSource = new MatTableDataSource();
-  selectedDataSource = new MatTableDataSource();
   fetching: boolean = false;
   selectedRows = new Set();
   constrainedRows = new Set();
   showSelectedOnly: boolean = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @Input('source') inputSource!: Promise<[]>;
+  @Input('source') inputSource!: Observable<any[]>;
   @Input('type') dataType!: Object;
+  @Input('operations') operations?: TableOperationConfig;
   @Input('selection') selection!: boolean;
   @Input('configurations') tableConfigurations?: TableConfigurations;
+  @Input('fieldConstrians') fieldConstrians?: FieldConstrianStyle[];
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private _liveAnnouncer: LiveAnnouncer) {}
@@ -45,18 +57,14 @@ export class LitotableComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.setColumns();
     if (this.inputSource != undefined) {
-      if (Array.isArray(this.inputSource)) {
-        this.dataSource = new MatTableDataSource(this.inputSource);
-      } else {
-        this.fetching = true;
-        this.inputSource.then((result: any[]) => {
-          this.fetching = false;
-          this.dataSource = new MatTableDataSource(result);
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
-          this.setRowsConstrains(result);
-        });
-      }
+      this.fetching = true;
+      this.inputSource.subscribe((datos: any[]) => {
+        this.fetching = false;
+        this.dataSource = new MatTableDataSource(datos);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+        this.setRowsConstrains(datos);
+      });
     } else {
       let c: any[] = [];
       this.dataSource = new MatTableDataSource(c);
@@ -81,31 +89,62 @@ export class LitotableComponent implements OnInit, AfterViewInit {
   }
 
   setRowsConstrains(source: any[]) {
-    const rowsConstrain: any[] = Reflect.getMetadata('rowStyle', this.dataType);
-    this.rowConstrains = rowsConstrain.map((x) => {
-      return new RowConstrain(
-        x.propertyKey,
-        x.metadata.trigger,
-        x.metadata.style,
-        x.metadata.enable
-      );
-    });
+    if (this.fieldConstrians) {
+      this.rowConstrains = this.fieldConstrians.map((x) => {
+        return new RowConstrain(
+          x.propertyKey,
+          x.metadata.trigger,
+          x.metadata.style,
+          x.metadata.enable,
+          x.constrain
+        );
+      });
+    }
     source.forEach((element) => {
       this.rowConstrains.forEach((rc) => {
         const value = element[rc.name];
-        if (rc.constrain(value)) {
-          if (rc.enable) {
+        if (rc._constrain.trigger(value)) {
+          if (rc._constrain.enable) {
             if (!element['rowStyle']) {
               Object.defineProperty(element, 'rowStyle', {
                 configurable: true,
                 enumerable: false,
-                value: { style: rc.style },
+                value: { style: rc._constrain.style },
                 writable: true,
               });
             } else if (element['rowStyle']) {
               element['rowStyle'].style = {
                 ...element['rowStyle'].style,
-                ...rc.style,
+                ...rc._constrain.style,
+              };
+            }
+            this.constrainedRows.add(element);
+          }
+        }
+      });
+    });
+  }
+
+  updateRowConstrains() {
+    this.constrainedRows = new Set();
+
+    const source: any[] = this.dataSource.data;
+    source.forEach((element) => {
+      this.rowConstrains.forEach((rc) => {
+        const value = element[rc.name];
+        if (rc._constrain.trigger(value)) {
+          if (rc._constrain.enable) {
+            if (!element['rowStyle']) {
+              Object.defineProperty(element, 'rowStyle', {
+                configurable: true,
+                enumerable: false,
+                value: { style: rc._constrain.style },
+                writable: true,
+              });
+            } else if (element['rowStyle']) {
+              element['rowStyle'].style = {
+                ...element['rowStyle'].style,
+                ...rc._constrain.style,
               };
             }
             this.constrainedRows.add(element);
@@ -136,7 +175,8 @@ export class LitotableComponent implements OnInit, AfterViewInit {
             c.propertyKey,
             ColumnType.STRING
           );
-          column.visible = c.metadata.visible || true;
+          column.visible =
+            c.metadata.visible == undefined ? true : c.metadata.visible;
           column.order = c.metadata.order || i + 1;
           column.name = c.metadata.columnName || c.propertyKey;
           column.type = c.metadata.type || ColumnType.STRING;
@@ -171,6 +211,34 @@ export class LitotableComponent implements OnInit, AfterViewInit {
       if (this.selectedRows.has(row)) this.selectedRows.delete(row);
     }
   }
+
+  changeConstrainState(
+    value: any,
+    data: Constrain | any,
+    field: string,
+    isStyle: boolean = true
+  ) {
+    if (isStyle && field && field != '') {
+      data.style[field] = value;
+    }
+    if (!isStyle) {
+      switch (field) {
+        case 'number-type':
+          data.type = parseInt(value.value);
+          break;
+        case 'number-value':
+        case 'number-value1':
+          data.values[0] = parseInt(value.target.value);
+          break;
+        case 'number-value2':
+          data.values[1] = parseInt(value.target.value);
+          console.log(data.values);
+          console.log(value.target.value);
+          break;
+      }
+    }
+    this.updateRowConstrains();
+  }
 }
 
 export class DisplayedColumns {
@@ -195,6 +263,14 @@ export class DisplayedColumns {
       .map((x) => x.name);
     if (this.selectable) this.columnNames.unshift('selection');
   }
+
+  allVisible() {
+    this.columns.forEach((c) => (c.visible = true));
+    this.columnNames = this.columns
+      .filter((c) => c.visible == true)
+      .map((x) => x.name);
+    if (this.selectable) this.columnNames.unshift('selection');
+  }
 }
 
 export class RowConstrain {
@@ -202,15 +278,18 @@ export class RowConstrain {
   style: Object;
   constrain: (e: any) => boolean;
   enable: boolean;
+  _constrain: Constrain;
   constructor(
     name: string,
-    constrain: () => boolean,
+    constrain: (e: any) => boolean,
     style: Object,
-    enable: boolean
+    enable: boolean,
+    _constrain: Constrain
   ) {
     this.name = name;
     this.style = style;
     this.enable = enable;
     this.constrain = constrain;
+    this._constrain = _constrain;
   }
 }

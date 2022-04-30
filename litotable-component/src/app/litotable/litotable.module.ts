@@ -12,9 +12,28 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import {
+  LitoColorPickerComponent,
+  DialogColorPicker,
+} from './lito-color-picker/lito-color-picker.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTabsModule } from '@angular/material/tabs';
+import { FormsModule } from '@angular/forms';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
-  declarations: [CuitPipe, PhonePipe, LitotableComponent],
+  declarations: [
+    CuitPipe,
+    PhonePipe,
+    LitotableComponent,
+    LitoColorPickerComponent,
+    DialogColorPicker,
+  ],
   imports: [
     CommonModule,
     MatTableModule,
@@ -26,6 +45,15 @@ import { MatIconModule } from '@angular/material/icon';
     MatMenuModule,
     MatButtonModule,
     MatIconModule,
+    MatCardModule,
+    MatInputModule,
+    MatRadioModule,
+    MatExpansionModule,
+    MatButtonToggleModule,
+    MatDialogModule,
+    MatTabsModule,
+    FormsModule,
+    MatSliderModule,
   ],
   exports: [LitotableComponent],
 })

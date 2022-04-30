@@ -1,8 +1,24 @@
 import { Component, OnInit, Type } from '@angular/core';
 import { UsersService } from './services/users-service.service';
 import { User } from './models/User';
-import { TableConfigurations } from './litotable/configurations/litotable.config';
-import { RowStyle } from './litotable/decorators/row.decorator';
+import {
+  LitotableColor,
+  RowStyle,
+  TableConfigurations,
+} from './litotable/configurations/litotable.config';
+import {
+  FieldConstrianStyle,
+  NumberConstrain,
+  NumberConstrainType,
+} from './litotable/configurations/fieldConstriansStyle';
+import { Observable } from 'rxjs';
+import { ColumnType } from './litotable/decorators/column.decorator';
+import {
+  CreateOperationConfig,
+  DeleteOperationConfig,
+  TableOperation,
+  TableOperationConfig,
+} from './litotable/configurations/tableCrud.config';
 
 @Component({
   selector: 'app-root',
@@ -10,49 +26,103 @@ import { RowStyle } from './litotable/decorators/row.decorator';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  datos!: any;
+  datos!: Observable<User[]>;
   type: User = new User();
   usersTableConfig: TableConfigurations;
+  fieldConstrains: FieldConstrianStyle[] = [];
+  operations: TableOperationConfig;
 
   constructor(private usersService: UsersService) {
     this.usersTableConfig = {
       paginationSizes: [7, 11, 23, 51],
       hoverStyle: RowStyle.BORDER,
       selectionStyle: RowStyle.SHADOW,
+      rowStyleColors: [
+        new LitotableColor('#000000'),
+        new LitotableColor('#444444'),
+        new LitotableColor('#888888'),
+        new LitotableColor('#cccccc'),
+        new LitotableColor('#eeeeee'),
+        new LitotableColor('#442B48'),
+        new LitotableColor('#726e60'),
+        new LitotableColor('#98B06F'),
+        new LitotableColor('#B6DC76'),
+        new LitotableColor('#D6FC96'),
+        new LitotableColor('#0051b5'),
+        new LitotableColor('#aa51b5'),
+      ],
     };
+
+    let constrain1 = new NumberConstrain(
+      NumberConstrainType.BETWEEN,
+      [80000, 120000],
+      {
+        'background-color': '#0051b5',
+        color: '#ffffffcc',
+      },
+      true
+    );
+    let constrain2 = new NumberConstrain(
+      NumberConstrainType.BETWEEN,
+      [120000, 140000],
+      {
+        'background-color': '#aa51b5',
+        color: '#ffffffcc',
+      },
+      true
+    );
+
+    let fc1: FieldConstrianStyle = {
+      propertyKey: 'salary',
+      constrainName: 'Salario 01',
+      type: ColumnType.FLOAT,
+      constrain: constrain1,
+      metadata: {
+        enable: true,
+        style: {
+          'background-color': '#0051b5',
+          color: 'rgba(255, 255, 255, 0.9)',
+          'font-weight': 200,
+        },
+        trigger: (e: number) => {
+          if (e < 100000) return true;
+          else return false;
+        },
+      },
+    };
+    let fc2: FieldConstrianStyle = {
+      propertyKey: 'salary',
+      constrainName: 'Salario 02',
+      type: ColumnType.FLOAT,
+      constrain: constrain2,
+      metadata: {
+        enable: true,
+        style: {
+          'background-color': '#0051b5',
+          color: 'rgba(255, 255, 255, 0.9)',
+          'font-weight': 200,
+        },
+        trigger: (e: number) => {
+          if (e < 100000) return true;
+          else return false;
+        },
+      },
+    };
+
+    this.fieldConstrains.push(fc1);
+    this.fieldConstrains.push(fc2);
+    let createOperation = new CreateOperationConfig([
+      { propertyKey: 'firstName', type: ColumnType.STRING },
+      { propertyKey: 'lastName', type: ColumnType.STRING },
+    ]);
+    let deleteOperation = new DeleteOperationConfig();
+    this.operations = new TableOperationConfig([
+      createOperation,
+      deleteOperation,
+    ]);
   }
 
   ngOnInit() {
     this.datos = this.usersService.getAll();
-  }
-
-  getDatos(): Promise<any[]> {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        this.datos = [
-          { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-          { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-          { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-          { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-          { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-          { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-          { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-          { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-          { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-          { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-          { position: 11, name: 'Sodium', weight: 22.9897, symbol: 'Na' },
-          { position: 12, name: 'Magnesium', weight: 24.305, symbol: 'Mg' },
-          { position: 13, name: 'Aluminum', weight: 26.9815, symbol: 'Al' },
-          { position: 14, name: 'Silicon', weight: 28.0855, symbol: 'Si' },
-          { position: 15, name: 'Phosphorus', weight: 30.9738, symbol: 'P' },
-          { position: 16, name: 'Sulfur', weight: 32.065, symbol: 'S' },
-          { position: 17, name: 'Chlorine', weight: 35.453, symbol: 'Cl' },
-          { position: 18, name: 'Argon', weight: 39.948, symbol: 'Ar' },
-          { position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K' },
-          { position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca' },
-        ];
-        resolve(this.datos);
-      }, 2000);
-    });
   }
 }

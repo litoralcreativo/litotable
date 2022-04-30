@@ -2,9 +2,11 @@
   <div style="padding: 1rem; width: 80vw; height: 80vh">
     <lito-table
       [selection]="true"
-      [source]="datos!"
+      [source]="datos"
       [type]="type"
       [configurations]="usersTableConfig"
+      [fieldConstrians]="fieldConstrains"
+      [operations]="operations"
     ></lito-table>
   </div>
 </div>

@@ -10,7 +10,7 @@ table {
 }
 
 .table-container {
-  padding: 0 1rem;
+  padding: 1rem 1rem 0;
 }
 
 .mat-cell > div {
@@ -41,19 +41,36 @@ table {
   overflow: initial;
 }
 
+.mat-header-cell {
+  border-top-width: 1px;
+  border-top-color: rgba(0, 0, 0, 0.12);
+  background-color: rgba(0, 0, 0, 0.02);
+  border-top-style: solid;
+}
+
 th.mat-column-selection.mat-header-cell:first-of-type,
 td.mat-column-selection.mat-cell:first-of-type,
 td.mat-column-selection.mat-footer-cell:first-of-type {
-  padding-right: 10px;
   padding-left: 10px;
+  padding-right: 10px;
+  width: 20px;
 }
 
+.table-top-container,
 .table-bottom-container {
   display: flex;
 }
 
+.table-top-container {
+  justify-content: flex-end;
+}
+
 .table-bottom-container mat-paginator {
   flex-grow: 1;
+}
+
+.table-operations mat-expansion-panel {
+  margin: 1rem 0;
 }
 
 /* COLUMNS CONTENT ALIGNMENT */
@@ -65,4 +82,37 @@ td.mat-column-selection.mat-footer-cell:first-of-type {
 }
 ::ng-deep .column-content-alignment-3 > div {
   text-align: right;
+}
+
+.operation-buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.operation-buttons-container > div {
+  margin: 0 0.5rem;
+}
+
+.constrain-mat-content > * {
+  width: 100%;
+}
+
+.constrain-mat-content > mat-button-toggle-group {
+  margin-bottom: 1rem;
+}
+
+.constrain-mat-content > mat-button-toggle-group > * {
+  width: 25%;
+}
+
+.constrain-mat-content .constrain-mat-content-dual {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.constrain-mat-content .constrain-mat-content-dual > * {
+  width: 45%;
 }
