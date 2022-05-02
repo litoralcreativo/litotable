@@ -58,6 +58,12 @@ export class DateConstrain implements Constrain {
           else return false;
         break;
       }
+      case MesurableConstrainType.NOTBETWEEN: {
+        if (this.values.length == 2)
+          if (!(e > this.values[0] && e < this.values[1])) return true;
+          else return false;
+        break;
+      }
     }
     return false;
   };
@@ -79,7 +85,7 @@ export class NumberConstrain implements Constrain {
     this.style = style;
     this.enable = enable;
   }
-  trigger = (e: any): boolean => {
+  trigger = (e: number): boolean => {
     switch (this.type) {
       case MesurableConstrainType.LESSTHAN: {
         if (e < this.values[0]) return true;
@@ -99,6 +105,12 @@ export class NumberConstrain implements Constrain {
       case MesurableConstrainType.BETWEEN: {
         if (this.values.length == 2)
           if (e > this.values[0] && e < this.values[1]) return true;
+          else return false;
+        break;
+      }
+      case MesurableConstrainType.NOTBETWEEN: {
+        if (this.values.length == 2)
+          if (!(e > this.values[0] && e < this.values[1])) return true;
           else return false;
         break;
       }

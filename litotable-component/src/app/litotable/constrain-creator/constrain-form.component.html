@@ -324,14 +324,28 @@
     </mat-button-toggle>
   </mat-button-toggle-group>
   <div style="display: flex; justify-content: space-between">
-    <mat-form-field style="width: 100%" appearance="fill">
+    <!-- EQUALS, LESSTHAN, MORETHAN -->
+    <mat-form-field
+      style="width: 100%"
+      appearance="fill"
+      *ngIf="
+        fieldConstrain.constrain.type == numberConstrainType.EQUALS ||
+        fieldConstrain.constrain.type == numberConstrainType.LESSTHAN ||
+        fieldConstrain.constrain.type == numberConstrainType.MORETHAN
+      "
+    >
       <mat-label [ngSwitch]="fieldConstrain.constrain.type">
         <span *ngSwitchCase="numberConstrainType.EQUALS">EQUALS</span>
-        <span *ngSwitchCase="numberConstrainType.LESSTHAN">BEFORE</span>
-        <span *ngSwitchCase="numberConstrainType.MORETHAN">AFTER</span>
-        <span *ngSwitchCase="numberConstrainType.BETWEEN">BETWEEN</span>
-        <span *ngSwitchCase="numberConstrainType.NOTBETWEEN">NOT BETWEEN</span>
+        <span *ngSwitchCase="numberConstrainType.LESSTHAN">Choose a date</span>
+        <span *ngSwitchCase="numberConstrainType.MORETHAN">Choose a date</span>
+        <span *ngSwitchCase="numberConstrainType.BETWEEN"
+          >Choose a date range</span
+        >
+        <span *ngSwitchCase="numberConstrainType.NOTBETWEEN"
+          >Choose a date range</span
+        >
       </mat-label>
+
       <input
         matInput
         [matDatepicker]="picker"
@@ -346,31 +360,50 @@
       />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
-      <!-- <input
-        type="number"
-        step="100"
-        (change)="
-          $event.stopPropagation();
-          changeConstrainState(
-            $event,
-            fieldConstrain.constrain,
-            'number-value',
-            false
-          )
-        "
-        (keyup)="
-          $event.stopPropagation();
-          changeConstrainState(
-            $event,
-            fieldConstrain.constrain,
-            'number-value',
-            false
-          )
-        "
-        matInput
-        placeholder=""
-        value="{{ fieldConstrain.constrain.values[0] }}"
-      /> -->
+    </mat-form-field>
+
+    <!-- BETWEEN, NOTBETWEEN -->
+    <mat-form-field
+      style="width: 100%"
+      appearance="fill"
+      *ngIf="
+        fieldConstrain.constrain.type == numberConstrainType.BETWEEN ||
+        fieldConstrain.constrain.type == numberConstrainType.NOTBETWEEN
+      "
+    >
+      <mat-date-range-input [formGroup]="dateRange" [rangePicker]="rangePicker">
+        <input
+          matStartDate
+          formControlName="start"
+          placeholder="{{ numberConstrainType.BETWEEN ? 'After' : 'Bafore' }}"
+          (dateChange)="
+            changeConstrainState(
+              $event,
+              fieldConstrain.constrain,
+              'date-value1',
+              false
+            )
+          "
+        />
+        <input
+          matEndDate
+          formControlName="end"
+          placeholder="{{ numberConstrainType.BETWEEN ? 'Before' : 'After' }}"
+          (dateChange)="
+            changeConstrainState(
+              $event,
+              fieldConstrain.constrain,
+              'date-value2',
+              false
+            )
+          "
+        />
+      </mat-date-range-input>
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="rangePicker"
+      ></mat-datepicker-toggle>
+      <mat-date-range-picker #rangePicker></mat-date-range-picker>
     </mat-form-field>
   </div>
 </ng-template>

@@ -17,8 +17,14 @@ import {
   FieldConstrianStyle,
   NumberConstrain,
   MesurableConstrainType,
+  DateConstrain,
 } from '../configurations/fieldConstriansStyle';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { ColumnType } from '../decorators/column.decorator';
 
 export class ConstrainCreationFormData {
@@ -61,6 +67,10 @@ export class ConstrainCreationForm {
   numberConstrainType = MesurableConstrainType;
   finalString: string = '';
   valueType: string = '';
+  dateRange = new FormGroup({
+    start: new FormControl(),
+    end: new FormControl(),
+  });
   constructor(
     public dialogRef: MatDialogRef<ConstrainCreationForm>,
     @Inject(MAT_DIALOG_DATA) public data: ConstrainCreationFormData,
@@ -86,10 +96,16 @@ export class ConstrainCreationForm {
       this.fieldConstrain.constrainName = selected.name;
       this.fieldConstrain.type = selected.type;
       if (selected.type == ColumnType.DATE) {
-        this.fieldConstrain.values = [new Date(), new Date()];
+        this.fieldConstrain.constrain = new DateConstrain(
+          this.numberConstrainType.MORETHAN,
+          [new Date(), new Date()],
+          {
+            color: '#eee',
+            'background-color': '#888',
+          }
+        );
       }
     }
-    console.log(this.fieldConstrain.values);
     this.getFinalText();
   }
 
@@ -100,30 +116,33 @@ export class ConstrainCreationForm {
     isStyle: boolean = true
   ) {
     if (isStyle && field && field != '') {
-      data.style[field] = value;
+      this.fieldConstrain.constrain.style[field] = value;
     }
     if (!isStyle) {
       switch (field) {
         case 'date-type':
         case 'number-type':
-          data.type = parseInt(value.value);
+          this.fieldConstrain.constrain.type = parseInt(value.value);
           break;
         case 'number-value':
         case 'number-value1':
-          data.values[0] = parseInt(value.target.value);
+          this.fieldConstrain.constrain.values[0] = parseInt(
+            value.target.value
+          );
           break;
         case 'number-value2':
-          data.values[1] = parseInt(value.target.value);
-          break;
-        case 'date-type':
-          data.type = parseInt(value.value);
+          this.fieldConstrain.constrain.values[1] = parseInt(
+            value.target.value
+          );
           break;
         case 'date-value':
         case 'date-value1':
-          data.values[0] = new Date(value.value);
+          this.fieldConstrain.constrain.values[0] = new Date(value.value);
+          break;
+        case 'date-value2':
+          this.fieldConstrain.constrain.values[1] = new Date(value.value);
           break;
       }
-      console.log(data);
     }
     this.getFinalText();
   }
@@ -198,6 +217,7 @@ export class ConstrainCreationForm {
             )} and ${this.shortDate(this.fieldConstrain.constrain.values[1])}`;
             break;
         }
+
         break;
     }
   }

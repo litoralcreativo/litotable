@@ -110,6 +110,7 @@
           <td mat-cell *matCellDef="let element" #litotableTd>
             <div
               #content
+              style="transition: 0.3s all"
               [ngStyle]="
                 litotableTd.parentElement?.style?.color
                   ? { color: litotableTd.parentElement?.style?.color }
@@ -156,6 +157,7 @@
           "
           [class.mat-row-borders]="tableConfigurations?.hoverStyle == 1"
           [class.mat-row-shadow]="tableConfigurations?.hoverStyle == 2"
+          style="transition: 0.3s all"
           [ngStyle]="constrainedRows.has(row) ? row.rowStyle.style : ''"
           *matRowDef="let row; columns: displayedColumns.columnNames"
         ></tr>
