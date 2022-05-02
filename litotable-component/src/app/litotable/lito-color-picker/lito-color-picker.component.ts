@@ -38,13 +38,12 @@ export class LitoColorPickerComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogColorPicker, {
-      width: '400px',
-      height: '400px',
+      width: '380px',
       data: { colors: this.colors, value: this.value, title: this.content },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      this.result.emit(result);
+      if (result) this.result.emit(result);
     });
   }
 }

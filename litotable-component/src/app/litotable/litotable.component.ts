@@ -16,7 +16,7 @@ import { Column } from './column';
 import {
   Constrain,
   FieldConstrianStyle,
-  NumberConstrainType,
+  MesurableConstrainType,
 } from './configurations/fieldConstriansStyle';
 import { TableConfigurations } from './configurations/litotable.config';
 import {
@@ -33,7 +33,7 @@ import { ColumnType, TableColumnMetadata } from './decorators/column.decorator';
 export class LitotableComponent implements OnInit, AfterViewInit {
   columns: Column[] = [];
   columnTypes = ColumnType;
-  numberConstrainType = NumberConstrainType;
+  numberConstrainType = MesurableConstrainType;
   operationTypes = TableOperation;
   displayedColumns: DisplayedColumns = new DisplayedColumns();
   rowConstrains: RowConstrain[] = [];

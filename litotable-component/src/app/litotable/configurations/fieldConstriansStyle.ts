@@ -16,15 +16,16 @@ export interface Constrain {
   style: any;
   enable: boolean;
   trigger: (e: any) => boolean;
+  type: MesurableConstrainType;
 }
 
 export class NumberConstrain implements Constrain {
   style: Object;
   enable: boolean;
-  type: NumberConstrainType;
   values: [number, number];
+  type: MesurableConstrainType;
   constructor(
-    type: NumberConstrainType,
+    type: MesurableConstrainType,
     values: [number, number],
     style: Object = {},
     enable: boolean = true
@@ -36,22 +37,22 @@ export class NumberConstrain implements Constrain {
   }
   trigger = (e: any): boolean => {
     switch (this.type) {
-      case NumberConstrainType.LESSTHAN: {
+      case MesurableConstrainType.LESSTHAN: {
         if (e < this.values[0]) return true;
         else return false;
         break;
       }
-      case NumberConstrainType.MORETHAN: {
+      case MesurableConstrainType.MORETHAN: {
         if (e > this.values[0]) return true;
         else return false;
         break;
       }
-      case NumberConstrainType.EQUALS: {
+      case MesurableConstrainType.EQUALS: {
         if (e == this.values[0]) return true;
         else return false;
         break;
       }
-      case NumberConstrainType.BETWEEN: {
+      case MesurableConstrainType.BETWEEN: {
         if (this.values.length == 2)
           if (e > this.values[0] && e < this.values[1]) return true;
           else return false;
@@ -62,9 +63,10 @@ export class NumberConstrain implements Constrain {
   };
 }
 
-export enum NumberConstrainType {
+export enum MesurableConstrainType {
   EQUALS = 1,
   MORETHAN = 2,
   LESSTHAN = 3,
   BETWEEN = 4,
+  NOTBETWEEN = 5,
 }

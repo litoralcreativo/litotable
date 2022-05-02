@@ -25,6 +25,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 import { FormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
+import {
+  ConstrainCreatorComponent,
+  ConstrainCreationForm,
+} from './constrain-creator/constrain-creator.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatStepperModule } from '@angular/material/stepper';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,6 +40,8 @@ import { MatSliderModule } from '@angular/material/slider';
     LitotableComponent,
     LitoColorPickerComponent,
     DialogColorPicker,
+    ConstrainCreatorComponent,
+    ConstrainCreationForm,
   ],
   imports: [
     CommonModule,
@@ -54,6 +63,9 @@ import { MatSliderModule } from '@angular/material/slider';
     MatTabsModule,
     FormsModule,
     MatSliderModule,
+    MatSelectModule,
+    MatStepperModule,
+    ReactiveFormsModule,
   ],
   exports: [LitotableComponent],
 })

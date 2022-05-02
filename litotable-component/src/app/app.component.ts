@@ -9,7 +9,7 @@ import {
 import {
   FieldConstrianStyle,
   NumberConstrain,
-  NumberConstrainType,
+  MesurableConstrainType,
 } from './litotable/configurations/fieldConstriansStyle';
 import { Observable } from 'rxjs';
 import { ColumnType } from './litotable/decorators/column.decorator';
@@ -54,7 +54,7 @@ export class AppComponent implements OnInit {
     };
 
     let constrain1 = new NumberConstrain(
-      NumberConstrainType.BETWEEN,
+      MesurableConstrainType.BETWEEN,
       [80000, 120000],
       {
         'background-color': '#0051b5',
@@ -63,7 +63,7 @@ export class AppComponent implements OnInit {
       true
     );
     let constrain2 = new NumberConstrain(
-      NumberConstrainType.BETWEEN,
+      MesurableConstrainType.BETWEEN,
       [120000, 140000],
       {
         'background-color': '#aa51b5',

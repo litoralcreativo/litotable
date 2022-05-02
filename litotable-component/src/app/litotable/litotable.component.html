@@ -238,21 +238,26 @@
     mat-menu-item
     *ngFor="let const of fieldConstrians"
     (click)="$event.stopPropagation()"
-    [matMenuTriggerFor]="constrain"
-    [matMenuTriggerData]="{ data: const }"
     [style]="{
       color: const.constrain.style['color'],
-      'background-color': const.constrain.style['background-color']
+      'background-color': const.constrain.style['background-color'],
+      'text-align': 'center'
     }"
   >
     {{ const.constrainName }}
   </div>
+
+  <!-- Constrain Creator -->
   <div
     mat-menu-item
     style="text-align: center"
     (click)="$event.stopPropagation()"
   >
-    <mat-icon style="margin: auto">add_circle</mat-icon>
+    <litotable-constrain-creator [columns]="displayedColumns.columns"
+      ><mat-icon style="margin: auto"
+        >add_circle</mat-icon
+      ></litotable-constrain-creator
+    >
   </div>
 </mat-menu>
 
