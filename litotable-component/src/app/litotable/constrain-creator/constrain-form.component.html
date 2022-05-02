@@ -24,6 +24,7 @@
       <div style="margin-top: 1rem"></div>
       <ng-template matStepLabel>Set constrain</ng-template>
       <ng-container [ngSwitch]="fieldConstrain.type">
+        <!-- Numericos -->
         <ng-container
           *ngSwitchCase="1"
           [ngTemplateOutlet]="numberConstrainSelector"
@@ -35,6 +36,11 @@
         <ng-container
           *ngSwitchCase="4"
           [ngTemplateOutlet]="numberConstrainSelector"
+        ></ng-container>
+        <!-- Date -->
+        <ng-container
+          *ngSwitchCase="3"
+          [ngTemplateOutlet]="dateConstrainSelector"
         ></ng-container>
       </ng-container>
 
@@ -67,7 +73,7 @@
         <button mat-button (click)="stepper.reset(); resetValues()">
           Reset
         </button>
-        <button mat-button (click)="createConstrain()">Create</button>
+        <button mat-button [mat-dialog-close]="fieldConstrain">Create</button>
       </div>
     </mat-step>
   </mat-stepper>
@@ -145,19 +151,19 @@
       )
     "
   >
-    <mat-button-toggle value="1">
+    <mat-button-toggle value="1" matTooltip="EQUALS">
       <mat-icon>drag_handle</mat-icon>
     </mat-button-toggle>
-    <mat-button-toggle value="2">
+    <mat-button-toggle value="2" matTooltip="MORE THAN">
       <mat-icon style="transform: rotate(90deg)">expand_less</mat-icon>
     </mat-button-toggle>
-    <mat-button-toggle value="3">
+    <mat-button-toggle value="3" matTooltip="LESS THAN">
       <mat-icon style="transform: rotate(90deg)">expand_more</mat-icon>
     </mat-button-toggle>
-    <mat-button-toggle value="4">
+    <mat-button-toggle value="4" matTooltip="BETWEEN">
       <mat-icon style="transform: rotate(90deg)">unfold_less</mat-icon>
     </mat-button-toggle>
-    <mat-button-toggle value="5">
+    <mat-button-toggle value="5" matTooltip="NOT BETWEEN">
       <mat-icon style="transform: rotate(90deg)">unfold_more</mat-icon>
     </mat-button-toggle>
   </mat-button-toggle-group>
@@ -291,5 +297,82 @@
   </div>
 </ng-template>
 
-<ng-template #dateConstrainSelector>date constrain</ng-template>
+<ng-template #dateConstrainSelector>
+  <mat-button-toggle-group
+    class="number-constrain-selector"
+    name="constrainSelect"
+    aria-label="Constrain select"
+    value="{{ fieldConstrain.constrain.type }}"
+    (change)="
+      changeConstrainState($event, fieldConstrain.constrain, 'date-type', false)
+    "
+  >
+    <!-- <mat-button-toggle value="1" matTooltip="EQUALS">
+      <mat-icon>drag_handle</mat-icon>
+    </mat-button-toggle> -->
+    <mat-button-toggle value="2" matTooltip="AFTER">
+      <mat-icon style="transform: rotate(90deg)">expand_less</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="3" matTooltip="BEFORE">
+      <mat-icon style="transform: rotate(90deg)">expand_more</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="4" matTooltip="BETWEEN">
+      <mat-icon style="transform: rotate(90deg)">unfold_less</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="5" matTooltip="NOT BETWEEN">
+      <mat-icon style="transform: rotate(90deg)">unfold_more</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+  <div style="display: flex; justify-content: space-between">
+    <mat-form-field style="width: 100%" appearance="fill">
+      <mat-label [ngSwitch]="fieldConstrain.constrain.type">
+        <span *ngSwitchCase="numberConstrainType.EQUALS">EQUALS</span>
+        <span *ngSwitchCase="numberConstrainType.LESSTHAN">BEFORE</span>
+        <span *ngSwitchCase="numberConstrainType.MORETHAN">AFTER</span>
+        <span *ngSwitchCase="numberConstrainType.BETWEEN">BETWEEN</span>
+        <span *ngSwitchCase="numberConstrainType.NOTBETWEEN">NOT BETWEEN</span>
+      </mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        (dateChange)="
+          changeConstrainState(
+            $event,
+            fieldConstrain.constrain,
+            'date-value',
+            false
+          )
+        "
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <!-- <input
+        type="number"
+        step="100"
+        (change)="
+          $event.stopPropagation();
+          changeConstrainState(
+            $event,
+            fieldConstrain.constrain,
+            'number-value',
+            false
+          )
+        "
+        (keyup)="
+          $event.stopPropagation();
+          changeConstrainState(
+            $event,
+            fieldConstrain.constrain,
+            'number-value',
+            false
+          )
+        "
+        matInput
+        placeholder=""
+        value="{{ fieldConstrain.constrain.values[0] }}"
+      /> -->
+    </mat-form-field>
+  </div>
+</ng-template>
+
 <ng-template #stringConstrainSelector>string constrain</ng-template>

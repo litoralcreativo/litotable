@@ -32,6 +32,9 @@ import {
 import { MatSelectModule } from '@angular/material/select';
 import { MatStepperModule } from '@angular/material/stepper';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -66,6 +69,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     MatStepperModule,
     ReactiveFormsModule,
+    MatTooltipModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   exports: [LitotableComponent],
 })

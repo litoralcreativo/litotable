@@ -58,6 +58,7 @@
   </mat-expansion-panel>
 </mat-accordion>
 
+<!-- Table -->
 <div class="litotable-container mat-elevation-z8">
   <div class="table-container">
     <div *ngIf="dataSource" class="table-responsive">
@@ -181,6 +182,7 @@
   ></mat-progress-bar>
 </div>
 
+<!-- Export Menu -->
 <mat-menu #export="matMenu" xPosition="before">
   <div
     mat-menu-item
@@ -191,6 +193,7 @@
   </div>
 </mat-menu>
 
+<!-- Columns Selector Menu -->
 <mat-menu #columns="matMenu" xPosition="before">
   <div
     mat-menu-item
@@ -222,6 +225,7 @@
   </button>
 </mat-menu>
 
+<!-- Constrains Menu -->
 <mat-menu
   #constrains="matMenu"
   xPosition="before"
@@ -236,15 +240,44 @@
   </div>
   <div
     mat-menu-item
-    *ngFor="let const of fieldConstrians"
+    disableRipple="true"
+    *ngFor="let constr of fieldConstrians"
     (click)="$event.stopPropagation()"
     [style]="{
-      color: const.constrain.style['color'],
-      'background-color': const.constrain.style['background-color'],
+      display: 'flex',
+      'align-items': 'center',
+      'justify-items': 'center',
+      color: constr.constrain.style['color'],
+      'background-color': constr.constrain.style['background-color'],
       'text-align': 'center'
     }"
   >
-    {{ const.constrainName }}
+    <span style="flex-grow: 1; text-align: center">{{
+      constr.constrainName
+    }}</span>
+    <button
+      mat-icon-button
+      matTooltip="remove"
+      style="justify-self: flex-end; margin-left: 1rem"
+      [matMenuTriggerFor]="constrainDeletionConfirm"
+      [matMenuTriggerData]="{ data: constr }"
+    >
+      <mat-icon style="margin: auto">delete</mat-icon>
+    </button>
+    <button mat-icon-button style="justify-self: flex-end">
+      <mat-icon style="margin: auto" matTooltip="hide">edit</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      style="justify-self: flex-end"
+      (click)="
+        constr.constrain.enable = !constr.constrain.enable; updateVisibility()
+      "
+    >
+      <mat-icon style="margin: auto" matTooltip="hide">{{
+        constr.constrain.enable ? "visibility" : "visibility_off"
+      }}</mat-icon>
+    </button>
   </div>
 
   <!-- Constrain Creator -->
@@ -253,12 +286,26 @@
     style="text-align: center"
     (click)="$event.stopPropagation()"
   >
-    <litotable-constrain-creator [columns]="displayedColumns.columns"
+    <litotable-constrain-creator
+      [columns]="displayedColumns.columns"
+      (result-constrain)="addConstrain($event)"
       ><mat-icon style="margin: auto"
         >add_circle</mat-icon
       ></litotable-constrain-creator
     >
   </div>
+</mat-menu>
+
+<mat-menu #constrainDeletionConfirm="matMenu" xPosition="before">
+  <ng-template matMenuContent let-constrain="data">
+    <button
+      mat-menu-item
+      (click)="removeConstrain(constrain)"
+      style="color: red; font-weight: 500"
+    >
+      confirm remove
+    </button>
+  </ng-template>
 </mat-menu>
 
 <mat-menu #constrain="matMenu" xPosition="before">

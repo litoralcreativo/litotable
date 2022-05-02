@@ -32,7 +32,8 @@ export class ConstrainCreationFormData {
 })
 export class ConstrainCreatorComponent implements OnInit {
   @Input('columns') columns: Column[] = [];
-  @Output('constrain') result: EventEmitter<Constrain> = new EventEmitter();
+  @Output('result-constrain') result: EventEmitter<FieldConstrianStyle> =
+    new EventEmitter();
 
   constructor(public dialog: MatDialog) {}
 
@@ -44,7 +45,7 @@ export class ConstrainCreatorComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      this.result.emit(result);
+      if (result) this.result.emit(result);
     });
   }
 }
@@ -84,7 +85,11 @@ export class ConstrainCreationForm {
       this.fieldConstrain.propertyKey = selected.propertyKey;
       this.fieldConstrain.constrainName = selected.name;
       this.fieldConstrain.type = selected.type;
+      if (selected.type == ColumnType.DATE) {
+        this.fieldConstrain.values = [new Date(), new Date()];
+      }
     }
+    console.log(this.fieldConstrain.values);
     this.getFinalText();
   }
 
@@ -99,6 +104,7 @@ export class ConstrainCreationForm {
     }
     if (!isStyle) {
       switch (field) {
+        case 'date-type':
         case 'number-type':
           data.type = parseInt(value.value);
           break;
@@ -109,17 +115,27 @@ export class ConstrainCreationForm {
         case 'number-value2':
           data.values[1] = parseInt(value.target.value);
           break;
+        case 'date-type':
+          data.type = parseInt(value.value);
+          break;
+        case 'date-value':
+        case 'date-value1':
+          data.values[0] = new Date(value.value);
+          break;
       }
+      console.log(data);
     }
     this.getFinalText();
   }
 
   getFinalText() {
+    this.finalString = '';
     switch (this.fieldConstrain.type) {
       case ColumnType.INTEGER:
       case ColumnType.FLOAT:
       case ColumnType.FLOAT:
         this.valueType = 'value';
+        this.finalString = `that is `;
         break;
       case ColumnType.DATE:
         this.valueType = 'date';
@@ -131,13 +147,11 @@ export class ConstrainCreationForm {
         this.valueType = 'value';
         break;
     }
-    this.finalString = `that is `;
 
     switch (this.fieldConstrain.type) {
       case ColumnType.INTEGER:
       case ColumnType.FLOAT:
       case ColumnType.CURRENCY:
-      case ColumnType.DATE:
         switch (this.fieldConstrain.constrain.type) {
           case MesurableConstrainType.EQUALS:
             this.finalString += `equal to ${this.fieldConstrain.constrain.values[0]}`;
@@ -156,15 +170,47 @@ export class ConstrainCreationForm {
             break;
         }
         break;
-
-      default:
+      case ColumnType.DATE:
+        switch (this.fieldConstrain.constrain.type) {
+          case MesurableConstrainType.EQUALS:
+            this.finalString += `equal to ${this.shortDate(
+              this.fieldConstrain.constrain.values[0]
+            )}`;
+            break;
+          case MesurableConstrainType.MORETHAN:
+            this.finalString += `after ${this.shortDate(
+              this.fieldConstrain.constrain.values[0]
+            )}`;
+            break;
+          case MesurableConstrainType.LESSTHAN:
+            this.finalString += `before ${this.shortDate(
+              this.fieldConstrain.constrain.values[0]
+            )}`;
+            break;
+          case MesurableConstrainType.BETWEEN:
+            this.finalString += `between ${this.shortDate(
+              this.fieldConstrain.constrain.values[0]
+            )} and ${this.shortDate(this.fieldConstrain.constrain.values[1])}`;
+            break;
+          case MesurableConstrainType.NOTBETWEEN:
+            this.finalString += `not between ${this.shortDate(
+              this.fieldConstrain.constrain.values[0]
+            )} and ${this.shortDate(this.fieldConstrain.constrain.values[1])}`;
+            break;
+        }
         break;
     }
   }
 
-  resetValues() {
-    console.log('reset');
+  shortDate(str: string): string {
+    return new Date(str).toLocaleDateString('en-US', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    });
+  }
 
+  resetValues() {
     this.fieldConstrain = {
       propertyKey: this.data.columns[0].propertyKey,
       constrainName: 'New Constrain',

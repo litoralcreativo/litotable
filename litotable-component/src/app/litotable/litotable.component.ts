@@ -49,7 +49,7 @@ export class LitotableComponent implements OnInit, AfterViewInit {
   @Input('operations') operations?: TableOperationConfig;
   @Input('selection') selection!: boolean;
   @Input('configurations') tableConfigurations?: TableConfigurations;
-  @Input('fieldConstrians') fieldConstrians?: FieldConstrianStyle[];
+  @Input('fieldConstrians') fieldConstrians: FieldConstrianStyle[] = [];
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private _liveAnnouncer: LiveAnnouncer) {}
@@ -88,7 +88,7 @@ export class LitotableComponent implements OnInit, AfterViewInit {
     }
   }
 
-  setRowsConstrains(source: any[]) {
+  updateFieldsToRowsConstrains() {
     if (this.fieldConstrians) {
       this.rowConstrains = this.fieldConstrians.map((x) => {
         return new RowConstrain(
@@ -100,6 +100,10 @@ export class LitotableComponent implements OnInit, AfterViewInit {
         );
       });
     }
+  }
+
+  setRowsConstrains(source: any[]) {
+    this.updateFieldsToRowsConstrains();
     source.forEach((element) => {
       this.rowConstrains.forEach((rc) => {
         const value = element[rc.name];
@@ -238,6 +242,23 @@ export class LitotableComponent implements OnInit, AfterViewInit {
       }
     }
     this.updateRowConstrains();
+  }
+
+  addConstrain($event: FieldConstrianStyle) {
+    this.fieldConstrians.push($event);
+    this.updateFieldsToRowsConstrains();
+    this.updateRowConstrains();
+  }
+
+  updateVisibility() {
+    this.updateFieldsToRowsConstrains();
+    this.updateRowConstrains();
+  }
+
+  removeConstrain(constrain: FieldConstrianStyle) {
+    this.fieldConstrians = this.fieldConstrians.filter((x) => x != constrain);
+    this.updateVisibility();
+    console.log(this.fieldConstrians);
   }
 }
 

@@ -19,6 +19,50 @@ export interface Constrain {
   type: MesurableConstrainType;
 }
 
+export class DateConstrain implements Constrain {
+  style: Object;
+  enable: boolean;
+  values: [Date, Date];
+  type: MesurableConstrainType;
+  constructor(
+    type: MesurableConstrainType,
+    values: [Date, Date],
+    style: Object = {},
+    enable: boolean = true
+  ) {
+    this.type = type;
+    this.values = values;
+    this.style = style;
+    this.enable = enable;
+  }
+  trigger = (e: Date): boolean => {
+    switch (this.type) {
+      case MesurableConstrainType.LESSTHAN: {
+        if (e < this.values[0]) return true;
+        else return false;
+        break;
+      }
+      case MesurableConstrainType.MORETHAN: {
+        if (e > this.values[0]) return true;
+        else return false;
+        break;
+      }
+      case MesurableConstrainType.EQUALS: {
+        if (e == this.values[0]) return true;
+        else return false;
+        break;
+      }
+      case MesurableConstrainType.BETWEEN: {
+        if (this.values.length == 2)
+          if (e > this.values[0] && e < this.values[1]) return true;
+          else return false;
+        break;
+      }
+    }
+    return false;
+  };
+}
+
 export class NumberConstrain implements Constrain {
   style: Object;
   enable: boolean;
