@@ -1,5 +1,9 @@
 import { ColumnType } from '../decorators/column.decorator';
 
+/**
+ * This interface is for configuration
+ *
+ */
 export interface FieldConstrianStyle {
   propertyKey: string;
   constrainName: string;
@@ -12,13 +16,18 @@ export interface FieldConstrianStyle {
   };
 }
 
+/**
+ * This interface is for every Constrain
+ */
 export interface Constrain {
   style: any;
   enable: boolean;
   trigger: (e: any) => boolean;
-  type: MesurableConstrainType;
 }
 
+/**
+ * This class is for date constrains
+ */
 export class DateConstrain implements Constrain {
   style: Object;
   enable: boolean;
@@ -69,6 +78,9 @@ export class DateConstrain implements Constrain {
   };
 }
 
+/**
+ * This class is for numbers constrains (integer, float, decimal, etc..)
+ */
 export class NumberConstrain implements Constrain {
   style: Object;
   enable: boolean;
@@ -119,10 +131,80 @@ export class NumberConstrain implements Constrain {
   };
 }
 
+export class StringConstrain implements Constrain {
+  style: Object;
+  enable: boolean;
+  constrainArray: StringConstrainObject[] = [];
+  caseSensitive: boolean;
+  constructor(
+    style: Object = {},
+    enable: boolean = true,
+    caseSense: boolean = true
+  ) {
+    this.style = style;
+    this.enable = enable;
+    this.caseSensitive = caseSense;
+  }
+  trigger = (e: string): boolean => {
+    let result = true;
+    for (let i = 0; i < this.constrainArray.length; i++) {
+      const con = this.constrainArray[i];
+      switch (con.type) {
+        case StringConstrainType.STARTSWITH: {
+          if (
+            !(this.caseSensitive
+              ? e.startsWith(con.value)
+              : e.toLocaleLowerCase().startsWith(con.value.toLocaleLowerCase()))
+          )
+            result = false;
+          break;
+        }
+        case StringConstrainType.ENDWITH: {
+          if (
+            !(this.caseSensitive
+              ? e.endsWith(con.value)
+              : e.toLocaleLowerCase().endsWith(con.value.toLocaleLowerCase()))
+          )
+            result = false;
+          break;
+        }
+        case StringConstrainType.CONTAINS: {
+          if (
+            !(this.caseSensitive
+              ? e.includes(con.value)
+              : e.toLocaleLowerCase().includes(con.value.toLocaleLowerCase()))
+          )
+            result = false;
+          break;
+        }
+      }
+      if (!result) break;
+    }
+    return true;
+  };
+  addConstrain(stringConstrain: StringConstrainObject) {
+    this.constrainArray.push(stringConstrain);
+  }
+  removeConstrain(stringConstrain: StringConstrainObject) {
+    this.constrainArray.filter((x) => x != stringConstrain);
+  }
+}
+
 export enum MesurableConstrainType {
   EQUALS = 1,
   MORETHAN = 2,
   LESSTHAN = 3,
   BETWEEN = 4,
   NOTBETWEEN = 5,
+}
+
+export interface StringConstrainObject {
+  type: StringConstrainType;
+  value: string;
+}
+
+export enum StringConstrainType {
+  STARTSWITH = 1,
+  ENDWITH = 2,
+  CONTAINS = 3,
 }

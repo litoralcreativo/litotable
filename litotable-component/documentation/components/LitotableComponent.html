@@ -1,0 +1,2825 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>litotable documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">litotable documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  LitotableComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/litotable/litotable.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>lito-table</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./litotable.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./litotable.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#columns" >columns</a>
+                            </li>
+                            <li>
+                                <a href="#columnTypes" >columnTypes</a>
+                            </li>
+                            <li>
+                                <a href="#constrainedRows" >constrainedRows</a>
+                            </li>
+                            <li>
+                                <a href="#dataSource" >dataSource</a>
+                            </li>
+                            <li>
+                                <a href="#displayedColumns" >displayedColumns</a>
+                            </li>
+                            <li>
+                                <a href="#fetching" >fetching</a>
+                            </li>
+                            <li>
+                                <a href="#numberConstrainType" >numberConstrainType</a>
+                            </li>
+                            <li>
+                                <a href="#operationTypes" >operationTypes</a>
+                            </li>
+                            <li>
+                                <a href="#paginator" >paginator</a>
+                            </li>
+                            <li>
+                                <a href="#rowConstrains" >rowConstrains</a>
+                            </li>
+                            <li>
+                                <a href="#selectedRows" >selectedRows</a>
+                            </li>
+                            <li>
+                                <a href="#showSelectedOnly" >showSelectedOnly</a>
+                            </li>
+                            <li>
+                                <a href="#sort" >sort</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addConstrain" >addConstrain</a>
+                            </li>
+                            <li>
+                                <a href="#announceSortChange" >announceSortChange</a>
+                            </li>
+                            <li>
+                                <a href="#changeConstrainState" >changeConstrainState</a>
+                            </li>
+                            <li>
+                                <a href="#hasConstrain" >hasConstrain</a>
+                            </li>
+                            <li>
+                                <a href="#isAllSelected" >isAllSelected</a>
+                            </li>
+                            <li>
+                                <a href="#masterToggle" >masterToggle</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#parseDate" >parseDate</a>
+                            </li>
+                            <li>
+                                <a href="#removeConstrain" >removeConstrain</a>
+                            </li>
+                            <li>
+                                <a href="#selectionToogle" >selectionToogle</a>
+                            </li>
+                            <li>
+                                <a href="#setColumns" >setColumns</a>
+                            </li>
+                            <li>
+                                <a href="#setRowsConstrains" >setRowsConstrains</a>
+                            </li>
+                            <li>
+                                <a href="#updateFieldsToRowsConstrains" >updateFieldsToRowsConstrains</a>
+                            </li>
+                            <li>
+                                <a href="#updateRowConstrains" >updateRowConstrains</a>
+                            </li>
+                            <li>
+                                <a href="#updateVisibility" >updateVisibility</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#configurations" >configurations</a>
+                            </li>
+                            <li>
+                                <a href="#fieldConstrians" >fieldConstrians</a>
+                            </li>
+                            <li>
+                                <a href="#operations" >operations</a>
+                            </li>
+                            <li>
+                                <a href="#selection" >selection</a>
+                            </li>
+                            <li>
+                                <a href="#source" >source</a>
+                            </li>
+                            <li>
+                                <a href="#type" >type</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_liveAnnouncer: LiveAnnouncer)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/litotable/litotable.component.ts:53</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_liveAnnouncer</td>
+                                                  
+                                                        <td>
+                                                                    <code>LiveAnnouncer</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="configurations"></a>
+                        <b>configurations</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/TableConfigurations.html" target="_self" >TableConfigurations</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/litotable/litotable.component.ts:51</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fieldConstrians"></a>
+                        <b>fieldConstrians</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/FieldConstrianStyle.html" target="_self" >FieldConstrianStyle[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/litotable/litotable.component.ts:52</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="operations"></a>
+                        <b>operations</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/TableOperationConfig.html" target="_self" >TableOperationConfig</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/litotable/litotable.component.ts:49</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selection"></a>
+                        <b>selection</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/litotable/litotable.component.ts:50</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="source"></a>
+                        <b>source</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Observable&lt;any[]&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/litotable/litotable.component.ts:47</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="type"></a>
+                        <b>type</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" >Object</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/litotable/litotable.component.ts:48</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addConstrain"></a>
+                    <span class="name">
+                        <span ><b>addConstrain</b></span>
+                        <a href="#addConstrain"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addConstrain($event: <a href="../interfaces/FieldConstrianStyle.html" target="_self">FieldConstrianStyle</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="247"
+                            class="link-to-prism">src/app/litotable/litotable.component.ts:247</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>$event</td>
+                                    <td>
+                                                <code><a href="../interfaces/FieldConstrianStyle.html" target="_self" >FieldConstrianStyle</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="announceSortChange"></a>
+                    <span class="name">
+                        <span ><b>announceSortChange</b></span>
+                        <a href="#announceSortChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>announceSortChange(sortState: Sort)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/app/litotable/litotable.component.ts:83</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>sortState</td>
+                                    <td>
+                                            <code>Sort</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeConstrainState"></a>
+                    <span class="name">
+                        <span ><b>changeConstrainState</b></span>
+                        <a href="#changeConstrainState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeConstrainState(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, data: <a href="../interfaces/Constrain.html" target="_self">Constrain | any</a>, field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, isStyle: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="219"
+                            class="link-to-prism">src/app/litotable/litotable.component.ts:219</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                                <code><a href="../interfaces/Constrain.html" target="_self" >Constrain | any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>field</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>isStyle</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>true</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasConstrain"></a>
+                    <span class="name">
+                        <span ><b>hasConstrain</b></span>
+                        <a href="#hasConstrain"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>hasConstrain(propertyKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="161"
+                            class="link-to-prism">src/app/litotable/litotable.component.ts:161</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>propertyKey</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isAllSelected"></a>
+                    <span class="name">
+                        <span ><b>isAllSelected</b></span>
+                        <a href="#isAllSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isAllSelected()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="199"
+                            class="link-to-prism">src/app/litotable/litotable.component.ts:199</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="masterToggle"></a>
+                    <span class="name">
+                        <span ><b>masterToggle</b></span>
+                        <a href="#masterToggle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>masterToggle()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="205"
+                            class="link-to-prism">src/app/litotable/litotable.component.ts:205</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">src/app/litotable/litotable.component.ts:79</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/litotable/litotable.component.ts:57</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="parseDate"></a>
+                    <span class="name">
+                        <span ><b>parseDate</b></span>
+                        <a href="#parseDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>parseDate(input: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">src/app/litotable/litotable.component.ts:75</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>input</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeConstrain"></a>
+                    <span class="name">
+                        <span ><b>removeConstrain</b></span>
+                        <a href="#removeConstrain"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeConstrain(constrain: <a href="../interfaces/FieldConstrianStyle.html" target="_self">FieldConstrianStyle</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="258"
+                            class="link-to-prism">src/app/litotable/litotable.component.ts:258</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>constrain</td>
+                                    <td>
+                                                <code><a href="../interfaces/FieldConstrianStyle.html" target="_self" >FieldConstrianStyle</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectionToogle"></a>
+                    <span class="name">
+                        <span ><b>selectionToogle</b></span>
+                        <a href="#selectionToogle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectionToogle(state: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, row: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="211"
+                            class="link-to-prism">src/app/litotable/litotable.component.ts:211</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>state</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>row</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setColumns"></a>
+                    <span class="name">
+                        <span ><b>setColumns</b></span>
+                        <a href="#setColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setColumns()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="168"
+                            class="link-to-prism">src/app/litotable/litotable.component.ts:168</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setRowsConstrains"></a>
+                    <span class="name">
+                        <span ><b>setRowsConstrains</b></span>
+                        <a href="#setRowsConstrains"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setRowsConstrains(source: any[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="105"
+                            class="link-to-prism">src/app/litotable/litotable.component.ts:105</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>source</td>
+                                    <td>
+                                            <code>any[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateFieldsToRowsConstrains"></a>
+                    <span class="name">
+                        <span ><b>updateFieldsToRowsConstrains</b></span>
+                        <a href="#updateFieldsToRowsConstrains"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateFieldsToRowsConstrains()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="91"
+                            class="link-to-prism">src/app/litotable/litotable.component.ts:91</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateRowConstrains"></a>
+                    <span class="name">
+                        <span ><b>updateRowConstrains</b></span>
+                        <a href="#updateRowConstrains"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateRowConstrains()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="132"
+                            class="link-to-prism">src/app/litotable/litotable.component.ts:132</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateVisibility"></a>
+                    <span class="name">
+                        <span ><b>updateVisibility</b></span>
+                        <a href="#updateVisibility"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateVisibility()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="253"
+                            class="link-to-prism">src/app/litotable/litotable.component.ts:253</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="columns"></a>
+                    <span class="name">
+                        <span ><b>columns</b></span>
+                        <a href="#columns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Column.html" target="_self" >Column[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/litotable/litotable.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="columnTypes"></a>
+                    <span class="name">
+                        <span ><b>columnTypes</b></span>
+                        <a href="#columnTypes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>ColumnType</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/litotable/litotable.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="constrainedRows"></a>
+                    <span class="name">
+                        <span ><b>constrainedRows</b></span>
+                        <a href="#constrainedRows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Set()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/litotable/litotable.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataSource"></a>
+                    <span class="name">
+                        <span ><b>dataSource</b></span>
+                        <a href="#dataSource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new MatTableDataSource()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/litotable/litotable.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="displayedColumns"></a>
+                    <span class="name">
+                        <span ><b>displayedColumns</b></span>
+                        <a href="#displayedColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/DisplayedColumns.html" target="_self" >DisplayedColumns</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new DisplayedColumns()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/litotable/litotable.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetching"></a>
+                    <span class="name">
+                        <span ><b>fetching</b></span>
+                        <a href="#fetching"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/litotable/litotable.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="numberConstrainType"></a>
+                    <span class="name">
+                        <span ><b>numberConstrainType</b></span>
+                        <a href="#numberConstrainType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>MesurableConstrainType</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/litotable/litotable.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="operationTypes"></a>
+                    <span class="name">
+                        <span ><b>operationTypes</b></span>
+                        <a href="#operationTypes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>TableOperation</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/litotable/litotable.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="paginator"></a>
+                    <span class="name">
+                        <span ><b>paginator</b></span>
+                        <a href="#paginator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MatPaginator</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(MatPaginator)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/litotable/litotable.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowConstrains"></a>
+                    <span class="name">
+                        <span ><b>rowConstrains</b></span>
+                        <a href="#rowConstrains"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Constrain.html" target="_self" >RowConstrain[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/litotable/litotable.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedRows"></a>
+                    <span class="name">
+                        <span ><b>selectedRows</b></span>
+                        <a href="#selectedRows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Set()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/litotable/litotable.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showSelectedOnly"></a>
+                    <span class="name">
+                        <span ><b>showSelectedOnly</b></span>
+                        <a href="#showSelectedOnly"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/litotable/litotable.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sort"></a>
+                    <span class="name">
+                        <span ><b>sort</b></span>
+                        <a href="#sort"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MatSort</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(MatSort)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/litotable/litotable.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { LiveAnnouncer } from &#x27;@angular/cdk/a11y&#x27;;
+import { SelectionModel } from &#x27;@angular/cdk/collections&#x27;;
+import {
+  AfterViewInit,
+  Component,
+  Input,
+  OnInit,
+  ViewChild,
+} from &#x27;@angular/core&#x27;;
+import { MatPaginator } from &#x27;@angular/material/paginator&#x27;;
+import { MatSort, Sort } from &#x27;@angular/material/sort&#x27;;
+import { MatTableDataSource } from &#x27;@angular/material/table&#x27;;
+import &#x27;reflect-metadata&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { Column } from &#x27;./column&#x27;;
+import {
+  Constrain,
+  FieldConstrianStyle,
+  MesurableConstrainType,
+} from &#x27;./configurations/fieldConstriansStyle&#x27;;
+import { TableConfigurations } from &#x27;./configurations/litotable.config&#x27;;
+import {
+  TableOperation,
+  TableOperationConfig,
+} from &#x27;./configurations/tableCrud.config&#x27;;
+import { ColumnType, TableColumnMetadata } from &#x27;./decorators/column.decorator&#x27;;
+
+@Component({
+  selector: &#x27;lito-table&#x27;,
+  templateUrl: &#x27;./litotable.component.html&#x27;,
+  styleUrls: [&#x27;./litotable.component.css&#x27;],
+})
+export class LitotableComponent implements OnInit, AfterViewInit {
+  columns: Column[] &#x3D; [];
+  columnTypes &#x3D; ColumnType;
+  numberConstrainType &#x3D; MesurableConstrainType;
+  operationTypes &#x3D; TableOperation;
+  displayedColumns: DisplayedColumns &#x3D; new DisplayedColumns();
+  rowConstrains: RowConstrain[] &#x3D; [];
+  dataSource &#x3D; new MatTableDataSource();
+  fetching: boolean &#x3D; false;
+  selectedRows &#x3D; new Set();
+  constrainedRows &#x3D; new Set();
+  showSelectedOnly: boolean &#x3D; false;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @Input(&#x27;source&#x27;) inputSource!: Observable&lt;any[]&gt;;
+  @Input(&#x27;type&#x27;) dataType!: Object;
+  @Input(&#x27;operations&#x27;) operations?: TableOperationConfig;
+  @Input(&#x27;selection&#x27;) selection!: boolean;
+  @Input(&#x27;configurations&#x27;) tableConfigurations?: TableConfigurations;
+  @Input(&#x27;fieldConstrians&#x27;) fieldConstrians: FieldConstrianStyle[] &#x3D; [];
+  @ViewChild(MatSort) sort!: MatSort;
+
+  constructor(private _liveAnnouncer: LiveAnnouncer) {}
+
+  ngOnInit(): void {
+    this.setColumns();
+    if (this.inputSource !&#x3D; undefined) {
+      this.fetching &#x3D; true;
+      this.inputSource.subscribe((datos: any[]) &#x3D;&gt; {
+        this.fetching &#x3D; false;
+        this.dataSource &#x3D; new MatTableDataSource(datos);
+        this.dataSource.paginator &#x3D; this.paginator;
+        this.dataSource.sort &#x3D; this.sort;
+        this.setRowsConstrains(datos);
+      });
+    } else {
+      let c: any[] &#x3D; [];
+      this.dataSource &#x3D; new MatTableDataSource(c);
+    }
+    this.dataSource.paginator &#x3D; this.paginator;
+  }
+
+  parseDate(input: Date): string {
+    return input.toJSON();
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator &#x3D; this.paginator;
+  }
+
+  announceSortChange(sortState: Sort) {
+    if (sortState.direction) {
+      this._liveAnnouncer.announce(&#x60;Sorted ${sortState.direction}ending&#x60;);
+    } else {
+      this._liveAnnouncer.announce(&#x27;Sorting cleared&#x27;);
+    }
+  }
+
+  updateFieldsToRowsConstrains() {
+    if (this.fieldConstrians) {
+      this.rowConstrains &#x3D; this.fieldConstrians.map((x) &#x3D;&gt; {
+        return new RowConstrain(
+          x.propertyKey,
+          x.metadata.trigger,
+          x.metadata.style,
+          x.metadata.enable,
+          x.constrain
+        );
+      });
+    }
+  }
+
+  setRowsConstrains(source: any[]) {
+    this.updateFieldsToRowsConstrains();
+    source.forEach((element) &#x3D;&gt; {
+      this.rowConstrains.forEach((rc) &#x3D;&gt; {
+        const value &#x3D; element[rc.name];
+        if (rc._constrain.trigger(value)) {
+          if (rc._constrain.enable) {
+            if (!element[&#x27;rowStyle&#x27;]) {
+              Object.defineProperty(element, &#x27;rowStyle&#x27;, {
+                configurable: true,
+                enumerable: false,
+                value: { style: rc._constrain.style },
+                writable: true,
+              });
+            } else if (element[&#x27;rowStyle&#x27;]) {
+              element[&#x27;rowStyle&#x27;].style &#x3D; {
+                ...element[&#x27;rowStyle&#x27;].style,
+                ...rc._constrain.style,
+              };
+            }
+            this.constrainedRows.add(element);
+          }
+        }
+      });
+    });
+  }
+
+  updateRowConstrains() {
+    this.constrainedRows &#x3D; new Set();
+
+    const source: any[] &#x3D; this.dataSource.data;
+    source.forEach((element) &#x3D;&gt; {
+      this.rowConstrains.forEach((rc) &#x3D;&gt; {
+        const value &#x3D; element[rc.name];
+        if (rc._constrain.trigger(value)) {
+          if (rc._constrain.enable) {
+            if (!element[&#x27;rowStyle&#x27;]) {
+              Object.defineProperty(element, &#x27;rowStyle&#x27;, {
+                configurable: true,
+                enumerable: false,
+                value: { style: rc._constrain.style },
+                writable: true,
+              });
+            } else if (element[&#x27;rowStyle&#x27;]) {
+              element[&#x27;rowStyle&#x27;].style &#x3D; {
+                ...element[&#x27;rowStyle&#x27;].style,
+                ...rc._constrain.style,
+              };
+            }
+            this.constrainedRows.add(element);
+          }
+        }
+      });
+    });
+  }
+
+  hasConstrain(propertyKey: string, value: any): boolean {
+    let result &#x3D; false;
+    if (this.rowConstrains.length !&#x3D; 0) {
+    }
+    return result;
+  }
+
+  setColumns() {
+    const columnsMetadata: any[] &#x3D; Reflect.getMetadata(
+      &#x27;columnsMetadata&#x27;,
+      this.dataType
+    );
+
+    if (columnsMetadata !&#x3D; undefined) {
+      this.columns &#x3D; columnsMetadata.map(
+        (c: { propertyKey: string; metadata: TableColumnMetadata }, i) &#x3D;&gt; {
+          let column &#x3D; new Column(
+            c.propertyKey,
+            c.propertyKey,
+            ColumnType.STRING
+          );
+          column.visible &#x3D;
+            c.metadata.visible &#x3D;&#x3D; undefined ? true : c.metadata.visible;
+          column.order &#x3D; c.metadata.order || i + 1;
+          column.name &#x3D; c.metadata.columnName || c.propertyKey;
+          column.type &#x3D; c.metadata.type || ColumnType.STRING;
+          column.format &#x3D; c.metadata.format || undefined;
+          column.contentAlign &#x3D; c.metadata.contentAlign || undefined;
+          return column;
+        }
+      );
+      this.columns.sort((a, b) &#x3D;&gt; {
+        return a.order! - b.order!;
+      });
+    }
+    this.displayedColumns &#x3D; new DisplayedColumns(this.columns, this.selection);
+  }
+
+  isAllSelected() {
+    const numSelected &#x3D; this.selectedRows.size;
+    const numRows &#x3D; this.dataSource.data.length;
+    return numSelected &#x3D;&#x3D; numRows &amp;&amp; numRows !&#x3D; 0;
+  }
+
+  masterToggle() {
+    this.isAllSelected()
+      ? this.selectedRows.clear()
+      : this.dataSource.data.forEach((row) &#x3D;&gt; this.selectedRows.add(row));
+  }
+
+  selectionToogle(state: boolean, row: any) {
+    if (state) {
+      this.selectedRows.add(row);
+    } else {
+      if (this.selectedRows.has(row)) this.selectedRows.delete(row);
+    }
+  }
+
+  changeConstrainState(
+    value: any,
+    data: Constrain | any,
+    field: string,
+    isStyle: boolean &#x3D; true
+  ) {
+    if (isStyle &amp;&amp; field &amp;&amp; field !&#x3D; &#x27;&#x27;) {
+      data.style[field] &#x3D; value;
+    }
+    if (!isStyle) {
+      switch (field) {
+        case &#x27;number-type&#x27;:
+          data.type &#x3D; parseInt(value.value);
+          break;
+        case &#x27;number-value&#x27;:
+        case &#x27;number-value1&#x27;:
+          data.values[0] &#x3D; parseInt(value.target.value);
+          break;
+        case &#x27;number-value2&#x27;:
+          data.values[1] &#x3D; parseInt(value.target.value);
+          console.log(data.values);
+          console.log(value.target.value);
+          break;
+      }
+    }
+    this.updateRowConstrains();
+  }
+
+  addConstrain($event: FieldConstrianStyle) {
+    this.fieldConstrians.push($event);
+    this.updateFieldsToRowsConstrains();
+    this.updateRowConstrains();
+  }
+
+  updateVisibility() {
+    this.updateFieldsToRowsConstrains();
+    this.updateRowConstrains();
+  }
+
+  removeConstrain(constrain: FieldConstrianStyle) {
+    this.fieldConstrians &#x3D; this.fieldConstrians.filter((x) &#x3D;&gt; x !&#x3D; constrain);
+    this.updateVisibility();
+    console.log(this.fieldConstrians);
+  }
+}
+
+export class DisplayedColumns {
+  columns: Column[];
+  columnNames: string[];
+  columnTypes: ColumnType[];
+  selectable: boolean;
+  constructor(columns: Column[] &#x3D; [], selectable: boolean &#x3D; false) {
+    this.columns &#x3D; columns;
+    this.columnNames &#x3D; columns
+      .filter((c) &#x3D;&gt; c.visible &#x3D;&#x3D; true)
+      .map((x) &#x3D;&gt; x.name);
+    this.columnTypes &#x3D; columns.map((x) &#x3D;&gt; x.type);
+    this.selectable &#x3D; selectable;
+    if (selectable) this.columnNames.unshift(&#x27;selection&#x27;);
+  }
+
+  changeColumnVisivility(column: Column) {
+    this.columns.filter((c) &#x3D;&gt; c &#x3D;&#x3D; column)[0].visible &#x3D; !column.visible;
+    this.columnNames &#x3D; this.columns
+      .filter((c) &#x3D;&gt; c.visible &#x3D;&#x3D; true)
+      .map((x) &#x3D;&gt; x.name);
+    if (this.selectable) this.columnNames.unshift(&#x27;selection&#x27;);
+  }
+
+  allVisible() {
+    this.columns.forEach((c) &#x3D;&gt; (c.visible &#x3D; true));
+    this.columnNames &#x3D; this.columns
+      .filter((c) &#x3D;&gt; c.visible &#x3D;&#x3D; true)
+      .map((x) &#x3D;&gt; x.name);
+    if (this.selectable) this.columnNames.unshift(&#x27;selection&#x27;);
+  }
+}
+
+export class RowConstrain {
+  name: string;
+  style: Object;
+  constrain: (e: any) &#x3D;&gt; boolean;
+  enable: boolean;
+  _constrain: Constrain;
+  constructor(
+    name: string,
+    constrain: (e: any) &#x3D;&gt; boolean,
+    style: Object,
+    enable: boolean,
+    _constrain: Constrain
+  ) {
+    this.name &#x3D; name;
+    this.style &#x3D; style;
+    this.enable &#x3D; enable;
+    this.constrain &#x3D; constrain;
+    this._constrain &#x3D; _constrain;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-accordion class&#x3D;&quot;table-operations&quot;&gt;
+  &lt;mat-expansion-panel hideToggle&gt;
+    &lt;mat-expansion-panel-header&gt;
+      &lt;mat-panel-title style&#x3D;&quot;align-items: center&quot;&gt;
+        Operaciones
+      &lt;/mat-panel-title&gt;
+      &lt;div class&#x3D;&quot;table-top-container&quot;&gt;
+        &lt;button
+          mat-icon-button
+          [matMenuTriggerFor]&#x3D;&quot;export&quot;
+          aria-label&#x3D;&quot;Exportar&quot;
+          (click)&#x3D;&quot;$event.stopPropagation()&quot;
+        &gt;
+          &lt;mat-icon&gt;download&lt;/mat-icon&gt;
+        &lt;/button&gt;
+
+        &lt;button
+          mat-icon-button
+          [matMenuTriggerFor]&#x3D;&quot;columns&quot;
+          aria-label&#x3D;&quot;Columnas&quot;
+          (click)&#x3D;&quot;$event.stopPropagation()&quot;
+        &gt;
+          &lt;mat-icon&gt;view_column&lt;/mat-icon&gt;
+        &lt;/button&gt;
+
+        &lt;button
+          mat-icon-button
+          [matMenuTriggerFor]&#x3D;&quot;constrains&quot;
+          aria-label&#x3D;&quot;Constrains&quot;
+          (click)&#x3D;&quot;$event.stopPropagation()&quot;
+        &gt;
+          &lt;mat-icon&gt;brush&lt;/mat-icon&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/mat-expansion-panel-header&gt;
+    &lt;div class&#x3D;&quot;operation-buttons-container&quot; *ngIf&#x3D;&quot;operations&quot;&gt;
+      &lt;div *ngFor&#x3D;&quot;let operation of operations.operations&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;operation.type &#x3D;&#x3D; operationTypes.CREATE&quot;&gt;
+          &lt;button
+            mat-raised-button
+            aria-label&#x3D;&quot;Crear&quot;
+            (click)&#x3D;&quot;$event.stopPropagation()&quot;
+          &gt;
+            CREAR
+          &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div *ngIf&#x3D;&quot;operation.type &#x3D;&#x3D; operationTypes.DELETE&quot;&gt;
+          &lt;button
+            mat-raised-button
+            aria-label&#x3D;&quot;Eliminar&quot;
+            (click)&#x3D;&quot;$event.stopPropagation()&quot;
+          &gt;
+            ELIMINAR
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/mat-expansion-panel&gt;
+&lt;/mat-accordion&gt;
+
+&lt;!-- Table --&gt;
+&lt;div class&#x3D;&quot;litotable-container mat-elevation-z8&quot;&gt;
+  &lt;div class&#x3D;&quot;table-container&quot;&gt;
+    &lt;div *ngIf&#x3D;&quot;dataSource&quot; class&#x3D;&quot;table-responsive&quot;&gt;
+      &lt;table
+        mat-table
+        [dataSource]&#x3D;&quot;dataSource&quot;
+        matSort
+        (matSortChange)&#x3D;&quot;announceSortChange($event)&quot;
+      &gt;
+        &lt;!-- Columna de seleccion --&gt;
+        &lt;ng-container matColumnDef&#x3D;&quot;selection&quot;&gt;
+          &lt;th mat-header-cell *matHeaderCellDef&gt;
+            &lt;mat-checkbox
+              (change)&#x3D;&quot;masterToggle()&quot;
+              [indeterminate]&#x3D;&quot;this.selectedRows.size !&#x3D; 0 &amp;&amp; !isAllSelected()&quot;
+              [checked]&#x3D;&quot;isAllSelected()&quot;
+            &gt;
+            &lt;/mat-checkbox&gt;
+          &lt;/th&gt;
+          &lt;td
+            mat-cell
+            *matCellDef&#x3D;&quot;let row&quot;
+            style&#x3D;&quot;background-color: rgba(255, 255, 255, 1)&quot;
+          &gt;
+            &lt;mat-checkbox
+              (click)&#x3D;&quot;$event.stopPropagation()&quot;
+              (change)&#x3D;&quot;selectionToogle($event.checked, row)&quot;
+              [checked]&#x3D;&quot;selectedRows.has(row)&quot;
+            &gt;
+            &lt;/mat-checkbox&gt;
+          &lt;/td&gt;
+        &lt;/ng-container&gt;
+
+        &lt;!-- Resto de columnas --&gt;
+        &lt;ng-container
+          *ngFor&#x3D;&quot;let column of displayedColumns.columns&quot;
+          matColumnDef&#x3D;&quot;{{ column.name }}&quot;
+        &gt;
+          &lt;!-- Column Header --&gt;
+          &lt;th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header&#x3D;&quot;{{ column.propertyKey }}&quot;
+            sortActionDescription&#x3D;&quot;Sort by {{ column.propertyKey }}&quot;
+          &gt;
+            {{ column.name }}
+          &lt;/th&gt;
+          &lt;!-- Column Data --&gt;
+          &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot; #litotableTd&gt;
+            &lt;div
+              #content
+              style&#x3D;&quot;transition: 0.3s all&quot;
+              [ngStyle]&#x3D;&quot;
+                litotableTd.parentElement?.style?.color
+                  ? { color: litotableTd.parentElement?.style?.color }
+                  : {}
+              &quot;
+            &gt;
+              &lt;div *ngIf&#x3D;&quot;column.type &#x3D;&#x3D; columnTypes.STRING&quot;&gt;
+                {{ element[column.propertyKey] }}
+              &lt;/div&gt;
+              &lt;div *ngIf&#x3D;&quot;column.type &#x3D;&#x3D; columnTypes.DATE&quot;&gt;
+                {{
+                  element[column.propertyKey]
+                    | date: (column.format ? column.format : &quot;short&quot;)
+                }}
+              &lt;/div&gt;
+              &lt;div *ngIf&#x3D;&quot;column.type &#x3D;&#x3D; columnTypes.CURRENCY&quot;&gt;
+                {{ element[column.propertyKey] | currency }}
+              &lt;/div&gt;
+              &lt;div *ngIf&#x3D;&quot;column.type &#x3D;&#x3D; columnTypes.CUIT&quot;&gt;
+                {{ element[column.propertyKey] | cuit: &quot;-&quot; }}
+              &lt;/div&gt;
+              &lt;div *ngIf&#x3D;&quot;column.type &#x3D;&#x3D; columnTypes.PHONE&quot;&gt;
+                {{
+                  element[column.propertyKey]
+                    | phone: (column.format ? column.format : undefined)
+                }}
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/td&gt;
+        &lt;/ng-container&gt;
+
+        &lt;!-- Encabezados de columnas --&gt;
+        &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns.columnNames&quot;&gt;&lt;/tr&gt;
+
+        &lt;!-- Formato condicional de filas --&gt;
+        &lt;tr
+          mat-row
+          [class.mat-row-selected]&#x3D;&quot;selectedRows.has(row)&quot;
+          [class.mat-row-selected-borders]&#x3D;&quot;
+            selectedRows.has(row) &amp;&amp; tableConfigurations?.selectionStyle &#x3D;&#x3D; 1
+          &quot;
+          [class.mat-row-selected-shadow]&#x3D;&quot;
+            selectedRows.has(row) &amp;&amp; tableConfigurations?.selectionStyle &#x3D;&#x3D; 2
+          &quot;
+          [class.mat-row-borders]&#x3D;&quot;tableConfigurations?.hoverStyle &#x3D;&#x3D; 1&quot;
+          [class.mat-row-shadow]&#x3D;&quot;tableConfigurations?.hoverStyle &#x3D;&#x3D; 2&quot;
+          style&#x3D;&quot;transition: 0.3s all&quot;
+          [ngStyle]&#x3D;&quot;constrainedRows.has(row) ? row.rowStyle.style : &#x27;&#x27;&quot;
+          *matRowDef&#x3D;&quot;let row; columns: displayedColumns.columnNames&quot;
+        &gt;&lt;/tr&gt;
+
+        &lt;!-- Mensaje por defecto en caso de no haber datos o se este fetcheando --&gt;
+        &lt;tr class&#x3D;&quot;mat-row&quot; *matNoDataRow&gt;
+          &lt;td class&#x3D;&quot;mat-cell&quot; colspan&#x3D;&quot;4&quot;&gt;
+            {{ fetching ? &quot;fetching data&quot; : &quot;No data found&quot; }}
+          &lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/table&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;table-bottom-container&quot;&gt;
+    &lt;mat-paginator
+      [pageSizeOptions]&#x3D;&quot;tableConfigurations?.paginationSizes || [5, 10, 20]&quot;
+      showFirstLastButtons
+      aria-label&#x3D;&quot;Select page&quot;
+    &gt;
+    &lt;/mat-paginator&gt;
+  &lt;/div&gt;
+  &lt;mat-progress-bar
+    [mode]&#x3D;&quot;fetching ? &#x27;indeterminate&#x27; : &#x27;determinate&#x27;&quot;
+  &gt;&lt;/mat-progress-bar&gt;
+&lt;/div&gt;
+
+&lt;!-- Export Menu --&gt;
+&lt;mat-menu #export&#x3D;&quot;matMenu&quot; xPosition&#x3D;&quot;before&quot;&gt;
+  &lt;div
+    mat-menu-item
+    style&#x3D;&quot;text-align: center&quot;
+    (click)&#x3D;&quot;$event.stopPropagation()&quot;
+  &gt;
+    Exportar
+  &lt;/div&gt;
+&lt;/mat-menu&gt;
+
+&lt;!-- Columns Selector Menu --&gt;
+&lt;mat-menu #columns&#x3D;&quot;matMenu&quot; xPosition&#x3D;&quot;before&quot;&gt;
+  &lt;div
+    mat-menu-item
+    style&#x3D;&quot;text-align: center&quot;
+    (click)&#x3D;&quot;$event.stopPropagation()&quot;
+  &gt;
+    Columnas
+  &lt;/div&gt;
+  &lt;div
+    *ngFor&#x3D;&quot;let column of displayedColumns.columns&quot;
+    mat-menu-item
+    (click)&#x3D;&quot;$event.stopPropagation()&quot;
+  &gt;
+    &lt;mat-slide-toggle
+      color&#x3D;&quot;primary&quot;
+      (click)&#x3D;&quot;$event.stopPropagation()&quot;
+      (change)&#x3D;&quot;displayedColumns.changeColumnVisivility(column)&quot;
+      [checked]&#x3D;&quot;column.visible&quot;
+    &gt;
+      {{ column.name }}
+    &lt;/mat-slide-toggle&gt;
+  &lt;/div&gt;
+  &lt;button
+    mat-menu-item
+    style&#x3D;&quot;text-align: center&quot;
+    (click)&#x3D;&quot;displayedColumns.allVisible(); $event.stopPropagation()&quot;
+  &gt;
+    Todas
+  &lt;/button&gt;
+&lt;/mat-menu&gt;
+
+&lt;!-- Constrains Menu --&gt;
+&lt;mat-menu
+  #constrains&#x3D;&quot;matMenu&quot;
+  xPosition&#x3D;&quot;before&quot;
+  style&#x3D;&quot;padding: 0.5rem !important&quot;
+&gt;
+  &lt;div
+    mat-menu-item
+    style&#x3D;&quot;text-align: center&quot;
+    (click)&#x3D;&quot;$event.stopPropagation()&quot;
+  &gt;
+    Estilos
+  &lt;/div&gt;
+  &lt;div
+    mat-menu-item
+    disableRipple&#x3D;&quot;true&quot;
+    *ngFor&#x3D;&quot;let constr of fieldConstrians&quot;
+    (click)&#x3D;&quot;$event.stopPropagation()&quot;
+    [style]&#x3D;&quot;{
+      display: &#x27;flex&#x27;,
+      &#x27;align-items&#x27;: &#x27;center&#x27;,
+      &#x27;justify-items&#x27;: &#x27;center&#x27;,
+      color: constr.constrain.style[&#x27;color&#x27;],
+      &#x27;background-color&#x27;: constr.constrain.style[&#x27;background-color&#x27;],
+      &#x27;text-align&#x27;: &#x27;center&#x27;
+    }&quot;
+  &gt;
+    &lt;span style&#x3D;&quot;flex-grow: 1; text-align: center&quot;&gt;{{
+      constr.constrainName
+    }}&lt;/span&gt;
+    &lt;button
+      mat-icon-button
+      matTooltip&#x3D;&quot;remove&quot;
+      style&#x3D;&quot;justify-self: flex-end; margin-left: 1rem&quot;
+      [matMenuTriggerFor]&#x3D;&quot;constrainDeletionConfirm&quot;
+      [matMenuTriggerData]&#x3D;&quot;{ data: constr }&quot;
+    &gt;
+      &lt;mat-icon style&#x3D;&quot;margin: auto&quot;&gt;delete&lt;/mat-icon&gt;
+    &lt;/button&gt;
+    &lt;button mat-icon-button style&#x3D;&quot;justify-self: flex-end&quot;&gt;
+      &lt;mat-icon style&#x3D;&quot;margin: auto&quot; matTooltip&#x3D;&quot;hide&quot;&gt;edit&lt;/mat-icon&gt;
+    &lt;/button&gt;
+    &lt;button
+      mat-icon-button
+      style&#x3D;&quot;justify-self: flex-end&quot;
+      (click)&#x3D;&quot;
+        constr.constrain.enable &#x3D; !constr.constrain.enable; updateVisibility()
+      &quot;
+    &gt;
+      &lt;mat-icon style&#x3D;&quot;margin: auto&quot; matTooltip&#x3D;&quot;hide&quot;&gt;{{
+        constr.constrain.enable ? &quot;visibility&quot; : &quot;visibility_off&quot;
+      }}&lt;/mat-icon&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Constrain Creator --&gt;
+  &lt;div
+    mat-menu-item
+    style&#x3D;&quot;text-align: center&quot;
+    (click)&#x3D;&quot;$event.stopPropagation()&quot;
+  &gt;
+    &lt;litotable-constrain-creator
+      [columns]&#x3D;&quot;displayedColumns.columns&quot;
+      (result-constrain)&#x3D;&quot;addConstrain($event)&quot;
+      &gt;&lt;mat-icon style&#x3D;&quot;margin: auto&quot;
+        &gt;add_circle&lt;/mat-icon
+      &gt;&lt;/litotable-constrain-creator
+    &gt;
+  &lt;/div&gt;
+&lt;/mat-menu&gt;
+
+&lt;mat-menu #constrainDeletionConfirm&#x3D;&quot;matMenu&quot; xPosition&#x3D;&quot;before&quot;&gt;
+  &lt;ng-template matMenuContent let-constrain&#x3D;&quot;data&quot;&gt;
+    &lt;button
+      mat-menu-item
+      (click)&#x3D;&quot;removeConstrain(constrain)&quot;
+      style&#x3D;&quot;color: red; font-weight: 500&quot;
+    &gt;
+      confirm remove
+    &lt;/button&gt;
+  &lt;/ng-template&gt;
+&lt;/mat-menu&gt;
+
+&lt;mat-menu #constrain&#x3D;&quot;matMenu&quot; xPosition&#x3D;&quot;before&quot;&gt;
+  &lt;ng-template matMenuContent let-data&#x3D;&quot;data&quot;&gt;
+    &lt;mat-card
+      (click)&#x3D;&quot;$event.stopPropagation()&quot;
+      (keypress)&#x3D;&quot;$event.stopPropagation()&quot;
+    &gt;
+      &lt;mat-card-content
+        (click)&#x3D;&quot;$event.stopPropagation()&quot;
+        (keypress)&#x3D;&quot;$event.stopPropagation()&quot;
+        class&#x3D;&quot;constrain-mat-content&quot;
+      &gt;
+        &lt;div
+          class&#x3D;&quot;constrain-mat-content-dual&quot;
+          (click)&#x3D;&quot;$event.stopPropagation()&quot;
+          (keypress)&#x3D;&quot;$event.stopPropagation()&quot;
+        &gt;
+          &lt;app-lito-color-picker
+            [colors]&#x3D;&quot;tableConfigurations?.rowStyleColors&quot;
+            (result)&#x3D;&quot;
+              changeConstrainState($event, data.constrain, &#x27;background-color&#x27;)
+            &quot;
+            content&#x3D;&quot;Background&quot;
+          &gt;&lt;/app-lito-color-picker&gt;
+          &lt;app-lito-color-picker
+            [colors]&#x3D;&quot;tableConfigurations?.rowStyleColors&quot;
+            (result)&#x3D;&quot;changeConstrainState($event, data.constrain, &#x27;color&#x27;)&quot;
+            content&#x3D;&quot;Foreground&quot;
+          &gt;&lt;/app-lito-color-picker&gt;
+        &lt;/div&gt;
+        &lt;div
+          [style]&#x3D;&quot;{
+            color: data.constrain.style[&#x27;color&#x27;],
+            &#x27;background-color&#x27;: data.constrain.style[&#x27;background-color&#x27;],
+            &#x27;margin-bottom&#x27;: &#x27;1rem&#x27;,
+            &#x27;text-align&#x27;: &#x27;center&#x27;,
+            padding: &#x27;0.5rem 0&#x27;,
+            width: &#x27;100%&#x27;
+          }&quot;
+        &gt;
+          {{ data.constrain.values[0] }}
+        &lt;/div&gt;
+        &lt;mat-button-toggle-group
+          name&#x3D;&quot;fontStyle&quot;
+          aria-label&#x3D;&quot;Font Style&quot;
+          (click)&#x3D;&quot;$event.stopPropagation()&quot;
+          value&#x3D;&quot;{{ data.constrain.type }}&quot;
+          (change)&#x3D;&quot;
+            changeConstrainState($event, data.constrain, &#x27;number-type&#x27;, false)
+          &quot;
+        &gt;
+          &lt;mat-button-toggle value&#x3D;&quot;1&quot;&gt;&#x3D;&lt;/mat-button-toggle&gt;
+          &lt;mat-button-toggle value&#x3D;&quot;2&quot;&gt;{{ &quot;\&gt;&quot; }}&lt;/mat-button-toggle&gt;
+          &lt;mat-button-toggle value&#x3D;&quot;3&quot;&gt;{{ &quot;\&lt;&quot; }}&lt;/mat-button-toggle&gt;
+          &lt;mat-button-toggle value&#x3D;&quot;4&quot;&gt;{{ &quot;\&lt;\&gt;&quot; }}&lt;/mat-button-toggle&gt;
+        &lt;/mat-button-toggle-group&gt;
+        &lt;div
+          *ngIf&#x3D;&quot;data.constrain.type !&#x3D; numberConstrainType.BETWEEN&quot;
+          (click)&#x3D;&quot;$event.stopPropagation()&quot;
+          (keydown)&#x3D;&quot;$event.stopPropagation()&quot;
+          (keypress)&#x3D;&quot;$event.stopPropagation()&quot;
+          style&#x3D;&quot;display: flex; justify-content: space-between&quot;
+        &gt;
+          &lt;mat-form-field
+            style&#x3D;&quot;width: 100%&quot;
+            appearance&#x3D;&quot;fill&quot;
+            (click)&#x3D;&quot;$event.stopPropagation()&quot;
+            (keypress)&#x3D;&quot;$event.stopPropagation()&quot;
+            (keydown)&#x3D;&quot;$event.stopPropagation()&quot;
+          &gt;
+            &lt;mat-label (click)&#x3D;&quot;$event.stopPropagation()&quot;&gt;VALOR&lt;/mat-label&gt;
+            &lt;input
+              type&#x3D;&quot;number&quot;
+              step&#x3D;&quot;100&quot;
+              (keydown)&#x3D;&quot;$event.stopPropagation()&quot;
+              (keypress)&#x3D;&quot;$event.stopPropagation()&quot;
+              (click)&#x3D;&quot;$event.stopPropagation()&quot;
+              (change)&#x3D;&quot;
+                $event.stopPropagation();
+                changeConstrainState(
+                  $event,
+                  data.constrain,
+                  &#x27;number-value&#x27;,
+                  false
+                )
+              &quot;
+              (keyup)&#x3D;&quot;
+                $event.stopPropagation();
+                changeConstrainState(
+                  $event,
+                  data.constrain,
+                  &#x27;number-value&#x27;,
+                  false
+                )
+              &quot;
+              matInput
+              placeholder&#x3D;&quot;&quot;
+              value&#x3D;&quot;{{ data.constrain.values[0] }}&quot;
+            /&gt;
+          &lt;/mat-form-field&gt;
+        &lt;/div&gt;
+        &lt;!-- BETWEEN --&gt;
+        &lt;div
+          *ngIf&#x3D;&quot;data.constrain.type &#x3D;&#x3D; numberConstrainType.BETWEEN&quot;
+          (click)&#x3D;&quot;$event.stopPropagation()&quot;
+          (keypress)&#x3D;&quot;$event.stopPropagation()&quot;
+          (keydown)&#x3D;&quot;$event.stopPropagation()&quot;
+          style&#x3D;&quot;max-width: fit-content; display: flow-root&quot;
+        &gt;
+          &lt;mat-form-field
+            style&#x3D;&quot;max-width: 45%; float: left&quot;
+            appearance&#x3D;&quot;fill&quot;
+            (click)&#x3D;&quot;$event.stopPropagation()&quot;
+            (keypress)&#x3D;&quot;$event.stopPropagation()&quot;
+            (keydown)&#x3D;&quot;$event.stopPropagation()&quot;
+          &gt;
+            &lt;mat-label (click)&#x3D;&quot;$event.stopPropagation()&quot;&gt;DESDE&lt;/mat-label&gt;
+            &lt;input
+              type&#x3D;&quot;number&quot;
+              (click)&#x3D;&quot;$event.stopPropagation()&quot;
+              (keydown)&#x3D;&quot;$event.stopPropagation()&quot;
+              (keypress)&#x3D;&quot;$event.stopPropagation()&quot;
+              (change)&#x3D;&quot;
+                changeConstrainState(
+                  $event,
+                  data.constrain,
+                  &#x27;number-value1&#x27;,
+                  false
+                )
+              &quot;
+              (keyup)&#x3D;&quot;
+                changeConstrainState(
+                  $event,
+                  data.constrain,
+                  &#x27;number-value1&#x27;,
+                  false
+                )
+              &quot;
+              matInput
+              placeholder&#x3D;&quot;&quot;
+              value&#x3D;&quot;{{ data.constrain.values[0] }}&quot;
+            /&gt;
+          &lt;/mat-form-field&gt;
+          &lt;mat-form-field
+            style&#x3D;&quot;max-width: 45%; float: right&quot;
+            appearance&#x3D;&quot;fill&quot;
+            (click)&#x3D;&quot;$event.stopPropagation()&quot;
+            (keypress)&#x3D;&quot;$event.stopPropagation()&quot;
+            (keydown)&#x3D;&quot;$event.stopPropagation()&quot;
+          &gt;
+            &lt;mat-label
+              (click)&#x3D;&quot;$event.stopPropagation()&quot;
+              (keypress)&#x3D;&quot;$event.stopPropagation()&quot;
+              &gt;HASTA&lt;/mat-label
+            &gt;
+            &lt;input
+              type&#x3D;&quot;number&quot;
+              step&#x3D;&quot;100&quot;
+              (change)&#x3D;&quot;
+                changeConstrainState(
+                  $event,
+                  data.constrain,
+                  &#x27;number-value2&#x27;,
+                  false
+                )
+              &quot;
+              (click)&#x3D;&quot;$event.stopPropagation()&quot;
+              (keydown)&#x3D;&quot;$event.stopPropagation()&quot;
+              (keypress)&#x3D;&quot;$event.stopPropagation()&quot;
+              (keyup)&#x3D;&quot;
+                changeConstrainState(
+                  $event,
+                  data.constrain,
+                  &#x27;number-value2&#x27;,
+                  false
+                )
+              &quot;
+              matInput
+              placeholder&#x3D;&quot;&quot;
+              value&#x3D;&quot;{{ data.constrain.values[1] }}&quot;
+            /&gt;
+          &lt;/mat-form-field&gt;
+        &lt;/div&gt;
+      &lt;/mat-card-content&gt;
+    &lt;/mat-card&gt;
+  &lt;/ng-template&gt;
+&lt;/mat-menu&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./litotable.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">table {
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.table-responsive {
+  overflow: auto;
+  min-height: 0.01%;
+}
+
+.table-container {
+  padding: 1rem 1rem 0;
+}
+
+.mat-cell &gt; div {
+  margin: 0 5px !important;
+  width: max-content !important;
+}
+
+.mat-row .mat-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+}
+
+.mat-row.mat-row-borders:hover .mat-cell,
+.mat-row.mat-row-selected-borders .mat-cell {
+  border-color: currentColor;
+}
+
+.mat-row.mat-row-shadow:hover .mat-cell,
+.mat-row.mat-row-selected-shadow .mat-cell {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.row-is-selected {
+  filter: brightness(1.2) contrast(0.8);
+}
+
+.mat-column-selection {
+  overflow: initial;
+}
+
+.mat-header-cell {
+  border-top-width: 1px;
+  border-top-color: rgba(0, 0, 0, 0.12);
+  background-color: rgba(0, 0, 0, 0.02);
+  border-top-style: solid;
+}
+
+th.mat-column-selection.mat-header-cell:first-of-type,
+td.mat-column-selection.mat-cell:first-of-type,
+td.mat-column-selection.mat-footer-cell:first-of-type {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 20px;
+}
+
+.table-top-container,
+.table-bottom-container {
+  display: flex;
+}
+
+.table-top-container {
+  justify-content: flex-end;
+}
+
+.table-bottom-container mat-paginator {
+  flex-grow: 1;
+}
+
+.table-operations mat-expansion-panel {
+  margin: 1rem 0;
+}
+
+/* COLUMNS CONTENT ALIGNMENT */
+::ng-deep .column-content-alignment-1 &gt; div {
+  text-align: left;
+}
+::ng-deep .column-content-alignment-2 &gt; div {
+  text-align: center;
+}
+::ng-deep .column-content-alignment-3 &gt; div {
+  text-align: right;
+}
+
+.operation-buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.operation-buttons-container &gt; div {
+  margin: 0 0.5rem;
+}
+
+.constrain-mat-content &gt; * {
+  width: 100%;
+}
+
+.constrain-mat-content &gt; mat-button-toggle-group {
+  margin-bottom: 1rem;
+}
+
+.constrain-mat-content &gt; mat-button-toggle-group &gt; * {
+  width: 25%;
+}
+
+.constrain-mat-content .constrain-mat-content-dual {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.constrain-mat-content .constrain-mat-content-dual &gt; * {
+  width: 45%;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-accordion class="table-operations">  <mat-expansion-panel hideToggle>    <mat-expansion-panel-header>      <mat-panel-title style="align-items: center">        Operaciones      </mat-panel-title>      <div class="table-top-container">        <button          mat-icon-button          [matMenuTriggerFor]="export"          aria-label="Exportar"          (click)="$event.stopPropagation()"        >          <mat-icon>download</mat-icon>        </button>        <button          mat-icon-button          [matMenuTriggerFor]="columns"          aria-label="Columnas"          (click)="$event.stopPropagation()"        >          <mat-icon>view_column</mat-icon>        </button>        <button          mat-icon-button          [matMenuTriggerFor]="constrains"          aria-label="Constrains"          (click)="$event.stopPropagation()"        >          <mat-icon>brush</mat-icon>        </button>      </div>    </mat-expansion-panel-header>    <div class="operation-buttons-container" *ngIf="operations">      <div *ngFor="let operation of operations.operations">        <div *ngIf="operation.type == operationTypes.CREATE">          <button            mat-raised-button            aria-label="Crear"            (click)="$event.stopPropagation()"          >            CREAR          </button>        </div>        <div *ngIf="operation.type == operationTypes.DELETE">          <button            mat-raised-button            aria-label="Eliminar"            (click)="$event.stopPropagation()"          >            ELIMINAR          </button>        </div>      </div>    </div>  </mat-expansion-panel></mat-accordion><!-- Table --><div class="litotable-container mat-elevation-z8">  <div class="table-container">    <div *ngIf="dataSource" class="table-responsive">      <table        mat-table        [dataSource]="dataSource"        matSort        (matSortChange)="announceSortChange($event)"      >        <!-- Columna de seleccion -->        <ng-container matColumnDef="selection">          <th mat-header-cell *matHeaderCellDef>            <mat-checkbox              (change)="masterToggle()"              [indeterminate]="this.selectedRows.size != 0 && !isAllSelected()"              [checked]="isAllSelected()"            >            </mat-checkbox>          </th>          <td            mat-cell            *matCellDef="let row"            style="background-color: rgba(255, 255, 255, 1)"          >            <mat-checkbox              (click)="$event.stopPropagation()"              (change)="selectionToogle($event.checked, row)"              [checked]="selectedRows.has(row)"            >            </mat-checkbox>          </td>        </ng-container>        <!-- Resto de columnas -->        <ng-container          *ngFor="let column of displayedColumns.columns"          matColumnDef="{{ column.name }}"        >          <!-- Column Header -->          <th            mat-header-cell            *matHeaderCellDef            mat-sort-header="{{ column.propertyKey }}"            sortActionDescription="Sort by {{ column.propertyKey }}"          >            {{ column.name }}          </th>          <!-- Column Data -->          <td mat-cell *matCellDef="let element" #litotableTd>            <div              #content              style="transition: 0.3s all"              [ngStyle]="                litotableTd.parentElement?.style?.color                  ? { color: litotableTd.parentElement?.style?.color }                  : {}              "            >              <div *ngIf="column.type == columnTypes.STRING">                {{ element[column.propertyKey] }}              </div>              <div *ngIf="column.type == columnTypes.DATE">                {{                  element[column.propertyKey]                    | date: (column.format ? column.format : "short")                }}              </div>              <div *ngIf="column.type == columnTypes.CURRENCY">                {{ element[column.propertyKey] | currency }}              </div>              <div *ngIf="column.type == columnTypes.CUIT">                {{ element[column.propertyKey] | cuit: "-" }}              </div>              <div *ngIf="column.type == columnTypes.PHONE">                {{                  element[column.propertyKey]                    | phone: (column.format ? column.format : undefined)                }}              </div>            </div>          </td>        </ng-container>        <!-- Encabezados de columnas -->        <tr mat-header-row *matHeaderRowDef="displayedColumns.columnNames"></tr>        <!-- Formato condicional de filas -->        <tr          mat-row          [class.mat-row-selected]="selectedRows.has(row)"          [class.mat-row-selected-borders]="            selectedRows.has(row) && tableConfigurations?.selectionStyle == 1          "          [class.mat-row-selected-shadow]="            selectedRows.has(row) && tableConfigurations?.selectionStyle == 2          "          [class.mat-row-borders]="tableConfigurations?.hoverStyle == 1"          [class.mat-row-shadow]="tableConfigurations?.hoverStyle == 2"          style="transition: 0.3s all"          [ngStyle]="constrainedRows.has(row) ? row.rowStyle.style : \'\'"          *matRowDef="let row; columns: displayedColumns.columnNames"        ></tr>        <!-- Mensaje por defecto en caso de no haber datos o se este fetcheando -->        <tr class="mat-row" *matNoDataRow>          <td class="mat-cell" colspan="4">            {{ fetching ? "fetching data" : "No data found" }}          </td>        </tr>      </table>    </div>  </div>  <div class="table-bottom-container">    <mat-paginator      [pageSizeOptions]="tableConfigurations?.paginationSizes || [5, 10, 20]"      showFirstLastButtons      aria-label="Select page"    >    </mat-paginator>  </div>  <mat-progress-bar    [mode]="fetching ? \'indeterminate\' : \'determinate\'"  ></mat-progress-bar></div><!-- Export Menu --><mat-menu #export="matMenu" xPosition="before">  <div    mat-menu-item    style="text-align: center"    (click)="$event.stopPropagation()"  >    Exportar  </div></mat-menu><!-- Columns Selector Menu --><mat-menu #columns="matMenu" xPosition="before">  <div    mat-menu-item    style="text-align: center"    (click)="$event.stopPropagation()"  >    Columnas  </div>  <div    *ngFor="let column of displayedColumns.columns"    mat-menu-item    (click)="$event.stopPropagation()"  >    <mat-slide-toggle      color="primary"      (click)="$event.stopPropagation()"      (change)="displayedColumns.changeColumnVisivility(column)"      [checked]="column.visible"    >      {{ column.name }}    </mat-slide-toggle>  </div>  <button    mat-menu-item    style="text-align: center"    (click)="displayedColumns.allVisible(); $event.stopPropagation()"  >    Todas  </button></mat-menu><!-- Constrains Menu --><mat-menu  #constrains="matMenu"  xPosition="before"  style="padding: 0.5rem !important">  <div    mat-menu-item    style="text-align: center"    (click)="$event.stopPropagation()"  >    Estilos  </div>  <div    mat-menu-item    disableRipple="true"    *ngFor="let constr of fieldConstrians"    (click)="$event.stopPropagation()"    [style]="{      display: \'flex\',      \'align-items\': \'center\',      \'justify-items\': \'center\',      color: constr.constrain.style[\'color\'],      \'background-color\': constr.constrain.style[\'background-color\'],      \'text-align\': \'center\'    }"  >    <span style="flex-grow: 1; text-align: center">{{      constr.constrainName    }}</span>    <button      mat-icon-button      matTooltip="remove"      style="justify-self: flex-end; margin-left: 1rem"      [matMenuTriggerFor]="constrainDeletionConfirm"      [matMenuTriggerData]="{ data: constr }"    >      <mat-icon style="margin: auto">delete</mat-icon>    </button>    <button mat-icon-button style="justify-self: flex-end">      <mat-icon style="margin: auto" matTooltip="hide">edit</mat-icon>    </button>    <button      mat-icon-button      style="justify-self: flex-end"      (click)="        constr.constrain.enable = !constr.constrain.enable; updateVisibility()      "    >      <mat-icon style="margin: auto" matTooltip="hide">{{        constr.constrain.enable ? "visibility" : "visibility_off"      }}</mat-icon>    </button>  </div>  <!-- Constrain Creator -->  <div    mat-menu-item    style="text-align: center"    (click)="$event.stopPropagation()"  >    <litotable-constrain-creator      [columns]="displayedColumns.columns"      (result-constrain)="addConstrain($event)"      ><mat-icon style="margin: auto"        >add_circle</mat-icon      ></litotable-constrain-creator    >  </div></mat-menu><mat-menu #constrainDeletionConfirm="matMenu" xPosition="before">  <ng-template matMenuContent let-constrain="data">    <button      mat-menu-item      (click)="removeConstrain(constrain)"      style="color: red; font-weight: 500"    >      confirm remove    </button>  </ng-template></mat-menu><mat-menu #constrain="matMenu" xPosition="before">  <ng-template matMenuContent let-data="data">    <mat-card      (click)="$event.stopPropagation()"      (keypress)="$event.stopPropagation()"    >      <mat-card-content        (click)="$event.stopPropagation()"        (keypress)="$event.stopPropagation()"        class="constrain-mat-content"      >        <div          class="constrain-mat-content-dual"          (click)="$event.stopPropagation()"          (keypress)="$event.stopPropagation()"        >          <app-lito-color-picker            [colors]="tableConfigurations?.rowStyleColors"            (result)="              changeConstrainState($event, data.constrain, \'background-color\')            "            content="Background"          ></app-lito-color-picker>          <app-lito-color-picker            [colors]="tableConfigurations?.rowStyleColors"            (result)="changeConstrainState($event, data.constrain, \'color\')"            content="Foreground"          ></app-lito-color-picker>        </div>        <div          [style]="{            color: data.constrain.style[\'color\'],            \'background-color\': data.constrain.style[\'background-color\'],            \'margin-bottom\': \'1rem\',            \'text-align\': \'center\',            padding: \'0.5rem 0\',            width: \'100%\'          }"        >          {{ data.constrain.values[0] }}        </div>        <mat-button-toggle-group          name="fontStyle"          aria-label="Font Style"          (click)="$event.stopPropagation()"          value="{{ data.constrain.type }}"          (change)="            changeConstrainState($event, data.constrain, \'number-type\', false)          "        >          <mat-button-toggle value="1">=</mat-button-toggle>          <mat-button-toggle value="2">{{ "\>" }}</mat-button-toggle>          <mat-button-toggle value="3">{{ "\<" }}</mat-button-toggle>          <mat-button-toggle value="4">{{ "\<\>" }}</mat-button-toggle>        </mat-button-toggle-group>        <div          *ngIf="data.constrain.type != numberConstrainType.BETWEEN"          (click)="$event.stopPropagation()"          (keydown)="$event.stopPropagation()"          (keypress)="$event.stopPropagation()"          style="display: flex; justify-content: space-between"        >          <mat-form-field            style="width: 100%"            appearance="fill"            (click)="$event.stopPropagation()"            (keypress)="$event.stopPropagation()"            (keydown)="$event.stopPropagation()"          >            <mat-label (click)="$event.stopPropagation()">VALOR</mat-label>            <input              type="number"              step="100"              (keydown)="$event.stopPropagation()"              (keypress)="$event.stopPropagation()"              (click)="$event.stopPropagation()"              (change)="                $event.stopPropagation();                changeConstrainState(                  $event,                  data.constrain,                  \'number-value\',                  false                )              "              (keyup)="                $event.stopPropagation();                changeConstrainState(                  $event,                  data.constrain,                  \'number-value\',                  false                )              "              matInput              placeholder=""              value="{{ data.constrain.values[0] }}"            />          </mat-form-field>        </div>        <!-- BETWEEN -->        <div          *ngIf="data.constrain.type == numberConstrainType.BETWEEN"          (click)="$event.stopPropagation()"          (keypress)="$event.stopPropagation()"          (keydown)="$event.stopPropagation()"          style="max-width: fit-content; display: flow-root"        >          <mat-form-field            style="max-width: 45%; float: left"            appearance="fill"            (click)="$event.stopPropagation()"            (keypress)="$event.stopPropagation()"            (keydown)="$event.stopPropagation()"          >            <mat-label (click)="$event.stopPropagation()">DESDE</mat-label>            <input              type="number"              (click)="$event.stopPropagation()"              (keydown)="$event.stopPropagation()"              (keypress)="$event.stopPropagation()"              (change)="                changeConstrainState(                  $event,                  data.constrain,                  \'number-value1\',                  false                )              "              (keyup)="                changeConstrainState(                  $event,                  data.constrain,                  \'number-value1\',                  false                )              "              matInput              placeholder=""              value="{{ data.constrain.values[0] }}"            />          </mat-form-field>          <mat-form-field            style="max-width: 45%; float: right"            appearance="fill"            (click)="$event.stopPropagation()"            (keypress)="$event.stopPropagation()"            (keydown)="$event.stopPropagation()"          >            <mat-label              (click)="$event.stopPropagation()"              (keypress)="$event.stopPropagation()"              >HASTA</mat-label            >            <input              type="number"              step="100"              (change)="                changeConstrainState(                  $event,                  data.constrain,                  \'number-value2\',                  false                )              "              (click)="$event.stopPropagation()"              (keydown)="$event.stopPropagation()"              (keypress)="$event.stopPropagation()"              (keyup)="                changeConstrainState(                  $event,                  data.constrain,                  \'number-value2\',                  false                )              "              matInput              placeholder=""              value="{{ data.constrain.values[1] }}"            />          </mat-form-field>        </div>      </mat-card-content>    </mat-card>  </ng-template></mat-menu></div>'
+    var COMPONENTS = [{'name': 'ConstrainCreationForm', 'selector': 'constrain-creation-form-dialog'},{'name': 'ConstrainCreatorComponent', 'selector': 'litotable-constrain-creator'},{'name': 'DialogColorPicker', 'selector': 'dialog-overview-example-dialog'},{'name': 'LitoColorPickerComponent', 'selector': 'app-lito-color-picker'},{'name': 'LitotableComponent', 'selector': 'lito-table'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LitotableComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LitotableComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

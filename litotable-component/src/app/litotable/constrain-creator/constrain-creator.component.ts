@@ -18,6 +18,7 @@ import {
   NumberConstrain,
   MesurableConstrainType,
   DateConstrain,
+  StringConstrainType,
 } from '../configurations/fieldConstriansStyle';
 import {
   FormBuilder,
@@ -48,6 +49,7 @@ export class ConstrainCreatorComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(ConstrainCreationForm, {
       data: { columns: this.columns },
+      maxHeight: '80vh',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -63,8 +65,10 @@ export class ConstrainCreatorComponent implements OnInit {
 })
 export class ConstrainCreationForm {
   fieldFormGroup!: FormGroup;
+  stringFormGroup!: FormGroup;
   fieldConstrain: FieldConstrianStyle | any;
   numberConstrainType = MesurableConstrainType;
+  stringConstrainType = StringConstrainType;
   finalString: string = '';
   valueType: string = '';
   dateRange = new FormGroup({
@@ -82,6 +86,14 @@ export class ConstrainCreationForm {
   ngOnInit() {
     this.fieldFormGroup = this._formBuilder.group({
       field: ['', Validators.required],
+    });
+    this.stringFormGroup = this._formBuilder.group({
+      startWith: [''],
+      startWithToogle: [''],
+      includes: [''],
+      includesToogle: [''],
+      endsWith: [''],
+      endsWithToogle: [''],
     });
     this.getFinalText();
   }
@@ -250,6 +262,4 @@ export class ConstrainCreationForm {
       },
     };
   }
-
-  createConstrain() {}
 }

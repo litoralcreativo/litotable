@@ -42,6 +42,10 @@
           *ngSwitchCase="3"
           [ngTemplateOutlet]="dateConstrainSelector"
         ></ng-container>
+        <ng-container
+          *ngSwitchCase="0"
+          [ngTemplateOutlet]="stringConstrainSelector"
+        ></ng-container>
       </ng-container>
 
       <div>
@@ -408,4 +412,88 @@
   </div>
 </ng-template>
 
-<ng-template #stringConstrainSelector>string constrain</ng-template>
+<ng-template #stringConstrainSelector>
+  <mat-accordion style="margin-bottom: 1rem">
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon *ngIf="swEnable.checked" color="accent"
+            >radio_button_checked</mat-icon
+          >
+          <mat-icon *ngIf="!swEnable.checked" style="color: gray"
+            >radio_button_checked</mat-icon
+          >
+          <span class="flex-center">&nbsp;Starts with</span>
+        </mat-panel-title>
+        <mat-panel-description>
+          <span class="flex-center">{{ swInput.value }}</span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <form [formGroup]="stringFormGroup">
+        <mat-form-field appearance="fill">
+          <mat-label>Value</mat-label>
+          <input matInput #swInput formControlName="startWith" />
+        </mat-form-field>
+        <mat-slide-toggle
+          #swEnable
+          style="margin-left: 1rem"
+          formControlName="startWithToogle"
+        ></mat-slide-toggle>
+      </form>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon *ngIf="siEnable.checked" color="accent"
+            >radio_button_checked</mat-icon
+          >
+          <mat-icon *ngIf="!siEnable.checked" style="color: gray"
+            >radio_button_checked</mat-icon
+          >
+          <span class="flex-center">&nbsp;Includes</span>
+        </mat-panel-title>
+        <mat-panel-description>
+          <span class="flex-center">{{ siInput.value }}</span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <form [formGroup]="stringFormGroup">
+        <mat-form-field appearance="fill">
+          <mat-label>Value</mat-label>
+          <input matInput #siInput formControlName="includes" />
+        </mat-form-field>
+        <mat-slide-toggle
+          #siEnable
+          style="margin-left: 1rem"
+          formControlName="includesToogle"
+        ></mat-slide-toggle>
+      </form>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon *ngIf="ewEnable.checked" color="accent"
+            >radio_button_checked</mat-icon
+          >
+          <mat-icon *ngIf="!ewEnable.checked" style="color: gray"
+            >radio_button_checked</mat-icon
+          >
+          <span class="flex-center">&nbsp;Ends with</span>
+        </mat-panel-title>
+        <mat-panel-description>
+          <span class="flex-center">{{ ewInput.value }}</span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <form [formGroup]="stringFormGroup">
+        <mat-form-field appearance="fill">
+          <mat-label>Value</mat-label>
+          <input matInput #ewInput formControlName="endsWith" />
+        </mat-form-field>
+        <mat-slide-toggle
+          #ewEnable
+          style="margin-left: 1rem"
+          formControlName="endsWithToogle"
+        ></mat-slide-toggle>
+      </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+</ng-template>

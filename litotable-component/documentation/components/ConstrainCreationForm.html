@@ -1,0 +1,1895 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>litotable documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">litotable documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  ConstrainCreationForm</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/litotable/constrain-creator/constrain-creator.component.ts</code>
+</p>
+
+
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>constrain-creation-form-dialog</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./constrain-creator.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>constrain-form.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#data" >data</a>
+                            </li>
+                            <li>
+                                <a href="#dateRange" >dateRange</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dialogRef" >dialogRef</a>
+                            </li>
+                            <li>
+                                <a href="#fieldConstrain" >fieldConstrain</a>
+                            </li>
+                            <li>
+                                <a href="#fieldFormGroup" >fieldFormGroup</a>
+                            </li>
+                            <li>
+                                <a href="#finalString" >finalString</a>
+                            </li>
+                            <li>
+                                <a href="#numberConstrainType" >numberConstrainType</a>
+                            </li>
+                            <li>
+                                <a href="#stringConstrainType" >stringConstrainType</a>
+                            </li>
+                            <li>
+                                <a href="#stringFormGroup" >stringFormGroup</a>
+                            </li>
+                            <li>
+                                <a href="#valueType" >valueType</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#changeConstrainState" >changeConstrainState</a>
+                            </li>
+                            <li>
+                                <a href="#getFinalText" >getFinalText</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onFieldSelectorChange" >onFieldSelectorChange</a>
+                            </li>
+                            <li>
+                                <a href="#onNoClick" >onNoClick</a>
+                            </li>
+                            <li>
+                                <a href="#resetValues" >resetValues</a>
+                            </li>
+                            <li>
+                                <a href="#shortDate" >shortDate</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(dialogRef: <a href="../interfaces/Constrain.html" target="_self">MatDialogRef&lt;ConstrainCreationForm&gt;</a>, data: <a href="../interfaces/Constrain.html" target="_self">ConstrainCreationFormData</a>, _formBuilder: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:77</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>dialogRef</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/Constrain.html" target="_self" >MatDialogRef&lt;ConstrainCreationForm&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>data</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/Constrain.html" target="_self" >ConstrainCreationFormData</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_formBuilder</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeConstrainState"></a>
+                    <span class="name">
+                        <span ><b>changeConstrainState</b></span>
+                        <a href="#changeConstrainState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeConstrainState(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, data: <a href="../interfaces/Constrain.html" target="_self">Constrain | any</a>, field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, isStyle: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="124"
+                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:124</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                                <code><a href="../interfaces/Constrain.html" target="_self" >Constrain | any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>field</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>isStyle</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>true</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFinalText"></a>
+                    <span class="name">
+                        <span ><b>getFinalText</b></span>
+                        <a href="#getFinalText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFinalText()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="162"
+                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:162</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:86</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFieldSelectorChange"></a>
+                    <span class="name">
+                        <span ><b>onFieldSelectorChange</b></span>
+                        <a href="#onFieldSelectorChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onFieldSelectorChange(selected: <a href="../classes/Column.html" target="_self">Column</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="105"
+                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:105</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selected</td>
+                                    <td>
+                                                <code><a href="../classes/Column.html" target="_self" >Column</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onNoClick"></a>
+                    <span class="name">
+                        <span ><b>onNoClick</b></span>
+                        <a href="#onNoClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onNoClick()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="101"
+                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:101</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetValues"></a>
+                    <span class="name">
+                        <span ><b>resetValues</b></span>
+                        <a href="#resetValues"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>resetValues()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="245"
+                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:245</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="shortDate"></a>
+                    <span class="name">
+                        <span ><b>shortDate</b></span>
+                        <a href="#shortDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>shortDate(str: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="237"
+                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:237</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>str</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="data"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>data</b></span>
+                        <a href="#data"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Constrain.html" target="_self" >ConstrainCreationFormData</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Inject(MAT_DIALOG_DATA)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dateRange"></a>
+                    <span class="name">
+                        <span ><b>dateRange</b></span>
+                        <a href="#dateRange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({
+    start: new FormControl(),
+    end: new FormControl(),
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dialogRef"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>dialogRef</b></span>
+                        <a href="#dialogRef"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Constrain.html" target="_self" >MatDialogRef&lt;ConstrainCreationForm&gt;</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fieldConstrain"></a>
+                    <span class="name">
+                        <span ><b>fieldConstrain</b></span>
+                        <a href="#fieldConstrain"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/FieldConstrianStyle.html" target="_self" >FieldConstrianStyle | any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fieldFormGroup"></a>
+                    <span class="name">
+                        <span ><b>fieldFormGroup</b></span>
+                        <a href="#fieldFormGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="finalString"></a>
+                    <span class="name">
+                        <span ><b>finalString</b></span>
+                        <a href="#finalString"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="numberConstrainType"></a>
+                    <span class="name">
+                        <span ><b>numberConstrainType</b></span>
+                        <a href="#numberConstrainType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>MesurableConstrainType</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stringConstrainType"></a>
+                    <span class="name">
+                        <span ><b>stringConstrainType</b></span>
+                        <a href="#stringConstrainType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>StringConstrainType</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stringFormGroup"></a>
+                    <span class="name">
+                        <span ><b>stringFormGroup</b></span>
+                        <a href="#stringFormGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="valueType"></a>
+                    <span class="name">
+                        <span ><b>valueType</b></span>
+                        <a href="#valueType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component,
+  EventEmitter,
+  Inject,
+  Input,
+  OnInit,
+  Output,
+} from &#x27;@angular/core&#x27;;
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from &#x27;@angular/material/dialog&#x27;;
+import { Column } from &#x27;../column&#x27;;
+import {
+  Constrain,
+  FieldConstrianStyle,
+  NumberConstrain,
+  MesurableConstrainType,
+  DateConstrain,
+  StringConstrainType,
+} from &#x27;../configurations/fieldConstriansStyle&#x27;;
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from &#x27;@angular/forms&#x27;;
+import { ColumnType } from &#x27;../decorators/column.decorator&#x27;;
+
+export class ConstrainCreationFormData {
+  columns: Column[] &#x3D; [];
+}
+
+@Component({
+  selector: &#x27;litotable-constrain-creator&#x27;,
+  templateUrl: &#x27;./constrain-creator.component.html&#x27;,
+  styleUrls: [&#x27;./constrain-creator.component.css&#x27;],
+})
+export class ConstrainCreatorComponent implements OnInit {
+  @Input(&#x27;columns&#x27;) columns: Column[] &#x3D; [];
+  @Output(&#x27;result-constrain&#x27;) result: EventEmitter&lt;FieldConstrianStyle&gt; &#x3D;
+    new EventEmitter();
+
+  constructor(public dialog: MatDialog) {}
+
+  ngOnInit() {}
+
+  openDialog(): void {
+    const dialogRef &#x3D; this.dialog.open(ConstrainCreationForm, {
+      data: { columns: this.columns },
+      maxHeight: &#x27;80vh&#x27;,
+    });
+
+    dialogRef.afterClosed().subscribe((result) &#x3D;&gt; {
+      if (result) this.result.emit(result);
+    });
+  }
+}
+
+@Component({
+  selector: &#x27;constrain-creation-form-dialog&#x27;,
+  templateUrl: &#x27;constrain-form.component.html&#x27;,
+  styleUrls: [&#x27;./constrain-creator.component.css&#x27;],
+})
+export class ConstrainCreationForm {
+  fieldFormGroup!: FormGroup;
+  stringFormGroup!: FormGroup;
+  fieldConstrain: FieldConstrianStyle | any;
+  numberConstrainType &#x3D; MesurableConstrainType;
+  stringConstrainType &#x3D; StringConstrainType;
+  finalString: string &#x3D; &#x27;&#x27;;
+  valueType: string &#x3D; &#x27;&#x27;;
+  dateRange &#x3D; new FormGroup({
+    start: new FormControl(),
+    end: new FormControl(),
+  });
+  constructor(
+    public dialogRef: MatDialogRef&lt;ConstrainCreationForm&gt;,
+    @Inject(MAT_DIALOG_DATA) public data: ConstrainCreationFormData,
+    private _formBuilder: FormBuilder
+  ) {
+    this.resetValues();
+  }
+
+  ngOnInit() {
+    this.fieldFormGroup &#x3D; this._formBuilder.group({
+      field: [&#x27;&#x27;, Validators.required],
+    });
+    this.stringFormGroup &#x3D; this._formBuilder.group({
+      startWith: [&#x27;&#x27;],
+      startWithToogle: [&#x27;&#x27;],
+      includes: [&#x27;&#x27;],
+      includesToogle: [&#x27;&#x27;],
+      endsWith: [&#x27;&#x27;],
+      endsWithToogle: [&#x27;&#x27;],
+    });
+    this.getFinalText();
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  onFieldSelectorChange(selected: Column) {
+    if (selected) {
+      this.fieldConstrain.propertyKey &#x3D; selected.propertyKey;
+      this.fieldConstrain.constrainName &#x3D; selected.name;
+      this.fieldConstrain.type &#x3D; selected.type;
+      if (selected.type &#x3D;&#x3D; ColumnType.DATE) {
+        this.fieldConstrain.constrain &#x3D; new DateConstrain(
+          this.numberConstrainType.MORETHAN,
+          [new Date(), new Date()],
+          {
+            color: &#x27;#eee&#x27;,
+            &#x27;background-color&#x27;: &#x27;#888&#x27;,
+          }
+        );
+      }
+    }
+    this.getFinalText();
+  }
+
+  changeConstrainState(
+    value: any,
+    data: Constrain | any,
+    field: string,
+    isStyle: boolean &#x3D; true
+  ) {
+    if (isStyle &amp;&amp; field &amp;&amp; field !&#x3D; &#x27;&#x27;) {
+      this.fieldConstrain.constrain.style[field] &#x3D; value;
+    }
+    if (!isStyle) {
+      switch (field) {
+        case &#x27;date-type&#x27;:
+        case &#x27;number-type&#x27;:
+          this.fieldConstrain.constrain.type &#x3D; parseInt(value.value);
+          break;
+        case &#x27;number-value&#x27;:
+        case &#x27;number-value1&#x27;:
+          this.fieldConstrain.constrain.values[0] &#x3D; parseInt(
+            value.target.value
+          );
+          break;
+        case &#x27;number-value2&#x27;:
+          this.fieldConstrain.constrain.values[1] &#x3D; parseInt(
+            value.target.value
+          );
+          break;
+        case &#x27;date-value&#x27;:
+        case &#x27;date-value1&#x27;:
+          this.fieldConstrain.constrain.values[0] &#x3D; new Date(value.value);
+          break;
+        case &#x27;date-value2&#x27;:
+          this.fieldConstrain.constrain.values[1] &#x3D; new Date(value.value);
+          break;
+      }
+    }
+    this.getFinalText();
+  }
+
+  getFinalText() {
+    this.finalString &#x3D; &#x27;&#x27;;
+    switch (this.fieldConstrain.type) {
+      case ColumnType.INTEGER:
+      case ColumnType.FLOAT:
+      case ColumnType.FLOAT:
+        this.valueType &#x3D; &#x27;value&#x27;;
+        this.finalString &#x3D; &#x60;that is &#x60;;
+        break;
+      case ColumnType.DATE:
+        this.valueType &#x3D; &#x27;date&#x27;;
+        break;
+      case ColumnType.STRING:
+        this.valueType &#x3D; &#x27;string&#x27;;
+        break;
+      default:
+        this.valueType &#x3D; &#x27;value&#x27;;
+        break;
+    }
+
+    switch (this.fieldConstrain.type) {
+      case ColumnType.INTEGER:
+      case ColumnType.FLOAT:
+      case ColumnType.CURRENCY:
+        switch (this.fieldConstrain.constrain.type) {
+          case MesurableConstrainType.EQUALS:
+            this.finalString +&#x3D; &#x60;equal to ${this.fieldConstrain.constrain.values[0]}&#x60;;
+            break;
+          case MesurableConstrainType.MORETHAN:
+            this.finalString +&#x3D; &#x60;more than ${this.fieldConstrain.constrain.values[0]}&#x60;;
+            break;
+          case MesurableConstrainType.LESSTHAN:
+            this.finalString +&#x3D; &#x60;less than ${this.fieldConstrain.constrain.values[0]}&#x60;;
+            break;
+          case MesurableConstrainType.BETWEEN:
+            this.finalString +&#x3D; &#x60;between ${this.fieldConstrain.constrain.values[0]} and ${this.fieldConstrain.constrain.values[1]}&#x60;;
+            break;
+          case MesurableConstrainType.NOTBETWEEN:
+            this.finalString +&#x3D; &#x60;not between ${this.fieldConstrain.constrain.values[0]} and ${this.fieldConstrain.constrain.values[1]}&#x60;;
+            break;
+        }
+        break;
+      case ColumnType.DATE:
+        switch (this.fieldConstrain.constrain.type) {
+          case MesurableConstrainType.EQUALS:
+            this.finalString +&#x3D; &#x60;equal to ${this.shortDate(
+              this.fieldConstrain.constrain.values[0]
+            )}&#x60;;
+            break;
+          case MesurableConstrainType.MORETHAN:
+            this.finalString +&#x3D; &#x60;after ${this.shortDate(
+              this.fieldConstrain.constrain.values[0]
+            )}&#x60;;
+            break;
+          case MesurableConstrainType.LESSTHAN:
+            this.finalString +&#x3D; &#x60;before ${this.shortDate(
+              this.fieldConstrain.constrain.values[0]
+            )}&#x60;;
+            break;
+          case MesurableConstrainType.BETWEEN:
+            this.finalString +&#x3D; &#x60;between ${this.shortDate(
+              this.fieldConstrain.constrain.values[0]
+            )} and ${this.shortDate(this.fieldConstrain.constrain.values[1])}&#x60;;
+            break;
+          case MesurableConstrainType.NOTBETWEEN:
+            this.finalString +&#x3D; &#x60;not between ${this.shortDate(
+              this.fieldConstrain.constrain.values[0]
+            )} and ${this.shortDate(this.fieldConstrain.constrain.values[1])}&#x60;;
+            break;
+        }
+
+        break;
+    }
+  }
+
+  shortDate(str: string): string {
+    return new Date(str).toLocaleDateString(&#x27;en-US&#x27;, {
+      day: &#x27;2-digit&#x27;,
+      month: &#x27;2-digit&#x27;,
+      year: &#x27;numeric&#x27;,
+    });
+  }
+
+  resetValues() {
+    this.fieldConstrain &#x3D; {
+      propertyKey: this.data.columns[0].propertyKey,
+      constrainName: &#x27;New Constrain&#x27;,
+      type: this.data.columns[0].type,
+      constrain: new NumberConstrain(
+        this.numberConstrainType.MORETHAN,
+        [0, 0],
+        {
+          color: &#x27;#eee&#x27;,
+          &#x27;background-color&#x27;: &#x27;#888&#x27;,
+        }
+      ),
+      metadata: {
+        enable: true,
+        trigger: (e: any) &#x3D;&gt; false,
+        style: {},
+      },
+    };
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div mat-dialog-content&gt;
+  &lt;mat-stepper [linear]&#x3D;&quot;true&quot; #stepper orientation&#x3D;&quot;vertical&quot;&gt;
+    &lt;!-- Field step --&gt;
+    &lt;mat-step [stepControl]&#x3D;&quot;fieldFormGroup&quot;&gt;
+      &lt;div style&#x3D;&quot;margin-top: 1rem&quot;&gt;&lt;/div&gt;
+      &lt;ng-template matStepLabel&gt;Select a field&lt;/ng-template&gt;
+      &lt;ng-container *ngTemplateOutlet&#x3D;&quot;constrainNameSelector&quot;&gt;&lt;/ng-container&gt;
+      &lt;div&gt;
+        &lt;button mat-button matStepperNext&gt;Next&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/mat-step&gt;
+    &lt;!-- Style step --&gt;
+    &lt;mat-step&gt;
+      &lt;div style&#x3D;&quot;margin-top: 1rem&quot;&gt;&lt;/div&gt;
+      &lt;ng-template matStepLabel&gt;Aply style&lt;/ng-template&gt;
+      &lt;ng-container *ngTemplateOutlet&#x3D;&quot;constrainCreationStyle&quot;&gt;&lt;/ng-container&gt;
+      &lt;div&gt;
+        &lt;button mat-button matStepperPrevious&gt;Back&lt;/button&gt;
+        &lt;button mat-button matStepperNext&gt;Next&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/mat-step&gt;
+    &lt;!-- Constrain step --&gt;
+    &lt;mat-step&gt;
+      &lt;div style&#x3D;&quot;margin-top: 1rem&quot;&gt;&lt;/div&gt;
+      &lt;ng-template matStepLabel&gt;Set constrain&lt;/ng-template&gt;
+      &lt;ng-container [ngSwitch]&#x3D;&quot;fieldConstrain.type&quot;&gt;
+        &lt;!-- Numericos --&gt;
+        &lt;ng-container
+          *ngSwitchCase&#x3D;&quot;1&quot;
+          [ngTemplateOutlet]&#x3D;&quot;numberConstrainSelector&quot;
+        &gt;&lt;/ng-container&gt;
+        &lt;ng-container
+          *ngSwitchCase&#x3D;&quot;2&quot;
+          [ngTemplateOutlet]&#x3D;&quot;numberConstrainSelector&quot;
+        &gt;&lt;/ng-container&gt;
+        &lt;ng-container
+          *ngSwitchCase&#x3D;&quot;4&quot;
+          [ngTemplateOutlet]&#x3D;&quot;numberConstrainSelector&quot;
+        &gt;&lt;/ng-container&gt;
+        &lt;!-- Date --&gt;
+        &lt;ng-container
+          *ngSwitchCase&#x3D;&quot;3&quot;
+          [ngTemplateOutlet]&#x3D;&quot;dateConstrainSelector&quot;
+        &gt;&lt;/ng-container&gt;
+        &lt;ng-container
+          *ngSwitchCase&#x3D;&quot;0&quot;
+          [ngTemplateOutlet]&#x3D;&quot;stringConstrainSelector&quot;
+        &gt;&lt;/ng-container&gt;
+      &lt;/ng-container&gt;
+
+      &lt;div&gt;
+        &lt;button mat-button matStepperPrevious&gt;Back&lt;/button&gt;
+        &lt;button mat-button matStepperNext&gt;Next&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/mat-step&gt;
+    &lt;!-- Final step --&gt;
+    &lt;mat-step&gt;
+      &lt;ng-template matStepLabel&gt;Done&lt;/ng-template&gt;
+      &lt;div style&#x3D;&quot;width: 350px&quot;&gt;
+        &lt;p
+          class&#x3D;&quot;mat-elevation-z4&quot;
+          [style]&#x3D;&quot;{
+            color: fieldConstrain.constrain.style[&#x27;color&#x27;],
+            &#x27;background-color&#x27;:
+              fieldConstrain.constrain.style[&#x27;background-color&#x27;],
+            padding: &#x27;1rem&#x27;,
+            &#x27;border-radius&#x27;: &#x27;4px&#x27;
+          }&quot;
+        &gt;
+          Every {{ valueType }} from column
+          &lt;strong&gt;{{ fieldConstrain.constrainName }}&lt;/strong&gt;
+          {{ finalString }}
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;button mat-button matStepperPrevious&gt;Back&lt;/button&gt;
+        &lt;button mat-button (click)&#x3D;&quot;stepper.reset(); resetValues()&quot;&gt;
+          Reset
+        &lt;/button&gt;
+        &lt;button mat-button [mat-dialog-close]&#x3D;&quot;fieldConstrain&quot;&gt;Create&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/mat-step&gt;
+  &lt;/mat-stepper&gt;
+&lt;/div&gt;
+
+&lt;ng-template #constrainNameSelector&gt;
+  &lt;form [formGroup]&#x3D;&quot;fieldFormGroup&quot;&gt;
+    &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+      &lt;mat-label&gt;Field&lt;/mat-label&gt;
+      &lt;mat-select
+        formControlName&#x3D;&quot;field&quot;
+        required
+        (ngModelChange)&#x3D;&quot;onFieldSelectorChange($event)&quot;
+      &gt;
+        &lt;mat-option&gt;None&lt;/mat-option&gt;
+        &lt;mat-option *ngFor&#x3D;&quot;let column of data.columns&quot; [value]&#x3D;&quot;column&quot;&gt;{{
+          column.name
+        }}&lt;/mat-option&gt;
+      &lt;/mat-select&gt;
+    &lt;/mat-form-field&gt;
+  &lt;/form&gt;
+&lt;/ng-template&gt;
+
+&lt;ng-template #constrainCreationStyle&gt;
+  &lt;mat-expansion-panel
+    hideToggle
+    [style]&#x3D;&quot;{
+      &#x27;background-color&#x27;: fieldConstrain.constrain.style[&#x27;background-color&#x27;],
+      &#x27;margin-bottom&#x27;: &#x27;1rem&#x27;
+    }&quot;
+  &gt;
+    &lt;mat-expansion-panel-header&gt;
+      &lt;mat-panel-title
+        [style]&#x3D;&quot;{
+          color: fieldConstrain.constrain.style[&#x27;color&#x27;],
+          &#x27;justify-content&#x27;: &#x27;center&#x27;
+        }&quot;
+        &gt;{{ fieldConstrain.constrainName }}&lt;/mat-panel-title
+      &gt;
+    &lt;/mat-expansion-panel-header&gt;
+    &lt;div class&#x3D;&quot;flex-center&quot;&gt;
+      &lt;app-lito-color-picker
+        (result)&#x3D;&quot;
+          changeConstrainState(
+            $event,
+            fieldConstrain.constrain,
+            &#x27;background-color&#x27;
+          )
+        &quot;
+        content&#x3D;&quot;Background&quot;
+      &gt;&lt;/app-lito-color-picker&gt;
+      &lt;app-lito-color-picker
+        style&#x3D;&quot;margin-left: 1rem&quot;
+        (result)&#x3D;&quot;
+          changeConstrainState($event, fieldConstrain.constrain, &#x27;color&#x27;)
+        &quot;
+        content&#x3D;&quot;Foreground&quot;
+      &gt;&lt;/app-lito-color-picker&gt;
+    &lt;/div&gt;
+  &lt;/mat-expansion-panel&gt;
+&lt;/ng-template&gt;
+
+&lt;ng-template #numberConstrainSelector&gt;
+  &lt;mat-button-toggle-group
+    class&#x3D;&quot;number-constrain-selector&quot;
+    name&#x3D;&quot;constrainSelect&quot;
+    aria-label&#x3D;&quot;Constrain select&quot;
+    value&#x3D;&quot;{{ fieldConstrain.constrain.type }}&quot;
+    (change)&#x3D;&quot;
+      changeConstrainState(
+        $event,
+        fieldConstrain.constrain,
+        &#x27;number-type&#x27;,
+        false
+      )
+    &quot;
+  &gt;
+    &lt;mat-button-toggle value&#x3D;&quot;1&quot; matTooltip&#x3D;&quot;EQUALS&quot;&gt;
+      &lt;mat-icon&gt;drag_handle&lt;/mat-icon&gt;
+    &lt;/mat-button-toggle&gt;
+    &lt;mat-button-toggle value&#x3D;&quot;2&quot; matTooltip&#x3D;&quot;MORE THAN&quot;&gt;
+      &lt;mat-icon style&#x3D;&quot;transform: rotate(90deg)&quot;&gt;expand_less&lt;/mat-icon&gt;
+    &lt;/mat-button-toggle&gt;
+    &lt;mat-button-toggle value&#x3D;&quot;3&quot; matTooltip&#x3D;&quot;LESS THAN&quot;&gt;
+      &lt;mat-icon style&#x3D;&quot;transform: rotate(90deg)&quot;&gt;expand_more&lt;/mat-icon&gt;
+    &lt;/mat-button-toggle&gt;
+    &lt;mat-button-toggle value&#x3D;&quot;4&quot; matTooltip&#x3D;&quot;BETWEEN&quot;&gt;
+      &lt;mat-icon style&#x3D;&quot;transform: rotate(90deg)&quot;&gt;unfold_less&lt;/mat-icon&gt;
+    &lt;/mat-button-toggle&gt;
+    &lt;mat-button-toggle value&#x3D;&quot;5&quot; matTooltip&#x3D;&quot;NOT BETWEEN&quot;&gt;
+      &lt;mat-icon style&#x3D;&quot;transform: rotate(90deg)&quot;&gt;unfold_more&lt;/mat-icon&gt;
+    &lt;/mat-button-toggle&gt;
+  &lt;/mat-button-toggle-group&gt;
+  &lt;div
+    *ngIf&#x3D;&quot;
+      fieldConstrain.constrain.type !&#x3D; numberConstrainType.BETWEEN &amp;&amp;
+      fieldConstrain.constrain.type !&#x3D; numberConstrainType.NOTBETWEEN
+    &quot;
+    style&#x3D;&quot;display: flex; justify-content: space-between&quot;
+  &gt;
+    &lt;mat-form-field style&#x3D;&quot;width: 100%&quot; appearance&#x3D;&quot;fill&quot;&gt;
+      &lt;mat-label
+        (click)&#x3D;&quot;$event.stopPropagation()&quot;
+        [ngSwitch]&#x3D;&quot;fieldConstrain.constrain.type&quot;
+      &gt;
+        &lt;span *ngSwitchCase&#x3D;&quot;numberConstrainType.EQUALS&quot;&gt;EQUALS&lt;/span&gt;
+        &lt;span *ngSwitchCase&#x3D;&quot;numberConstrainType.LESSTHAN&quot;&gt;LESS THAN&lt;/span&gt;
+        &lt;span *ngSwitchCase&#x3D;&quot;numberConstrainType.MORETHAN&quot;&gt;MORE THAN&lt;/span&gt;
+      &lt;/mat-label&gt;
+      &lt;input
+        type&#x3D;&quot;number&quot;
+        step&#x3D;&quot;100&quot;
+        (change)&#x3D;&quot;
+          $event.stopPropagation();
+          changeConstrainState(
+            $event,
+            fieldConstrain.constrain,
+            &#x27;number-value&#x27;,
+            false
+          )
+        &quot;
+        (keyup)&#x3D;&quot;
+          $event.stopPropagation();
+          changeConstrainState(
+            $event,
+            fieldConstrain.constrain,
+            &#x27;number-value&#x27;,
+            false
+          )
+        &quot;
+        matInput
+        placeholder&#x3D;&quot;&quot;
+        value&#x3D;&quot;{{ fieldConstrain.constrain.values[0] }}&quot;
+      /&gt;
+    &lt;/mat-form-field&gt;
+  &lt;/div&gt;
+  &lt;!-- BETWEEN --&gt;
+  &lt;div
+    *ngIf&#x3D;&quot;
+      fieldConstrain.constrain.type &#x3D;&#x3D; numberConstrainType.BETWEEN ||
+      fieldConstrain.constrain.type &#x3D;&#x3D; numberConstrainType.NOTBETWEEN
+    &quot;
+    style&#x3D;&quot;max-width: fit-content; display: flow-root&quot;
+  &gt;
+    &lt;mat-form-field style&#x3D;&quot;max-width: 45%; float: left&quot; appearance&#x3D;&quot;fill&quot;&gt;
+      &lt;mat-label (click)&#x3D;&quot;$event.stopPropagation()&quot;&gt;{{
+        fieldConstrain.constrain.type &#x3D;&#x3D; numberConstrainType.BETWEEN
+          ? &quot;MORE THAN&quot;
+          : &quot;LESS THAN&quot;
+      }}&lt;/mat-label&gt;
+      &lt;input
+        type&#x3D;&quot;number&quot;
+        step&#x3D;&quot;100&quot;
+        (change)&#x3D;&quot;
+          changeConstrainState(
+            $event,
+            fieldConstrain.constrain,
+            &#x27;number-value1&#x27;,
+            false
+          )
+        &quot;
+        (keyup)&#x3D;&quot;
+          changeConstrainState(
+            $event,
+            fieldConstrain.constrain,
+            &#x27;number-value1&#x27;,
+            false
+          )
+        &quot;
+        matInput
+        placeholder&#x3D;&quot;&quot;
+        [max]&#x3D;&quot;fieldConstrain.constrain.values[1]&quot;
+        value&#x3D;&quot;{{ fieldConstrain.constrain.values[0] }}&quot;
+      /&gt;
+    &lt;/mat-form-field&gt;
+    &lt;mat-form-field
+      style&#x3D;&quot;max-width: 45%; float: right&quot;
+      appearance&#x3D;&quot;fill&quot;
+      (click)&#x3D;&quot;$event.stopPropagation()&quot;
+      (keypress)&#x3D;&quot;$event.stopPropagation()&quot;
+      (keydown)&#x3D;&quot;$event.stopPropagation()&quot;
+    &gt;
+      &lt;mat-label
+        (click)&#x3D;&quot;$event.stopPropagation()&quot;
+        (keypress)&#x3D;&quot;$event.stopPropagation()&quot;
+      &gt;
+        {{
+          fieldConstrain.constrain.type &#x3D;&#x3D; numberConstrainType.BETWEEN
+            ? &quot;LESS THAN&quot;
+            : &quot;MORE THAN&quot;
+        }}
+      &lt;/mat-label&gt;
+      &lt;input
+        type&#x3D;&quot;number&quot;
+        step&#x3D;&quot;100&quot;
+        (change)&#x3D;&quot;
+          changeConstrainState(
+            $event,
+            fieldConstrain.constrain,
+            &#x27;number-value2&#x27;,
+            false
+          )
+        &quot;
+        (click)&#x3D;&quot;$event.stopPropagation()&quot;
+        (keydown)&#x3D;&quot;$event.stopPropagation()&quot;
+        (keypress)&#x3D;&quot;$event.stopPropagation()&quot;
+        (keyup)&#x3D;&quot;
+          changeConstrainState(
+            $event,
+            fieldConstrain.constrain,
+            &#x27;number-value2&#x27;,
+            false
+          )
+        &quot;
+        matInput
+        placeholder&#x3D;&quot;&quot;
+        [min]&#x3D;&quot;fieldConstrain.constrain.values[0]&quot;
+        value&#x3D;&quot;{{ fieldConstrain.constrain.values[1] }}&quot;
+      /&gt;
+    &lt;/mat-form-field&gt;
+  &lt;/div&gt;
+&lt;/ng-template&gt;
+
+&lt;ng-template #dateConstrainSelector&gt;
+  &lt;mat-button-toggle-group
+    class&#x3D;&quot;number-constrain-selector&quot;
+    name&#x3D;&quot;constrainSelect&quot;
+    aria-label&#x3D;&quot;Constrain select&quot;
+    value&#x3D;&quot;{{ fieldConstrain.constrain.type }}&quot;
+    (change)&#x3D;&quot;
+      changeConstrainState($event, fieldConstrain.constrain, &#x27;date-type&#x27;, false)
+    &quot;
+  &gt;
+    &lt;!-- &lt;mat-button-toggle value&#x3D;&quot;1&quot; matTooltip&#x3D;&quot;EQUALS&quot;&gt;
+      &lt;mat-icon&gt;drag_handle&lt;/mat-icon&gt;
+    &lt;/mat-button-toggle&gt; --&gt;
+    &lt;mat-button-toggle value&#x3D;&quot;2&quot; matTooltip&#x3D;&quot;AFTER&quot;&gt;
+      &lt;mat-icon style&#x3D;&quot;transform: rotate(90deg)&quot;&gt;expand_less&lt;/mat-icon&gt;
+    &lt;/mat-button-toggle&gt;
+    &lt;mat-button-toggle value&#x3D;&quot;3&quot; matTooltip&#x3D;&quot;BEFORE&quot;&gt;
+      &lt;mat-icon style&#x3D;&quot;transform: rotate(90deg)&quot;&gt;expand_more&lt;/mat-icon&gt;
+    &lt;/mat-button-toggle&gt;
+    &lt;mat-button-toggle value&#x3D;&quot;4&quot; matTooltip&#x3D;&quot;BETWEEN&quot;&gt;
+      &lt;mat-icon style&#x3D;&quot;transform: rotate(90deg)&quot;&gt;unfold_less&lt;/mat-icon&gt;
+    &lt;/mat-button-toggle&gt;
+    &lt;mat-button-toggle value&#x3D;&quot;5&quot; matTooltip&#x3D;&quot;NOT BETWEEN&quot;&gt;
+      &lt;mat-icon style&#x3D;&quot;transform: rotate(90deg)&quot;&gt;unfold_more&lt;/mat-icon&gt;
+    &lt;/mat-button-toggle&gt;
+  &lt;/mat-button-toggle-group&gt;
+  &lt;div style&#x3D;&quot;display: flex; justify-content: space-between&quot;&gt;
+    &lt;!-- EQUALS, LESSTHAN, MORETHAN --&gt;
+    &lt;mat-form-field
+      style&#x3D;&quot;width: 100%&quot;
+      appearance&#x3D;&quot;fill&quot;
+      *ngIf&#x3D;&quot;
+        fieldConstrain.constrain.type &#x3D;&#x3D; numberConstrainType.EQUALS ||
+        fieldConstrain.constrain.type &#x3D;&#x3D; numberConstrainType.LESSTHAN ||
+        fieldConstrain.constrain.type &#x3D;&#x3D; numberConstrainType.MORETHAN
+      &quot;
+    &gt;
+      &lt;mat-label [ngSwitch]&#x3D;&quot;fieldConstrain.constrain.type&quot;&gt;
+        &lt;span *ngSwitchCase&#x3D;&quot;numberConstrainType.EQUALS&quot;&gt;EQUALS&lt;/span&gt;
+        &lt;span *ngSwitchCase&#x3D;&quot;numberConstrainType.LESSTHAN&quot;&gt;Choose a date&lt;/span&gt;
+        &lt;span *ngSwitchCase&#x3D;&quot;numberConstrainType.MORETHAN&quot;&gt;Choose a date&lt;/span&gt;
+        &lt;span *ngSwitchCase&#x3D;&quot;numberConstrainType.BETWEEN&quot;
+          &gt;Choose a date range&lt;/span
+        &gt;
+        &lt;span *ngSwitchCase&#x3D;&quot;numberConstrainType.NOTBETWEEN&quot;
+          &gt;Choose a date range&lt;/span
+        &gt;
+      &lt;/mat-label&gt;
+
+      &lt;input
+        matInput
+        [matDatepicker]&#x3D;&quot;picker&quot;
+        (dateChange)&#x3D;&quot;
+          changeConstrainState(
+            $event,
+            fieldConstrain.constrain,
+            &#x27;date-value&#x27;,
+            false
+          )
+        &quot;
+      /&gt;
+      &lt;mat-datepicker-toggle matSuffix [for]&#x3D;&quot;picker&quot;&gt;&lt;/mat-datepicker-toggle&gt;
+      &lt;mat-datepicker #picker&gt;&lt;/mat-datepicker&gt;
+    &lt;/mat-form-field&gt;
+
+    &lt;!-- BETWEEN, NOTBETWEEN --&gt;
+    &lt;mat-form-field
+      style&#x3D;&quot;width: 100%&quot;
+      appearance&#x3D;&quot;fill&quot;
+      *ngIf&#x3D;&quot;
+        fieldConstrain.constrain.type &#x3D;&#x3D; numberConstrainType.BETWEEN ||
+        fieldConstrain.constrain.type &#x3D;&#x3D; numberConstrainType.NOTBETWEEN
+      &quot;
+    &gt;
+      &lt;mat-date-range-input [formGroup]&#x3D;&quot;dateRange&quot; [rangePicker]&#x3D;&quot;rangePicker&quot;&gt;
+        &lt;input
+          matStartDate
+          formControlName&#x3D;&quot;start&quot;
+          placeholder&#x3D;&quot;{{ numberConstrainType.BETWEEN ? &#x27;After&#x27; : &#x27;Bafore&#x27; }}&quot;
+          (dateChange)&#x3D;&quot;
+            changeConstrainState(
+              $event,
+              fieldConstrain.constrain,
+              &#x27;date-value1&#x27;,
+              false
+            )
+          &quot;
+        /&gt;
+        &lt;input
+          matEndDate
+          formControlName&#x3D;&quot;end&quot;
+          placeholder&#x3D;&quot;{{ numberConstrainType.BETWEEN ? &#x27;Before&#x27; : &#x27;After&#x27; }}&quot;
+          (dateChange)&#x3D;&quot;
+            changeConstrainState(
+              $event,
+              fieldConstrain.constrain,
+              &#x27;date-value2&#x27;,
+              false
+            )
+          &quot;
+        /&gt;
+      &lt;/mat-date-range-input&gt;
+      &lt;mat-datepicker-toggle
+        matSuffix
+        [for]&#x3D;&quot;rangePicker&quot;
+      &gt;&lt;/mat-datepicker-toggle&gt;
+      &lt;mat-date-range-picker #rangePicker&gt;&lt;/mat-date-range-picker&gt;
+    &lt;/mat-form-field&gt;
+  &lt;/div&gt;
+&lt;/ng-template&gt;
+
+&lt;ng-template #stringConstrainSelector&gt;
+  &lt;mat-accordion style&#x3D;&quot;margin-bottom: 1rem&quot;&gt;
+    &lt;mat-expansion-panel hideToggle&gt;
+      &lt;mat-expansion-panel-header&gt;
+        &lt;mat-panel-title&gt;
+          &lt;mat-icon *ngIf&#x3D;&quot;swEnable.checked&quot; color&#x3D;&quot;accent&quot;
+            &gt;radio_button_checked&lt;/mat-icon
+          &gt;
+          &lt;mat-icon *ngIf&#x3D;&quot;!swEnable.checked&quot; style&#x3D;&quot;color: gray&quot;
+            &gt;radio_button_checked&lt;/mat-icon
+          &gt;
+          &lt;span class&#x3D;&quot;flex-center&quot;&gt;&amp;nbsp;Starts with&lt;/span&gt;
+        &lt;/mat-panel-title&gt;
+        &lt;mat-panel-description&gt;
+          &lt;span class&#x3D;&quot;flex-center&quot;&gt;{{ swInput.value }}&lt;/span&gt;
+        &lt;/mat-panel-description&gt;
+      &lt;/mat-expansion-panel-header&gt;
+      &lt;form [formGroup]&#x3D;&quot;stringFormGroup&quot;&gt;
+        &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+          &lt;mat-label&gt;Value&lt;/mat-label&gt;
+          &lt;input matInput #swInput formControlName&#x3D;&quot;startWith&quot; /&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-slide-toggle
+          #swEnable
+          style&#x3D;&quot;margin-left: 1rem&quot;
+          formControlName&#x3D;&quot;startWithToogle&quot;
+        &gt;&lt;/mat-slide-toggle&gt;
+      &lt;/form&gt;
+    &lt;/mat-expansion-panel&gt;
+    &lt;mat-expansion-panel hideToggle&gt;
+      &lt;mat-expansion-panel-header&gt;
+        &lt;mat-panel-title&gt;
+          &lt;mat-icon *ngIf&#x3D;&quot;siEnable.checked&quot; color&#x3D;&quot;accent&quot;
+            &gt;radio_button_checked&lt;/mat-icon
+          &gt;
+          &lt;mat-icon *ngIf&#x3D;&quot;!siEnable.checked&quot; style&#x3D;&quot;color: gray&quot;
+            &gt;radio_button_checked&lt;/mat-icon
+          &gt;
+          &lt;span class&#x3D;&quot;flex-center&quot;&gt;&amp;nbsp;Includes&lt;/span&gt;
+        &lt;/mat-panel-title&gt;
+        &lt;mat-panel-description&gt;
+          &lt;span class&#x3D;&quot;flex-center&quot;&gt;{{ siInput.value }}&lt;/span&gt;
+        &lt;/mat-panel-description&gt;
+      &lt;/mat-expansion-panel-header&gt;
+      &lt;form [formGroup]&#x3D;&quot;stringFormGroup&quot;&gt;
+        &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+          &lt;mat-label&gt;Value&lt;/mat-label&gt;
+          &lt;input matInput #siInput formControlName&#x3D;&quot;includes&quot; /&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-slide-toggle
+          #siEnable
+          style&#x3D;&quot;margin-left: 1rem&quot;
+          formControlName&#x3D;&quot;includesToogle&quot;
+        &gt;&lt;/mat-slide-toggle&gt;
+      &lt;/form&gt;
+    &lt;/mat-expansion-panel&gt;
+    &lt;mat-expansion-panel hideToggle&gt;
+      &lt;mat-expansion-panel-header&gt;
+        &lt;mat-panel-title&gt;
+          &lt;mat-icon *ngIf&#x3D;&quot;ewEnable.checked&quot; color&#x3D;&quot;accent&quot;
+            &gt;radio_button_checked&lt;/mat-icon
+          &gt;
+          &lt;mat-icon *ngIf&#x3D;&quot;!ewEnable.checked&quot; style&#x3D;&quot;color: gray&quot;
+            &gt;radio_button_checked&lt;/mat-icon
+          &gt;
+          &lt;span class&#x3D;&quot;flex-center&quot;&gt;&amp;nbsp;Ends with&lt;/span&gt;
+        &lt;/mat-panel-title&gt;
+        &lt;mat-panel-description&gt;
+          &lt;span class&#x3D;&quot;flex-center&quot;&gt;{{ ewInput.value }}&lt;/span&gt;
+        &lt;/mat-panel-description&gt;
+      &lt;/mat-expansion-panel-header&gt;
+      &lt;form [formGroup]&#x3D;&quot;stringFormGroup&quot;&gt;
+        &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+          &lt;mat-label&gt;Value&lt;/mat-label&gt;
+          &lt;input matInput #ewInput formControlName&#x3D;&quot;endsWith&quot; /&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-slide-toggle
+          #ewEnable
+          style&#x3D;&quot;margin-left: 1rem&quot;
+          formControlName&#x3D;&quot;endsWithToogle&quot;
+        &gt;&lt;/mat-slide-toggle&gt;
+      &lt;/form&gt;
+    &lt;/mat-expansion-panel&gt;
+  &lt;/mat-accordion&gt;
+&lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./constrain-creator.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.constrain-mat-content-dual {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.number-constrain-selector {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.number-constrain-selector &gt; * {
+  flex-grow: 1;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-dialog-content {
+  max-height: initial;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div mat-dialog-content>  <mat-stepper [linear]="true" #stepper orientation="vertical">    <!-- Field step -->    <mat-step [stepControl]="fieldFormGroup">      <div style="margin-top: 1rem"></div>      <ng-template matStepLabel>Select a field</ng-template>      <ng-container *ngTemplateOutlet="constrainNameSelector"></ng-container>      <div>        <button mat-button matStepperNext>Next</button>      </div>    </mat-step>    <!-- Style step -->    <mat-step>      <div style="margin-top: 1rem"></div>      <ng-template matStepLabel>Aply style</ng-template>      <ng-container *ngTemplateOutlet="constrainCreationStyle"></ng-container>      <div>        <button mat-button matStepperPrevious>Back</button>        <button mat-button matStepperNext>Next</button>      </div>    </mat-step>    <!-- Constrain step -->    <mat-step>      <div style="margin-top: 1rem"></div>      <ng-template matStepLabel>Set constrain</ng-template>      <ng-container [ngSwitch]="fieldConstrain.type">        <!-- Numericos -->        <ng-container          *ngSwitchCase="1"          [ngTemplateOutlet]="numberConstrainSelector"        ></ng-container>        <ng-container          *ngSwitchCase="2"          [ngTemplateOutlet]="numberConstrainSelector"        ></ng-container>        <ng-container          *ngSwitchCase="4"          [ngTemplateOutlet]="numberConstrainSelector"        ></ng-container>        <!-- Date -->        <ng-container          *ngSwitchCase="3"          [ngTemplateOutlet]="dateConstrainSelector"        ></ng-container>        <ng-container          *ngSwitchCase="0"          [ngTemplateOutlet]="stringConstrainSelector"        ></ng-container>      </ng-container>      <div>        <button mat-button matStepperPrevious>Back</button>        <button mat-button matStepperNext>Next</button>      </div>    </mat-step>    <!-- Final step -->    <mat-step>      <ng-template matStepLabel>Done</ng-template>      <div style="width: 350px">        <p          class="mat-elevation-z4"          [style]="{            color: fieldConstrain.constrain.style[\'color\'],            \'background-color\':              fieldConstrain.constrain.style[\'background-color\'],            padding: \'1rem\',            \'border-radius\': \'4px\'          }"        >          Every {{ valueType }} from column          <strong>{{ fieldConstrain.constrainName }}</strong>          {{ finalString }}        </p>      </div>      <div>        <button mat-button matStepperPrevious>Back</button>        <button mat-button (click)="stepper.reset(); resetValues()">          Reset        </button>        <button mat-button [mat-dialog-close]="fieldConstrain">Create</button>      </div>    </mat-step>  </mat-stepper></div><ng-template #constrainNameSelector>  <form [formGroup]="fieldFormGroup">    <mat-form-field appearance="fill">      <mat-label>Field</mat-label>      <mat-select        formControlName="field"        required        (ngModelChange)="onFieldSelectorChange($event)"      >        <mat-option>None</mat-option>        <mat-option *ngFor="let column of data.columns" [value]="column">{{          column.name        }}</mat-option>      </mat-select>    </mat-form-field>  </form></ng-template><ng-template #constrainCreationStyle>  <mat-expansion-panel    hideToggle    [style]="{      \'background-color\': fieldConstrain.constrain.style[\'background-color\'],      \'margin-bottom\': \'1rem\'    }"  >    <mat-expansion-panel-header>      <mat-panel-title        [style]="{          color: fieldConstrain.constrain.style[\'color\'],          \'justify-content\': \'center\'        }"        >{{ fieldConstrain.constrainName }}</mat-panel-title      >    </mat-expansion-panel-header>    <div class="flex-center">      <app-lito-color-picker        (result)="          changeConstrainState(            $event,            fieldConstrain.constrain,            \'background-color\'          )        "        content="Background"      ></app-lito-color-picker>      <app-lito-color-picker        style="margin-left: 1rem"        (result)="          changeConstrainState($event, fieldConstrain.constrain, \'color\')        "        content="Foreground"      ></app-lito-color-picker>    </div>  </mat-expansion-panel></ng-template><ng-template #numberConstrainSelector>  <mat-button-toggle-group    class="number-constrain-selector"    name="constrainSelect"    aria-label="Constrain select"    value="{{ fieldConstrain.constrain.type }}"    (change)="      changeConstrainState(        $event,        fieldConstrain.constrain,        \'number-type\',        false      )    "  >    <mat-button-toggle value="1" matTooltip="EQUALS">      <mat-icon>drag_handle</mat-icon>    </mat-button-toggle>    <mat-button-toggle value="2" matTooltip="MORE THAN">      <mat-icon style="transform: rotate(90deg)">expand_less</mat-icon>    </mat-button-toggle>    <mat-button-toggle value="3" matTooltip="LESS THAN">      <mat-icon style="transform: rotate(90deg)">expand_more</mat-icon>    </mat-button-toggle>    <mat-button-toggle value="4" matTooltip="BETWEEN">      <mat-icon style="transform: rotate(90deg)">unfold_less</mat-icon>    </mat-button-toggle>    <mat-button-toggle value="5" matTooltip="NOT BETWEEN">      <mat-icon style="transform: rotate(90deg)">unfold_more</mat-icon>    </mat-button-toggle>  </mat-button-toggle-group>  <div    *ngIf="      fieldConstrain.constrain.type != numberConstrainType.BETWEEN &&      fieldConstrain.constrain.type != numberConstrainType.NOTBETWEEN    "    style="display: flex; justify-content: space-between"  >    <mat-form-field style="width: 100%" appearance="fill">      <mat-label        (click)="$event.stopPropagation()"        [ngSwitch]="fieldConstrain.constrain.type"      >        <span *ngSwitchCase="numberConstrainType.EQUALS">EQUALS</span>        <span *ngSwitchCase="numberConstrainType.LESSTHAN">LESS THAN</span>        <span *ngSwitchCase="numberConstrainType.MORETHAN">MORE THAN</span>      </mat-label>      <input        type="number"        step="100"        (change)="          $event.stopPropagation();          changeConstrainState(            $event,            fieldConstrain.constrain,            \'number-value\',            false          )        "        (keyup)="          $event.stopPropagation();          changeConstrainState(            $event,            fieldConstrain.constrain,            \'number-value\',            false          )        "        matInput        placeholder=""        value="{{ fieldConstrain.constrain.values[0] }}"      />    </mat-form-field>  </div>  <!-- BETWEEN -->  <div    *ngIf="      fieldConstrain.constrain.type == numberConstrainType.BETWEEN ||      fieldConstrain.constrain.type == numberConstrainType.NOTBETWEEN    "    style="max-width: fit-content; display: flow-root"  >    <mat-form-field style="max-width: 45%; float: left" appearance="fill">      <mat-label (click)="$event.stopPropagation()">{{        fieldConstrain.constrain.type == numberConstrainType.BETWEEN          ? "MORE THAN"          : "LESS THAN"      }}</mat-label>      <input        type="number"        step="100"        (change)="          changeConstrainState(            $event,            fieldConstrain.constrain,            \'number-value1\',            false          )        "        (keyup)="          changeConstrainState(            $event,            fieldConstrain.constrain,            \'number-value1\',            false          )        "        matInput        placeholder=""        [max]="fieldConstrain.constrain.values[1]"        value="{{ fieldConstrain.constrain.values[0] }}"      />    </mat-form-field>    <mat-form-field      style="max-width: 45%; float: right"      appearance="fill"      (click)="$event.stopPropagation()"      (keypress)="$event.stopPropagation()"      (keydown)="$event.stopPropagation()"    >      <mat-label        (click)="$event.stopPropagation()"        (keypress)="$event.stopPropagation()"      >        {{          fieldConstrain.constrain.type == numberConstrainType.BETWEEN            ? "LESS THAN"            : "MORE THAN"        }}      </mat-label>      <input        type="number"        step="100"        (change)="          changeConstrainState(            $event,            fieldConstrain.constrain,            \'number-value2\',            false          )        "        (click)="$event.stopPropagation()"        (keydown)="$event.stopPropagation()"        (keypress)="$event.stopPropagation()"        (keyup)="          changeConstrainState(            $event,            fieldConstrain.constrain,            \'number-value2\',            false          )        "        matInput        placeholder=""        [min]="fieldConstrain.constrain.values[0]"        value="{{ fieldConstrain.constrain.values[1] }}"      />    </mat-form-field>  </div></ng-template><ng-template #dateConstrainSelector>  <mat-button-toggle-group    class="number-constrain-selector"    name="constrainSelect"    aria-label="Constrain select"    value="{{ fieldConstrain.constrain.type }}"    (change)="      changeConstrainState($event, fieldConstrain.constrain, \'date-type\', false)    "  >    <!-- <mat-button-toggle value="1" matTooltip="EQUALS">      <mat-icon>drag_handle</mat-icon>    </mat-button-toggle> -->    <mat-button-toggle value="2" matTooltip="AFTER">      <mat-icon style="transform: rotate(90deg)">expand_less</mat-icon>    </mat-button-toggle>    <mat-button-toggle value="3" matTooltip="BEFORE">      <mat-icon style="transform: rotate(90deg)">expand_more</mat-icon>    </mat-button-toggle>    <mat-button-toggle value="4" matTooltip="BETWEEN">      <mat-icon style="transform: rotate(90deg)">unfold_less</mat-icon>    </mat-button-toggle>    <mat-button-toggle value="5" matTooltip="NOT BETWEEN">      <mat-icon style="transform: rotate(90deg)">unfold_more</mat-icon>    </mat-button-toggle>  </mat-button-toggle-group>  <div style="display: flex; justify-content: space-between">    <!-- EQUALS, LESSTHAN, MORETHAN -->    <mat-form-field      style="width: 100%"      appearance="fill"      *ngIf="        fieldConstrain.constrain.type == numberConstrainType.EQUALS ||        fieldConstrain.constrain.type == numberConstrainType.LESSTHAN ||        fieldConstrain.constrain.type == numberConstrainType.MORETHAN      "    >      <mat-label [ngSwitch]="fieldConstrain.constrain.type">        <span *ngSwitchCase="numberConstrainType.EQUALS">EQUALS</span>        <span *ngSwitchCase="numberConstrainType.LESSTHAN">Choose a date</span>        <span *ngSwitchCase="numberConstrainType.MORETHAN">Choose a date</span>        <span *ngSwitchCase="numberConstrainType.BETWEEN"          >Choose a date range</span        >        <span *ngSwitchCase="numberConstrainType.NOTBETWEEN"          >Choose a date range</span        >      </mat-label>      <input        matInput        [matDatepicker]="picker"        (dateChange)="          changeConstrainState(            $event,            fieldConstrain.constrain,            \'date-value\',            false          )        "      />      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      <mat-datepicker #picker></mat-datepicker>    </mat-form-field>    <!-- BETWEEN, NOTBETWEEN -->    <mat-form-field      style="width: 100%"      appearance="fill"      *ngIf="        fieldConstrain.constrain.type == numberConstrainType.BETWEEN ||        fieldConstrain.constrain.type == numberConstrainType.NOTBETWEEN      "    >      <mat-date-range-input [formGroup]="dateRange" [rangePicker]="rangePicker">        <input          matStartDate          formControlName="start"          placeholder="{{ numberConstrainType.BETWEEN ? \'After\' : \'Bafore\' }}"          (dateChange)="            changeConstrainState(              $event,              fieldConstrain.constrain,              \'date-value1\',              false            )          "        />        <input          matEndDate          formControlName="end"          placeholder="{{ numberConstrainType.BETWEEN ? \'Before\' : \'After\' }}"          (dateChange)="            changeConstrainState(              $event,              fieldConstrain.constrain,              \'date-value2\',              false            )          "        />      </mat-date-range-input>      <mat-datepicker-toggle        matSuffix        [for]="rangePicker"      ></mat-datepicker-toggle>      <mat-date-range-picker #rangePicker></mat-date-range-picker>    </mat-form-field>  </div></ng-template><ng-template #stringConstrainSelector>  <mat-accordion style="margin-bottom: 1rem">    <mat-expansion-panel hideToggle>      <mat-expansion-panel-header>        <mat-panel-title>          <mat-icon *ngIf="swEnable.checked" color="accent"            >radio_button_checked</mat-icon          >          <mat-icon *ngIf="!swEnable.checked" style="color: gray"            >radio_button_checked</mat-icon          >          <span class="flex-center">&nbsp;Starts with</span>        </mat-panel-title>        <mat-panel-description>          <span class="flex-center">{{ swInput.value }}</span>        </mat-panel-description>      </mat-expansion-panel-header>      <form [formGroup]="stringFormGroup">        <mat-form-field appearance="fill">          <mat-label>Value</mat-label>          <input matInput #swInput formControlName="startWith" />        </mat-form-field>        <mat-slide-toggle          #swEnable          style="margin-left: 1rem"          formControlName="startWithToogle"        ></mat-slide-toggle>      </form>    </mat-expansion-panel>    <mat-expansion-panel hideToggle>      <mat-expansion-panel-header>        <mat-panel-title>          <mat-icon *ngIf="siEnable.checked" color="accent"            >radio_button_checked</mat-icon          >          <mat-icon *ngIf="!siEnable.checked" style="color: gray"            >radio_button_checked</mat-icon          >          <span class="flex-center">&nbsp;Includes</span>        </mat-panel-title>        <mat-panel-description>          <span class="flex-center">{{ siInput.value }}</span>        </mat-panel-description>      </mat-expansion-panel-header>      <form [formGroup]="stringFormGroup">        <mat-form-field appearance="fill">          <mat-label>Value</mat-label>          <input matInput #siInput formControlName="includes" />        </mat-form-field>        <mat-slide-toggle          #siEnable          style="margin-left: 1rem"          formControlName="includesToogle"        ></mat-slide-toggle>      </form>    </mat-expansion-panel>    <mat-expansion-panel hideToggle>      <mat-expansion-panel-header>        <mat-panel-title>          <mat-icon *ngIf="ewEnable.checked" color="accent"            >radio_button_checked</mat-icon          >          <mat-icon *ngIf="!ewEnable.checked" style="color: gray"            >radio_button_checked</mat-icon          >          <span class="flex-center">&nbsp;Ends with</span>        </mat-panel-title>        <mat-panel-description>          <span class="flex-center">{{ ewInput.value }}</span>        </mat-panel-description>      </mat-expansion-panel-header>      <form [formGroup]="stringFormGroup">        <mat-form-field appearance="fill">          <mat-label>Value</mat-label>          <input matInput #ewInput formControlName="endsWith" />        </mat-form-field>        <mat-slide-toggle          #ewEnable          style="margin-left: 1rem"          formControlName="endsWithToogle"        ></mat-slide-toggle>      </form>    </mat-expansion-panel>  </mat-accordion></ng-template></div>'
+    var COMPONENTS = [{'name': 'ConstrainCreationForm', 'selector': 'constrain-creation-form-dialog'},{'name': 'ConstrainCreatorComponent', 'selector': 'litotable-constrain-creator'},{'name': 'DialogColorPicker', 'selector': 'dialog-overview-example-dialog'},{'name': 'LitoColorPickerComponent', 'selector': 'app-lito-color-picker'},{'name': 'LitotableComponent', 'selector': 'lito-table'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ConstrainCreationForm'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ConstrainCreationForm.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

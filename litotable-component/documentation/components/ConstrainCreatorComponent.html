@@ -1,0 +1,836 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>litotable documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">litotable documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  ConstrainCreatorComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/litotable/constrain-creator/constrain-creator.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>litotable-constrain-creator</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./constrain-creator.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./constrain-creator.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dialog" >dialog</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#openDialog" >openDialog</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#columns" >columns</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#result-constrain" >result-constrain</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(dialog: MatDialog)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="columns"></a>
+                        <b>columns</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Column.html" target="_self" >Column[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:41</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="result-constrain"></a>
+                        <b>result-constrain</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/FieldConstrianStyle.html" target="_self" >EventEmitter&lt;FieldConstrianStyle&gt;</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:42</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:47</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openDialog"></a>
+                    <span class="name">
+                        <span ><b>openDialog</b></span>
+                        <a href="#openDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openDialog()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:49</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dialog"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>dialog</b></span>
+                        <a href="#dialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MatDialog</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component,
+  EventEmitter,
+  Inject,
+  Input,
+  OnInit,
+  Output,
+} from &#x27;@angular/core&#x27;;
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from &#x27;@angular/material/dialog&#x27;;
+import { Column } from &#x27;../column&#x27;;
+import {
+  Constrain,
+  FieldConstrianStyle,
+  NumberConstrain,
+  MesurableConstrainType,
+  DateConstrain,
+  StringConstrainType,
+} from &#x27;../configurations/fieldConstriansStyle&#x27;;
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from &#x27;@angular/forms&#x27;;
+import { ColumnType } from &#x27;../decorators/column.decorator&#x27;;
+
+export class ConstrainCreationFormData {
+  columns: Column[] &#x3D; [];
+}
+
+@Component({
+  selector: &#x27;litotable-constrain-creator&#x27;,
+  templateUrl: &#x27;./constrain-creator.component.html&#x27;,
+  styleUrls: [&#x27;./constrain-creator.component.css&#x27;],
+})
+export class ConstrainCreatorComponent implements OnInit {
+  @Input(&#x27;columns&#x27;) columns: Column[] &#x3D; [];
+  @Output(&#x27;result-constrain&#x27;) result: EventEmitter&lt;FieldConstrianStyle&gt; &#x3D;
+    new EventEmitter();
+
+  constructor(public dialog: MatDialog) {}
+
+  ngOnInit() {}
+
+  openDialog(): void {
+    const dialogRef &#x3D; this.dialog.open(ConstrainCreationForm, {
+      data: { columns: this.columns },
+      maxHeight: &#x27;80vh&#x27;,
+    });
+
+    dialogRef.afterClosed().subscribe((result) &#x3D;&gt; {
+      if (result) this.result.emit(result);
+    });
+  }
+}
+
+@Component({
+  selector: &#x27;constrain-creation-form-dialog&#x27;,
+  templateUrl: &#x27;constrain-form.component.html&#x27;,
+  styleUrls: [&#x27;./constrain-creator.component.css&#x27;],
+})
+export class ConstrainCreationForm {
+  fieldFormGroup!: FormGroup;
+  stringFormGroup!: FormGroup;
+  fieldConstrain: FieldConstrianStyle | any;
+  numberConstrainType &#x3D; MesurableConstrainType;
+  stringConstrainType &#x3D; StringConstrainType;
+  finalString: string &#x3D; &#x27;&#x27;;
+  valueType: string &#x3D; &#x27;&#x27;;
+  dateRange &#x3D; new FormGroup({
+    start: new FormControl(),
+    end: new FormControl(),
+  });
+  constructor(
+    public dialogRef: MatDialogRef&lt;ConstrainCreationForm&gt;,
+    @Inject(MAT_DIALOG_DATA) public data: ConstrainCreationFormData,
+    private _formBuilder: FormBuilder
+  ) {
+    this.resetValues();
+  }
+
+  ngOnInit() {
+    this.fieldFormGroup &#x3D; this._formBuilder.group({
+      field: [&#x27;&#x27;, Validators.required],
+    });
+    this.stringFormGroup &#x3D; this._formBuilder.group({
+      startWith: [&#x27;&#x27;],
+      startWithToogle: [&#x27;&#x27;],
+      includes: [&#x27;&#x27;],
+      includesToogle: [&#x27;&#x27;],
+      endsWith: [&#x27;&#x27;],
+      endsWithToogle: [&#x27;&#x27;],
+    });
+    this.getFinalText();
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  onFieldSelectorChange(selected: Column) {
+    if (selected) {
+      this.fieldConstrain.propertyKey &#x3D; selected.propertyKey;
+      this.fieldConstrain.constrainName &#x3D; selected.name;
+      this.fieldConstrain.type &#x3D; selected.type;
+      if (selected.type &#x3D;&#x3D; ColumnType.DATE) {
+        this.fieldConstrain.constrain &#x3D; new DateConstrain(
+          this.numberConstrainType.MORETHAN,
+          [new Date(), new Date()],
+          {
+            color: &#x27;#eee&#x27;,
+            &#x27;background-color&#x27;: &#x27;#888&#x27;,
+          }
+        );
+      }
+    }
+    this.getFinalText();
+  }
+
+  changeConstrainState(
+    value: any,
+    data: Constrain | any,
+    field: string,
+    isStyle: boolean &#x3D; true
+  ) {
+    if (isStyle &amp;&amp; field &amp;&amp; field !&#x3D; &#x27;&#x27;) {
+      this.fieldConstrain.constrain.style[field] &#x3D; value;
+    }
+    if (!isStyle) {
+      switch (field) {
+        case &#x27;date-type&#x27;:
+        case &#x27;number-type&#x27;:
+          this.fieldConstrain.constrain.type &#x3D; parseInt(value.value);
+          break;
+        case &#x27;number-value&#x27;:
+        case &#x27;number-value1&#x27;:
+          this.fieldConstrain.constrain.values[0] &#x3D; parseInt(
+            value.target.value
+          );
+          break;
+        case &#x27;number-value2&#x27;:
+          this.fieldConstrain.constrain.values[1] &#x3D; parseInt(
+            value.target.value
+          );
+          break;
+        case &#x27;date-value&#x27;:
+        case &#x27;date-value1&#x27;:
+          this.fieldConstrain.constrain.values[0] &#x3D; new Date(value.value);
+          break;
+        case &#x27;date-value2&#x27;:
+          this.fieldConstrain.constrain.values[1] &#x3D; new Date(value.value);
+          break;
+      }
+    }
+    this.getFinalText();
+  }
+
+  getFinalText() {
+    this.finalString &#x3D; &#x27;&#x27;;
+    switch (this.fieldConstrain.type) {
+      case ColumnType.INTEGER:
+      case ColumnType.FLOAT:
+      case ColumnType.FLOAT:
+        this.valueType &#x3D; &#x27;value&#x27;;
+        this.finalString &#x3D; &#x60;that is &#x60;;
+        break;
+      case ColumnType.DATE:
+        this.valueType &#x3D; &#x27;date&#x27;;
+        break;
+      case ColumnType.STRING:
+        this.valueType &#x3D; &#x27;string&#x27;;
+        break;
+      default:
+        this.valueType &#x3D; &#x27;value&#x27;;
+        break;
+    }
+
+    switch (this.fieldConstrain.type) {
+      case ColumnType.INTEGER:
+      case ColumnType.FLOAT:
+      case ColumnType.CURRENCY:
+        switch (this.fieldConstrain.constrain.type) {
+          case MesurableConstrainType.EQUALS:
+            this.finalString +&#x3D; &#x60;equal to ${this.fieldConstrain.constrain.values[0]}&#x60;;
+            break;
+          case MesurableConstrainType.MORETHAN:
+            this.finalString +&#x3D; &#x60;more than ${this.fieldConstrain.constrain.values[0]}&#x60;;
+            break;
+          case MesurableConstrainType.LESSTHAN:
+            this.finalString +&#x3D; &#x60;less than ${this.fieldConstrain.constrain.values[0]}&#x60;;
+            break;
+          case MesurableConstrainType.BETWEEN:
+            this.finalString +&#x3D; &#x60;between ${this.fieldConstrain.constrain.values[0]} and ${this.fieldConstrain.constrain.values[1]}&#x60;;
+            break;
+          case MesurableConstrainType.NOTBETWEEN:
+            this.finalString +&#x3D; &#x60;not between ${this.fieldConstrain.constrain.values[0]} and ${this.fieldConstrain.constrain.values[1]}&#x60;;
+            break;
+        }
+        break;
+      case ColumnType.DATE:
+        switch (this.fieldConstrain.constrain.type) {
+          case MesurableConstrainType.EQUALS:
+            this.finalString +&#x3D; &#x60;equal to ${this.shortDate(
+              this.fieldConstrain.constrain.values[0]
+            )}&#x60;;
+            break;
+          case MesurableConstrainType.MORETHAN:
+            this.finalString +&#x3D; &#x60;after ${this.shortDate(
+              this.fieldConstrain.constrain.values[0]
+            )}&#x60;;
+            break;
+          case MesurableConstrainType.LESSTHAN:
+            this.finalString +&#x3D; &#x60;before ${this.shortDate(
+              this.fieldConstrain.constrain.values[0]
+            )}&#x60;;
+            break;
+          case MesurableConstrainType.BETWEEN:
+            this.finalString +&#x3D; &#x60;between ${this.shortDate(
+              this.fieldConstrain.constrain.values[0]
+            )} and ${this.shortDate(this.fieldConstrain.constrain.values[1])}&#x60;;
+            break;
+          case MesurableConstrainType.NOTBETWEEN:
+            this.finalString +&#x3D; &#x60;not between ${this.shortDate(
+              this.fieldConstrain.constrain.values[0]
+            )} and ${this.shortDate(this.fieldConstrain.constrain.values[1])}&#x60;;
+            break;
+        }
+
+        break;
+    }
+  }
+
+  shortDate(str: string): string {
+    return new Date(str).toLocaleDateString(&#x27;en-US&#x27;, {
+      day: &#x27;2-digit&#x27;,
+      month: &#x27;2-digit&#x27;,
+      year: &#x27;numeric&#x27;,
+    });
+  }
+
+  resetValues() {
+    this.fieldConstrain &#x3D; {
+      propertyKey: this.data.columns[0].propertyKey,
+      constrainName: &#x27;New Constrain&#x27;,
+      type: this.data.columns[0].type,
+      constrain: new NumberConstrain(
+        this.numberConstrainType.MORETHAN,
+        [0, 0],
+        {
+          color: &#x27;#eee&#x27;,
+          &#x27;background-color&#x27;: &#x27;#888&#x27;,
+        }
+      ),
+      metadata: {
+        enable: true,
+        trigger: (e: any) &#x3D;&gt; false,
+        style: {},
+      },
+    };
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div (click)&#x3D;&quot;openDialog()&quot;&gt;
+  &lt;ng-content&gt;&lt;/ng-content&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./constrain-creator.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.constrain-mat-content-dual {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.number-constrain-selector {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.number-constrain-selector &gt; * {
+  flex-grow: 1;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-dialog-content {
+  max-height: initial;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div (click)="openDialog()">  <ng-content></ng-content></div></div>'
+    var COMPONENTS = [{'name': 'ConstrainCreationForm', 'selector': 'constrain-creation-form-dialog'},{'name': 'ConstrainCreatorComponent', 'selector': 'litotable-constrain-creator'},{'name': 'DialogColorPicker', 'selector': 'dialog-overview-example-dialog'},{'name': 'LitoColorPickerComponent', 'selector': 'app-lito-color-picker'},{'name': 'LitotableComponent', 'selector': 'lito-table'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ConstrainCreatorComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ConstrainCreatorComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
