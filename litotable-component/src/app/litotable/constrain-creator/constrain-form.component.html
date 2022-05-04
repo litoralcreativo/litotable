@@ -37,13 +37,23 @@
           *ngSwitchCase="4"
           [ngTemplateOutlet]="numberConstrainSelector"
         ></ng-container>
+
         <!-- Date -->
         <ng-container
           *ngSwitchCase="3"
           [ngTemplateOutlet]="dateConstrainSelector"
         ></ng-container>
+        <!-- String -->
         <ng-container
           *ngSwitchCase="0"
+          [ngTemplateOutlet]="stringConstrainSelector"
+        ></ng-container>
+        <ng-container
+          *ngSwitchCase="5"
+          [ngTemplateOutlet]="stringConstrainSelector"
+        ></ng-container>
+        <ng-container
+          *ngSwitchCase="6"
           [ngTemplateOutlet]="stringConstrainSelector"
         ></ng-container>
       </ng-container>
@@ -77,7 +87,7 @@
         <button mat-button (click)="stepper.reset(); resetValues()">
           Reset
         </button>
-        <button mat-button [mat-dialog-close]="fieldConstrain">Create</button>
+        <button mat-button (click)="closeDialog()">Create</button>
       </div>
     </mat-step>
   </mat-stepper>
@@ -120,20 +130,12 @@
     </mat-expansion-panel-header>
     <div class="flex-center">
       <app-lito-color-picker
-        (result)="
-          changeConstrainState(
-            $event,
-            fieldConstrain.constrain,
-            'background-color'
-          )
-        "
+        (result)="changeConstrainStyle($event, 'background-color')"
         content="Background"
       ></app-lito-color-picker>
       <app-lito-color-picker
         style="margin-left: 1rem"
-        (result)="
-          changeConstrainState($event, fieldConstrain.constrain, 'color')
-        "
+        (result)="changeConstrainStyle($event, 'color')"
         content="Foreground"
       ></app-lito-color-picker>
     </div>
@@ -146,14 +148,7 @@
     name="constrainSelect"
     aria-label="Constrain select"
     value="{{ fieldConstrain.constrain.type }}"
-    (change)="
-      changeConstrainState(
-        $event,
-        fieldConstrain.constrain,
-        'number-type',
-        false
-      )
-    "
+    (change)="changeConstrainState($event, 'number-type')"
   >
     <mat-button-toggle value="1" matTooltip="EQUALS">
       <mat-icon>drag_handle</mat-icon>
@@ -191,22 +186,10 @@
         type="number"
         step="100"
         (change)="
-          $event.stopPropagation();
-          changeConstrainState(
-            $event,
-            fieldConstrain.constrain,
-            'number-value',
-            false
-          )
+          $event.stopPropagation(); changeConstrainState($event, 'number-value')
         "
         (keyup)="
-          $event.stopPropagation();
-          changeConstrainState(
-            $event,
-            fieldConstrain.constrain,
-            'number-value',
-            false
-          )
+          $event.stopPropagation(); changeConstrainState($event, 'number-value')
         "
         matInput
         placeholder=""
@@ -231,22 +214,8 @@
       <input
         type="number"
         step="100"
-        (change)="
-          changeConstrainState(
-            $event,
-            fieldConstrain.constrain,
-            'number-value1',
-            false
-          )
-        "
-        (keyup)="
-          changeConstrainState(
-            $event,
-            fieldConstrain.constrain,
-            'number-value1',
-            false
-          )
-        "
+        (change)="changeConstrainState($event, 'number-value1')"
+        (keyup)="changeConstrainState($event, 'number-value1')"
         matInput
         placeholder=""
         [max]="fieldConstrain.constrain.values[1]"
@@ -273,25 +242,11 @@
       <input
         type="number"
         step="100"
-        (change)="
-          changeConstrainState(
-            $event,
-            fieldConstrain.constrain,
-            'number-value2',
-            false
-          )
-        "
+        (change)="changeConstrainState($event, 'number-value2')"
         (click)="$event.stopPropagation()"
         (keydown)="$event.stopPropagation()"
         (keypress)="$event.stopPropagation()"
-        (keyup)="
-          changeConstrainState(
-            $event,
-            fieldConstrain.constrain,
-            'number-value2',
-            false
-          )
-        "
+        (keyup)="changeConstrainState($event, 'number-value2')"
         matInput
         placeholder=""
         [min]="fieldConstrain.constrain.values[0]"
@@ -307,9 +262,7 @@
     name="constrainSelect"
     aria-label="Constrain select"
     value="{{ fieldConstrain.constrain.type }}"
-    (change)="
-      changeConstrainState($event, fieldConstrain.constrain, 'date-type', false)
-    "
+    (change)="changeConstrainState($event, 'date-type')"
   >
     <!-- <mat-button-toggle value="1" matTooltip="EQUALS">
       <mat-icon>drag_handle</mat-icon>
@@ -353,14 +306,7 @@
       <input
         matInput
         [matDatepicker]="picker"
-        (dateChange)="
-          changeConstrainState(
-            $event,
-            fieldConstrain.constrain,
-            'date-value',
-            false
-          )
-        "
+        (dateChange)="changeConstrainState($event, 'date-value')"
       />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
@@ -380,27 +326,13 @@
           matStartDate
           formControlName="start"
           placeholder="{{ numberConstrainType.BETWEEN ? 'After' : 'Bafore' }}"
-          (dateChange)="
-            changeConstrainState(
-              $event,
-              fieldConstrain.constrain,
-              'date-value1',
-              false
-            )
-          "
+          (dateChange)="changeConstrainState($event, 'date-value1')"
         />
         <input
           matEndDate
           formControlName="end"
           placeholder="{{ numberConstrainType.BETWEEN ? 'Before' : 'After' }}"
-          (dateChange)="
-            changeConstrainState(
-              $event,
-              fieldConstrain.constrain,
-              'date-value2',
-              false
-            )
-          "
+          (dateChange)="changeConstrainState($event, 'date-value2')"
         />
       </mat-date-range-input>
       <mat-datepicker-toggle
@@ -413,13 +345,13 @@
 </ng-template>
 
 <ng-template #stringConstrainSelector>
-  <mat-accordion style="margin-bottom: 1rem">
+  <mat-accordion>
     <mat-expansion-panel hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          <mat-icon *ngIf="swEnable.checked" color="accent"
-            >radio_button_checked</mat-icon
-          >
+          <mat-icon *ngIf="swEnable.checked" color="accent">
+            radio_button_checked
+          </mat-icon>
           <mat-icon *ngIf="!swEnable.checked" style="color: gray"
             >radio_button_checked</mat-icon
           >
@@ -429,12 +361,18 @@
           <span class="flex-center">{{ swInput.value }}</span>
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <form [formGroup]="stringFormGroup">
+      <form [formGroup]="stringFormGroup" (change)="updateStringConstrain()">
         <mat-form-field appearance="fill">
           <mat-label>Value</mat-label>
-          <input matInput #swInput formControlName="startWith" />
+          <input
+            matInput
+            autocomplete="off"
+            #swInput
+            formControlName="startWith"
+          />
         </mat-form-field>
         <mat-slide-toggle
+          (change)="updateStringConstrain()"
           #swEnable
           style="margin-left: 1rem"
           formControlName="startWithToogle"
@@ -456,19 +394,25 @@
           <span class="flex-center">{{ siInput.value }}</span>
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <form [formGroup]="stringFormGroup">
+      <form [formGroup]="stringFormGroup" (change)="updateStringConstrain()">
         <mat-form-field appearance="fill">
           <mat-label>Value</mat-label>
-          <input matInput #siInput formControlName="includes" />
+          <input
+            matInput
+            autocomplete="off"
+            #siInput
+            formControlName="includes"
+          />
         </mat-form-field>
         <mat-slide-toggle
+          (change)="updateStringConstrain()"
           #siEnable
           style="margin-left: 1rem"
           formControlName="includesToogle"
         ></mat-slide-toggle>
       </form>
     </mat-expansion-panel>
-    <mat-expansion-panel hideToggle>
+    <mat-expansion-panel hideToggle style="margin-bottom: 1rem">
       <mat-expansion-panel-header>
         <mat-panel-title>
           <mat-icon *ngIf="ewEnable.checked" color="accent"
@@ -483,12 +427,18 @@
           <span class="flex-center">{{ ewInput.value }}</span>
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <form [formGroup]="stringFormGroup">
+      <form [formGroup]="stringFormGroup" (change)="updateStringConstrain()">
         <mat-form-field appearance="fill">
           <mat-label>Value</mat-label>
-          <input matInput #ewInput formControlName="endsWith" />
+          <input
+            matInput
+            autocomplete="off"
+            #ewInput
+            formControlName="endsWith"
+          />
         </mat-form-field>
         <mat-slide-toggle
+          (change)="updateStringConstrain()"
           #ewEnable
           style="margin-left: 1rem"
           formControlName="endsWithToogle"

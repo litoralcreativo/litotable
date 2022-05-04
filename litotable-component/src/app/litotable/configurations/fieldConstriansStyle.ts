@@ -131,6 +131,9 @@ export class NumberConstrain implements Constrain {
   };
 }
 
+/**
+ * This class is for string constrains
+ */
 export class StringConstrain implements Constrain {
   style: Object;
   enable: boolean;
@@ -146,6 +149,7 @@ export class StringConstrain implements Constrain {
     this.caseSensitive = caseSense;
   }
   trigger = (e: string): boolean => {
+    e = e.toString();
     let result = true;
     for (let i = 0; i < this.constrainArray.length; i++) {
       const con = this.constrainArray[i];
@@ -180,13 +184,13 @@ export class StringConstrain implements Constrain {
       }
       if (!result) break;
     }
-    return true;
+    return result;
   };
   addConstrain(stringConstrain: StringConstrainObject) {
     this.constrainArray.push(stringConstrain);
   }
-  removeConstrain(stringConstrain: StringConstrainObject) {
-    this.constrainArray.filter((x) => x != stringConstrain);
+  clearConstrains() {
+    this.constrainArray = [];
   }
 }
 

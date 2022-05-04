@@ -43,6 +43,8 @@ export class LitotableComponent implements OnInit, AfterViewInit {
   constrainedRows = new Set();
   showSelectedOnly: boolean = false;
 
+  creationFormOpen: boolean = false;
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @Input('source') inputSource!: Observable<any[]>;
   @Input('type') dataType!: Object;
@@ -259,6 +261,10 @@ export class LitotableComponent implements OnInit, AfterViewInit {
     this.fieldConstrians = this.fieldConstrians.filter((x) => x != constrain);
     this.updateVisibility();
     console.log(this.fieldConstrians);
+  }
+
+  openCreationForm() {
+    // this.creationFormOpen = !this.creationFormOpen;
   }
 }
 

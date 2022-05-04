@@ -34,7 +34,6 @@ export class AppComponent implements OnInit {
 
   constructor(private usersService: UsersService) {
     this.usersTableConfig = {
-      paginationSizes: [7, 11, 23, 51],
       hoverStyle: RowStyle.BORDER,
       selectionStyle: RowStyle.SHADOW,
     };

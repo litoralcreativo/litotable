@@ -5,6 +5,7 @@ import {
   Input,
   OnInit,
   Output,
+  ViewChild,
 } from '@angular/core';
 import {
   MatDialog,
@@ -19,6 +20,8 @@ import {
   MesurableConstrainType,
   DateConstrain,
   StringConstrainType,
+  StringConstrain,
+  StringConstrainObject,
 } from '../configurations/fieldConstriansStyle';
 import {
   FormBuilder,
@@ -27,6 +30,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ColumnType } from '../decorators/column.decorator';
+import { MatAccordion } from '@angular/material/expansion';
 
 export class ConstrainCreationFormData {
   columns: Column[] = [];
@@ -71,6 +75,8 @@ export class ConstrainCreationForm {
   stringConstrainType = StringConstrainType;
   finalString: string = '';
   valueType: string = '';
+  @ViewChild(MatAccordion) strAccordion!: MatAccordion;
+
   dateRange = new FormGroup({
     start: new FormControl(),
     end: new FormControl(),
@@ -79,9 +85,7 @@ export class ConstrainCreationForm {
     public dialogRef: MatDialogRef<ConstrainCreationForm>,
     @Inject(MAT_DIALOG_DATA) public data: ConstrainCreationFormData,
     private _formBuilder: FormBuilder
-  ) {
-    this.resetValues();
-  }
+  ) {}
 
   ngOnInit() {
     this.fieldFormGroup = this._formBuilder.group({
@@ -95,6 +99,8 @@ export class ConstrainCreationForm {
       endsWith: [''],
       endsWithToogle: [''],
     });
+    this.resetValues();
+
     this.getFinalText();
   }
 
@@ -103,58 +109,62 @@ export class ConstrainCreationForm {
   }
 
   onFieldSelectorChange(selected: Column) {
+    this.resetValues();
     if (selected) {
       this.fieldConstrain.propertyKey = selected.propertyKey;
       this.fieldConstrain.constrainName = selected.name;
       this.fieldConstrain.type = selected.type;
-      if (selected.type == ColumnType.DATE) {
-        this.fieldConstrain.constrain = new DateConstrain(
-          this.numberConstrainType.MORETHAN,
-          [new Date(), new Date()],
-          {
+
+      switch (selected.type) {
+        case ColumnType.DATE:
+          this.fieldConstrain.constrain = new DateConstrain(
+            this.numberConstrainType.MORETHAN,
+            [new Date(), new Date()],
+            {
+              color: '#eee',
+              'background-color': '#888',
+            }
+          );
+          break;
+        case ColumnType.STRING:
+        case ColumnType.PHONE:
+        case ColumnType.CUIT:
+          this.fieldConstrain.constrain = new StringConstrain({
             color: '#eee',
             'background-color': '#888',
-          }
-        );
+          });
+          break;
       }
     }
     this.getFinalText();
   }
 
-  changeConstrainState(
-    value: any,
-    data: Constrain | any,
-    field: string,
-    isStyle: boolean = true
-  ) {
-    if (isStyle && field && field != '') {
+  changeConstrainStyle(value: any, field: string) {
+    if (field && field != '') {
       this.fieldConstrain.constrain.style[field] = value;
     }
-    if (!isStyle) {
-      switch (field) {
-        case 'date-type':
-        case 'number-type':
-          this.fieldConstrain.constrain.type = parseInt(value.value);
-          break;
-        case 'number-value':
-        case 'number-value1':
-          this.fieldConstrain.constrain.values[0] = parseInt(
-            value.target.value
-          );
-          break;
-        case 'number-value2':
-          this.fieldConstrain.constrain.values[1] = parseInt(
-            value.target.value
-          );
-          break;
-        case 'date-value':
-        case 'date-value1':
-          this.fieldConstrain.constrain.values[0] = new Date(value.value);
-          break;
-        case 'date-value2':
-          this.fieldConstrain.constrain.values[1] = new Date(value.value);
-          break;
-      }
+  }
+
+  changeConstrainState(value: any, field: string) {
+    switch (field) {
+      case 'date-type':
+      case 'number-type':
+        this.fieldConstrain.constrain.type = parseInt(value.value);
+        break;
+      case 'number-value':
+      case 'number-value1':
+        this.fieldConstrain.constrain.values[0] = parseInt(value.target.value);
+        break;
+      case 'number-value2':
+        this.fieldConstrain.constrain.values[1] = parseInt(value.target.value);
+        break;
+      case 'date-value':
+      case 'date-value1':
+        this.fieldConstrain.constrain.values[0] = new Date(value.value);
+        break;
+      case 'date-value2':
+        this.fieldConstrain.constrain.values[1] = new Date(value.value);
+        break;
     }
     this.getFinalText();
   }
@@ -172,7 +182,10 @@ export class ConstrainCreationForm {
         this.valueType = 'date';
         break;
       case ColumnType.STRING:
+      case ColumnType.PHONE:
+      case ColumnType.CUIT:
         this.valueType = 'string';
+        this.finalString = `that `;
         break;
       default:
         this.valueType = 'value';
@@ -231,6 +244,36 @@ export class ConstrainCreationForm {
         }
 
         break;
+      case ColumnType.STRING:
+      case ColumnType.CUIT:
+      case ColumnType.PHONE:
+        for (
+          let i = 0;
+          i < this.fieldConstrain.constrain.constrainArray.length;
+          i++
+        ) {
+          const strConstr: StringConstrainObject =
+            this.fieldConstrain.constrain.constrainArray[i];
+
+          switch (strConstr.type) {
+            case StringConstrainType.STARTSWITH:
+              this.finalString += `starts width ${strConstr.value}`;
+              break;
+            case StringConstrainType.CONTAINS:
+              this.finalString += `contains ${strConstr.value}`;
+              break;
+            case StringConstrainType.ENDWITH:
+              this.finalString += `ends width ${strConstr.value}`;
+              break;
+          }
+          if (this.fieldConstrain.constrain.constrainArray.length > 1) {
+            if (i < this.fieldConstrain.constrain.constrainArray.length - 2)
+              this.finalString += ', ';
+            if (i == this.fieldConstrain.constrain.constrainArray.length - 2)
+              this.finalString += ' and ';
+          }
+        }
+        break;
     }
   }
 
@@ -243,10 +286,11 @@ export class ConstrainCreationForm {
   }
 
   resetValues() {
+    this.stringFormGroup.reset();
     this.fieldConstrain = {
       propertyKey: this.data.columns[0].propertyKey,
       constrainName: 'New Constrain',
-      type: this.data.columns[0].type,
+      type: ColumnType.INTEGER,
       constrain: new NumberConstrain(
         this.numberConstrainType.MORETHAN,
         [0, 0],
@@ -261,5 +305,40 @@ export class ConstrainCreationForm {
         style: {},
       },
     };
+    if (this.strAccordion) this.strAccordion.closeAll();
+  }
+
+  updateStringConstrain() {
+    let values: {
+      startWith: any;
+      startWithToogle: any;
+      includes: any;
+      includesToogle: any;
+      endsWith: any;
+      endsWithToogle: any;
+    } = this.stringFormGroup.value;
+
+    this.fieldConstrain.constrain.clearConstrains();
+    if (values.startWithToogle && values.startWith)
+      this.fieldConstrain.constrain.addConstrain({
+        type: StringConstrainType.STARTSWITH,
+        value: values.startWith,
+      });
+    if (values.includesToogle && values.includes)
+      this.fieldConstrain.constrain.addConstrain({
+        type: StringConstrainType.CONTAINS,
+        value: values.includes,
+      });
+    if (values.endsWithToogle && values.endsWith)
+      this.fieldConstrain.constrain.addConstrain({
+        type: StringConstrainType.ENDWITH,
+        value: values.endsWith,
+      });
+    this.getFinalText();
+  }
+
+  closeDialog() {
+    this.dialogRef.close(this.fieldConstrain);
+    console.log(this.fieldConstrain.constrain);
   }
 }
