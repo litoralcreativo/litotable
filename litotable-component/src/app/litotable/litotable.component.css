@@ -136,3 +136,45 @@ td.mat-column-selection.mat-footer-cell:first-of-type {
 .constrain-mat-content .constrain-mat-content-dual > * {
   width: 45%;
 }
+
+/* Group Columns Headers  */
+.group-header {
+  height: 2rem;
+}
+
+.group-header > * {
+  border-bottom: none;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.group-header-empty {
+  border-right: none !important;
+  border-left: none !important;
+}
+
+/* Drag n Drop */
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  padding: 1rem;
+  position: relative;
+}
+
+.cdk-drag-preview::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 5px;
+  right: 5px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  color: transparent;
+  position: relative;
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

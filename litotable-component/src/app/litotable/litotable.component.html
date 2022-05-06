@@ -58,8 +58,9 @@
     </div>
   </mat-expansion-panel>
 </mat-accordion>
+
+<!-- Table -->
 <div class="litotable-main-container">
-  <!-- Table -->
   <div class="litotable-container mat-elevation-z4">
     <div class="table-container">
       <div *ngIf="dataSource" class="table-responsive">
@@ -145,6 +146,25 @@
             </td>
           </ng-container>
 
+          <!-- Columnas de agrupacion -->
+          <ng-container matColumnDef="empty-group">
+            <th *matHeaderCellDef class="group-header-empty"></th>
+          </ng-container>
+
+          <ng-container
+            *ngFor="let col of displayedColumns.columnGroups.groupColumns"
+            matColumnDef="{{ col.name }}"
+          >
+            <th mat-header-cell *matHeaderCellDef [attr.colspan]="col.colspan">
+              {{ col.name }}
+            </th>
+          </ng-container>
+          <tr
+            class="group-header"
+            mat-header-row
+            *matHeaderRowDef="displayedColumns.columnGroups.displayNames"
+          ></tr>
+
           <!-- Encabezados de columnas -->
           <tr
             mat-header-row
@@ -201,6 +221,7 @@
     mat-menu-item
     style="text-align: center"
     (click)="$event.stopPropagation()"
+    disabled="true"
   >
     Exportar
   </div>
@@ -212,9 +233,12 @@
     mat-menu-item
     style="text-align: center"
     (click)="$event.stopPropagation()"
+    disabled="true"
   >
     Columnas
   </div>
+  <mat-divider></mat-divider>
+
   <div
     *ngFor="let column of displayedColumns.columns"
     mat-menu-item
@@ -227,6 +251,24 @@
       [checked]="column.visible"
     >
       {{ column.name }}
+    </mat-slide-toggle>
+  </div>
+  <mat-divider></mat-divider>
+  <div
+    *ngFor="let group of displayedColumns.columnGroups.groupColumns"
+    mat-menu-item
+    (click)="$event.stopPropagation()"
+  >
+    <mat-slide-toggle
+      color="accent"
+      (click)="$event.stopPropagation()"
+      (change)="
+        group.toogleVisibbility($event.checked);
+        displayedColumns.updateVisivility()
+      "
+      [checked]="group.checked"
+    >
+      {{ group.name }}
     </mat-slide-toggle>
   </div>
   <button
@@ -248,6 +290,7 @@
     mat-menu-item
     style="text-align: center"
     (click)="$event.stopPropagation()"
+    disabled="true"
   >
     Estilos
   </div>

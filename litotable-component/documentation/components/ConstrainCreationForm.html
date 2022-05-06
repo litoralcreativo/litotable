@@ -151,6 +151,9 @@
                                 <a href="#numberConstrainType" >numberConstrainType</a>
                             </li>
                             <li>
+                                <a href="#strAccordion" >strAccordion</a>
+                            </li>
+                            <li>
                                 <a href="#stringConstrainType" >stringConstrainType</a>
                             </li>
                             <li>
@@ -175,6 +178,12 @@
                                 <a href="#changeConstrainState" >changeConstrainState</a>
                             </li>
                             <li>
+                                <a href="#changeConstrainStyle" >changeConstrainStyle</a>
+                            </li>
+                            <li>
+                                <a href="#closeDialog" >closeDialog</a>
+                            </li>
+                            <li>
                                 <a href="#getFinalText" >getFinalText</a>
                             </li>
                             <li>
@@ -191,6 +200,9 @@
                             </li>
                             <li>
                                 <a href="#shortDate" >shortDate</a>
+                            </li>
+                            <li>
+                                <a href="#updateStringConstrain" >updateStringConstrain</a>
                             </li>
                         </ul>
                     </td>
@@ -215,7 +227,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:77</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:83</a></div>
                             </td>
                         </tr>
 
@@ -299,15 +311,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>changeConstrainState(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, data: <a href="../interfaces/Constrain.html" target="_self">Constrain | any</a>, field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, isStyle: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+<code>changeConstrainState(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="124"
-                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:124</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:148</a></div>
                 </td>
             </tr>
 
@@ -324,7 +336,6 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
-                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -338,22 +349,6 @@
                                         No
                                     </td>
 
-                                    <td>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>data</td>
-                                    <td>
-                                                <code><a href="../interfaces/Constrain.html" target="_self" >Constrain | any</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-                                    <td>
-                                    </td>
 
                                 </tr>
                                 <tr>
@@ -366,23 +361,6 @@
                                         No
                                     </td>
 
-                                    <td>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>isStyle</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-                                    <td>
-                                        <code>true</code>
-                                    </td>
 
                                 </tr>
                             </tbody>
@@ -396,6 +374,124 @@
                     </div>
                     <div class="io-description">
                         
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeConstrainStyle"></a>
+                    <span class="name">
+                        <span ><b>changeConstrainStyle</b></span>
+                        <a href="#changeConstrainStyle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeConstrainStyle(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="142"
+                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:142</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>field</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeDialog"></a>
+                    <span class="name">
+                        <span ><b>closeDialog</b></span>
+                        <a href="#closeDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeDialog()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="340"
+                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:340</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
                     </div>
                 </td>
             </tr>
@@ -421,8 +517,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="162"
-                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:162</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="172"
+                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:172</a></div>
                 </td>
             </tr>
 
@@ -458,8 +554,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="86"
-                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:86</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:90</a></div>
                 </td>
             </tr>
 
@@ -495,8 +591,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="105"
-                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:105</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="111"
+                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:111</a></div>
                 </td>
             </tr>
 
@@ -564,8 +660,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="101"
-                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:101</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="107"
+                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:107</a></div>
                 </td>
             </tr>
 
@@ -601,8 +697,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="245"
-                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:245</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="288"
+                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:288</a></div>
                 </td>
             </tr>
 
@@ -638,8 +734,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="237"
-                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:237</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="280"
+                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:280</a></div>
                 </td>
             </tr>
 
@@ -687,6 +783,43 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateStringConstrain"></a>
+                    <span class="name">
+                        <span ><b>updateStringConstrain</b></span>
+                        <a href="#updateStringConstrain"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateStringConstrain()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="311"
+                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:311</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
     <section>
     
@@ -722,7 +855,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:80</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:86</a></div>
                         </td>
                     </tr>
 
@@ -750,7 +883,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:74</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:80</a></div>
                         </td>
                     </tr>
 
@@ -777,7 +910,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:79</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:85</a></div>
                         </td>
                     </tr>
 
@@ -803,7 +936,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:69</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:73</a></div>
                         </td>
                     </tr>
 
@@ -829,7 +962,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:67</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:71</a></div>
                         </td>
                     </tr>
 
@@ -860,7 +993,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:72</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:76</a></div>
                         </td>
                     </tr>
 
@@ -885,7 +1018,42 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:70</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="strAccordion"></a>
+                    <span class="name">
+                        <span ><b>strAccordion</b></span>
+                        <a href="#strAccordion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MatAccordion</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(MatAccordion)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:78</a></div>
                         </td>
                     </tr>
 
@@ -910,7 +1078,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:71</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:75</a></div>
                         </td>
                     </tr>
 
@@ -936,7 +1104,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:68</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:72</a></div>
                         </td>
                     </tr>
 
@@ -967,7 +1135,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:73</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:77</a></div>
                         </td>
                     </tr>
 
@@ -987,6 +1155,7 @@
   Input,
   OnInit,
   Output,
+  ViewChild,
 } from &#x27;@angular/core&#x27;;
 import {
   MatDialog,
@@ -1001,6 +1170,8 @@ import {
   MesurableConstrainType,
   DateConstrain,
   StringConstrainType,
+  StringConstrain,
+  StringConstrainObject,
 } from &#x27;../configurations/fieldConstriansStyle&#x27;;
 import {
   FormBuilder,
@@ -1009,6 +1180,7 @@ import {
   Validators,
 } from &#x27;@angular/forms&#x27;;
 import { ColumnType } from &#x27;../decorators/column.decorator&#x27;;
+import { MatAccordion } from &#x27;@angular/material/expansion&#x27;;
 
 export class ConstrainCreationFormData {
   columns: Column[] &#x3D; [];
@@ -1053,6 +1225,8 @@ export class ConstrainCreationForm {
   stringConstrainType &#x3D; StringConstrainType;
   finalString: string &#x3D; &#x27;&#x27;;
   valueType: string &#x3D; &#x27;&#x27;;
+  @ViewChild(MatAccordion) strAccordion!: MatAccordion;
+
   dateRange &#x3D; new FormGroup({
     start: new FormControl(),
     end: new FormControl(),
@@ -1061,9 +1235,7 @@ export class ConstrainCreationForm {
     public dialogRef: MatDialogRef&lt;ConstrainCreationForm&gt;,
     @Inject(MAT_DIALOG_DATA) public data: ConstrainCreationFormData,
     private _formBuilder: FormBuilder
-  ) {
-    this.resetValues();
-  }
+  ) {}
 
   ngOnInit() {
     this.fieldFormGroup &#x3D; this._formBuilder.group({
@@ -1077,6 +1249,8 @@ export class ConstrainCreationForm {
       endsWith: [&#x27;&#x27;],
       endsWithToogle: [&#x27;&#x27;],
     });
+    this.resetValues();
+
     this.getFinalText();
   }
 
@@ -1085,58 +1259,62 @@ export class ConstrainCreationForm {
   }
 
   onFieldSelectorChange(selected: Column) {
+    this.resetValues();
     if (selected) {
       this.fieldConstrain.propertyKey &#x3D; selected.propertyKey;
       this.fieldConstrain.constrainName &#x3D; selected.name;
       this.fieldConstrain.type &#x3D; selected.type;
-      if (selected.type &#x3D;&#x3D; ColumnType.DATE) {
-        this.fieldConstrain.constrain &#x3D; new DateConstrain(
-          this.numberConstrainType.MORETHAN,
-          [new Date(), new Date()],
-          {
+
+      switch (selected.type) {
+        case ColumnType.DATE:
+          this.fieldConstrain.constrain &#x3D; new DateConstrain(
+            this.numberConstrainType.MORETHAN,
+            [new Date(), new Date()],
+            {
+              color: &#x27;#eee&#x27;,
+              &#x27;background-color&#x27;: &#x27;#888&#x27;,
+            }
+          );
+          break;
+        case ColumnType.STRING:
+        case ColumnType.PHONE:
+        case ColumnType.CUIT:
+          this.fieldConstrain.constrain &#x3D; new StringConstrain({
             color: &#x27;#eee&#x27;,
             &#x27;background-color&#x27;: &#x27;#888&#x27;,
-          }
-        );
+          });
+          break;
       }
     }
     this.getFinalText();
   }
 
-  changeConstrainState(
-    value: any,
-    data: Constrain | any,
-    field: string,
-    isStyle: boolean &#x3D; true
-  ) {
-    if (isStyle &amp;&amp; field &amp;&amp; field !&#x3D; &#x27;&#x27;) {
+  changeConstrainStyle(value: any, field: string) {
+    if (field &amp;&amp; field !&#x3D; &#x27;&#x27;) {
       this.fieldConstrain.constrain.style[field] &#x3D; value;
     }
-    if (!isStyle) {
-      switch (field) {
-        case &#x27;date-type&#x27;:
-        case &#x27;number-type&#x27;:
-          this.fieldConstrain.constrain.type &#x3D; parseInt(value.value);
-          break;
-        case &#x27;number-value&#x27;:
-        case &#x27;number-value1&#x27;:
-          this.fieldConstrain.constrain.values[0] &#x3D; parseInt(
-            value.target.value
-          );
-          break;
-        case &#x27;number-value2&#x27;:
-          this.fieldConstrain.constrain.values[1] &#x3D; parseInt(
-            value.target.value
-          );
-          break;
-        case &#x27;date-value&#x27;:
-        case &#x27;date-value1&#x27;:
-          this.fieldConstrain.constrain.values[0] &#x3D; new Date(value.value);
-          break;
-        case &#x27;date-value2&#x27;:
-          this.fieldConstrain.constrain.values[1] &#x3D; new Date(value.value);
-          break;
-      }
+  }
+
+  changeConstrainState(value: any, field: string) {
+    switch (field) {
+      case &#x27;date-type&#x27;:
+      case &#x27;number-type&#x27;:
+        this.fieldConstrain.constrain.type &#x3D; parseInt(value.value);
+        break;
+      case &#x27;number-value&#x27;:
+      case &#x27;number-value1&#x27;:
+        this.fieldConstrain.constrain.values[0] &#x3D; parseInt(value.target.value);
+        break;
+      case &#x27;number-value2&#x27;:
+        this.fieldConstrain.constrain.values[1] &#x3D; parseInt(value.target.value);
+        break;
+      case &#x27;date-value&#x27;:
+      case &#x27;date-value1&#x27;:
+        this.fieldConstrain.constrain.values[0] &#x3D; new Date(value.value);
+        break;
+      case &#x27;date-value2&#x27;:
+        this.fieldConstrain.constrain.values[1] &#x3D; new Date(value.value);
+        break;
     }
     this.getFinalText();
   }
@@ -1154,7 +1332,10 @@ export class ConstrainCreationForm {
         this.valueType &#x3D; &#x27;date&#x27;;
         break;
       case ColumnType.STRING:
+      case ColumnType.PHONE:
+      case ColumnType.CUIT:
         this.valueType &#x3D; &#x27;string&#x27;;
+        this.finalString &#x3D; &#x60;that &#x60;;
         break;
       default:
         this.valueType &#x3D; &#x27;value&#x27;;
@@ -1213,6 +1394,36 @@ export class ConstrainCreationForm {
         }
 
         break;
+      case ColumnType.STRING:
+      case ColumnType.CUIT:
+      case ColumnType.PHONE:
+        for (
+          let i &#x3D; 0;
+          i &lt; this.fieldConstrain.constrain.constrainArray.length;
+          i++
+        ) {
+          const strConstr: StringConstrainObject &#x3D;
+            this.fieldConstrain.constrain.constrainArray[i];
+
+          switch (strConstr.type) {
+            case StringConstrainType.STARTSWITH:
+              this.finalString +&#x3D; &#x60;starts width ${strConstr.value}&#x60;;
+              break;
+            case StringConstrainType.CONTAINS:
+              this.finalString +&#x3D; &#x60;contains ${strConstr.value}&#x60;;
+              break;
+            case StringConstrainType.ENDWITH:
+              this.finalString +&#x3D; &#x60;ends width ${strConstr.value}&#x60;;
+              break;
+          }
+          if (this.fieldConstrain.constrain.constrainArray.length &gt; 1) {
+            if (i &lt; this.fieldConstrain.constrain.constrainArray.length - 2)
+              this.finalString +&#x3D; &#x27;, &#x27;;
+            if (i &#x3D;&#x3D; this.fieldConstrain.constrain.constrainArray.length - 2)
+              this.finalString +&#x3D; &#x27; and &#x27;;
+          }
+        }
+        break;
     }
   }
 
@@ -1225,10 +1436,11 @@ export class ConstrainCreationForm {
   }
 
   resetValues() {
+    this.stringFormGroup.reset();
     this.fieldConstrain &#x3D; {
       propertyKey: this.data.columns[0].propertyKey,
       constrainName: &#x27;New Constrain&#x27;,
-      type: this.data.columns[0].type,
+      type: ColumnType.INTEGER,
       constrain: new NumberConstrain(
         this.numberConstrainType.MORETHAN,
         [0, 0],
@@ -1243,6 +1455,41 @@ export class ConstrainCreationForm {
         style: {},
       },
     };
+    if (this.strAccordion) this.strAccordion.closeAll();
+  }
+
+  updateStringConstrain() {
+    let values: {
+      startWith: any;
+      startWithToogle: any;
+      includes: any;
+      includesToogle: any;
+      endsWith: any;
+      endsWithToogle: any;
+    } &#x3D; this.stringFormGroup.value;
+
+    this.fieldConstrain.constrain.clearConstrains();
+    if (values.startWithToogle &amp;&amp; values.startWith)
+      this.fieldConstrain.constrain.addConstrain({
+        type: StringConstrainType.STARTSWITH,
+        value: values.startWith,
+      });
+    if (values.includesToogle &amp;&amp; values.includes)
+      this.fieldConstrain.constrain.addConstrain({
+        type: StringConstrainType.CONTAINS,
+        value: values.includes,
+      });
+    if (values.endsWithToogle &amp;&amp; values.endsWith)
+      this.fieldConstrain.constrain.addConstrain({
+        type: StringConstrainType.ENDWITH,
+        value: values.endsWith,
+      });
+    this.getFinalText();
+  }
+
+  closeDialog() {
+    this.dialogRef.close(this.fieldConstrain);
+    console.log(this.fieldConstrain.constrain);
   }
 }
 </code></pre>
@@ -1288,13 +1535,23 @@ export class ConstrainCreationForm {
           *ngSwitchCase&#x3D;&quot;4&quot;
           [ngTemplateOutlet]&#x3D;&quot;numberConstrainSelector&quot;
         &gt;&lt;/ng-container&gt;
+
         &lt;!-- Date --&gt;
         &lt;ng-container
           *ngSwitchCase&#x3D;&quot;3&quot;
           [ngTemplateOutlet]&#x3D;&quot;dateConstrainSelector&quot;
         &gt;&lt;/ng-container&gt;
+        &lt;!-- String --&gt;
         &lt;ng-container
           *ngSwitchCase&#x3D;&quot;0&quot;
+          [ngTemplateOutlet]&#x3D;&quot;stringConstrainSelector&quot;
+        &gt;&lt;/ng-container&gt;
+        &lt;ng-container
+          *ngSwitchCase&#x3D;&quot;5&quot;
+          [ngTemplateOutlet]&#x3D;&quot;stringConstrainSelector&quot;
+        &gt;&lt;/ng-container&gt;
+        &lt;ng-container
+          *ngSwitchCase&#x3D;&quot;6&quot;
           [ngTemplateOutlet]&#x3D;&quot;stringConstrainSelector&quot;
         &gt;&lt;/ng-container&gt;
       &lt;/ng-container&gt;
@@ -1328,7 +1585,7 @@ export class ConstrainCreationForm {
         &lt;button mat-button (click)&#x3D;&quot;stepper.reset(); resetValues()&quot;&gt;
           Reset
         &lt;/button&gt;
-        &lt;button mat-button [mat-dialog-close]&#x3D;&quot;fieldConstrain&quot;&gt;Create&lt;/button&gt;
+        &lt;button mat-button (click)&#x3D;&quot;closeDialog()&quot;&gt;Create&lt;/button&gt;
       &lt;/div&gt;
     &lt;/mat-step&gt;
   &lt;/mat-stepper&gt;
@@ -1371,20 +1628,12 @@ export class ConstrainCreationForm {
     &lt;/mat-expansion-panel-header&gt;
     &lt;div class&#x3D;&quot;flex-center&quot;&gt;
       &lt;app-lito-color-picker
-        (result)&#x3D;&quot;
-          changeConstrainState(
-            $event,
-            fieldConstrain.constrain,
-            &#x27;background-color&#x27;
-          )
-        &quot;
+        (result)&#x3D;&quot;changeConstrainStyle($event, &#x27;background-color&#x27;)&quot;
         content&#x3D;&quot;Background&quot;
       &gt;&lt;/app-lito-color-picker&gt;
       &lt;app-lito-color-picker
         style&#x3D;&quot;margin-left: 1rem&quot;
-        (result)&#x3D;&quot;
-          changeConstrainState($event, fieldConstrain.constrain, &#x27;color&#x27;)
-        &quot;
+        (result)&#x3D;&quot;changeConstrainStyle($event, &#x27;color&#x27;)&quot;
         content&#x3D;&quot;Foreground&quot;
       &gt;&lt;/app-lito-color-picker&gt;
     &lt;/div&gt;
@@ -1397,14 +1646,7 @@ export class ConstrainCreationForm {
     name&#x3D;&quot;constrainSelect&quot;
     aria-label&#x3D;&quot;Constrain select&quot;
     value&#x3D;&quot;{{ fieldConstrain.constrain.type }}&quot;
-    (change)&#x3D;&quot;
-      changeConstrainState(
-        $event,
-        fieldConstrain.constrain,
-        &#x27;number-type&#x27;,
-        false
-      )
-    &quot;
+    (change)&#x3D;&quot;changeConstrainState($event, &#x27;number-type&#x27;)&quot;
   &gt;
     &lt;mat-button-toggle value&#x3D;&quot;1&quot; matTooltip&#x3D;&quot;EQUALS&quot;&gt;
       &lt;mat-icon&gt;drag_handle&lt;/mat-icon&gt;
@@ -1442,22 +1684,10 @@ export class ConstrainCreationForm {
         type&#x3D;&quot;number&quot;
         step&#x3D;&quot;100&quot;
         (change)&#x3D;&quot;
-          $event.stopPropagation();
-          changeConstrainState(
-            $event,
-            fieldConstrain.constrain,
-            &#x27;number-value&#x27;,
-            false
-          )
+          $event.stopPropagation(); changeConstrainState($event, &#x27;number-value&#x27;)
         &quot;
         (keyup)&#x3D;&quot;
-          $event.stopPropagation();
-          changeConstrainState(
-            $event,
-            fieldConstrain.constrain,
-            &#x27;number-value&#x27;,
-            false
-          )
+          $event.stopPropagation(); changeConstrainState($event, &#x27;number-value&#x27;)
         &quot;
         matInput
         placeholder&#x3D;&quot;&quot;
@@ -1482,22 +1712,8 @@ export class ConstrainCreationForm {
       &lt;input
         type&#x3D;&quot;number&quot;
         step&#x3D;&quot;100&quot;
-        (change)&#x3D;&quot;
-          changeConstrainState(
-            $event,
-            fieldConstrain.constrain,
-            &#x27;number-value1&#x27;,
-            false
-          )
-        &quot;
-        (keyup)&#x3D;&quot;
-          changeConstrainState(
-            $event,
-            fieldConstrain.constrain,
-            &#x27;number-value1&#x27;,
-            false
-          )
-        &quot;
+        (change)&#x3D;&quot;changeConstrainState($event, &#x27;number-value1&#x27;)&quot;
+        (keyup)&#x3D;&quot;changeConstrainState($event, &#x27;number-value1&#x27;)&quot;
         matInput
         placeholder&#x3D;&quot;&quot;
         [max]&#x3D;&quot;fieldConstrain.constrain.values[1]&quot;
@@ -1524,25 +1740,11 @@ export class ConstrainCreationForm {
       &lt;input
         type&#x3D;&quot;number&quot;
         step&#x3D;&quot;100&quot;
-        (change)&#x3D;&quot;
-          changeConstrainState(
-            $event,
-            fieldConstrain.constrain,
-            &#x27;number-value2&#x27;,
-            false
-          )
-        &quot;
+        (change)&#x3D;&quot;changeConstrainState($event, &#x27;number-value2&#x27;)&quot;
         (click)&#x3D;&quot;$event.stopPropagation()&quot;
         (keydown)&#x3D;&quot;$event.stopPropagation()&quot;
         (keypress)&#x3D;&quot;$event.stopPropagation()&quot;
-        (keyup)&#x3D;&quot;
-          changeConstrainState(
-            $event,
-            fieldConstrain.constrain,
-            &#x27;number-value2&#x27;,
-            false
-          )
-        &quot;
+        (keyup)&#x3D;&quot;changeConstrainState($event, &#x27;number-value2&#x27;)&quot;
         matInput
         placeholder&#x3D;&quot;&quot;
         [min]&#x3D;&quot;fieldConstrain.constrain.values[0]&quot;
@@ -1558,9 +1760,7 @@ export class ConstrainCreationForm {
     name&#x3D;&quot;constrainSelect&quot;
     aria-label&#x3D;&quot;Constrain select&quot;
     value&#x3D;&quot;{{ fieldConstrain.constrain.type }}&quot;
-    (change)&#x3D;&quot;
-      changeConstrainState($event, fieldConstrain.constrain, &#x27;date-type&#x27;, false)
-    &quot;
+    (change)&#x3D;&quot;changeConstrainState($event, &#x27;date-type&#x27;)&quot;
   &gt;
     &lt;!-- &lt;mat-button-toggle value&#x3D;&quot;1&quot; matTooltip&#x3D;&quot;EQUALS&quot;&gt;
       &lt;mat-icon&gt;drag_handle&lt;/mat-icon&gt;
@@ -1604,14 +1804,7 @@ export class ConstrainCreationForm {
       &lt;input
         matInput
         [matDatepicker]&#x3D;&quot;picker&quot;
-        (dateChange)&#x3D;&quot;
-          changeConstrainState(
-            $event,
-            fieldConstrain.constrain,
-            &#x27;date-value&#x27;,
-            false
-          )
-        &quot;
+        (dateChange)&#x3D;&quot;changeConstrainState($event, &#x27;date-value&#x27;)&quot;
       /&gt;
       &lt;mat-datepicker-toggle matSuffix [for]&#x3D;&quot;picker&quot;&gt;&lt;/mat-datepicker-toggle&gt;
       &lt;mat-datepicker #picker&gt;&lt;/mat-datepicker&gt;
@@ -1631,27 +1824,13 @@ export class ConstrainCreationForm {
           matStartDate
           formControlName&#x3D;&quot;start&quot;
           placeholder&#x3D;&quot;{{ numberConstrainType.BETWEEN ? &#x27;After&#x27; : &#x27;Bafore&#x27; }}&quot;
-          (dateChange)&#x3D;&quot;
-            changeConstrainState(
-              $event,
-              fieldConstrain.constrain,
-              &#x27;date-value1&#x27;,
-              false
-            )
-          &quot;
+          (dateChange)&#x3D;&quot;changeConstrainState($event, &#x27;date-value1&#x27;)&quot;
         /&gt;
         &lt;input
           matEndDate
           formControlName&#x3D;&quot;end&quot;
           placeholder&#x3D;&quot;{{ numberConstrainType.BETWEEN ? &#x27;Before&#x27; : &#x27;After&#x27; }}&quot;
-          (dateChange)&#x3D;&quot;
-            changeConstrainState(
-              $event,
-              fieldConstrain.constrain,
-              &#x27;date-value2&#x27;,
-              false
-            )
-          &quot;
+          (dateChange)&#x3D;&quot;changeConstrainState($event, &#x27;date-value2&#x27;)&quot;
         /&gt;
       &lt;/mat-date-range-input&gt;
       &lt;mat-datepicker-toggle
@@ -1664,13 +1843,13 @@ export class ConstrainCreationForm {
 &lt;/ng-template&gt;
 
 &lt;ng-template #stringConstrainSelector&gt;
-  &lt;mat-accordion style&#x3D;&quot;margin-bottom: 1rem&quot;&gt;
+  &lt;mat-accordion&gt;
     &lt;mat-expansion-panel hideToggle&gt;
       &lt;mat-expansion-panel-header&gt;
         &lt;mat-panel-title&gt;
-          &lt;mat-icon *ngIf&#x3D;&quot;swEnable.checked&quot; color&#x3D;&quot;accent&quot;
-            &gt;radio_button_checked&lt;/mat-icon
-          &gt;
+          &lt;mat-icon *ngIf&#x3D;&quot;swEnable.checked&quot; color&#x3D;&quot;accent&quot;&gt;
+            radio_button_checked
+          &lt;/mat-icon&gt;
           &lt;mat-icon *ngIf&#x3D;&quot;!swEnable.checked&quot; style&#x3D;&quot;color: gray&quot;
             &gt;radio_button_checked&lt;/mat-icon
           &gt;
@@ -1680,12 +1859,18 @@ export class ConstrainCreationForm {
           &lt;span class&#x3D;&quot;flex-center&quot;&gt;{{ swInput.value }}&lt;/span&gt;
         &lt;/mat-panel-description&gt;
       &lt;/mat-expansion-panel-header&gt;
-      &lt;form [formGroup]&#x3D;&quot;stringFormGroup&quot;&gt;
+      &lt;form [formGroup]&#x3D;&quot;stringFormGroup&quot; (change)&#x3D;&quot;updateStringConstrain()&quot;&gt;
         &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
           &lt;mat-label&gt;Value&lt;/mat-label&gt;
-          &lt;input matInput #swInput formControlName&#x3D;&quot;startWith&quot; /&gt;
+          &lt;input
+            matInput
+            autocomplete&#x3D;&quot;off&quot;
+            #swInput
+            formControlName&#x3D;&quot;startWith&quot;
+          /&gt;
         &lt;/mat-form-field&gt;
         &lt;mat-slide-toggle
+          (change)&#x3D;&quot;updateStringConstrain()&quot;
           #swEnable
           style&#x3D;&quot;margin-left: 1rem&quot;
           formControlName&#x3D;&quot;startWithToogle&quot;
@@ -1707,19 +1892,25 @@ export class ConstrainCreationForm {
           &lt;span class&#x3D;&quot;flex-center&quot;&gt;{{ siInput.value }}&lt;/span&gt;
         &lt;/mat-panel-description&gt;
       &lt;/mat-expansion-panel-header&gt;
-      &lt;form [formGroup]&#x3D;&quot;stringFormGroup&quot;&gt;
+      &lt;form [formGroup]&#x3D;&quot;stringFormGroup&quot; (change)&#x3D;&quot;updateStringConstrain()&quot;&gt;
         &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
           &lt;mat-label&gt;Value&lt;/mat-label&gt;
-          &lt;input matInput #siInput formControlName&#x3D;&quot;includes&quot; /&gt;
+          &lt;input
+            matInput
+            autocomplete&#x3D;&quot;off&quot;
+            #siInput
+            formControlName&#x3D;&quot;includes&quot;
+          /&gt;
         &lt;/mat-form-field&gt;
         &lt;mat-slide-toggle
+          (change)&#x3D;&quot;updateStringConstrain()&quot;
           #siEnable
           style&#x3D;&quot;margin-left: 1rem&quot;
           formControlName&#x3D;&quot;includesToogle&quot;
         &gt;&lt;/mat-slide-toggle&gt;
       &lt;/form&gt;
     &lt;/mat-expansion-panel&gt;
-    &lt;mat-expansion-panel hideToggle&gt;
+    &lt;mat-expansion-panel hideToggle style&#x3D;&quot;margin-bottom: 1rem&quot;&gt;
       &lt;mat-expansion-panel-header&gt;
         &lt;mat-panel-title&gt;
           &lt;mat-icon *ngIf&#x3D;&quot;ewEnable.checked&quot; color&#x3D;&quot;accent&quot;
@@ -1734,12 +1925,18 @@ export class ConstrainCreationForm {
           &lt;span class&#x3D;&quot;flex-center&quot;&gt;{{ ewInput.value }}&lt;/span&gt;
         &lt;/mat-panel-description&gt;
       &lt;/mat-expansion-panel-header&gt;
-      &lt;form [formGroup]&#x3D;&quot;stringFormGroup&quot;&gt;
+      &lt;form [formGroup]&#x3D;&quot;stringFormGroup&quot; (change)&#x3D;&quot;updateStringConstrain()&quot;&gt;
         &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
           &lt;mat-label&gt;Value&lt;/mat-label&gt;
-          &lt;input matInput #ewInput formControlName&#x3D;&quot;endsWith&quot; /&gt;
+          &lt;input
+            matInput
+            autocomplete&#x3D;&quot;off&quot;
+            #ewInput
+            formControlName&#x3D;&quot;endsWith&quot;
+          /&gt;
         &lt;/mat-form-field&gt;
         &lt;mat-slide-toggle
+          (change)&#x3D;&quot;updateStringConstrain()&quot;
           #ewEnable
           style&#x3D;&quot;margin-left: 1rem&quot;
           formControlName&#x3D;&quot;endsWithToogle&quot;
@@ -1811,7 +2008,7 @@ export class ConstrainCreationForm {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div mat-dialog-content>  <mat-stepper [linear]="true" #stepper orientation="vertical">    <!-- Field step -->    <mat-step [stepControl]="fieldFormGroup">      <div style="margin-top: 1rem"></div>      <ng-template matStepLabel>Select a field</ng-template>      <ng-container *ngTemplateOutlet="constrainNameSelector"></ng-container>      <div>        <button mat-button matStepperNext>Next</button>      </div>    </mat-step>    <!-- Style step -->    <mat-step>      <div style="margin-top: 1rem"></div>      <ng-template matStepLabel>Aply style</ng-template>      <ng-container *ngTemplateOutlet="constrainCreationStyle"></ng-container>      <div>        <button mat-button matStepperPrevious>Back</button>        <button mat-button matStepperNext>Next</button>      </div>    </mat-step>    <!-- Constrain step -->    <mat-step>      <div style="margin-top: 1rem"></div>      <ng-template matStepLabel>Set constrain</ng-template>      <ng-container [ngSwitch]="fieldConstrain.type">        <!-- Numericos -->        <ng-container          *ngSwitchCase="1"          [ngTemplateOutlet]="numberConstrainSelector"        ></ng-container>        <ng-container          *ngSwitchCase="2"          [ngTemplateOutlet]="numberConstrainSelector"        ></ng-container>        <ng-container          *ngSwitchCase="4"          [ngTemplateOutlet]="numberConstrainSelector"        ></ng-container>        <!-- Date -->        <ng-container          *ngSwitchCase="3"          [ngTemplateOutlet]="dateConstrainSelector"        ></ng-container>        <ng-container          *ngSwitchCase="0"          [ngTemplateOutlet]="stringConstrainSelector"        ></ng-container>      </ng-container>      <div>        <button mat-button matStepperPrevious>Back</button>        <button mat-button matStepperNext>Next</button>      </div>    </mat-step>    <!-- Final step -->    <mat-step>      <ng-template matStepLabel>Done</ng-template>      <div style="width: 350px">        <p          class="mat-elevation-z4"          [style]="{            color: fieldConstrain.constrain.style[\'color\'],            \'background-color\':              fieldConstrain.constrain.style[\'background-color\'],            padding: \'1rem\',            \'border-radius\': \'4px\'          }"        >          Every {{ valueType }} from column          <strong>{{ fieldConstrain.constrainName }}</strong>          {{ finalString }}        </p>      </div>      <div>        <button mat-button matStepperPrevious>Back</button>        <button mat-button (click)="stepper.reset(); resetValues()">          Reset        </button>        <button mat-button [mat-dialog-close]="fieldConstrain">Create</button>      </div>    </mat-step>  </mat-stepper></div><ng-template #constrainNameSelector>  <form [formGroup]="fieldFormGroup">    <mat-form-field appearance="fill">      <mat-label>Field</mat-label>      <mat-select        formControlName="field"        required        (ngModelChange)="onFieldSelectorChange($event)"      >        <mat-option>None</mat-option>        <mat-option *ngFor="let column of data.columns" [value]="column">{{          column.name        }}</mat-option>      </mat-select>    </mat-form-field>  </form></ng-template><ng-template #constrainCreationStyle>  <mat-expansion-panel    hideToggle    [style]="{      \'background-color\': fieldConstrain.constrain.style[\'background-color\'],      \'margin-bottom\': \'1rem\'    }"  >    <mat-expansion-panel-header>      <mat-panel-title        [style]="{          color: fieldConstrain.constrain.style[\'color\'],          \'justify-content\': \'center\'        }"        >{{ fieldConstrain.constrainName }}</mat-panel-title      >    </mat-expansion-panel-header>    <div class="flex-center">      <app-lito-color-picker        (result)="          changeConstrainState(            $event,            fieldConstrain.constrain,            \'background-color\'          )        "        content="Background"      ></app-lito-color-picker>      <app-lito-color-picker        style="margin-left: 1rem"        (result)="          changeConstrainState($event, fieldConstrain.constrain, \'color\')        "        content="Foreground"      ></app-lito-color-picker>    </div>  </mat-expansion-panel></ng-template><ng-template #numberConstrainSelector>  <mat-button-toggle-group    class="number-constrain-selector"    name="constrainSelect"    aria-label="Constrain select"    value="{{ fieldConstrain.constrain.type }}"    (change)="      changeConstrainState(        $event,        fieldConstrain.constrain,        \'number-type\',        false      )    "  >    <mat-button-toggle value="1" matTooltip="EQUALS">      <mat-icon>drag_handle</mat-icon>    </mat-button-toggle>    <mat-button-toggle value="2" matTooltip="MORE THAN">      <mat-icon style="transform: rotate(90deg)">expand_less</mat-icon>    </mat-button-toggle>    <mat-button-toggle value="3" matTooltip="LESS THAN">      <mat-icon style="transform: rotate(90deg)">expand_more</mat-icon>    </mat-button-toggle>    <mat-button-toggle value="4" matTooltip="BETWEEN">      <mat-icon style="transform: rotate(90deg)">unfold_less</mat-icon>    </mat-button-toggle>    <mat-button-toggle value="5" matTooltip="NOT BETWEEN">      <mat-icon style="transform: rotate(90deg)">unfold_more</mat-icon>    </mat-button-toggle>  </mat-button-toggle-group>  <div    *ngIf="      fieldConstrain.constrain.type != numberConstrainType.BETWEEN &&      fieldConstrain.constrain.type != numberConstrainType.NOTBETWEEN    "    style="display: flex; justify-content: space-between"  >    <mat-form-field style="width: 100%" appearance="fill">      <mat-label        (click)="$event.stopPropagation()"        [ngSwitch]="fieldConstrain.constrain.type"      >        <span *ngSwitchCase="numberConstrainType.EQUALS">EQUALS</span>        <span *ngSwitchCase="numberConstrainType.LESSTHAN">LESS THAN</span>        <span *ngSwitchCase="numberConstrainType.MORETHAN">MORE THAN</span>      </mat-label>      <input        type="number"        step="100"        (change)="          $event.stopPropagation();          changeConstrainState(            $event,            fieldConstrain.constrain,            \'number-value\',            false          )        "        (keyup)="          $event.stopPropagation();          changeConstrainState(            $event,            fieldConstrain.constrain,            \'number-value\',            false          )        "        matInput        placeholder=""        value="{{ fieldConstrain.constrain.values[0] }}"      />    </mat-form-field>  </div>  <!-- BETWEEN -->  <div    *ngIf="      fieldConstrain.constrain.type == numberConstrainType.BETWEEN ||      fieldConstrain.constrain.type == numberConstrainType.NOTBETWEEN    "    style="max-width: fit-content; display: flow-root"  >    <mat-form-field style="max-width: 45%; float: left" appearance="fill">      <mat-label (click)="$event.stopPropagation()">{{        fieldConstrain.constrain.type == numberConstrainType.BETWEEN          ? "MORE THAN"          : "LESS THAN"      }}</mat-label>      <input        type="number"        step="100"        (change)="          changeConstrainState(            $event,            fieldConstrain.constrain,            \'number-value1\',            false          )        "        (keyup)="          changeConstrainState(            $event,            fieldConstrain.constrain,            \'number-value1\',            false          )        "        matInput        placeholder=""        [max]="fieldConstrain.constrain.values[1]"        value="{{ fieldConstrain.constrain.values[0] }}"      />    </mat-form-field>    <mat-form-field      style="max-width: 45%; float: right"      appearance="fill"      (click)="$event.stopPropagation()"      (keypress)="$event.stopPropagation()"      (keydown)="$event.stopPropagation()"    >      <mat-label        (click)="$event.stopPropagation()"        (keypress)="$event.stopPropagation()"      >        {{          fieldConstrain.constrain.type == numberConstrainType.BETWEEN            ? "LESS THAN"            : "MORE THAN"        }}      </mat-label>      <input        type="number"        step="100"        (change)="          changeConstrainState(            $event,            fieldConstrain.constrain,            \'number-value2\',            false          )        "        (click)="$event.stopPropagation()"        (keydown)="$event.stopPropagation()"        (keypress)="$event.stopPropagation()"        (keyup)="          changeConstrainState(            $event,            fieldConstrain.constrain,            \'number-value2\',            false          )        "        matInput        placeholder=""        [min]="fieldConstrain.constrain.values[0]"        value="{{ fieldConstrain.constrain.values[1] }}"      />    </mat-form-field>  </div></ng-template><ng-template #dateConstrainSelector>  <mat-button-toggle-group    class="number-constrain-selector"    name="constrainSelect"    aria-label="Constrain select"    value="{{ fieldConstrain.constrain.type }}"    (change)="      changeConstrainState($event, fieldConstrain.constrain, \'date-type\', false)    "  >    <!-- <mat-button-toggle value="1" matTooltip="EQUALS">      <mat-icon>drag_handle</mat-icon>    </mat-button-toggle> -->    <mat-button-toggle value="2" matTooltip="AFTER">      <mat-icon style="transform: rotate(90deg)">expand_less</mat-icon>    </mat-button-toggle>    <mat-button-toggle value="3" matTooltip="BEFORE">      <mat-icon style="transform: rotate(90deg)">expand_more</mat-icon>    </mat-button-toggle>    <mat-button-toggle value="4" matTooltip="BETWEEN">      <mat-icon style="transform: rotate(90deg)">unfold_less</mat-icon>    </mat-button-toggle>    <mat-button-toggle value="5" matTooltip="NOT BETWEEN">      <mat-icon style="transform: rotate(90deg)">unfold_more</mat-icon>    </mat-button-toggle>  </mat-button-toggle-group>  <div style="display: flex; justify-content: space-between">    <!-- EQUALS, LESSTHAN, MORETHAN -->    <mat-form-field      style="width: 100%"      appearance="fill"      *ngIf="        fieldConstrain.constrain.type == numberConstrainType.EQUALS ||        fieldConstrain.constrain.type == numberConstrainType.LESSTHAN ||        fieldConstrain.constrain.type == numberConstrainType.MORETHAN      "    >      <mat-label [ngSwitch]="fieldConstrain.constrain.type">        <span *ngSwitchCase="numberConstrainType.EQUALS">EQUALS</span>        <span *ngSwitchCase="numberConstrainType.LESSTHAN">Choose a date</span>        <span *ngSwitchCase="numberConstrainType.MORETHAN">Choose a date</span>        <span *ngSwitchCase="numberConstrainType.BETWEEN"          >Choose a date range</span        >        <span *ngSwitchCase="numberConstrainType.NOTBETWEEN"          >Choose a date range</span        >      </mat-label>      <input        matInput        [matDatepicker]="picker"        (dateChange)="          changeConstrainState(            $event,            fieldConstrain.constrain,            \'date-value\',            false          )        "      />      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      <mat-datepicker #picker></mat-datepicker>    </mat-form-field>    <!-- BETWEEN, NOTBETWEEN -->    <mat-form-field      style="width: 100%"      appearance="fill"      *ngIf="        fieldConstrain.constrain.type == numberConstrainType.BETWEEN ||        fieldConstrain.constrain.type == numberConstrainType.NOTBETWEEN      "    >      <mat-date-range-input [formGroup]="dateRange" [rangePicker]="rangePicker">        <input          matStartDate          formControlName="start"          placeholder="{{ numberConstrainType.BETWEEN ? \'After\' : \'Bafore\' }}"          (dateChange)="            changeConstrainState(              $event,              fieldConstrain.constrain,              \'date-value1\',              false            )          "        />        <input          matEndDate          formControlName="end"          placeholder="{{ numberConstrainType.BETWEEN ? \'Before\' : \'After\' }}"          (dateChange)="            changeConstrainState(              $event,              fieldConstrain.constrain,              \'date-value2\',              false            )          "        />      </mat-date-range-input>      <mat-datepicker-toggle        matSuffix        [for]="rangePicker"      ></mat-datepicker-toggle>      <mat-date-range-picker #rangePicker></mat-date-range-picker>    </mat-form-field>  </div></ng-template><ng-template #stringConstrainSelector>  <mat-accordion style="margin-bottom: 1rem">    <mat-expansion-panel hideToggle>      <mat-expansion-panel-header>        <mat-panel-title>          <mat-icon *ngIf="swEnable.checked" color="accent"            >radio_button_checked</mat-icon          >          <mat-icon *ngIf="!swEnable.checked" style="color: gray"            >radio_button_checked</mat-icon          >          <span class="flex-center">&nbsp;Starts with</span>        </mat-panel-title>        <mat-panel-description>          <span class="flex-center">{{ swInput.value }}</span>        </mat-panel-description>      </mat-expansion-panel-header>      <form [formGroup]="stringFormGroup">        <mat-form-field appearance="fill">          <mat-label>Value</mat-label>          <input matInput #swInput formControlName="startWith" />        </mat-form-field>        <mat-slide-toggle          #swEnable          style="margin-left: 1rem"          formControlName="startWithToogle"        ></mat-slide-toggle>      </form>    </mat-expansion-panel>    <mat-expansion-panel hideToggle>      <mat-expansion-panel-header>        <mat-panel-title>          <mat-icon *ngIf="siEnable.checked" color="accent"            >radio_button_checked</mat-icon          >          <mat-icon *ngIf="!siEnable.checked" style="color: gray"            >radio_button_checked</mat-icon          >          <span class="flex-center">&nbsp;Includes</span>        </mat-panel-title>        <mat-panel-description>          <span class="flex-center">{{ siInput.value }}</span>        </mat-panel-description>      </mat-expansion-panel-header>      <form [formGroup]="stringFormGroup">        <mat-form-field appearance="fill">          <mat-label>Value</mat-label>          <input matInput #siInput formControlName="includes" />        </mat-form-field>        <mat-slide-toggle          #siEnable          style="margin-left: 1rem"          formControlName="includesToogle"        ></mat-slide-toggle>      </form>    </mat-expansion-panel>    <mat-expansion-panel hideToggle>      <mat-expansion-panel-header>        <mat-panel-title>          <mat-icon *ngIf="ewEnable.checked" color="accent"            >radio_button_checked</mat-icon          >          <mat-icon *ngIf="!ewEnable.checked" style="color: gray"            >radio_button_checked</mat-icon          >          <span class="flex-center">&nbsp;Ends with</span>        </mat-panel-title>        <mat-panel-description>          <span class="flex-center">{{ ewInput.value }}</span>        </mat-panel-description>      </mat-expansion-panel-header>      <form [formGroup]="stringFormGroup">        <mat-form-field appearance="fill">          <mat-label>Value</mat-label>          <input matInput #ewInput formControlName="endsWith" />        </mat-form-field>        <mat-slide-toggle          #ewEnable          style="margin-left: 1rem"          formControlName="endsWithToogle"        ></mat-slide-toggle>      </form>    </mat-expansion-panel>  </mat-accordion></ng-template></div>'
+        var COMPONENT_TEMPLATE = '<div><div mat-dialog-content>  <mat-stepper [linear]="true" #stepper orientation="vertical">    <!-- Field step -->    <mat-step [stepControl]="fieldFormGroup">      <div style="margin-top: 1rem"></div>      <ng-template matStepLabel>Select a field</ng-template>      <ng-container *ngTemplateOutlet="constrainNameSelector"></ng-container>      <div>        <button mat-button matStepperNext>Next</button>      </div>    </mat-step>    <!-- Style step -->    <mat-step>      <div style="margin-top: 1rem"></div>      <ng-template matStepLabel>Aply style</ng-template>      <ng-container *ngTemplateOutlet="constrainCreationStyle"></ng-container>      <div>        <button mat-button matStepperPrevious>Back</button>        <button mat-button matStepperNext>Next</button>      </div>    </mat-step>    <!-- Constrain step -->    <mat-step>      <div style="margin-top: 1rem"></div>      <ng-template matStepLabel>Set constrain</ng-template>      <ng-container [ngSwitch]="fieldConstrain.type">        <!-- Numericos -->        <ng-container          *ngSwitchCase="1"          [ngTemplateOutlet]="numberConstrainSelector"        ></ng-container>        <ng-container          *ngSwitchCase="2"          [ngTemplateOutlet]="numberConstrainSelector"        ></ng-container>        <ng-container          *ngSwitchCase="4"          [ngTemplateOutlet]="numberConstrainSelector"        ></ng-container>        <!-- Date -->        <ng-container          *ngSwitchCase="3"          [ngTemplateOutlet]="dateConstrainSelector"        ></ng-container>        <!-- String -->        <ng-container          *ngSwitchCase="0"          [ngTemplateOutlet]="stringConstrainSelector"        ></ng-container>        <ng-container          *ngSwitchCase="5"          [ngTemplateOutlet]="stringConstrainSelector"        ></ng-container>        <ng-container          *ngSwitchCase="6"          [ngTemplateOutlet]="stringConstrainSelector"        ></ng-container>      </ng-container>      <div>        <button mat-button matStepperPrevious>Back</button>        <button mat-button matStepperNext>Next</button>      </div>    </mat-step>    <!-- Final step -->    <mat-step>      <ng-template matStepLabel>Done</ng-template>      <div style="width: 350px">        <p          class="mat-elevation-z4"          [style]="{            color: fieldConstrain.constrain.style[\'color\'],            \'background-color\':              fieldConstrain.constrain.style[\'background-color\'],            padding: \'1rem\',            \'border-radius\': \'4px\'          }"        >          Every {{ valueType }} from column          <strong>{{ fieldConstrain.constrainName }}</strong>          {{ finalString }}        </p>      </div>      <div>        <button mat-button matStepperPrevious>Back</button>        <button mat-button (click)="stepper.reset(); resetValues()">          Reset        </button>        <button mat-button (click)="closeDialog()">Create</button>      </div>    </mat-step>  </mat-stepper></div><ng-template #constrainNameSelector>  <form [formGroup]="fieldFormGroup">    <mat-form-field appearance="fill">      <mat-label>Field</mat-label>      <mat-select        formControlName="field"        required        (ngModelChange)="onFieldSelectorChange($event)"      >        <mat-option>None</mat-option>        <mat-option *ngFor="let column of data.columns" [value]="column">{{          column.name        }}</mat-option>      </mat-select>    </mat-form-field>  </form></ng-template><ng-template #constrainCreationStyle>  <mat-expansion-panel    hideToggle    [style]="{      \'background-color\': fieldConstrain.constrain.style[\'background-color\'],      \'margin-bottom\': \'1rem\'    }"  >    <mat-expansion-panel-header>      <mat-panel-title        [style]="{          color: fieldConstrain.constrain.style[\'color\'],          \'justify-content\': \'center\'        }"        >{{ fieldConstrain.constrainName }}</mat-panel-title      >    </mat-expansion-panel-header>    <div class="flex-center">      <app-lito-color-picker        (result)="changeConstrainStyle($event, \'background-color\')"        content="Background"      ></app-lito-color-picker>      <app-lito-color-picker        style="margin-left: 1rem"        (result)="changeConstrainStyle($event, \'color\')"        content="Foreground"      ></app-lito-color-picker>    </div>  </mat-expansion-panel></ng-template><ng-template #numberConstrainSelector>  <mat-button-toggle-group    class="number-constrain-selector"    name="constrainSelect"    aria-label="Constrain select"    value="{{ fieldConstrain.constrain.type }}"    (change)="changeConstrainState($event, \'number-type\')"  >    <mat-button-toggle value="1" matTooltip="EQUALS">      <mat-icon>drag_handle</mat-icon>    </mat-button-toggle>    <mat-button-toggle value="2" matTooltip="MORE THAN">      <mat-icon style="transform: rotate(90deg)">expand_less</mat-icon>    </mat-button-toggle>    <mat-button-toggle value="3" matTooltip="LESS THAN">      <mat-icon style="transform: rotate(90deg)">expand_more</mat-icon>    </mat-button-toggle>    <mat-button-toggle value="4" matTooltip="BETWEEN">      <mat-icon style="transform: rotate(90deg)">unfold_less</mat-icon>    </mat-button-toggle>    <mat-button-toggle value="5" matTooltip="NOT BETWEEN">      <mat-icon style="transform: rotate(90deg)">unfold_more</mat-icon>    </mat-button-toggle>  </mat-button-toggle-group>  <div    *ngIf="      fieldConstrain.constrain.type != numberConstrainType.BETWEEN &&      fieldConstrain.constrain.type != numberConstrainType.NOTBETWEEN    "    style="display: flex; justify-content: space-between"  >    <mat-form-field style="width: 100%" appearance="fill">      <mat-label        (click)="$event.stopPropagation()"        [ngSwitch]="fieldConstrain.constrain.type"      >        <span *ngSwitchCase="numberConstrainType.EQUALS">EQUALS</span>        <span *ngSwitchCase="numberConstrainType.LESSTHAN">LESS THAN</span>        <span *ngSwitchCase="numberConstrainType.MORETHAN">MORE THAN</span>      </mat-label>      <input        type="number"        step="100"        (change)="          $event.stopPropagation(); changeConstrainState($event, \'number-value\')        "        (keyup)="          $event.stopPropagation(); changeConstrainState($event, \'number-value\')        "        matInput        placeholder=""        value="{{ fieldConstrain.constrain.values[0] }}"      />    </mat-form-field>  </div>  <!-- BETWEEN -->  <div    *ngIf="      fieldConstrain.constrain.type == numberConstrainType.BETWEEN ||      fieldConstrain.constrain.type == numberConstrainType.NOTBETWEEN    "    style="max-width: fit-content; display: flow-root"  >    <mat-form-field style="max-width: 45%; float: left" appearance="fill">      <mat-label (click)="$event.stopPropagation()">{{        fieldConstrain.constrain.type == numberConstrainType.BETWEEN          ? "MORE THAN"          : "LESS THAN"      }}</mat-label>      <input        type="number"        step="100"        (change)="changeConstrainState($event, \'number-value1\')"        (keyup)="changeConstrainState($event, \'number-value1\')"        matInput        placeholder=""        [max]="fieldConstrain.constrain.values[1]"        value="{{ fieldConstrain.constrain.values[0] }}"      />    </mat-form-field>    <mat-form-field      style="max-width: 45%; float: right"      appearance="fill"      (click)="$event.stopPropagation()"      (keypress)="$event.stopPropagation()"      (keydown)="$event.stopPropagation()"    >      <mat-label        (click)="$event.stopPropagation()"        (keypress)="$event.stopPropagation()"      >        {{          fieldConstrain.constrain.type == numberConstrainType.BETWEEN            ? "LESS THAN"            : "MORE THAN"        }}      </mat-label>      <input        type="number"        step="100"        (change)="changeConstrainState($event, \'number-value2\')"        (click)="$event.stopPropagation()"        (keydown)="$event.stopPropagation()"        (keypress)="$event.stopPropagation()"        (keyup)="changeConstrainState($event, \'number-value2\')"        matInput        placeholder=""        [min]="fieldConstrain.constrain.values[0]"        value="{{ fieldConstrain.constrain.values[1] }}"      />    </mat-form-field>  </div></ng-template><ng-template #dateConstrainSelector>  <mat-button-toggle-group    class="number-constrain-selector"    name="constrainSelect"    aria-label="Constrain select"    value="{{ fieldConstrain.constrain.type }}"    (change)="changeConstrainState($event, \'date-type\')"  >    <!-- <mat-button-toggle value="1" matTooltip="EQUALS">      <mat-icon>drag_handle</mat-icon>    </mat-button-toggle> -->    <mat-button-toggle value="2" matTooltip="AFTER">      <mat-icon style="transform: rotate(90deg)">expand_less</mat-icon>    </mat-button-toggle>    <mat-button-toggle value="3" matTooltip="BEFORE">      <mat-icon style="transform: rotate(90deg)">expand_more</mat-icon>    </mat-button-toggle>    <mat-button-toggle value="4" matTooltip="BETWEEN">      <mat-icon style="transform: rotate(90deg)">unfold_less</mat-icon>    </mat-button-toggle>    <mat-button-toggle value="5" matTooltip="NOT BETWEEN">      <mat-icon style="transform: rotate(90deg)">unfold_more</mat-icon>    </mat-button-toggle>  </mat-button-toggle-group>  <div style="display: flex; justify-content: space-between">    <!-- EQUALS, LESSTHAN, MORETHAN -->    <mat-form-field      style="width: 100%"      appearance="fill"      *ngIf="        fieldConstrain.constrain.type == numberConstrainType.EQUALS ||        fieldConstrain.constrain.type == numberConstrainType.LESSTHAN ||        fieldConstrain.constrain.type == numberConstrainType.MORETHAN      "    >      <mat-label [ngSwitch]="fieldConstrain.constrain.type">        <span *ngSwitchCase="numberConstrainType.EQUALS">EQUALS</span>        <span *ngSwitchCase="numberConstrainType.LESSTHAN">Choose a date</span>        <span *ngSwitchCase="numberConstrainType.MORETHAN">Choose a date</span>        <span *ngSwitchCase="numberConstrainType.BETWEEN"          >Choose a date range</span        >        <span *ngSwitchCase="numberConstrainType.NOTBETWEEN"          >Choose a date range</span        >      </mat-label>      <input        matInput        [matDatepicker]="picker"        (dateChange)="changeConstrainState($event, \'date-value\')"      />      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      <mat-datepicker #picker></mat-datepicker>    </mat-form-field>    <!-- BETWEEN, NOTBETWEEN -->    <mat-form-field      style="width: 100%"      appearance="fill"      *ngIf="        fieldConstrain.constrain.type == numberConstrainType.BETWEEN ||        fieldConstrain.constrain.type == numberConstrainType.NOTBETWEEN      "    >      <mat-date-range-input [formGroup]="dateRange" [rangePicker]="rangePicker">        <input          matStartDate          formControlName="start"          placeholder="{{ numberConstrainType.BETWEEN ? \'After\' : \'Bafore\' }}"          (dateChange)="changeConstrainState($event, \'date-value1\')"        />        <input          matEndDate          formControlName="end"          placeholder="{{ numberConstrainType.BETWEEN ? \'Before\' : \'After\' }}"          (dateChange)="changeConstrainState($event, \'date-value2\')"        />      </mat-date-range-input>      <mat-datepicker-toggle        matSuffix        [for]="rangePicker"      ></mat-datepicker-toggle>      <mat-date-range-picker #rangePicker></mat-date-range-picker>    </mat-form-field>  </div></ng-template><ng-template #stringConstrainSelector>  <mat-accordion>    <mat-expansion-panel hideToggle>      <mat-expansion-panel-header>        <mat-panel-title>          <mat-icon *ngIf="swEnable.checked" color="accent">            radio_button_checked          </mat-icon>          <mat-icon *ngIf="!swEnable.checked" style="color: gray"            >radio_button_checked</mat-icon          >          <span class="flex-center">&nbsp;Starts with</span>        </mat-panel-title>        <mat-panel-description>          <span class="flex-center">{{ swInput.value }}</span>        </mat-panel-description>      </mat-expansion-panel-header>      <form [formGroup]="stringFormGroup" (change)="updateStringConstrain()">        <mat-form-field appearance="fill">          <mat-label>Value</mat-label>          <input            matInput            autocomplete="off"            #swInput            formControlName="startWith"          />        </mat-form-field>        <mat-slide-toggle          (change)="updateStringConstrain()"          #swEnable          style="margin-left: 1rem"          formControlName="startWithToogle"        ></mat-slide-toggle>      </form>    </mat-expansion-panel>    <mat-expansion-panel hideToggle>      <mat-expansion-panel-header>        <mat-panel-title>          <mat-icon *ngIf="siEnable.checked" color="accent"            >radio_button_checked</mat-icon          >          <mat-icon *ngIf="!siEnable.checked" style="color: gray"            >radio_button_checked</mat-icon          >          <span class="flex-center">&nbsp;Includes</span>        </mat-panel-title>        <mat-panel-description>          <span class="flex-center">{{ siInput.value }}</span>        </mat-panel-description>      </mat-expansion-panel-header>      <form [formGroup]="stringFormGroup" (change)="updateStringConstrain()">        <mat-form-field appearance="fill">          <mat-label>Value</mat-label>          <input            matInput            autocomplete="off"            #siInput            formControlName="includes"          />        </mat-form-field>        <mat-slide-toggle          (change)="updateStringConstrain()"          #siEnable          style="margin-left: 1rem"          formControlName="includesToogle"        ></mat-slide-toggle>      </form>    </mat-expansion-panel>    <mat-expansion-panel hideToggle style="margin-bottom: 1rem">      <mat-expansion-panel-header>        <mat-panel-title>          <mat-icon *ngIf="ewEnable.checked" color="accent"            >radio_button_checked</mat-icon          >          <mat-icon *ngIf="!ewEnable.checked" style="color: gray"            >radio_button_checked</mat-icon          >          <span class="flex-center">&nbsp;Ends with</span>        </mat-panel-title>        <mat-panel-description>          <span class="flex-center">{{ ewInput.value }}</span>        </mat-panel-description>      </mat-expansion-panel-header>      <form [formGroup]="stringFormGroup" (change)="updateStringConstrain()">        <mat-form-field appearance="fill">          <mat-label>Value</mat-label>          <input            matInput            autocomplete="off"            #ewInput            formControlName="endsWith"          />        </mat-form-field>        <mat-slide-toggle          (change)="updateStringConstrain()"          #ewEnable          style="margin-left: 1rem"          formControlName="endsWithToogle"        ></mat-slide-toggle>      </form>    </mat-expansion-panel>  </mat-accordion></ng-template></div>'
     var COMPONENTS = [{'name': 'ConstrainCreationForm', 'selector': 'constrain-creation-form-dialog'},{'name': 'ConstrainCreatorComponent', 'selector': 'litotable-constrain-creator'},{'name': 'DialogColorPicker', 'selector': 'dialog-overview-example-dialog'},{'name': 'LitoColorPickerComponent', 'selector': 'app-lito-color-picker'},{'name': 'LitotableComponent', 'selector': 'lito-table'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ConstrainCreationForm'};

@@ -9,12 +9,14 @@ export class User {
     columnName: 'Nombre',
     order: 1,
     contentAlign: ColumnContentAlignment.LEFT,
+    columnGroup: { name: 'Datos Personales' },
   })
   firstName: string;
 
   @TableColumn({
     columnName: 'Apellido',
     order: 2,
+    columnGroup: { name: 'Datos Personales' },
   })
   lastName: string;
 
@@ -29,13 +31,14 @@ export class User {
   @TableColumn({
     columnName: 'Usuario',
     order: 4,
+    columnGroup: { name: 'User' },
   })
   username: string;
 
   @TableColumn({
     columnName: 'PASS',
     order: 5,
-    visible: false,
+    columnGroup: { name: 'User' },
   })
   pass: string;
 

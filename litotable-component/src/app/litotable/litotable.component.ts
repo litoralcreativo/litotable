@@ -3,6 +3,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 import {
   AfterViewInit,
   Component,
+  HostListener,
   Input,
   OnInit,
   ViewChild,
@@ -24,6 +25,7 @@ import {
   TableOperationConfig,
 } from './configurations/tableCrud.config';
 import { ColumnType, TableColumnMetadata } from './decorators/column.decorator';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'lito-table',
@@ -42,7 +44,6 @@ export class LitotableComponent implements OnInit, AfterViewInit {
   selectedRows = new Set();
   constrainedRows = new Set();
   showSelectedOnly: boolean = false;
-
   creationFormOpen: boolean = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -173,21 +174,38 @@ export class LitotableComponent implements OnInit, AfterViewInit {
       this.dataType
     );
 
+    let columnGroups: ColumnGroups = new ColumnGroups(0);
+
     if (columnsMetadata != undefined) {
       this.columns = columnsMetadata.map(
         (c: { propertyKey: string; metadata: TableColumnMetadata }, i) => {
           let column = new Column(
             c.propertyKey,
             c.propertyKey,
-            ColumnType.STRING
+            ColumnType.STRING,
+            c.metadata.order
           );
           column.visible =
             c.metadata.visible == undefined ? true : c.metadata.visible;
-          column.order = c.metadata.order || i + 1;
           column.name = c.metadata.columnName || c.propertyKey;
           column.type = c.metadata.type || ColumnType.STRING;
           column.format = c.metadata.format || undefined;
           column.contentAlign = c.metadata.contentAlign || undefined;
+
+          const str = c.metadata.columnGroup?.name;
+          if (str) {
+            if (
+              columnGroups.groupColumns.filter((x) => x.name == str).length == 0
+            ) {
+              let newColGroup = new GroupColumn(str);
+              newColGroup.addColumn(column);
+              columnGroups.groupColumns.push(newColGroup);
+            } else {
+              columnGroups.groupColumns
+                .filter((x) => x.name == str)[0]
+                .addColumn(column);
+            }
+          }
           return column;
         }
       );
@@ -196,6 +214,8 @@ export class LitotableComponent implements OnInit, AfterViewInit {
       });
     }
     this.displayedColumns = new DisplayedColumns(this.columns, this.selection);
+    this.displayedColumns.columnGroups = columnGroups;
+    this.displayedColumns.updateGroups();
   }
 
   isAllSelected() {
@@ -238,8 +258,6 @@ export class LitotableComponent implements OnInit, AfterViewInit {
           break;
         case 'number-value2':
           data.values[1] = parseInt(value.target.value);
-          console.log(data.values);
-          console.log(value.target.value);
           break;
       }
     }
@@ -260,11 +278,18 @@ export class LitotableComponent implements OnInit, AfterViewInit {
   removeConstrain(constrain: FieldConstrianStyle) {
     this.fieldConstrians = this.fieldConstrians.filter((x) => x != constrain);
     this.updateVisibility();
-    console.log(this.fieldConstrians);
   }
 
   openCreationForm() {
     // this.creationFormOpen = !this.creationFormOpen;
+  }
+
+  tableDrop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(
+      this.displayedColumns.columnNames,
+      event.previousIndex + 1,
+      event.currentIndex + 1
+    );
   }
 }
 
@@ -273,6 +298,8 @@ export class DisplayedColumns {
   columnNames: string[];
   columnTypes: ColumnType[];
   selectable: boolean;
+  columnGroups: ColumnGroups;
+
   constructor(columns: Column[] = [], selectable: boolean = false) {
     this.columns = columns;
     this.columnNames = columns
@@ -281,6 +308,7 @@ export class DisplayedColumns {
     this.columnTypes = columns.map((x) => x.type);
     this.selectable = selectable;
     if (selectable) this.columnNames.unshift('selection');
+    this.columnGroups = new ColumnGroups(columns.length);
   }
 
   changeColumnVisivility(column: Column) {
@@ -289,6 +317,21 @@ export class DisplayedColumns {
       .filter((c) => c.visible == true)
       .map((x) => x.name);
     if (this.selectable) this.columnNames.unshift('selection');
+    this.updateGroups();
+  }
+
+  updateVisivility() {
+    this.columnNames = this.columns
+      .filter((c) => c.visible == true)
+      .map((x) => x.name);
+    if (this.selectable) this.columnNames.unshift('selection');
+    this.updateGroups();
+  }
+
+  updateGroups() {
+    this.columnGroups.updateColumns(
+      this.columns.filter((c) => c.visible == true)
+    );
   }
 
   allVisible() {
@@ -297,6 +340,97 @@ export class DisplayedColumns {
       .filter((c) => c.visible == true)
       .map((x) => x.name);
     if (this.selectable) this.columnNames.unshift('selection');
+  }
+}
+
+export class GroupColumn {
+  name: string;
+  columns: Column[] = [];
+  count: number = 0;
+  start: number = 0;
+  colspan: number = 1;
+  checked: boolean;
+  constructor(name: string) {
+    this.name = name;
+    this.checked = this.checkState();
+  }
+  updateColspan() {
+    let groupData = this.columns
+      .filter((x) => x.visible)
+      .sort((a, b) => a.order - b.order);
+    this.colspan = groupData.length;
+    if (groupData.length != 0) this.start = groupData[0].order;
+    this.checked = this.checkState();
+  }
+  addColumn(c: Column) {
+    this.columns.push(c);
+    this.updateColspan();
+  }
+  toogleVisibbility(state: boolean) {
+    for (const c of this.columns) {
+      c.visible = state;
+    }
+  }
+  checkState() {
+    return this.columns.some((x) => x.visible);
+  }
+}
+
+export class ColumnGroups {
+  active: boolean = false;
+  groupColumns: GroupColumn[] = [];
+  displayNames: string[] = [];
+  size: number = 0;
+  constructor(length: number) {
+    this.displayNames = new Array(length).fill('empty-group');
+  }
+  updateColumns(visibleColumns: Column[]) {
+    this.displayNames = new Array(visibleColumns.length).fill('empty-group');
+    this.groupColumns.forEach((e) => e.updateColspan());
+    let deletion = 0;
+    for (let i = 0; i < this.groupColumns.length; i++) {
+      const element = this.groupColumns[i];
+      const firstVisible = element.columns.filter((y) => y.visible)[0];
+
+      if (element.colspan != 0) {
+        let index = visibleColumns.findIndex(
+          (x) => x.propertyKey == firstVisible.propertyKey
+        );
+        this.displayNames.splice(
+          1 + index - deletion,
+          element.colspan,
+          element.name
+        );
+        deletion += element.colspan - 1;
+      }
+    }
+    /* 
+    this.displayNames = visibleColumns
+      .reduce(
+        (a, c) => {
+          const includes = this.groupColumns.some((x) => x.columns.includes(c));
+          let str = '';
+          this.groupColumns.forEach((gc) => {
+            if (gc.columns.includes(c)) {
+              str = gc.name;
+            }
+          });
+          a.push(includes ? str : 'empty-group');
+          return a;
+        },
+        ['empty-group']
+      )
+      .reduce(
+        (a, c) => {
+          if (c == 'empty-group' || !a.includes(c)) {
+            a.push(c);
+          }
+          return a;
+        },
+        ['empty-group']
+      );
+    */
+    this.displayNames.unshift();
   }
 }
 

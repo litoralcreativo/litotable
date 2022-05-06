@@ -206,7 +206,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:43</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:47</a></div>
                             </td>
                         </tr>
 
@@ -267,7 +267,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:41</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:45</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -291,7 +291,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:42</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:46</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -324,8 +324,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:51</a></div>
                 </td>
             </tr>
 
@@ -361,8 +361,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:53</a></div>
                 </td>
             </tr>
 
@@ -404,7 +404,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:45</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/litotable/constrain-creator/constrain-creator.component.ts:49</a></div>
                         </td>
                     </tr>
 
@@ -424,6 +424,7 @@
   Input,
   OnInit,
   Output,
+  ViewChild,
 } from &#x27;@angular/core&#x27;;
 import {
   MatDialog,
@@ -438,6 +439,8 @@ import {
   MesurableConstrainType,
   DateConstrain,
   StringConstrainType,
+  StringConstrain,
+  StringConstrainObject,
 } from &#x27;../configurations/fieldConstriansStyle&#x27;;
 import {
   FormBuilder,
@@ -446,6 +449,7 @@ import {
   Validators,
 } from &#x27;@angular/forms&#x27;;
 import { ColumnType } from &#x27;../decorators/column.decorator&#x27;;
+import { MatAccordion } from &#x27;@angular/material/expansion&#x27;;
 
 export class ConstrainCreationFormData {
   columns: Column[] &#x3D; [];
@@ -490,6 +494,8 @@ export class ConstrainCreationForm {
   stringConstrainType &#x3D; StringConstrainType;
   finalString: string &#x3D; &#x27;&#x27;;
   valueType: string &#x3D; &#x27;&#x27;;
+  @ViewChild(MatAccordion) strAccordion!: MatAccordion;
+
   dateRange &#x3D; new FormGroup({
     start: new FormControl(),
     end: new FormControl(),
@@ -498,9 +504,7 @@ export class ConstrainCreationForm {
     public dialogRef: MatDialogRef&lt;ConstrainCreationForm&gt;,
     @Inject(MAT_DIALOG_DATA) public data: ConstrainCreationFormData,
     private _formBuilder: FormBuilder
-  ) {
-    this.resetValues();
-  }
+  ) {}
 
   ngOnInit() {
     this.fieldFormGroup &#x3D; this._formBuilder.group({
@@ -514,6 +518,8 @@ export class ConstrainCreationForm {
       endsWith: [&#x27;&#x27;],
       endsWithToogle: [&#x27;&#x27;],
     });
+    this.resetValues();
+
     this.getFinalText();
   }
 
@@ -522,58 +528,62 @@ export class ConstrainCreationForm {
   }
 
   onFieldSelectorChange(selected: Column) {
+    this.resetValues();
     if (selected) {
       this.fieldConstrain.propertyKey &#x3D; selected.propertyKey;
       this.fieldConstrain.constrainName &#x3D; selected.name;
       this.fieldConstrain.type &#x3D; selected.type;
-      if (selected.type &#x3D;&#x3D; ColumnType.DATE) {
-        this.fieldConstrain.constrain &#x3D; new DateConstrain(
-          this.numberConstrainType.MORETHAN,
-          [new Date(), new Date()],
-          {
+
+      switch (selected.type) {
+        case ColumnType.DATE:
+          this.fieldConstrain.constrain &#x3D; new DateConstrain(
+            this.numberConstrainType.MORETHAN,
+            [new Date(), new Date()],
+            {
+              color: &#x27;#eee&#x27;,
+              &#x27;background-color&#x27;: &#x27;#888&#x27;,
+            }
+          );
+          break;
+        case ColumnType.STRING:
+        case ColumnType.PHONE:
+        case ColumnType.CUIT:
+          this.fieldConstrain.constrain &#x3D; new StringConstrain({
             color: &#x27;#eee&#x27;,
             &#x27;background-color&#x27;: &#x27;#888&#x27;,
-          }
-        );
+          });
+          break;
       }
     }
     this.getFinalText();
   }
 
-  changeConstrainState(
-    value: any,
-    data: Constrain | any,
-    field: string,
-    isStyle: boolean &#x3D; true
-  ) {
-    if (isStyle &amp;&amp; field &amp;&amp; field !&#x3D; &#x27;&#x27;) {
+  changeConstrainStyle(value: any, field: string) {
+    if (field &amp;&amp; field !&#x3D; &#x27;&#x27;) {
       this.fieldConstrain.constrain.style[field] &#x3D; value;
     }
-    if (!isStyle) {
-      switch (field) {
-        case &#x27;date-type&#x27;:
-        case &#x27;number-type&#x27;:
-          this.fieldConstrain.constrain.type &#x3D; parseInt(value.value);
-          break;
-        case &#x27;number-value&#x27;:
-        case &#x27;number-value1&#x27;:
-          this.fieldConstrain.constrain.values[0] &#x3D; parseInt(
-            value.target.value
-          );
-          break;
-        case &#x27;number-value2&#x27;:
-          this.fieldConstrain.constrain.values[1] &#x3D; parseInt(
-            value.target.value
-          );
-          break;
-        case &#x27;date-value&#x27;:
-        case &#x27;date-value1&#x27;:
-          this.fieldConstrain.constrain.values[0] &#x3D; new Date(value.value);
-          break;
-        case &#x27;date-value2&#x27;:
-          this.fieldConstrain.constrain.values[1] &#x3D; new Date(value.value);
-          break;
-      }
+  }
+
+  changeConstrainState(value: any, field: string) {
+    switch (field) {
+      case &#x27;date-type&#x27;:
+      case &#x27;number-type&#x27;:
+        this.fieldConstrain.constrain.type &#x3D; parseInt(value.value);
+        break;
+      case &#x27;number-value&#x27;:
+      case &#x27;number-value1&#x27;:
+        this.fieldConstrain.constrain.values[0] &#x3D; parseInt(value.target.value);
+        break;
+      case &#x27;number-value2&#x27;:
+        this.fieldConstrain.constrain.values[1] &#x3D; parseInt(value.target.value);
+        break;
+      case &#x27;date-value&#x27;:
+      case &#x27;date-value1&#x27;:
+        this.fieldConstrain.constrain.values[0] &#x3D; new Date(value.value);
+        break;
+      case &#x27;date-value2&#x27;:
+        this.fieldConstrain.constrain.values[1] &#x3D; new Date(value.value);
+        break;
     }
     this.getFinalText();
   }
@@ -591,7 +601,10 @@ export class ConstrainCreationForm {
         this.valueType &#x3D; &#x27;date&#x27;;
         break;
       case ColumnType.STRING:
+      case ColumnType.PHONE:
+      case ColumnType.CUIT:
         this.valueType &#x3D; &#x27;string&#x27;;
+        this.finalString &#x3D; &#x60;that &#x60;;
         break;
       default:
         this.valueType &#x3D; &#x27;value&#x27;;
@@ -650,6 +663,36 @@ export class ConstrainCreationForm {
         }
 
         break;
+      case ColumnType.STRING:
+      case ColumnType.CUIT:
+      case ColumnType.PHONE:
+        for (
+          let i &#x3D; 0;
+          i &lt; this.fieldConstrain.constrain.constrainArray.length;
+          i++
+        ) {
+          const strConstr: StringConstrainObject &#x3D;
+            this.fieldConstrain.constrain.constrainArray[i];
+
+          switch (strConstr.type) {
+            case StringConstrainType.STARTSWITH:
+              this.finalString +&#x3D; &#x60;starts width ${strConstr.value}&#x60;;
+              break;
+            case StringConstrainType.CONTAINS:
+              this.finalString +&#x3D; &#x60;contains ${strConstr.value}&#x60;;
+              break;
+            case StringConstrainType.ENDWITH:
+              this.finalString +&#x3D; &#x60;ends width ${strConstr.value}&#x60;;
+              break;
+          }
+          if (this.fieldConstrain.constrain.constrainArray.length &gt; 1) {
+            if (i &lt; this.fieldConstrain.constrain.constrainArray.length - 2)
+              this.finalString +&#x3D; &#x27;, &#x27;;
+            if (i &#x3D;&#x3D; this.fieldConstrain.constrain.constrainArray.length - 2)
+              this.finalString +&#x3D; &#x27; and &#x27;;
+          }
+        }
+        break;
     }
   }
 
@@ -662,10 +705,11 @@ export class ConstrainCreationForm {
   }
 
   resetValues() {
+    this.stringFormGroup.reset();
     this.fieldConstrain &#x3D; {
       propertyKey: this.data.columns[0].propertyKey,
       constrainName: &#x27;New Constrain&#x27;,
-      type: this.data.columns[0].type,
+      type: ColumnType.INTEGER,
       constrain: new NumberConstrain(
         this.numberConstrainType.MORETHAN,
         [0, 0],
@@ -680,6 +724,41 @@ export class ConstrainCreationForm {
         style: {},
       },
     };
+    if (this.strAccordion) this.strAccordion.closeAll();
+  }
+
+  updateStringConstrain() {
+    let values: {
+      startWith: any;
+      startWithToogle: any;
+      includes: any;
+      includesToogle: any;
+      endsWith: any;
+      endsWithToogle: any;
+    } &#x3D; this.stringFormGroup.value;
+
+    this.fieldConstrain.constrain.clearConstrains();
+    if (values.startWithToogle &amp;&amp; values.startWith)
+      this.fieldConstrain.constrain.addConstrain({
+        type: StringConstrainType.STARTSWITH,
+        value: values.startWith,
+      });
+    if (values.includesToogle &amp;&amp; values.includes)
+      this.fieldConstrain.constrain.addConstrain({
+        type: StringConstrainType.CONTAINS,
+        value: values.includes,
+      });
+    if (values.endsWithToogle &amp;&amp; values.endsWith)
+      this.fieldConstrain.constrain.addConstrain({
+        type: StringConstrainType.ENDWITH,
+        value: values.endsWith,
+      });
+    this.getFinalText();
+  }
+
+  closeDialog() {
+    this.dialogRef.close(this.fieldConstrain);
+    console.log(this.fieldConstrain.constrain);
   }
 }
 </code></pre>

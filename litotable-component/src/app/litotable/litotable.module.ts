@@ -35,6 +35,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatDividerModule } from '@angular/material/divider';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -72,6 +74,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatTooltipModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatDividerModule,
+    DragDropModule,
   ],
   exports: [LitotableComponent],
 })

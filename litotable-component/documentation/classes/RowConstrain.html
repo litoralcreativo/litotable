@@ -121,7 +121,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="302" class="link-to-prism">src/app/litotable/litotable.component.ts:302</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="387" class="link-to-prism">src/app/litotable/litotable.component.ts:387</a></div>
                             </td>
                         </tr>
 
@@ -231,7 +231,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="302" class="link-to-prism">src/app/litotable/litotable.component.ts:302</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="387" class="link-to-prism">src/app/litotable/litotable.component.ts:387</a></div>
                         </td>
                     </tr>
 
@@ -257,7 +257,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="300" class="link-to-prism">src/app/litotable/litotable.component.ts:300</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="385" class="link-to-prism">src/app/litotable/litotable.component.ts:385</a></div>
                         </td>
                     </tr>
 
@@ -283,7 +283,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="301" class="link-to-prism">src/app/litotable/litotable.component.ts:301</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="386" class="link-to-prism">src/app/litotable/litotable.component.ts:386</a></div>
                         </td>
                     </tr>
 
@@ -309,7 +309,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="298" class="link-to-prism">src/app/litotable/litotable.component.ts:298</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="383" class="link-to-prism">src/app/litotable/litotable.component.ts:383</a></div>
                         </td>
                     </tr>
 
@@ -335,7 +335,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="299" class="link-to-prism">src/app/litotable/litotable.component.ts:299</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="384" class="link-to-prism">src/app/litotable/litotable.component.ts:384</a></div>
                         </td>
                     </tr>
 
@@ -398,6 +398,7 @@ export class LitotableComponent implements OnInit, AfterViewInit {
   selectedRows &#x3D; new Set();
   constrainedRows &#x3D; new Set();
   showSelectedOnly: boolean &#x3D; false;
+  creationFormOpen: boolean &#x3D; false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @Input(&#x27;source&#x27;) inputSource!: Observable&lt;any[]&gt;;
@@ -527,21 +528,38 @@ export class LitotableComponent implements OnInit, AfterViewInit {
       this.dataType
     );
 
+    let columnGroups: ColumnGroups &#x3D; new ColumnGroups(0);
+
     if (columnsMetadata !&#x3D; undefined) {
       this.columns &#x3D; columnsMetadata.map(
         (c: { propertyKey: string; metadata: TableColumnMetadata }, i) &#x3D;&gt; {
           let column &#x3D; new Column(
             c.propertyKey,
             c.propertyKey,
-            ColumnType.STRING
+            ColumnType.STRING,
+            c.metadata.order
           );
           column.visible &#x3D;
             c.metadata.visible &#x3D;&#x3D; undefined ? true : c.metadata.visible;
-          column.order &#x3D; c.metadata.order || i + 1;
           column.name &#x3D; c.metadata.columnName || c.propertyKey;
           column.type &#x3D; c.metadata.type || ColumnType.STRING;
           column.format &#x3D; c.metadata.format || undefined;
           column.contentAlign &#x3D; c.metadata.contentAlign || undefined;
+
+          const str &#x3D; c.metadata.columnGroup?.name;
+          if (str) {
+            if (
+              columnGroups.groupColumns.filter((x) &#x3D;&gt; x.name &#x3D;&#x3D; str).length &#x3D;&#x3D; 0
+            ) {
+              let newColGroup &#x3D; new GroupColumn(str);
+              newColGroup.addColumn(column);
+              columnGroups.groupColumns.push(newColGroup);
+            } else {
+              columnGroups.groupColumns
+                .filter((x) &#x3D;&gt; x.name &#x3D;&#x3D; str)[0]
+                .addColumn(column);
+            }
+          }
           return column;
         }
       );
@@ -550,6 +568,8 @@ export class LitotableComponent implements OnInit, AfterViewInit {
       });
     }
     this.displayedColumns &#x3D; new DisplayedColumns(this.columns, this.selection);
+    this.displayedColumns.columnGroups &#x3D; columnGroups;
+    this.displayedColumns.updateGroups();
   }
 
   isAllSelected() {
@@ -592,8 +612,6 @@ export class LitotableComponent implements OnInit, AfterViewInit {
           break;
         case &#x27;number-value2&#x27;:
           data.values[1] &#x3D; parseInt(value.target.value);
-          console.log(data.values);
-          console.log(value.target.value);
           break;
       }
     }
@@ -614,7 +632,10 @@ export class LitotableComponent implements OnInit, AfterViewInit {
   removeConstrain(constrain: FieldConstrianStyle) {
     this.fieldConstrians &#x3D; this.fieldConstrians.filter((x) &#x3D;&gt; x !&#x3D; constrain);
     this.updateVisibility();
-    console.log(this.fieldConstrians);
+  }
+
+  openCreationForm() {
+    // this.creationFormOpen &#x3D; !this.creationFormOpen;
   }
 }
 
@@ -623,6 +644,8 @@ export class DisplayedColumns {
   columnNames: string[];
   columnTypes: ColumnType[];
   selectable: boolean;
+  columnGroups: ColumnGroups;
+
   constructor(columns: Column[] &#x3D; [], selectable: boolean &#x3D; false) {
     this.columns &#x3D; columns;
     this.columnNames &#x3D; columns
@@ -631,6 +654,7 @@ export class DisplayedColumns {
     this.columnTypes &#x3D; columns.map((x) &#x3D;&gt; x.type);
     this.selectable &#x3D; selectable;
     if (selectable) this.columnNames.unshift(&#x27;selection&#x27;);
+    this.columnGroups &#x3D; new ColumnGroups(columns.length);
   }
 
   changeColumnVisivility(column: Column) {
@@ -639,6 +663,13 @@ export class DisplayedColumns {
       .filter((c) &#x3D;&gt; c.visible &#x3D;&#x3D; true)
       .map((x) &#x3D;&gt; x.name);
     if (this.selectable) this.columnNames.unshift(&#x27;selection&#x27;);
+    this.updateGroups();
+  }
+
+  updateGroups() {
+    this.columnGroups.updateColumns(
+      this.columns.filter((c) &#x3D;&gt; c.visible &#x3D;&#x3D; true)
+    );
   }
 
   allVisible() {
@@ -647,6 +678,60 @@ export class DisplayedColumns {
       .filter((c) &#x3D;&gt; c.visible &#x3D;&#x3D; true)
       .map((x) &#x3D;&gt; x.name);
     if (this.selectable) this.columnNames.unshift(&#x27;selection&#x27;);
+  }
+}
+
+export class GroupColumn {
+  name: string;
+  columns: Column[] &#x3D; [];
+  count: number &#x3D; 0;
+  start: number &#x3D; 0;
+  colspan: number &#x3D; 1;
+  constructor(name: string) {
+    this.name &#x3D; name;
+  }
+  updateColspan() {
+    let groupData &#x3D; this.columns
+      .filter((x) &#x3D;&gt; x.visible)
+      .sort((a, b) &#x3D;&gt; a.order - b.order)
+      .reduce(
+        (a, c) &#x3D;&gt; {
+          a.start &#x3D; c.order &lt; a.start ? c.order : a.start;
+          a.end &#x3D; c.order &gt; a.end ? c.order : a.end;
+          return a;
+        },
+        { start: Infinity, end: 0 }
+      );
+
+    this.colspan &#x3D; this.columns.filter((x) &#x3D;&gt; x.visible).length;
+    //this.start &#x3D; groupData.start;
+  }
+  addColumn(c: Column) {
+    this.columns.push(c);
+    this.updateColspan();
+  }
+}
+
+export class ColumnGroups {
+  active: boolean &#x3D; false;
+  groupColumns: GroupColumn[] &#x3D; [];
+  displayNames: string[] &#x3D; [];
+  size: number &#x3D; 0;
+  constructor(length: number) {
+    this.displayNames &#x3D; new Array(length).fill(&#x27;empty-group&#x27;);
+  }
+  updateColumns(visibleColumns: Column[]) {
+    this.displayNames &#x3D; new Array(visibleColumns.length).fill(&#x27;empty-group&#x27;);
+    for (let i &#x3D; 0; i &lt; visibleColumns.length; i++) {
+      const element &#x3D; visibleColumns[i];
+
+      this.groupColumns.forEach((gc) &#x3D;&gt; {
+        if (gc.columns.includes(element)) {
+          gc.updateColspan();
+          this.displayNames.splice(gc.start + 1, 1, gc.name);
+        }
+      });
+    }
   }
 }
 

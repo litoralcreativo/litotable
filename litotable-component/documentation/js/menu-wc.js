@@ -110,6 +110,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Column.html" data-type="entity-link" >Column</a>
                             </li>
                             <li class="link">
+                                <a href="classes/ColumnGroups.html" data-type="entity-link" >ColumnGroups</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/ConstrainCreationFormData.html" data-type="entity-link" >ConstrainCreationFormData</a>
                             </li>
                             <li class="link">
@@ -123,6 +126,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/DisplayedColumns.html" data-type="entity-link" >DisplayedColumns</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/GroupColumn.html" data-type="entity-link" >GroupColumn</a>
                             </li>
                             <li class="link">
                                 <a href="classes/LitotableColor.html" data-type="entity-link" >LitotableColor</a>
@@ -152,6 +158,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <span class="icon ion-ios-arrow-down"></span>
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
+                            <li class="link">
+                                <a href="interfaces/ColumnGroup.html" data-type="entity-link" >ColumnGroup</a>
+                            </li>
                             <li class="link">
                                 <a href="interfaces/Constrain.html" data-type="entity-link" >Constrain</a>
                             </li>

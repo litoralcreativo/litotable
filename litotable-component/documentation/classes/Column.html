@@ -94,7 +94,6 @@
                                 <a href="#name" >name</a>
                             </li>
                             <li>
-                                    <span class="modifier">Optional</span>
                                 <a href="#order" >order</a>
                             </li>
                             <li>
@@ -126,7 +125,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(propertyKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, type: <a href="../classes/Column.html" target="_self">ColumnType</a>)</code>
+<code>constructor(propertyKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, type: <a href="../classes/Column.html" target="_self">ColumnType</a>, order: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -177,6 +176,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../classes/Column.html" target="_self" >ColumnType</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>order</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -284,7 +295,6 @@
                 <td class="col-md-4">
                     <a name="order"></a>
                     <span class="name">
-                            <span class="modifier">Optional</span>
                         <span ><b>order</b></span>
                         <a href="#order"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -404,15 +414,21 @@
 export class Column {
   propertyKey: string;
   visible?: boolean;
-  order?: number;
+  order: number;
   name: string;
   type: ColumnType;
   format?: string;
   contentAlign?: ColumnContentAlignment;
-  constructor(propertyKey: string, name: string, type: ColumnType) {
+  constructor(
+    propertyKey: string,
+    name: string,
+    type: ColumnType,
+    order: number
+  ) {
     this.propertyKey &#x3D; propertyKey;
     this.name &#x3D; name;
     this.type &#x3D; type;
+    this.order &#x3D; order;
   }
 }
 </code></pre>

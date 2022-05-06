@@ -126,7 +126,7 @@
                                 <a href="#addConstrain" >addConstrain</a>
                             </li>
                             <li>
-                                <a href="#removeConstrain" >removeConstrain</a>
+                                <a href="#clearConstrains" >clearConstrains</a>
                             </li>
                         </ul>
                     </td>
@@ -379,8 +379,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="188"
-                            class="link-to-prism">src/app/litotable/configurations/fieldConstriansStyle.ts:188</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="189"
+                            class="link-to-prism">src/app/litotable/configurations/fieldConstriansStyle.ts:189</a></div>
                 </td>
             </tr>
 
@@ -432,24 +432,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="removeConstrain"></a>
+                    <a name="clearConstrains"></a>
                     <span class="name">
-                        <span ><b>removeConstrain</b></span>
-                        <a href="#removeConstrain"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>clearConstrains</b></span>
+                        <a href="#clearConstrains"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>removeConstrain(stringConstrain: <a href="../interfaces/StringConstrainObject.html" target="_self">StringConstrainObject</a>)</code>
+<code>clearConstrains()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="191"
-                            class="link-to-prism">src/app/litotable/configurations/fieldConstriansStyle.ts:191</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="192"
+                            class="link-to-prism">src/app/litotable/configurations/fieldConstriansStyle.ts:192</a></div>
                 </td>
             </tr>
 
@@ -457,41 +457,9 @@
             <tr>
                 <td class="col-md-4">
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>stringConstrain</td>
-                                    <td>
-                                                <code><a href="../interfaces/StringConstrainObject.html" target="_self" >StringConstrainObject</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -658,6 +626,7 @@ export class StringConstrain implements Constrain {
     this.caseSensitive &#x3D; caseSense;
   }
   trigger &#x3D; (e: string): boolean &#x3D;&gt; {
+    e &#x3D; e.toString();
     let result &#x3D; true;
     for (let i &#x3D; 0; i &lt; this.constrainArray.length; i++) {
       const con &#x3D; this.constrainArray[i];
@@ -692,13 +661,13 @@ export class StringConstrain implements Constrain {
       }
       if (!result) break;
     }
-    return true;
+    return result;
   };
   addConstrain(stringConstrain: StringConstrainObject) {
     this.constrainArray.push(stringConstrain);
   }
-  removeConstrain(stringConstrain: StringConstrainObject) {
-    this.constrainArray.filter((x) &#x3D;&gt; x !&#x3D; stringConstrain);
+  clearConstrains() {
+    this.constrainArray &#x3D; [];
   }
 }
 

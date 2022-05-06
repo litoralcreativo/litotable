@@ -452,6 +452,7 @@ export class StringConstrain implements Constrain {
     this.caseSensitive &#x3D; caseSense;
   }
   trigger &#x3D; (e: string): boolean &#x3D;&gt; {
+    e &#x3D; e.toString();
     let result &#x3D; true;
     for (let i &#x3D; 0; i &lt; this.constrainArray.length; i++) {
       const con &#x3D; this.constrainArray[i];
@@ -486,13 +487,13 @@ export class StringConstrain implements Constrain {
       }
       if (!result) break;
     }
-    return true;
+    return result;
   };
   addConstrain(stringConstrain: StringConstrainObject) {
     this.constrainArray.push(stringConstrain);
   }
-  removeConstrain(stringConstrain: StringConstrainObject) {
-    this.constrainArray.filter((x) &#x3D;&gt; x !&#x3D; stringConstrain);
+  clearConstrains() {
+    this.constrainArray &#x3D; [];
   }
 }
 

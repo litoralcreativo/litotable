@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >DisplayedColumns</li>
+  <li >ColumnGroups</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -83,19 +83,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#columnGroups" >columnGroups</a>
+                                <a href="#active" >active</a>
                             </li>
                             <li>
-                                <a href="#columnNames" >columnNames</a>
+                                <a href="#displayNames" >displayNames</a>
                             </li>
                             <li>
-                                <a href="#columns" >columns</a>
+                                <a href="#groupColumns" >groupColumns</a>
                             </li>
                             <li>
-                                <a href="#columnTypes" >columnTypes</a>
-                            </li>
-                            <li>
-                                <a href="#selectable" >selectable</a>
+                                <a href="#size" >size</a>
                             </li>
                         </ul>
                     </td>
@@ -110,13 +107,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#allVisible" >allVisible</a>
-                            </li>
-                            <li>
-                                <a href="#changeColumnVisivility" >changeColumnVisivility</a>
-                            </li>
-                            <li>
-                                <a href="#updateGroups" >updateGroups</a>
+                                <a href="#updateColumns" >updateColumns</a>
                             </li>
                         </ul>
                     </td>
@@ -136,12 +127,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(columns: <a href="../classes/Column.html" target="_self">Column[]</a>, selectable: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+<code>constructor(length: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="291" class="link-to-prism">src/app/litotable/litotable.component.ts:291</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="363" class="link-to-prism">src/app/litotable/litotable.component.ts:363</a></div>
                             </td>
                         </tr>
 
@@ -159,22 +150,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>columns</td>
+                                                        <td>length</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../classes/Column.html" target="_self" >Column[]</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>selectable</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -200,114 +179,10 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="columnGroups"></a>
+                    <a name="active"></a>
                     <span class="name">
-                        <span ><b>columnGroups</b></span>
-                        <a href="#columnGroups"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../interfaces/ColumnGroup.html" target="_self" >ColumnGroups</a></code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="291" class="link-to-prism">src/app/litotable/litotable.component.ts:291</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="columnNames"></a>
-                    <span class="name">
-                        <span ><b>columnNames</b></span>
-                        <a href="#columnNames"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>string[]</code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="288" class="link-to-prism">src/app/litotable/litotable.component.ts:288</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="columns"></a>
-                    <span class="name">
-                        <span ><b>columns</b></span>
-                        <a href="#columns"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../classes/Column.html" target="_self" >Column[]</a></code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="287" class="link-to-prism">src/app/litotable/litotable.component.ts:287</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="columnTypes"></a>
-                    <span class="name">
-                        <span ><b>columnTypes</b></span>
-                        <a href="#columnTypes"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../classes/Column.html" target="_self" >ColumnType[]</a></code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="289" class="link-to-prism">src/app/litotable/litotable.component.ts:289</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="selectable"></a>
-                    <span class="name">
-                        <span ><b>selectable</b></span>
-                        <a href="#selectable"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>active</b></span>
+                        <a href="#active"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -317,9 +192,107 @@
 
                     </td>
                 </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="290" class="link-to-prism">src/app/litotable/litotable.component.ts:290</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="360" class="link-to-prism">src/app/litotable/litotable.component.ts:360</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="displayNames"></a>
+                    <span class="name">
+                        <span ><b>displayNames</b></span>
+                        <a href="#displayNames"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="362" class="link-to-prism">src/app/litotable/litotable.component.ts:362</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="groupColumns"></a>
+                    <span class="name">
+                        <span ><b>groupColumns</b></span>
+                        <a href="#groupColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>GroupColumn[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="361" class="link-to-prism">src/app/litotable/litotable.component.ts:361</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="size"></a>
+                    <span class="name">
+                        <span ><b>size</b></span>
+                        <a href="#size"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="363" class="link-to-prism">src/app/litotable/litotable.component.ts:363</a></div>
                         </td>
                     </tr>
 
@@ -337,61 +310,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="allVisible"></a>
+                    <a name="updateColumns"></a>
                     <span class="name">
-                        <span ><b>allVisible</b></span>
-                        <a href="#allVisible"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>updateColumns</b></span>
+                        <a href="#updateColumns"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>allVisible()</code>
+<code>updateColumns(visibleColumns: <a href="../classes/Column.html" target="_self">Column[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="319"
-                            class="link-to-prism">src/app/litotable/litotable.component.ts:319</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="changeColumnVisivility"></a>
-                    <span class="name">
-                        <span ><b>changeColumnVisivility</b></span>
-                        <a href="#changeColumnVisivility"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>changeColumnVisivility(column: <a href="../classes/Column.html" target="_self">Column</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="304"
-                            class="link-to-prism">src/app/litotable/litotable.component.ts:304</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="367"
+                            class="link-to-prism">src/app/litotable/litotable.component.ts:367</a></div>
                 </td>
             </tr>
 
@@ -412,9 +348,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>column</td>
+                                    <td>visibleColumns</td>
                                     <td>
-                                                <code><a href="../classes/Column.html" target="_self" >Column</a></code>
+                                                <code><a href="../classes/Column.html" target="_self" >Column[]</a></code>
                                     </td>
 
                                     <td>
@@ -434,43 +370,6 @@
                     </div>
                     <div class="io-description">
                         
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="updateGroups"></a>
-                    <span class="name">
-                        <span ><b>updateGroups</b></span>
-                        <a href="#updateGroups"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>updateGroups()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="313"
-                            class="link-to-prism">src/app/litotable/litotable.component.ts:313</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
                     </div>
                 </td>
             </tr>
@@ -925,7 +824,7 @@ export class RowConstrain {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'DisplayedColumns.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'ColumnGroups.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

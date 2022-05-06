@@ -1,11 +1,16 @@
 import 'reflect-metadata';
 export interface TableColumnMetadata {
   visible?: boolean;
-  order?: number;
+  order: number;
   columnName?: string;
   type?: ColumnType;
   format?: string;
   contentAlign?: ColumnContentAlignment;
+  columnGroup?: ColumnGroup;
+}
+
+export interface ColumnGroup {
+  name: string;
 }
 
 export function TableColumn(columnMetadata: TableColumnMetadata) {
