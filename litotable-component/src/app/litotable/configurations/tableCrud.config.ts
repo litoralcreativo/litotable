@@ -41,3 +41,14 @@ export enum TableOperation {
   DELETE = 3,
   RESTORE = 4,
 }
+
+export interface DataChange {
+  property: string;
+  original: any;
+  change: any;
+}
+
+export interface ChangedTableData {
+  source: Object;
+  change: DataChange[];
+}

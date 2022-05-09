@@ -191,6 +191,7 @@ export class LitotableComponent implements OnInit, AfterViewInit {
           column.type = c.metadata.type || ColumnType.STRING;
           column.format = c.metadata.format || undefined;
           column.contentAlign = c.metadata.contentAlign || undefined;
+          column.mutable = c.metadata.mutable;
 
           const str = c.metadata.columnGroup?.name;
           if (str) {

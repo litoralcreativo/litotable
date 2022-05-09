@@ -34,8 +34,26 @@ table {
 }
 
 .mat-cell > div {
-  margin: 0 5px !important;
+  padding: 0 10px !important;
   width: max-content !important;
+}
+
+/* Cell Borders */
+.mat-header-row .mat-header-cell.header-borders {
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 0 0.5rem;
+}
+
+.mat-header-row .mat-header-cell.header-borders:nth-child(2) {
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.mat-row .mat-cell.cell-borders {
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.mat-row .mat-cell.cell-borders:nth-child(2) {
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .mat-row .mat-cell {
@@ -45,7 +63,8 @@ table {
 
 .mat-row.mat-row-borders:hover .mat-cell,
 .mat-row.mat-row-selected-borders .mat-cell {
-  border-color: currentColor;
+  border-bottom: 1px dashed currentColor;
+  border-top: 1px dashed currentColor;
 }
 
 .mat-row.mat-row-shadow:hover .mat-cell,
@@ -177,4 +196,16 @@ td.mat-column-selection.mat-footer-cell:first-of-type {
   color: transparent;
   position: relative;
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* Mutable */
+
+.mat-row .mat-cell.mutable:hover {
+  /* border: 1px solid currentColor;
+  border-style: solid; */
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.mat-row .mat-cell.mutable {
+  cursor: pointer;
 }

@@ -7,6 +7,7 @@ export interface TableColumnMetadata {
   format?: string;
   contentAlign?: ColumnContentAlignment;
   columnGroup?: ColumnGroup;
+  mutable?: boolean;
 }
 
 export interface ColumnGroup {

@@ -107,11 +107,18 @@
               *matHeaderCellDef
               mat-sort-header="{{ column.propertyKey }}"
               sortActionDescription="Sort by {{ column.propertyKey }}"
+              [class.header-borders]="tableConfigurations?.headerBorders"
             >
               {{ column.name }}
             </th>
             <!-- Column Data -->
-            <td mat-cell *matCellDef="let element" #litotableTd>
+            <td
+              mat-cell
+              *matCellDef="let element"
+              #litotableTd
+              [class.cell-borders]="tableConfigurations?.headerBorders"
+              [class.mutable]="column.mutable"
+            >
               <div
                 #content
                 style="transition: 0.3s all"
@@ -123,6 +130,12 @@
               >
                 <div *ngIf="column.type == columnTypes.STRING">
                   {{ element[column.propertyKey] }}
+                </div>
+                <div *ngIf="column.type == columnTypes.INTEGER">
+                  {{ element[column.propertyKey] | number: "1.0-0" }}
+                </div>
+                <div *ngIf="column.type == columnTypes.FLOAT">
+                  {{ element[column.propertyKey] | number: "1.2-2" }}
                 </div>
                 <div *ngIf="column.type == columnTypes.DATE">
                   {{

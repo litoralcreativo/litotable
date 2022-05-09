@@ -9,6 +9,8 @@ app.use(cors({
 
 const userRoute = require('./routes/usersRoute.js')
 app.use('/api/users', userRoute)
+const financiacionesRoute = require('./routes/financiacionesRoute.js')
+app.use('/api/financiaciones', financiacionesRoute)
 
 app.listen(PORT, () => {
   console.log(`server running on http://localhost:${PORT}`);

@@ -20,6 +20,8 @@ export interface TableConfigurations {
   hoverStyle?: RowStyle;
   selectionStyle?: RowStyle;
   rowStyleColors?: LitotableColor[];
+  headerBorders?: boolean;
+  cellBorders?: boolean;
 }
 
 export enum RowStyle {

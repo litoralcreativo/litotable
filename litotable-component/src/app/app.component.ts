@@ -19,6 +19,11 @@ import {
   TableOperation,
   TableOperationConfig,
 } from './litotable/configurations/tableCrud.config';
+import {
+  FinanciacionDetalle,
+  generateData,
+} from './models/FinanciacionDetalle.model';
+import { FinanciacionService } from './services/financiacion.service';
 
 @Component({
   selector: 'app-root',
@@ -26,16 +31,21 @@ import {
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  datos!: Observable<User[]>;
-  type: User = new User();
+  //datos!: Observable<User[]>;
+  datos!: Observable<FinanciacionDetalle[]>;
+  type: FinanciacionDetalle = new FinanciacionDetalle();
   usersTableConfig: TableConfigurations;
   fieldConstrains: FieldConstrianStyle[] = [];
   operations: TableOperationConfig;
 
-  constructor(private usersService: UsersService) {
+  constructor(
+    private usersService: UsersService,
+    private financiacionService: FinanciacionService
+  ) {
     this.usersTableConfig = {
       hoverStyle: RowStyle.BORDER,
       selectionStyle: RowStyle.SHADOW,
+      headerBorders: true,
     };
 
     let createOperation = new CreateOperationConfig([
@@ -50,6 +60,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.datos = this.usersService.getAll();
+    this.datos = this.financiacionService.getRandom();
   }
 }
