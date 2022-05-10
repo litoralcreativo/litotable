@@ -23,6 +23,8 @@ import { TableConfigurations } from './configurations/litotable.config';
 import {
   TableOperation,
   TableOperationConfig,
+  ChangedTableData,
+  DataChange,
 } from './configurations/tableCrud.config';
 import { ColumnType, TableColumnMetadata } from './decorators/column.decorator';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
@@ -192,6 +194,7 @@ export class LitotableComponent implements OnInit, AfterViewInit {
           column.format = c.metadata.format || undefined;
           column.contentAlign = c.metadata.contentAlign || undefined;
           column.mutable = c.metadata.mutable;
+          column.mutableAction = c.metadata.mutableAction;
 
           const str = c.metadata.columnGroup?.name;
           if (str) {
@@ -291,6 +294,69 @@ export class LitotableComponent implements OnInit, AfterViewInit {
       event.previousIndex + 1,
       event.currentIndex + 1
     );
+  }
+
+  selectedCell: any = null;
+  changes: ChangedTableData[] = [];
+  mutatedCells: Set<HTMLElement> = new Set();
+
+  selectCell(element: HTMLElement, column: Column, object: any) {
+    this.selectedCell = element;
+    if (!this.changes.some((x) => x.source == object)) {
+      this.changes.push({
+        source: object,
+        changeset: [
+          {
+            property: column.propertyKey,
+            original: object[column.propertyKey],
+            change: object[column.propertyKey],
+          },
+        ],
+      });
+    }
+  }
+
+  mutateCell($event: any, column: Column, object: any, element: HTMLElement) {
+    let changeset = this.changes
+      .find((x) => x.source == object)
+      ?.changeset.find((x) => x.property == column.propertyKey);
+    if (changeset) changeset.change = $event;
+    if (changeset?.change != changeset?.original) {
+      this.mutatedCells.add(element);
+    } else if (this.mutatedCells.has(element)) {
+      this.mutatedCells.delete(element);
+    }
+    if (column.mutableAction) {
+      const indx = this.dataSource.data.indexOf(object);
+      if (indx != -1) {
+        this.dataSource.data[indx];
+      }
+    }
+    console.log(changeset);
+  }
+
+  restoreMutableValue(column: Column, object: any) {
+    let changedObject = this.changes.find((x) => x.source == object);
+
+    if (changedObject) {
+      let oldValue = changedObject.changeset.find(
+        (x) => x.property == column.propertyKey
+      )?.original;
+      object[column.propertyKey] = oldValue;
+      /* 
+
+      let newChangeset = changedObject.changeset.filter(
+        (x) => x.property != column.propertyKey
+      );
+      this.changes = this.changes.filter((x) => x.source != object);
+      this.changes.push({ source: object, changeset: newChangeset }); */
+    }
+
+    console.log(this.changes);
+  }
+
+  deselectCells() {
+    this.selectedCell = null;
   }
 }
 

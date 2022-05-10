@@ -200,12 +200,26 @@ td.mat-column-selection.mat-footer-cell:first-of-type {
 
 /* Mutable */
 
-.mat-row .mat-cell.mutable:hover {
-  /* border: 1px solid currentColor;
-  border-style: solid; */
+/* .mat-row .mat-cell.mutable:hover {
   background-color: rgba(0, 0, 0, 0.12);
-}
+} */
 
 .mat-row .mat-cell.mutable {
   cursor: pointer;
+}
+
+.mutable-input {
+  width: 100%;
+}
+
+.mutated {
+  background-color: rgba(0, 255, 0, 0.12);
+}
+
+::ng-deep .mutable-input > .mat-form-field-wrapper {
+  padding-bottom: 0 !important;
+}
+
+::ng-deep .mutable-input .mat-form-field-underline {
+  position: initial !important;
 }

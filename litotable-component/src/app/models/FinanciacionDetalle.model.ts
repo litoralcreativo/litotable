@@ -4,12 +4,52 @@ import {
   TableColumn,
 } from '../litotable/decorators/column.decorator';
 
+const recalcular = (data: FinanciacionDetalle): FinanciacionDetalle => {
+  let arr: FinanciacionDetalle;
+  let alicuotaTotalAnterior = 0;
+
+  let cuota = data.cuota;
+  let alicuotaPisoTotal = data.alicuotaPisoTotal;
+  let alicuotaPisoCuota = alicuotaPisoTotal / cuota;
+  let incremento =
+    alicuotaTotalAnterior == 0
+      ? 0
+      : (alicuotaPisoTotal / alicuotaTotalAnterior - 1) * 100;
+  alicuotaTotalAnterior = alicuotaPisoTotal;
+  let pjeIncrementoGrabado = data.pjeIncrementoEtiq / 10;
+  let alicuotaTechoTotal =
+    alicuotaPisoTotal + (alicuotaPisoTotal * pjeIncrementoGrabado) / 100;
+  let alicuotaTechoCuota = alicuotaTechoTotal / cuota;
+  let pjeDescuentoCalculado =
+    (alicuotaTechoTotal / alicuotaPisoCuota / alicuotaTechoTotal) * 100;
+  let pjeIncrementoEtiq = data.pjeIncrementoEtiq;
+  let alicuotaTotalEtiq =
+    alicuotaPisoTotal + (alicuotaPisoTotal * pjeIncrementoEtiq) / 100;
+  let alicuotaCuotaEtiq = alicuotaTotalEtiq / cuota;
+
+  const newFD = new FinanciacionDetalle(
+    cuota,
+    alicuotaPisoTotal,
+    alicuotaPisoCuota,
+    incremento,
+    pjeIncrementoGrabado,
+    alicuotaTechoTotal,
+    alicuotaTechoCuota,
+    pjeDescuentoCalculado,
+    pjeIncrementoEtiq,
+    alicuotaTotalEtiq,
+    alicuotaCuotaEtiq
+  );
+  return newFD;
+};
+
 export class FinanciacionDetalle {
   @TableColumn({
     columnName: 'Cuota',
     order: 1,
     type: ColumnType.INTEGER,
     mutable: true,
+    mutableAction: recalcular,
   })
   cuota: number;
 

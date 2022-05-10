@@ -12,6 +12,7 @@ export class Column {
   format?: string;
   contentAlign?: ColumnContentAlignment;
   mutable?: boolean;
+  mutableAction?: (object: any) => any;
   constructor(
     propertyKey: string,
     name: string,

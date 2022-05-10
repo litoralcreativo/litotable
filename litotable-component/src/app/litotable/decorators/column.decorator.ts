@@ -8,6 +8,7 @@ export interface TableColumnMetadata {
   contentAlign?: ColumnContentAlignment;
   columnGroup?: ColumnGroup;
   mutable?: boolean;
+  mutableAction?: (data: any) => any;
 }
 
 export interface ColumnGroup {

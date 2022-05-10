@@ -50,5 +50,5 @@ export interface DataChange {
 
 export interface ChangedTableData {
   source: Object;
-  change: DataChange[];
+  changeset: DataChange[];
 }
