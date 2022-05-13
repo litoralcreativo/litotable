@@ -298,14 +298,18 @@ export class ConstrainCreationForm {
     switch (field) {
       case &#x27;date-type&#x27;:
       case &#x27;number-type&#x27;:
-        this.fieldConstrain.constrain.type &#x3D; parseInt(value.value);
+        this.fieldConstrain.constrain.type &#x3D; parseFloat(value.value);
         break;
       case &#x27;number-value&#x27;:
       case &#x27;number-value1&#x27;:
-        this.fieldConstrain.constrain.values[0] &#x3D; parseInt(value.target.value);
+        this.fieldConstrain.constrain.values[0] &#x3D; parseFloat(
+          value.target.value
+        );
         break;
       case &#x27;number-value2&#x27;:
-        this.fieldConstrain.constrain.values[1] &#x3D; parseInt(value.target.value);
+        this.fieldConstrain.constrain.values[1] &#x3D; parseFloat(
+          value.target.value
+        );
         break;
       case &#x27;date-value&#x27;:
       case &#x27;date-value1&#x27;:

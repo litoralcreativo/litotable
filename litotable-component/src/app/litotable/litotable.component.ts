@@ -3,7 +3,6 @@ import { SelectionModel } from '@angular/cdk/collections';
 import {
   AfterViewInit,
   Component,
-  HostListener,
   Input,
   OnInit,
   ViewChild,
@@ -19,12 +18,14 @@ import {
   FieldConstrianStyle,
   MesurableConstrainType,
 } from './configurations/fieldConstriansStyle';
-import { TableConfigurations } from './configurations/litotable.config';
+import {
+  LitoRowAction,
+  LitoRowActionConfirmation,
+  TableConfigurations,
+} from './configurations/litotable.config';
 import {
   TableOperation,
   TableOperationConfig,
-  ChangedTableData,
-  DataChange,
 } from './configurations/tableCrud.config';
 import { ColumnType, TableColumnMetadata } from './decorators/column.decorator';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
@@ -47,6 +48,11 @@ export class LitotableComponent implements OnInit, AfterViewInit {
   constrainedRows = new Set();
   showSelectedOnly: boolean = false;
   creationFormOpen: boolean = false;
+  confirmation?: {
+    confirmationData: LitoRowActionConfirmation;
+    row: any;
+    action: LitoRowAction;
+  };
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @Input('source') inputSource!: Observable<any[]>;
@@ -193,8 +199,6 @@ export class LitotableComponent implements OnInit, AfterViewInit {
           column.type = c.metadata.type || ColumnType.STRING;
           column.format = c.metadata.format || undefined;
           column.contentAlign = c.metadata.contentAlign || undefined;
-          column.mutable = c.metadata.mutable;
-          column.mutableAction = c.metadata.mutableAction;
 
           const str = c.metadata.columnGroup?.name;
           if (str) {
@@ -217,7 +221,11 @@ export class LitotableComponent implements OnInit, AfterViewInit {
         return a.order! - b.order!;
       });
     }
-    this.displayedColumns = new DisplayedColumns(this.columns, this.selection);
+    this.displayedColumns = new DisplayedColumns(
+      this.columns,
+      this.selection,
+      this.tableConfigurations?.actionsColumn != undefined
+    );
     this.displayedColumns.columnGroups = columnGroups;
     this.displayedColumns.updateGroups();
   }
@@ -296,67 +304,46 @@ export class LitotableComponent implements OnInit, AfterViewInit {
     );
   }
 
-  selectedCell: any = null;
-  changes: ChangedTableData[] = [];
-  mutatedCells: Set<HTMLElement> = new Set();
-
-  selectCell(element: HTMLElement, column: Column, object: any) {
-    this.selectedCell = element;
-    if (!this.changes.some((x) => x.source == object)) {
-      this.changes.push({
-        source: object,
-        changeset: [
-          {
-            property: column.propertyKey,
-            original: object[column.propertyKey],
-            change: object[column.propertyKey],
-          },
-        ],
-      });
+  onActionClick(row: any, action: LitoRowAction) {
+    if (
+      action.actionResult.willUpdateRow ||
+      action.actionResult.willDeleteRow
+    ) {
+      row.processing = true;
+      setTimeout(() => {
+        action.actionResult.actionObservable
+          ? action.actionResult.actionObservable.subscribe({
+              next: (datos: any) => {
+                this.updateRow(
+                  row,
+                  action.actionResult.willDeleteRow ? null : datos
+                );
+              },
+              complete: () => {
+                row.processing = false;
+              },
+            })
+          : null;
+      }, 3000);
     }
   }
 
-  mutateCell($event: any, column: Column, object: any, element: HTMLElement) {
-    let changeset = this.changes
-      .find((x) => x.source == object)
-      ?.changeset.find((x) => x.property == column.propertyKey);
-    if (changeset) changeset.change = $event;
-    if (changeset?.change != changeset?.original) {
-      this.mutatedCells.add(element);
-    } else if (this.mutatedCells.has(element)) {
-      this.mutatedCells.delete(element);
+  updateRow(row: any, newRow: any) {
+    let indx = this.dataSource.data.indexOf(row);
+    if (newRow) {
+      this.dataSource.data[indx] = newRow;
+    } else {
+      this.dataSource.data.splice(indx, 1);
     }
-    if (column.mutableAction) {
-      const indx = this.dataSource.data.indexOf(object);
-      if (indx != -1) {
-        this.dataSource.data[indx];
-      }
-    }
-    console.log(changeset);
+    this.dataSource._updateChangeSubscription();
   }
 
-  restoreMutableValue(column: Column, object: any) {
-    let changedObject = this.changes.find((x) => x.source == object);
-
-    if (changedObject) {
-      let oldValue = changedObject.changeset.find(
-        (x) => x.property == column.propertyKey
-      )?.original;
-      object[column.propertyKey] = oldValue;
-      /* 
-
-      let newChangeset = changedObject.changeset.filter(
-        (x) => x.property != column.propertyKey
-      );
-      this.changes = this.changes.filter((x) => x.source != object);
-      this.changes.push({ source: object, changeset: newChangeset }); */
+  performFooterAction() {
+    if (
+      this.tableConfigurations?.footerAction?.actionResult.nonObservableAction
+    ) {
+      this.tableConfigurations?.footerAction?.actionResult.nonObservableAction();
     }
-
-    console.log(this.changes);
-  }
-
-  deselectCells() {
-    this.selectedCell = null;
   }
 }
 
@@ -365,16 +352,23 @@ export class DisplayedColumns {
   columnNames: string[];
   columnTypes: ColumnType[];
   selectable: boolean;
+  actionColumn: boolean;
   columnGroups: ColumnGroups;
 
-  constructor(columns: Column[] = [], selectable: boolean = false) {
+  constructor(
+    columns: Column[] = [],
+    selectable: boolean = false,
+    actionsColumn: boolean = false
+  ) {
     this.columns = columns;
     this.columnNames = columns
       .filter((c) => c.visible == true)
       .map((x) => x.name);
     this.columnTypes = columns.map((x) => x.type);
     this.selectable = selectable;
+    this.actionColumn = actionsColumn;
     if (selectable) this.columnNames.unshift('selection');
+    if (actionsColumn) this.columnNames.push('actions');
     this.columnGroups = new ColumnGroups(columns.length);
   }
 
@@ -384,6 +378,7 @@ export class DisplayedColumns {
       .filter((c) => c.visible == true)
       .map((x) => x.name);
     if (this.selectable) this.columnNames.unshift('selection');
+    if (this.actionColumn) this.columnNames.push('actions');
     this.updateGroups();
   }
 
@@ -392,6 +387,7 @@ export class DisplayedColumns {
       .filter((c) => c.visible == true)
       .map((x) => x.name);
     if (this.selectable) this.columnNames.unshift('selection');
+    if (this.actionColumn) this.columnNames.push('actions');
     this.updateGroups();
   }
 
@@ -407,6 +403,7 @@ export class DisplayedColumns {
       .filter((c) => c.visible == true)
       .map((x) => x.name);
     if (this.selectable) this.columnNames.unshift('selection');
+    if (this.actionColumn) this.columnNames.push('actions');
   }
 }
 

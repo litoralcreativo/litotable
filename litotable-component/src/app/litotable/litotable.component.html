@@ -63,223 +63,250 @@
 <div class="litotable-main-container">
   <div class="litotable-container mat-elevation-z4">
     <div class="table-container">
-      <div *ngIf="dataSource" class="table-responsive">
-        <table
-          mat-table
-          [dataSource]="dataSource"
-          matSort
-          (matSortChange)="announceSortChange($event)"
-        >
-          <!-- Columna de seleccion -->
-          <ng-container matColumnDef="selection">
-            <th mat-header-cell *matHeaderCellDef>
-              <mat-checkbox
-                (change)="masterToggle()"
-                [indeterminate]="
-                  this.selectedRows.size != 0 && !isAllSelected()
-                "
-                [checked]="isAllSelected()"
-              >
-              </mat-checkbox>
-            </th>
-            <td
-              mat-cell
-              *matCellDef="let row"
-              style="background-color: rgba(255, 255, 255, 1)"
+      <mat-drawer-container class="example-container" [hasBackdrop]="true">
+        <mat-drawer #drawer mode="over" position="end">
+          <ng-container *ngTemplateOutlet="sidenavMenu"></ng-container>
+        </mat-drawer>
+        <mat-drawer-content>
+          <div *ngIf="dataSource" class="table-responsive">
+            <table
+              mat-table
+              [dataSource]="dataSource"
+              matSort
+              (matSortChange)="announceSortChange($event)"
             >
-              <mat-checkbox
-                (click)="$event.stopPropagation()"
-                (change)="selectionToogle($event.checked, row)"
-                [checked]="selectedRows.has(row)"
-              >
-              </mat-checkbox>
-            </td>
-          </ng-container>
-
-          <!-- Resto de columnas -->
-          <ng-container
-            *ngFor="let column of displayedColumns.columns"
-            matColumnDef="{{ column.name }}"
-          >
-            <!-- Column Header -->
-            <th
-              mat-header-cell
-              *matHeaderCellDef
-              mat-sort-header="{{ column.propertyKey }}"
-              sortActionDescription="Sort by {{ column.propertyKey }}"
-              [class.header-borders]="tableConfigurations?.headerBorders"
-            >
-              {{ column.name }}
-            </th>
-            <!-- Column Data -->
-            <td
-              mat-cell
-              *matCellDef="let element"
-              #litotableTd
-              [class.cell-borders]="tableConfigurations?.headerBorders"
-              [class.mutable]="column.mutable"
-              [class.mutated]="mutatedCells.has(litotableTd)"
-              [class.mutable-selected]="selectedCell == litotableTd"
-              (click)="
-                column.mutable ? selectCell(litotableTd, column, element) : null
-              "
-              (focusout)="column.mutable ? deselectCells() : null"
-              (keydown)="$event.keyCode === 13 ? deselectCells() : null"
-            >
-              <mat-form-field
-                *ngIf="selectedCell == litotableTd"
-                appearance="fill"
-                class="mutable-input"
-                #mutableInput
-              >
-                <div *ngIf="column.type == columnTypes.STRING">
-                  <input
-                    #inp="ngModel"
-                    matInput
-                    type="text"
-                    [(ngModel)]="element[column.propertyKey]"
-                    required
-                  />
-                </div>
-                <div *ngIf="column.type == columnTypes.INTEGER">
-                  <input
-                    #inp="ngModel"
-                    matInput
-                    type="number"
-                    step="1"
-                    onkeydown="if(event.key==='.' || event.key===','){event.preventDefault();}"
-                    [(ngModel)]="element[column.propertyKey]"
-                    (ngModelChange)="
-                      mutateCell($event, column, element, litotableTd)
+              <!-- Columna de seleccion -->
+              <ng-container matColumnDef="selection">
+                <th mat-header-cell *matHeaderCellDef>
+                  <mat-checkbox
+                    (change)="masterToggle()"
+                    [indeterminate]="
+                      this.selectedRows.size != 0 && !isAllSelected()
                     "
-                    required
-                  />
-                </div>
-                <div
-                  *ngIf="
-                    column.type == columnTypes.FLOAT ||
-                    column.type == columnTypes.CURRENCY
-                  "
+                    [checked]="isAllSelected()"
+                  >
+                  </mat-checkbox>
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let row"
+                  style="background-color: rgba(255, 255, 255, 1)"
                 >
-                  <input
-                    #inp="ngModel"
-                    matInput
-                    type="number"
-                    step="0.1"
-                    [(ngModel)]="element[column.propertyKey]"
-                    required
-                  />
-                </div>
-                <div *ngIf="column.type == columnTypes.DATE">
-                  <input
-                    #inp="ngModel"
-                    matInput
-                    type="datetime"
-                    [(ngModel)]="element[column.propertyKey]"
-                    required
-                  />
-                </div>
-                <button
-                  mat-icon-button
-                  matSuffix
-                  (click)="restoreMutableValue(column, element)"
-                >
-                  <mat-icon>restore</mat-icon>
-                </button>
-              </mat-form-field>
+                  <mat-checkbox
+                    (click)="$event.stopPropagation()"
+                    (change)="selectionToogle($event.checked, row)"
+                    [checked]="selectedRows.has(row)"
+                    [disabled]="row.processing"
+                  >
+                  </mat-checkbox>
+                </td>
+              </ng-container>
 
-              <div
-                *ngIf="selectedCell != litotableTd"
-                #content
-                style="transition: 0.3s all"
-                [ngStyle]="
-                  litotableTd.parentElement?.style?.color
-                    ? { color: litotableTd.parentElement?.style?.color }
-                    : {}
-                "
+              <!-- Resto de columnas -->
+              <ng-container
+                *ngFor="let column of displayedColumns.columns"
+                matColumnDef="{{ column.name }}"
               >
-                <div *ngIf="column.type == columnTypes.STRING">
-                  {{ element[column.propertyKey] }}
-                </div>
-                <div *ngIf="column.type == columnTypes.INTEGER">
-                  {{ element[column.propertyKey] | number: "1.0-0" }}
-                </div>
-                <div *ngIf="column.type == columnTypes.FLOAT">
-                  {{ element[column.propertyKey] | number: "1.2-4" }}
-                </div>
-                <div *ngIf="column.type == columnTypes.DATE">
-                  {{
-                    element[column.propertyKey]
-                      | date: (column.format ? column.format : "short")
-                  }}
-                </div>
-                <div *ngIf="column.type == columnTypes.CURRENCY">
-                  {{ element[column.propertyKey] | currency }}
-                </div>
-                <div *ngIf="column.type == columnTypes.CUIT">
-                  {{ element[column.propertyKey] | cuit: "-" }}
-                </div>
-                <div *ngIf="column.type == columnTypes.PHONE">
-                  {{
-                    element[column.propertyKey]
-                      | phone: (column.format ? column.format : undefined)
-                  }}
-                </div>
-              </div>
-            </td>
-          </ng-container>
+                <!-- Column Header -->
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  mat-sort-header="{{ column.propertyKey }}"
+                  sortActionDescription="Sort by {{ column.propertyKey }}"
+                  [class.header-borders]="tableConfigurations?.headerBorders"
+                >
+                  {{ column.name }}
+                </th>
+                <!-- Column Data -->
+                <td
+                  mat-cell
+                  *matCellDef="let element"
+                  #litotableTd
+                  [class.cell-borders]="tableConfigurations?.headerBorders"
+                >
+                  <div
+                    #content
+                    style="transition: 0.3s all"
+                    [ngStyle]="
+                      litotableTd.parentElement?.style?.color
+                        ? { color: litotableTd.parentElement?.style?.color }
+                        : {}
+                    "
+                  >
+                    <div *ngIf="column.type == columnTypes.STRING">
+                      {{ element[column.propertyKey] }}
+                    </div>
+                    <div *ngIf="column.type == columnTypes.INTEGER">
+                      {{ element[column.propertyKey] | number: "1.0-0" }}
+                    </div>
+                    <div *ngIf="column.type == columnTypes.FLOAT">
+                      {{ element[column.propertyKey] | number: "1.2-4" }}
+                    </div>
+                    <div *ngIf="column.type == columnTypes.DATE">
+                      {{
+                        element[column.propertyKey]
+                          | date: (column.format ? column.format : "short")
+                      }}
+                    </div>
+                    <div *ngIf="column.type == columnTypes.CURRENCY">
+                      {{ element[column.propertyKey] | currency }}
+                    </div>
+                    <div *ngIf="column.type == columnTypes.CUIT">
+                      {{ element[column.propertyKey] | cuit: "-" }}
+                    </div>
+                    <div *ngIf="column.type == columnTypes.PHONE">
+                      {{
+                        element[column.propertyKey]
+                          | phone: (column.format ? column.format : undefined)
+                      }}
+                    </div>
+                  </div>
+                </td>
+              </ng-container>
 
-          <!-- Columnas de agrupacion -->
-          <ng-container matColumnDef="empty-group">
-            <th *matHeaderCellDef class="group-header-empty"></th>
-          </ng-container>
+              <!-- Columna de Acciones -->
+              <ng-container
+                *ngIf="tableConfigurations?.actionsColumn"
+                matColumnDef="actions"
+              >
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  [class.header-borders]="tableConfigurations?.headerBorders"
+                  class="actions-th"
+                >
+                  Acciones
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let row"
+                  [class.cell-borders]="tableConfigurations?.headerBorders"
+                  style="padding: 0"
+                  class="actions-td"
+                >
+                  <div>
+                    <div
+                      *ngFor="let action of tableConfigurations?.actionsColumn"
+                    >
+                      <button
+                        [disabled]="row.processing"
+                        *ngIf="action.confirmation"
+                        mat-icon-button
+                        matTooltip="{{ action.tooltip }}"
+                        (click)="
+                          confirmation = {
+                            confirmationData: action.confirmation,
+                            row: row,
+                            action: action
+                          };
+                          drawer.toggle()
+                        "
+                      >
+                        <mat-icon
+                          [style]="{
+                            color: row.processing ? 'lightgray' : action.color
+                          }"
+                          >{{ action.icon }}</mat-icon
+                        >
+                      </button>
+                      <button
+                        [disabled]="row.processing"
+                        *ngIf="!action.confirmation"
+                        mat-icon-button
+                        matTooltip="{{ action.tooltip }}"
+                        (click)="onActionClick(row, action)"
+                      >
+                        <mat-icon
+                          [style]="{
+                            color: row.processing ? 'lightgray' : action.color
+                          }"
+                          >{{ action.icon }}</mat-icon
+                        >
+                      </button>
+                    </div>
+                  </div>
+                </td>
+              </ng-container>
 
-          <ng-container
-            *ngFor="let col of displayedColumns.columnGroups.groupColumns"
-            matColumnDef="{{ col.name }}"
+              <!-- Columnas de agrupacion -->
+              <ng-container matColumnDef="empty-group">
+                <th *matHeaderCellDef class="group-header-empty"></th>
+              </ng-container>
+              <ng-container
+                *ngFor="let col of displayedColumns.columnGroups.groupColumns"
+                matColumnDef="{{ col.name }}"
+              >
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  [attr.colspan]="col.colspan"
+                >
+                  {{ col.name }}
+                </th>
+              </ng-container>
+              <tr
+                class="group-header"
+                mat-header-row
+                *matHeaderRowDef="displayedColumns.columnGroups.displayNames"
+              ></tr>
+
+              <!-- Encabezados de columnas -->
+              <tr
+                mat-header-row
+                *matHeaderRowDef="displayedColumns.columnNames"
+              ></tr>
+
+              <!-- Formato condicional de filas -->
+              <tr
+                mat-row
+                [class.mat-row-selected]="selectedRows.has(row)"
+                [class.mat-row-selected-borders]="
+                  selectedRows.has(row) &&
+                  tableConfigurations?.selectionStyle == 1
+                "
+                [class.mat-row-selected-shadow]="
+                  selectedRows.has(row) &&
+                  tableConfigurations?.selectionStyle == 2
+                "
+                [class.mat-row-borders]="tableConfigurations?.hoverStyle == 1"
+                [class.mat-row-shadow]="tableConfigurations?.hoverStyle == 2"
+                style="transition: 0.3s all"
+                [ngStyle]="constrainedRows.has(row) ? row.rowStyle.style : ''"
+                *matRowDef="let row; columns: displayedColumns.columnNames"
+                [class.mat-row-processing]="row.processing"
+              ></tr>
+
+              <!-- Mensaje por defecto en caso de no haber datos o se este fetcheando -->
+              <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">
+                  {{ fetching ? "fetching data" : "No data found" }}
+                </td>
+              </tr>
+            </table>
+          </div>
+        </mat-drawer-content>
+      </mat-drawer-container>
+
+      <!-- Footer action button -->
+      <div class="table-bottom-container">
+        <button
+          mat-stroked-button
+          class="footercell"
+          (click)="performFooterAction()"
+        >
+          <mat-icon
+            *ngIf="tableConfigurations?.footerAction?.icon"
+            [ngStyle]="{
+              color: tableConfigurations?.footerAction?.color || 'currentColor'
+            }"
+            >{{ tableConfigurations?.footerAction?.icon }}</mat-icon
           >
-            <th mat-header-cell *matHeaderCellDef [attr.colspan]="col.colspan">
-              {{ col.name }}
-            </th>
-          </ng-container>
-          <tr
-            class="group-header"
-            mat-header-row
-            *matHeaderRowDef="displayedColumns.columnGroups.displayNames"
-          ></tr>
-
-          <!-- Encabezados de columnas -->
-          <tr
-            mat-header-row
-            *matHeaderRowDef="displayedColumns.columnNames"
-          ></tr>
-
-          <!-- Formato condicional de filas -->
-          <tr
-            mat-row
-            [class.mat-row-selected]="selectedRows.has(row)"
-            [class.mat-row-selected-borders]="
-              selectedRows.has(row) && tableConfigurations?.selectionStyle == 1
-            "
-            [class.mat-row-selected-shadow]="
-              selectedRows.has(row) && tableConfigurations?.selectionStyle == 2
-            "
-            [class.mat-row-borders]="tableConfigurations?.hoverStyle == 1"
-            [class.mat-row-shadow]="tableConfigurations?.hoverStyle == 2"
-            style="transition: 0.3s all"
-            [ngStyle]="constrainedRows.has(row) ? row.rowStyle.style : ''"
-            *matRowDef="let row; columns: displayedColumns.columnNames"
-          ></tr>
-
-          <!-- Mensaje por defecto en caso de no haber datos o se este fetcheando -->
-          <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="4">
-              {{ fetching ? "fetching data" : "No data found" }}
-            </td>
-          </tr>
-        </table>
+          {{ tableConfigurations?.footerAction?.content }}
+        </button>
       </div>
     </div>
+
+    <!-- Paginator -->
     <div class="table-bottom-container">
       <mat-paginator
         [pageSizeOptions]="tableConfigurations?.paginationSizes || [5, 10, 20]"
@@ -292,10 +319,6 @@
       [mode]="fetching ? 'indeterminate' : 'determinate'"
     ></mat-progress-bar>
   </div>
-  <div
-    [class.growed]="creationFormOpen"
-    class="litotable-operations mat-elevation-z4"
-  ></div>
 </div>
 
 <!-- Export Menu -->
@@ -633,3 +656,28 @@
     </mat-card>
   </ng-template>
 </mat-menu>
+
+<!-- sidenav-menu -->
+<ng-template #sidenavMenu>
+  <div style="padding: 1rem">
+    <h2>
+      {{
+        confirmation ? confirmation?.confirmationData?.title : "Confirmacion"
+      }}
+    </h2>
+    <p>{{ confirmation?.confirmationData?.content }}</p>
+    <button
+      mat-raised-button
+      color="primary"
+      style="margin-right: 0.5rem"
+      (click)="
+        drawer.toggle(); onActionClick(confirmation?.row, confirmation!.action)
+      "
+    >
+      accept
+    </button>
+    <button mat-raised-button color="warn" (click)="drawer.toggle()">
+      cancel
+    </button>
+  </div>
+</ng-template>

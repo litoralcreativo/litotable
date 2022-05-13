@@ -38,10 +38,17 @@ table {
   width: max-content !important;
 }
 
+.mat-header-row .mat-header-cell {
+  padding: 0 0.5rem;
+}
+
+.mat-row {
+  transition: 0.3s all;
+}
+
 /* Cell Borders */
 .mat-header-row .mat-header-cell.header-borders {
   border-right: 1px solid rgba(0, 0, 0, 0.12);
-  padding: 0 0.5rem;
 }
 
 .mat-header-row .mat-header-cell.header-borders:nth-child(2) {
@@ -198,28 +205,49 @@ td.mat-column-selection.mat-footer-cell:first-of-type {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-/* Mutable */
-
-/* .mat-row .mat-cell.mutable:hover {
-  background-color: rgba(0, 0, 0, 0.12);
-} */
-
-.mat-row .mat-cell.mutable {
-  cursor: pointer;
+.actions-td,
+.actions-th {
+  position: sticky;
+  right: 0;
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+  background: white;
 }
 
-.mutable-input {
+.actions-td > div {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+/* PROCESSING CELL */
+
+.mat-row-processing {
+  background: #eee;
+  background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+  cursor: not-allowed;
+}
+.mat-row-processing > *:not(:last-child) {
+  color: lightgray !important;
+  border-right: 0px solid !important;
+  border-left: 0px solid !important;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+/* Footer cell */
+
+.footercell {
   width: 100%;
+  border-radius: 0 0 3px 3px;
 }
 
-.mutated {
-  background-color: rgba(0, 255, 0, 0.12);
-}
-
-::ng-deep .mutable-input > .mat-form-field-wrapper {
-  padding-bottom: 0 !important;
-}
-
-::ng-deep .mutable-input .mat-form-field-underline {
-  position: initial !important;
+.mat-row.deletion-row {
+  transition: all 1s ease !important;
+  height: 0px;
 }

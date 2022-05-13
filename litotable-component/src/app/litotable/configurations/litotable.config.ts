@@ -1,3 +1,33 @@
+import { Component, TemplateRef } from '@angular/core';
+import { Observable } from 'rxjs';
+
+export interface LitoFooterAction {
+  icon?: string;
+  content?: string;
+  color?: string;
+  actionResult: {
+    willAddRow: boolean;
+    actionObservable?: Observable<any>;
+    nonObservableAction?: () => any;
+  };
+  template?: Component;
+}
+
+export interface LitoRowAction {
+  tooltip: string;
+  icon: string;
+  color: string;
+  actionResult: {
+    willUpdateRow?: boolean;
+    willDeleteRow?: boolean;
+    actionObservable?: Observable<any>;
+  };
+  confirmation?: LitoRowActionConfirmation;
+}
+export interface LitoRowActionConfirmation {
+  title: string;
+  content: string;
+}
 export class LitotableColor {
   value: string;
   constructor(
@@ -22,6 +52,8 @@ export interface TableConfigurations {
   rowStyleColors?: LitotableColor[];
   headerBorders?: boolean;
   cellBorders?: boolean;
+  actionsColumn?: LitoRowAction[];
+  footerAction?: LitoFooterAction;
 }
 
 export enum RowStyle {

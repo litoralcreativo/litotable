@@ -6,9 +6,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule } from '@angular/common/http';
 import { LitotableModule } from './litotable/litotable.module';
+import { FormularioCreacionComponent } from './componentes/formulario-creacion/formulario-creacion.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, FormularioCreacionComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

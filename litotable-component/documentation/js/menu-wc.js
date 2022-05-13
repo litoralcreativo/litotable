@@ -54,13 +54,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/LitotableModule.html" data-type="entity-link" >LitotableModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-LitotableModule-ac27c6677d4fd89075c495c7d5c77fea1ffdbffb0b446145dac1e595576b1af3471be2cec55fef97f00705b5342997fe1b435ac6b4cc6bbda34516d36ccab833"' : 'data-target="#xs-components-links-module-LitotableModule-ac27c6677d4fd89075c495c7d5c77fea1ffdbffb0b446145dac1e595576b1af3471be2cec55fef97f00705b5342997fe1b435ac6b4cc6bbda34516d36ccab833"' }>
+                                            'data-target="#components-links-module-LitotableModule-ace367e7b8e6a3d87a1fb42b58d6b3c73e665a85d995bb89c244de02f5a2305cc957fcae85d6965befeabf14348b4626df94691d252a461cb5aa917fa41b1909"' : 'data-target="#xs-components-links-module-LitotableModule-ace367e7b8e6a3d87a1fb42b58d6b3c73e665a85d995bb89c244de02f5a2305cc957fcae85d6965befeabf14348b4626df94691d252a461cb5aa917fa41b1909"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-LitotableModule-ac27c6677d4fd89075c495c7d5c77fea1ffdbffb0b446145dac1e595576b1af3471be2cec55fef97f00705b5342997fe1b435ac6b4cc6bbda34516d36ccab833"' :
-                                            'id="xs-components-links-module-LitotableModule-ac27c6677d4fd89075c495c7d5c77fea1ffdbffb0b446145dac1e595576b1af3471be2cec55fef97f00705b5342997fe1b435ac6b4cc6bbda34516d36ccab833"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-LitotableModule-ace367e7b8e6a3d87a1fb42b58d6b3c73e665a85d995bb89c244de02f5a2305cc957fcae85d6965befeabf14348b4626df94691d252a461cb5aa917fa41b1909"' :
+                                            'id="xs-components-links-module-LitotableModule-ace367e7b8e6a3d87a1fb42b58d6b3c73e665a85d995bb89c244de02f5a2305cc957fcae85d6965befeabf14348b4626df94691d252a461cb5aa917fa41b1909"' }>
                                             <li class="link">
                                                 <a href="components/ConstrainCreationForm.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ConstrainCreationForm</a>
                                             </li>
@@ -80,13 +80,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#pipes-links-module-LitotableModule-ac27c6677d4fd89075c495c7d5c77fea1ffdbffb0b446145dac1e595576b1af3471be2cec55fef97f00705b5342997fe1b435ac6b4cc6bbda34516d36ccab833"' : 'data-target="#xs-pipes-links-module-LitotableModule-ac27c6677d4fd89075c495c7d5c77fea1ffdbffb0b446145dac1e595576b1af3471be2cec55fef97f00705b5342997fe1b435ac6b4cc6bbda34516d36ccab833"' }>
+                                            'data-target="#pipes-links-module-LitotableModule-ace367e7b8e6a3d87a1fb42b58d6b3c73e665a85d995bb89c244de02f5a2305cc957fcae85d6965befeabf14348b4626df94691d252a461cb5aa917fa41b1909"' : 'data-target="#xs-pipes-links-module-LitotableModule-ace367e7b8e6a3d87a1fb42b58d6b3c73e665a85d995bb89c244de02f5a2305cc957fcae85d6965befeabf14348b4626df94691d252a461cb5aa917fa41b1909"' }>
                                             <span class="icon ion-md-add"></span>
                                             <span>Pipes</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-LitotableModule-ac27c6677d4fd89075c495c7d5c77fea1ffdbffb0b446145dac1e595576b1af3471be2cec55fef97f00705b5342997fe1b435ac6b4cc6bbda34516d36ccab833"' :
-                                            'id="xs-pipes-links-module-LitotableModule-ac27c6677d4fd89075c495c7d5c77fea1ffdbffb0b446145dac1e595576b1af3471be2cec55fef97f00705b5342997fe1b435ac6b4cc6bbda34516d36ccab833"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-LitotableModule-ace367e7b8e6a3d87a1fb42b58d6b3c73e665a85d995bb89c244de02f5a2305cc957fcae85d6965befeabf14348b4626df94691d252a461cb5aa917fa41b1909"' :
+                                            'id="xs-pipes-links-module-LitotableModule-ace367e7b8e6a3d87a1fb42b58d6b3c73e665a85d995bb89c244de02f5a2305cc957fcae85d6965befeabf14348b4626df94691d252a461cb5aa917fa41b1909"' }>
                                             <li class="link">
                                                 <a href="pipes/CuitPipe.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >CuitPipe</a>
                                             </li>
@@ -169,6 +169,15 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/FieldConstrianStyle.html" data-type="entity-link" >FieldConstrianStyle</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/LitoFooterAction.html" data-type="entity-link" >LitoFooterAction</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/LitoRowAction.html" data-type="entity-link" >LitoRowAction</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/LitoRowActionConfirmation.html" data-type="entity-link" >LitoRowActionConfirmation</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/OperationField.html" data-type="entity-link" >OperationField</a>

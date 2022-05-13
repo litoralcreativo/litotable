@@ -149,14 +149,18 @@ export class ConstrainCreationForm {
     switch (field) {
       case 'date-type':
       case 'number-type':
-        this.fieldConstrain.constrain.type = parseInt(value.value);
+        this.fieldConstrain.constrain.type = parseFloat(value.value);
         break;
       case 'number-value':
       case 'number-value1':
-        this.fieldConstrain.constrain.values[0] = parseInt(value.target.value);
+        this.fieldConstrain.constrain.values[0] = parseFloat(
+          value.target.value
+        );
         break;
       case 'number-value2':
-        this.fieldConstrain.constrain.values[1] = parseInt(value.target.value);
+        this.fieldConstrain.constrain.values[1] = parseFloat(
+          value.target.value
+        );
         break;
       case 'date-value':
       case 'date-value1':

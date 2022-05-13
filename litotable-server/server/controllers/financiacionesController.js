@@ -87,6 +87,12 @@ const controller = {
     let size = req.params.size
     const financiaciones = generateData(size);
     res.json(financiaciones)
+  },
+  deleteOne: (req, res) => {
+    res.json(...generateData(1))
+  },
+  createOne: (req, res) => {
+    res.json(...generateData(1))
   }
 }
 

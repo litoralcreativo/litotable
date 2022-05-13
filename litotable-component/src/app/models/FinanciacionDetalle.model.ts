@@ -48,8 +48,6 @@ export class FinanciacionDetalle {
     columnName: 'Cuota',
     order: 1,
     type: ColumnType.INTEGER,
-    mutable: true,
-    mutableAction: recalcular,
   })
   cuota: number;
 
