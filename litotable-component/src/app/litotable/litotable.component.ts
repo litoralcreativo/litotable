@@ -3,8 +3,10 @@ import { SelectionModel } from '@angular/cdk/collections';
 import {
   AfterViewInit,
   Component,
+  EventEmitter,
   Input,
   OnInit,
+  Output,
   ViewChild,
 } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
@@ -19,16 +21,17 @@ import {
   MesurableConstrainType,
 } from './configurations/fieldConstriansStyle';
 import {
+  LitoGeneralAction,
+  LitoGeneralActionConfirmation,
   LitoRowAction,
   LitoRowActionConfirmation,
+  TableActionsConfig,
   TableConfigurations,
-} from './configurations/litotable.config';
-import {
   TableOperation,
-  TableOperationConfig,
-} from './configurations/tableCrud.config';
+} from './configurations/litotable.config';
 import { ColumnType, TableColumnMetadata } from './decorators/column.decorator';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
   selector: 'lito-table',
@@ -36,10 +39,12 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
   styleUrls: ['./litotable.component.css'],
 })
 export class LitotableComponent implements OnInit, AfterViewInit {
-  columns: Column[] = [];
+  /* Enums */
   columnTypes = ColumnType;
-  numberConstrainType = MesurableConstrainType;
   operationTypes = TableOperation;
+
+  columns: Column[] = [];
+  numberConstrainType = MesurableConstrainType;
   displayedColumns: DisplayedColumns = new DisplayedColumns();
   rowConstrains: RowConstrain[] = [];
   dataSource = new MatTableDataSource();
@@ -48,21 +53,34 @@ export class LitotableComponent implements OnInit, AfterViewInit {
   constrainedRows = new Set();
   showSelectedOnly: boolean = false;
   creationFormOpen: boolean = false;
-  confirmation?: {
+  rowConfirmation?: {
     confirmationData: LitoRowActionConfirmation;
     row: any;
     action: LitoRowAction;
   };
+  generalConfirmation?: {
+    confirmationData: LitoGeneralActionConfirmation;
+    action: LitoGeneralAction;
+  };
+  _confirmation: string = 'multiple';
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @Input('source') inputSource!: Observable<any[]>;
   @Input('type') dataType!: Object;
-  @Input('operations') operations?: TableOperationConfig;
+  @Input('tableActionsConfig') tableActionsConfig?: TableActionsConfig;
   @Input('selection') selection!: boolean;
   @Input('configurations') tableConfigurations?: TableConfigurations;
   @Input('fieldConstrians') fieldConstrians: FieldConstrianStyle[] = [];
   @ViewChild(MatSort) sort!: MatSort;
-
+  @ViewChild(MatDrawer) drawer!: MatDrawer;
+  @Output('multipleActionOutput') multipleActionOutput: EventEmitter<{
+    operation: LitoGeneralAction;
+    data: Set<any>;
+  }> = new EventEmitter();
+  @Output('singleActionOutput') singleActionOutput: EventEmitter<{
+    operation: LitoRowAction;
+    data: any;
+  }> = new EventEmitter();
   constructor(private _liveAnnouncer: LiveAnnouncer) {}
 
   ngOnInit(): void {
@@ -75,6 +93,7 @@ export class LitotableComponent implements OnInit, AfterViewInit {
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         this.setRowsConstrains(datos);
+        this.tableActionsConfig?.updatePermormableState(this.selectedRows);
       });
     } else {
       let c: any[] = [];
@@ -102,13 +121,7 @@ export class LitotableComponent implements OnInit, AfterViewInit {
   updateFieldsToRowsConstrains() {
     if (this.fieldConstrians) {
       this.rowConstrains = this.fieldConstrians.map((x) => {
-        return new RowConstrain(
-          x.propertyKey,
-          x.metadata.trigger,
-          x.metadata.style,
-          x.metadata.enable,
-          x.constrain
-        );
+        return new RowConstrain(x.propertyKey, x.constrain);
       });
     }
   }
@@ -248,6 +261,9 @@ export class LitotableComponent implements OnInit, AfterViewInit {
     } else {
       if (this.selectedRows.has(row)) this.selectedRows.delete(row);
     }
+    if (this.tableActionsConfig?.actions) {
+      this.tableActionsConfig.updatePermormableState(this.selectedRows);
+    }
   }
 
   changeConstrainState(
@@ -292,10 +308,6 @@ export class LitotableComponent implements OnInit, AfterViewInit {
     this.updateVisibility();
   }
 
-  openCreationForm() {
-    // this.creationFormOpen = !this.creationFormOpen;
-  }
-
   tableDrop(event: CdkDragDrop<string[]>) {
     moveItemInArray(
       this.displayedColumns.columnNames,
@@ -304,27 +316,16 @@ export class LitotableComponent implements OnInit, AfterViewInit {
     );
   }
 
-  onActionClick(row: any, action: LitoRowAction) {
+  onRowActionClick(row: any, action: LitoRowAction) {
     if (
       action.actionResult.willUpdateRow ||
       action.actionResult.willDeleteRow
     ) {
       row.processing = true;
-      setTimeout(() => {
-        action.actionResult.actionObservable
-          ? action.actionResult.actionObservable.subscribe({
-              next: (datos: any) => {
-                this.updateRow(
-                  row,
-                  action.actionResult.willDeleteRow ? null : datos
-                );
-              },
-              complete: () => {
-                row.processing = false;
-              },
-            })
-          : null;
-      }, 3000);
+      this.singleActionOutput.emit({
+        operation: action,
+        data: row,
+      });
     }
   }
 
@@ -332,10 +333,16 @@ export class LitotableComponent implements OnInit, AfterViewInit {
     let indx = this.dataSource.data.indexOf(row);
     if (newRow) {
       this.dataSource.data[indx] = newRow;
+      (this.dataSource.data[indx] as any).processing = false;
+      this.selectedRows.delete(this.dataSource.data[indx]);
     } else {
       this.dataSource.data.splice(indx, 1);
+      row.processing = false;
     }
+    this.selectedRows.delete(row);
+
     this.dataSource._updateChangeSubscription();
+    this.updateVisibility();
   }
 
   performFooterAction() {
@@ -343,6 +350,62 @@ export class LitotableComponent implements OnInit, AfterViewInit {
       this.tableConfigurations?.footerAction?.actionResult.nonObservableAction
     ) {
       this.tableConfigurations?.footerAction?.actionResult.nonObservableAction();
+    }
+  }
+
+  performRowActionConfirmation(
+    action: LitoRowAction,
+    row: any,
+    confirmation: LitoRowActionConfirmation
+  ) {
+    this._confirmation = 'single';
+    this.rowConfirmation = {
+      confirmationData: confirmation,
+      row: row,
+      action: action,
+    };
+    if (this.drawer) {
+      this.drawer.open();
+    }
+  }
+
+  onGeneralActionClick(operation: LitoGeneralAction) {
+    this.performGeneralAction(operation);
+  }
+
+  performGeneralAction(operation: LitoGeneralAction) {
+    this.multipleActionOutput.emit({
+      operation: operation,
+      data: this.selectedRows,
+    });
+    if (operation.mustLockRows) {
+      this.lockSelectedRows(this.selectedRows);
+    }
+  }
+
+  unLockRow(row: any) {
+    row.processing = false;
+  }
+  lockSelectedRows(rows: Set<any>) {
+    rows.forEach((row) => {
+      row.processing = true;
+    });
+  }
+  unLockSelectedRows(rows: Set<any>) {
+    rows.forEach((row) => {
+      row.processing = false;
+    });
+  }
+
+  performGeneralActionConfirmation(operation: LitoGeneralAction) {
+    this._confirmation = 'multiple';
+    this.generalConfirmation = {
+      confirmationData: operation.confirmation!,
+      action: operation,
+    };
+
+    if (this.drawer) {
+      this.drawer.open();
     }
   }
 }
@@ -500,21 +563,9 @@ export class ColumnGroups {
 
 export class RowConstrain {
   name: string;
-  style: Object;
-  constrain: (e: any) => boolean;
-  enable: boolean;
   _constrain: Constrain;
-  constructor(
-    name: string,
-    constrain: (e: any) => boolean,
-    style: Object,
-    enable: boolean,
-    _constrain: Constrain
-  ) {
+  constructor(name: string, _constrain: Constrain) {
     this.name = name;
-    this.style = style;
-    this.enable = enable;
-    this.constrain = constrain;
     this._constrain = _constrain;
   }
 }

@@ -1,15 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FinanciacionDetalle } from 'src/app/models/FinanciacionDetalle.model';
 
 @Component({
   selector: 'app-formulario-creacion',
   templateUrl: './formulario-creacion.component.html',
-  styleUrls: ['./formulario-creacion.component.css']
+  styleUrls: ['./formulario-creacion.component.css'],
 })
-export class FormularioCreacionComponent implements OnInit {
+export class FormularioCreacionComponent {
+  financiacionForm = new FormGroup({
+    cuota: new FormControl(this.data.cuota, [
+      Validators.required,
+      Validators.min(1),
+    ]),
+    incremento: new FormControl(this.data.incremento, [
+      Validators.required,
+      Validators.min(0),
+    ]),
+  });
 
-  constructor() { }
+  constructor(
+    public dialogRef: MatDialogRef<FormularioCreacionComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: FinanciacionDetalle
+  ) {}
 
-  ngOnInit(): void {
+  onNoClick(): void {
+    this.dialogRef.close();
   }
-
 }

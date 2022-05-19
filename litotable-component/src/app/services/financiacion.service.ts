@@ -35,9 +35,29 @@ export class FinanciacionService {
       );
   }
 
-  createOne(): Observable<FinanciacionDetalle> {
+  deleteMultiple(
+    values: Set<FinanciacionDetalle>
+  ): Observable<FinanciacionDetalle[]> {
+    const _values = Array.from(values).map((x) => x.cuota);
     return this.http
-      .post<FinanciacionDetalle>(environment.financiacion + '/', {})
+      .delete<FinanciacionDetalle[]>(environment.financiacion + '/multiple', {
+        body: { ids: _values },
+      })
+      .pipe(
+        map((u: FinanciacionDetalle[]) =>
+          u.map((financiacion) => {
+            let us = Object.assign(new FinanciacionDetalle(), financiacion);
+            return us;
+          })
+        )
+      );
+  }
+
+  verifyOne(actual: FinanciacionDetalle): Observable<FinanciacionDetalle> {
+    return this.http
+      .patch<FinanciacionDetalle>(environment.financiacion + '/verify', {
+        original: actual,
+      })
       .pipe(
         map((u: FinanciacionDetalle) =>
           Object.assign(new FinanciacionDetalle(), u)

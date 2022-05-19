@@ -4,8 +4,11 @@
       [selection]="true"
       [source]="datos"
       [type]="type"
-      [configurations]="usersTableConfig"
-      [operations]="operations"
+      [configurations]="tableConfig"
+      [tableActionsConfig]="tableActionsConfig"
+      (multipleActionOutput)="onMultipleActionOutput($event)"
+      (singleActionOutput)="onSingleActionOutput($event)"
+      [fieldConstrians]="fieldConstrains"
     ></lito-table>
   </div>
 </div>

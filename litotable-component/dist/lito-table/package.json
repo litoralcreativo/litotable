@@ -1,0 +1,34 @@
+{
+  "name": "lito-table",
+  "version": "0.0.9",
+  "peerDependencies": {
+    "@angular/common": "^12.2.0",
+    "@angular/core": "^12.2.0",
+    "@angular/forms": "~12.2.0",
+    "@angular/material": "^12.2.13"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "author": {
+    "name": "Gaston Chatelet",
+    "url": "https://github.com/litoralcreativo"
+  },
+  "keywords": [
+    "angular",
+    "material",
+    "table",
+    "angular material",
+    "material table",
+    "angular table",
+    "angular material table"
+  ],
+  "main": "bundles/lito-table.umd.js",
+  "module": "fesm2015/lito-table.js",
+  "es2015": "fesm2015/lito-table.js",
+  "esm2015": "esm2015/lito-table.js",
+  "fesm2015": "fesm2015/lito-table.js",
+  "typings": "lito-table.d.ts",
+  "sideEffects": false
+}

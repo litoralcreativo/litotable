@@ -1,0 +1,28 @@
+.constrain-mat-content-dual {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.number-constrain-selector {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.number-constrain-selector > * {
+  flex-grow: 1;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-dialog-content {
+  max-height: initial;
+}

@@ -1,1 +1,37 @@
-<p>formulario-creacion works!</p>
+<h1 mat-dialog-title>Edicion de finaciacion</h1>
+<div mat-dialog-content>
+  <form [formGroup]="financiacionForm" class="grid-2c-wrapper">
+    <mat-form-field appearance="fill">
+      <mat-label>Cuota</mat-label>
+      <input
+        type="number"
+        min="1"
+        formControlName="cuota"
+        required
+        autocomplete="off"
+        matInput
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Incremento</mat-label>
+      <input
+        type="number"
+        min="0"
+        formControlName="incremento"
+        required
+        autocomplete="off"
+        matInput
+      />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button
+    [disabled]="!financiacionForm.valid"
+    mat-button
+    [mat-dialog-close]="financiacionForm.value"
+  >
+    Ok
+  </button>
+</div>

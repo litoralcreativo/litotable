@@ -91,8 +91,19 @@ const controller = {
   deleteOne: (req, res) => {
     res.json(...generateData(1))
   },
-  createOne: (req, res) => {
-    res.json(...generateData(1))
+  deleteMultiple: (req, res) => {
+    let ids = req.body.ids
+    console.log(ids, ids.length);
+    let financiaciones = generateData(ids.length);
+    for (let i = 0; i < financiaciones.length; i++) {
+      financiaciones[i].cuota = ids[i]
+    }
+    res.json(financiaciones)
+  },
+  verifyOne: (req, res) => {
+    let original = req.body.original
+    original.cuota = 99
+    res.json(original)
   }
 }
 
