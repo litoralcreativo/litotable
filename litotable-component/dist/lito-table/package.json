@@ -1,6 +1,6 @@
 {
   "name": "lito-table",
-  "version": "0.0.9",
+  "version": "0.0.0-watch+1654603747358",
   "peerDependencies": {
     "@angular/common": "^12.2.0",
     "@angular/core": "^12.2.0",

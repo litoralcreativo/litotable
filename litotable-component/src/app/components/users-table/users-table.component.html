@@ -1,0 +1,11 @@
+<div style="padding: 1rem; width: 80vw; height: 80vh">
+  <lito-table
+    [selection]="true"
+    [source]="datos"
+    [type]="type"
+    [configurations]="tableConfig"
+    (multipleActionOutput)="onMultipleActionOutput($event)"
+    (singleActionOutput)="onSingleActionOutput($event)"
+    [fieldConstrians]="fieldConstrains"
+  ></lito-table>
+</div>

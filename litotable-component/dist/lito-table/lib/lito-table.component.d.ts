@@ -11,6 +11,7 @@ import { LitoGeneralAction, LitoGeneralActionConfirmation, LitoRowAction, LitoRo
 import { ColumnType } from './decorators/column.decorator';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { MatDrawer } from '@angular/material/sidenav';
+import { FormControl } from '@angular/forms';
 import * as i0 from "@angular/core";
 export declare class LitotableComponent implements OnInit, AfterViewInit {
     private _liveAnnouncer;
@@ -36,6 +37,9 @@ export declare class LitotableComponent implements OnInit, AfterViewInit {
         action: LitoGeneralAction;
     };
     _confirmation: string;
+    filteringColumnsFormControl: FormControl;
+    defaultFilterPredicate: (data: unknown, filter: string) => boolean;
+    filteringStringFormControl: FormControl;
     paginator: MatPaginator;
     inputSource: Observable<any[]>;
     dataType: Object;
@@ -81,6 +85,11 @@ export declare class LitotableComponent implements OnInit, AfterViewInit {
     lockSelectedRows(rows: Set<any>): void;
     unLockSelectedRows(rows: Set<any>): void;
     performGeneralActionConfirmation(operation: LitoGeneralAction): void;
+    applyFilter(): void;
+    setFilterSelection(): void;
+    draganddrop: boolean;
+    toogleDragAndDrop(): void;
+    drop(event: CdkDragDrop<any[]>): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<LitotableComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<LitotableComponent, "lito-table", never, { "inputSource": "source"; "dataType": "type"; "tableActionsConfig": "tableActionsConfig"; "selection": "selection"; "tableConfigurations": "configurations"; "fieldConstrians": "fieldConstrians"; }, { "multipleActionOutput": "multipleActionOutput"; "singleActionOutput": "singleActionOutput"; }, never, never>;
 }

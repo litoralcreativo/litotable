@@ -30,8 +30,13 @@ import {
   TableOperation,
 } from './configurations/litotable.config';
 import { ColumnType, TableColumnMetadata } from './decorators/column.decorator';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import {
+  CdkDragDrop,
+  moveItemInArray,
+  transferArrayItem,
+} from '@angular/cdk/drag-drop';
 import { MatDrawer } from '@angular/material/sidenav';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'lito-table',
@@ -64,6 +69,11 @@ export class LitotableComponent implements OnInit, AfterViewInit {
   };
   _confirmation: string = 'multiple';
 
+  /* Filter */
+  filteringColumnsFormControl = new FormControl();
+  defaultFilterPredicate!: (data: unknown, filter: string) => boolean;
+  filteringStringFormControl: FormControl = new FormControl('');
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @Input('source') inputSource!: Observable<any[]>;
   @Input('type') dataType!: Object;
@@ -94,6 +104,7 @@ export class LitotableComponent implements OnInit, AfterViewInit {
         this.dataSource.sort = this.sort;
         this.setRowsConstrains(datos);
         this.tableActionsConfig?.updatePermormableState(this.selectedRows);
+        this.defaultFilterPredicate = this.dataSource.filterPredicate;
       });
     } else {
       let c: any[] = [];
@@ -212,6 +223,8 @@ export class LitotableComponent implements OnInit, AfterViewInit {
           column.type = c.metadata.type || ColumnType.STRING;
           column.format = c.metadata.format || undefined;
           column.contentAlign = c.metadata.contentAlign || undefined;
+          column.enumTypeAsociation =
+            c.metadata.enumTypeAsociation || undefined;
 
           const str = c.metadata.columnGroup?.name;
           if (str) {
@@ -407,6 +420,58 @@ export class LitotableComponent implements OnInit, AfterViewInit {
     if (this.drawer) {
       this.drawer.open();
     }
+  }
+
+  applyFilter() {
+    const filterValue = this.filteringStringFormControl.value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  setFilterSelection() {
+    if (
+      this.filteringColumnsFormControl.value &&
+      this.filteringColumnsFormControl.value.length != 0
+    ) {
+      this.dataSource.filterPredicate = (data: any, filter: string) => {
+        let result = false;
+        result = this.filteringColumnsFormControl.value.some(
+          (field: string) => {
+            return data[field].toString().toLowerCase().indexOf(filter) !== -1;
+          }
+        );
+        return result;
+      };
+    } else {
+      this.dataSource.filterPredicate = this.defaultFilterPredicate;
+    }
+    this.applyFilter();
+  }
+
+  draganddrop: boolean = false;
+  /* DragAndDrop */
+  toogleDragAndDrop() {
+    this.draganddrop = !this.draganddrop;
+  }
+  drop(event: CdkDragDrop<any[]>) {
+    const rowIndex =
+      event.currentIndex + this.paginator.pageIndex * this.paginator.pageSize;
+    const element = event.container.data[rowIndex];
+    console.log(element);
+
+    /* if (event.previousContainer === event.container) {
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    } */
   }
 }
 

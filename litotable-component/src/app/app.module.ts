@@ -12,9 +12,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { UsersTableComponent } from './components/users-table/users-table.component';
+import { FinanciacionTableComponent } from './components/financiacion-table/financiacion-table.component';
 
 @NgModule({
-  declarations: [AppComponent, FormularioCreacionComponent],
+  declarations: [AppComponent, FormularioCreacionComponent, UsersTableComponent, FinanciacionTableComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

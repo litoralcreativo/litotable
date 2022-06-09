@@ -7,6 +7,11 @@ export declare class Column {
     type: ColumnType;
     format?: string;
     contentAlign?: ColumnContentAlignment;
+    enumTypeAsociation?: {
+        key: string | boolean | number;
+        icon: string;
+        tooltip: string;
+    }[];
     mutable?: boolean;
     mutableAction?: (object: any) => any;
     constructor(propertyKey: string, name: string, type: ColumnType, order: number);

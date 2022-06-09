@@ -6,7 +6,7 @@
     "start": "ng serve",
     "compodoc": "npx compodoc -p tsconfig.doc.json -w -s",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "watch": "ng build lito-table --watch",
     "test": "ng test"
   },
   "private": true,

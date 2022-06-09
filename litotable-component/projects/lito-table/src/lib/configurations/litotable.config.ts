@@ -88,8 +88,10 @@ export enum RowStyle {
 
 export class TableActionsConfig {
   actions: LitoGeneralAction[];
-  constructor(actions: LitoGeneralAction[]) {
+  expandable: boolean;
+  constructor(actions: LitoGeneralAction[], expandable: boolean = false) {
     this.actions = actions;
+    this.expandable = expandable;
   }
   updatePermormableState(set: Set<any>) {
     this.actions.forEach((a) => {

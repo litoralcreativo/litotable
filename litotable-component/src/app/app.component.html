@@ -1,16 +1,6 @@
 <div class="container">
-  <div style="padding: 1rem; width: 80vw; height: 80vh">
-    <lito-table
-      [selection]="true"
-      [source]="datos"
-      [type]="type"
-      [configurations]="tableConfig"
-      [tableActionsConfig]="tableActionsConfig"
-      (multipleActionOutput)="onMultipleActionOutput($event)"
-      (singleActionOutput)="onSingleActionOutput($event)"
-      [fieldConstrians]="fieldConstrains"
-    ></lito-table>
-  </div>
+  <app-financiacion-table></app-financiacion-table>
+  <app-users-table></app-users-table>
 </div>
 
 <!-- Formulario -->

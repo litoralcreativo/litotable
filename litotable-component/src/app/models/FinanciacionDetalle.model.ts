@@ -1,8 +1,4 @@
-import {
-  ColumnContentAlignment,
-  ColumnType,
-  TableColumn,
-} from '../litotable/decorators/column.decorator';
+import { ColumnContentAlignment, ColumnType, TableColumn } from 'lito-table';
 
 const recalcular = (data: FinanciacionDetalle): FinanciacionDetalle => {
   let arr: FinanciacionDetalle;
@@ -48,6 +44,7 @@ export class FinanciacionDetalle {
     columnName: 'Cuota',
     order: 1,
     type: ColumnType.INTEGER,
+    contentAlign: ColumnContentAlignment.CENTER,
   })
   cuota: number;
 
@@ -55,6 +52,7 @@ export class FinanciacionDetalle {
     columnName: 'A. P. Total',
     order: 2,
     type: ColumnType.FLOAT,
+    contentAlign: ColumnContentAlignment.RIGHT,
     columnGroup: { name: 'Alicuota Piso' },
   })
   alicuotaPisoTotal: number;
@@ -62,6 +60,7 @@ export class FinanciacionDetalle {
   @TableColumn({
     columnName: 'A. P. Cuota',
     order: 3,
+    contentAlign: ColumnContentAlignment.RIGHT,
     type: ColumnType.FLOAT,
     columnGroup: { name: 'Alicuota Piso' },
   })
@@ -70,6 +69,7 @@ export class FinanciacionDetalle {
   @TableColumn({
     columnName: '%',
     order: 4,
+    contentAlign: ColumnContentAlignment.RIGHT,
     type: ColumnType.FLOAT,
   })
   incremento: number;
@@ -85,6 +85,7 @@ export class FinanciacionDetalle {
   @TableColumn({
     columnName: 'A. T. Total',
     order: 6,
+    contentAlign: ColumnContentAlignment.RIGHT,
     type: ColumnType.FLOAT,
     columnGroup: { name: 'Alicuota Techo' },
   })
@@ -93,6 +94,7 @@ export class FinanciacionDetalle {
   @TableColumn({
     columnName: 'A. T. Cuota',
     order: 7,
+    contentAlign: ColumnContentAlignment.RIGHT,
     type: ColumnType.FLOAT,
     columnGroup: { name: 'Alicuota Techo' },
   })
@@ -101,6 +103,7 @@ export class FinanciacionDetalle {
   @TableColumn({
     columnName: '% Desc.',
     order: 8,
+    contentAlign: ColumnContentAlignment.RIGHT,
     type: ColumnType.FLOAT,
   })
   pjeDescuentoCalculado: number;
@@ -108,6 +111,7 @@ export class FinanciacionDetalle {
   @TableColumn({
     columnName: 'Etiq. Incremento',
     order: 9,
+    contentAlign: ColumnContentAlignment.RIGHT,
     type: ColumnType.FLOAT,
     columnGroup: { name: 'Etiquetas' },
   })
@@ -116,6 +120,7 @@ export class FinanciacionDetalle {
   @TableColumn({
     columnName: 'E. A. Total',
     order: 10,
+    contentAlign: ColumnContentAlignment.RIGHT,
     type: ColumnType.FLOAT,
     columnGroup: { name: 'Etiquetas' },
   })
@@ -124,10 +129,36 @@ export class FinanciacionDetalle {
   @TableColumn({
     columnName: 'E. A. Cuota',
     order: 11,
+    contentAlign: ColumnContentAlignment.RIGHT,
     type: ColumnType.FLOAT,
     columnGroup: { name: 'Etiquetas' },
   })
   alicuotaCuotaEtiq: number;
+
+  @TableColumn({
+    columnName: 'Tipo Cliente',
+    order: 12,
+    contentAlign: ColumnContentAlignment.RIGHT,
+    type: ColumnType.ENUM,
+    enumTypeAsociation: [
+      {
+        key: 1,
+        icon: 'elderly',
+        tooltip: 'elderly',
+      },
+      {
+        key: 1,
+        icon: 'man',
+        tooltip: 'man',
+      },
+      {
+        key: 0,
+        icon: 'woman',
+        tooltip: 'woman',
+      },
+    ],
+  })
+  tipoCliente: number;
 
   constructor(
     cuota?: number,
@@ -140,7 +171,8 @@ export class FinanciacionDetalle {
     pjeDescuentoCalculado?: number,
     pjeIncrementoEtiq?: number,
     alicuotaTotalEtiq?: number,
-    alicuotaCuotaEtiq?: number
+    alicuotaCuotaEtiq?: number,
+    tipoCliente?: number
   ) {
     this.cuota = cuota || 0;
     this.alicuotaPisoTotal = alicuotaPisoTotal || 0;
@@ -153,6 +185,7 @@ export class FinanciacionDetalle {
     this.pjeIncrementoEtiq = pjeIncrementoEtiq || 0;
     this.alicuotaTotalEtiq = alicuotaTotalEtiq || 0;
     this.alicuotaCuotaEtiq = alicuotaCuotaEtiq || 0;
+    this.tipoCliente = tipoCliente || 0;
   }
 }
 

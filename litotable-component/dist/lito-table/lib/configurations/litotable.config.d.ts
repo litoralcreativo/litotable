@@ -70,7 +70,8 @@ export declare enum RowStyle {
 }
 export declare class TableActionsConfig {
     actions: LitoGeneralAction[];
-    constructor(actions: LitoGeneralAction[]);
+    expandable: boolean;
+    constructor(actions: LitoGeneralAction[], expandable?: boolean);
     updatePermormableState(set: Set<any>): void;
 }
 export declare enum GeneralActionScope {

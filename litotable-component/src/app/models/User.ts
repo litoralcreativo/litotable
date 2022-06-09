@@ -1,14 +1,10 @@
-import {
-  ColumnContentAlignment,
-  ColumnType,
-  TableColumn,
-} from '../litotable/decorators/column.decorator';
+import { ColumnContentAlignment, ColumnType, TableColumn } from 'lito-table';
 
 export class User {
   @TableColumn({
     columnName: 'Nombre',
     order: 1,
-    contentAlign: ColumnContentAlignment.LEFT,
+    contentAlign: ColumnContentAlignment.RIGHT,
     columnGroup: { name: 'Datos Personales' },
   })
   firstName: string;

@@ -1,38 +1,14 @@
 <!-- Operations -->
-<mat-accordion class="table-operations">
+<!-- EXPANDABLE -->
+<mat-accordion
+  class="table-operations"
+  *ngIf="tableActionsConfig && tableActionsConfig.expandable"
+>
   <mat-expansion-panel hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title style="align-items: center">
         Operaciones
       </mat-panel-title>
-      <div class="table-top-container">
-        <button
-          mat-icon-button
-          [matMenuTriggerFor]="export"
-          aria-label="Exportar"
-          (click)="$event.stopPropagation()"
-        >
-          <mat-icon>download</mat-icon>
-        </button>
-
-        <button
-          mat-icon-button
-          [matMenuTriggerFor]="columns"
-          aria-label="Columnas"
-          (click)="$event.stopPropagation()"
-        >
-          <mat-icon>view_column</mat-icon>
-        </button>
-
-        <button
-          mat-icon-button
-          [matMenuTriggerFor]="constrains"
-          aria-label="Constrains"
-          (click)="$event.stopPropagation()"
-        >
-          <mat-icon>brush</mat-icon>
-        </button>
-      </div>
     </mat-expansion-panel-header>
     <div class="operation-buttons-container" *ngIf="tableActionsConfig">
       <div *ngFor="let operation of tableActionsConfig.actions">
@@ -72,21 +48,136 @@
   </mat-expansion-panel>
 </mat-accordion>
 
+<!-- NOT EXPANDABLE -->
+<div
+  class="table-operations mat-elevation-z2 not-expandable-operatios"
+  *ngIf="tableActionsConfig && !tableActionsConfig.expandable"
+>
+  <div class="not-expandable-actions-container">
+    <div class="operation-buttons-container" *ngIf="tableActionsConfig">
+      <div *ngFor="let operation of tableActionsConfig.actions">
+        <div class="table-bottom-container">
+          <!-- (selectedRows.size == 0 && operation.mustHaveOneSelected) ||
+              (selectedRows.size != 1 && operation.scope == 1) -->
+          <div
+            [matTooltipDisabled]="operation.performable.state"
+            matTooltip="{{ operation.performable.tooltip }}"
+          >
+            <button
+              [disabled]="!operation.performable.state"
+              mat-stroked-button
+              class="general-action"
+              (click)="
+                operation.confirmation
+                  ? performGeneralActionConfirmation(operation)
+                  : performGeneralAction(operation)
+              "
+            >
+              <mat-icon
+                *ngIf="operation?.icon"
+                [ngStyle]="{
+                  color:
+                    (!operation.performable.state
+                      ? 'gray'
+                      : operation?.color) || 'currentColor'
+                }"
+                >{{ operation.icon }}</mat-icon
+              >
+              {{ operation.content }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Table -->
 <div class="litotable-main-container">
   <div class="litotable-container mat-elevation-z4">
+    <!-- Toolbar actions -->
+    <div class="table-top-container">
+      <button
+        mat-icon-button
+        aria-label="Drag & Drop"
+        (click)="$event.stopPropagation(); toogleDragAndDrop()"
+      >
+        <mat-icon [ngStyle]="{ color: draganddrop ? 'red' : 'currentColor' }"
+          >open_with</mat-icon
+        >
+      </button>
+
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="export"
+        aria-label="Exportar"
+        (click)="$event.stopPropagation()"
+      >
+        <mat-icon>download</mat-icon>
+      </button>
+
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="columns"
+        aria-label="Columnas"
+        (click)="$event.stopPropagation()"
+      >
+        <mat-icon>view_column</mat-icon>
+      </button>
+
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="constrains"
+        aria-label="Constrains"
+        (click)="$event.stopPropagation()"
+      >
+        <mat-icon>brush</mat-icon>
+      </button>
+    </div>
     <div class="table-container">
+      <!-- Filter -->
+      <div class="filter-container">
+        <mat-form-field appearance="standard">
+          <mat-label>Columnas a filtrar</mat-label>
+          <mat-select
+            (selectionChange)="setFilterSelection()"
+            [formControl]="filteringColumnsFormControl"
+            multiple
+          >
+            <mat-option
+              *ngFor="let columna of displayedColumns.columns"
+              [value]="columna.propertyKey"
+              >{{ columna.name }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="standard" class="filter-selector">
+          <mat-label>Filter</mat-label>
+          <input
+            [formControl]="filteringStringFormControl"
+            matInput
+            (keyup)="applyFilter()"
+            placeholder="Ex. ium"
+            #input
+          />
+        </mat-form-field>
+      </div>
       <mat-drawer-container class="example-container" [hasBackdrop]="true">
         <mat-drawer #drawer mode="over" position="end">
           <ng-container *ngTemplateOutlet="sidenavMenu"></ng-container>
         </mat-drawer>
         <mat-drawer-content>
           <div *ngIf="dataSource" class="table-responsive">
+            <!-- Table -->
             <table
               mat-table
               [dataSource]="dataSource"
               matSort
               (matSortChange)="announceSortChange($event)"
+              cdkDropList
+              [cdkDropListData]="dataSource.data"
+              (cdkDropListDropped)="drop($event)"
+              cdkDropListSortingDisabled
             >
               <!-- Columna de seleccion -->
               <ng-container matColumnDef="selection">
@@ -140,39 +231,59 @@
                   <div
                     #content
                     style="transition: 0.3s all"
+                    [class.cell-align-left]="
+                      column.contentAlign && column.contentAlign == 1
+                    "
+                    [class.cell-align-center]="
+                      column.contentAlign && column.contentAlign == 2
+                    "
+                    [class.cell-align-right]="
+                      column.contentAlign && column.contentAlign == 3
+                    "
                     [ngStyle]="
                       litotableTd.parentElement?.style?.color
                         ? { color: litotableTd.parentElement?.style?.color }
                         : {}
                     "
                   >
-                    <div *ngIf="column.type == columnTypes.STRING">
+                    <span *ngIf="column.type == columnTypes.STRING">
                       {{ element[column.propertyKey] }}
-                    </div>
-                    <div *ngIf="column.type == columnTypes.INTEGER">
+                    </span>
+                    <span *ngIf="column.type == columnTypes.INTEGER">
                       {{ element[column.propertyKey] | number: "1.0-0" }}
-                    </div>
-                    <div *ngIf="column.type == columnTypes.FLOAT">
+                    </span>
+                    <span *ngIf="column.type == columnTypes.FLOAT">
                       {{ element[column.propertyKey] | number: "1.2-4" }}
-                    </div>
-                    <div *ngIf="column.type == columnTypes.DATE">
+                    </span>
+                    <span *ngIf="column.type == columnTypes.DATE">
                       {{
                         element[column.propertyKey]
                           | date: (column.format ? column.format : "short")
                       }}
-                    </div>
-                    <div *ngIf="column.type == columnTypes.CURRENCY">
+                    </span>
+                    <span *ngIf="column.type == columnTypes.CURRENCY">
                       {{ element[column.propertyKey] | currency }}
-                    </div>
-                    <div *ngIf="column.type == columnTypes.CUIT">
+                    </span>
+                    <span *ngIf="column.type == columnTypes.CUIT">
                       {{ element[column.propertyKey] | cuit: "-" }}
-                    </div>
-                    <div *ngIf="column.type == columnTypes.PHONE">
+                    </span>
+                    <span *ngIf="column.type == columnTypes.PHONE">
                       {{
                         element[column.propertyKey]
                           | phone: (column.format ? column.format : undefined)
                       }}
-                    </div>
+                    </span>
+                    <span *ngIf="column.type == columnTypes.ENUM">
+                      <span
+                        *ngFor="let asociation of column.enumTypeAsociation"
+                      >
+                        <mat-icon
+                          *ngIf="asociation.key == element[column.propertyKey]"
+                          matTooltip="{{ asociation.tooltip }}"
+                          >{{ asociation.icon }}</mat-icon
+                        >
+                      </span>
+                    </span>
                   </div>
                 </td>
               </ng-container>
@@ -270,6 +381,8 @@
 
               <!-- Formato condicional de filas -->
               <tr
+                cdkDrag
+                [cdkDragDisabled]="!draganddrop"
                 mat-row
                 [class.mat-row-selected]="selectedRows.has(row)"
                 [class.mat-row-selected-borders]="
@@ -282,11 +395,13 @@
                 "
                 [class.mat-row-borders]="tableConfigurations?.hoverStyle == 1"
                 [class.mat-row-shadow]="tableConfigurations?.hoverStyle == 2"
-                style="transition: 0.3s all"
+                style="transition: 0.3s background-color"
                 [ngStyle]="constrainedRows.has(row) ? row.rowStyle.style : ''"
                 *matRowDef="let row; columns: displayedColumns.columnNames"
                 [class.mat-row-processing]="row.processing"
-              ></tr>
+              >
+                <div *cdkDragPlaceholder>placeholder</div>
+              </tr>
 
               <!-- Mensaje por defecto en caso de no haber datos o se este fetcheando -->
               <tr class="mat-row" *matNoDataRow>

@@ -10,6 +10,7 @@ class Financiacion {
   pjeIncrementoEtiq
   alicuotaTotalEtiq
   alicuotaCuotaEtiq
+  tipoCliente
 
   constructor(
     cuota,
@@ -22,7 +23,7 @@ class Financiacion {
     pjeDescuentoCalculado,
     pjeIncrementoEtiq,
     alicuotaTotalEtiq,
-    alicuotaCuotaEtiq
+    alicuotaCuotaEtiq, tipoCliente
 
   ) {
     this.alicuotaTechoTotal = alicuotaTechoTotal;
@@ -36,6 +37,7 @@ class Financiacion {
     this.pjeIncrementoEtiq = pjeIncrementoEtiq
     this.alicuotaTotalEtiq = alicuotaTotalEtiq
     this.alicuotaCuotaEtiq = alicuotaCuotaEtiq
+    this.tipoCliente = tipoCliente
   }
 }
 
@@ -64,6 +66,8 @@ const generateData = (size) => {
       alicuotaPisoTotal + (alicuotaPisoTotal * pjeIncrementoEtiq) / 100;
     let alicuotaCuotaEtiq = alicuotaTotalEtiq / cuota;
 
+    let tCliente = Math.round(Math.random())
+
     const newFD = new Financiacion(
       cuota,
       alicuotaPisoTotal,
@@ -75,7 +79,7 @@ const generateData = (size) => {
       pjeDescuentoCalculado,
       pjeIncrementoEtiq,
       alicuotaTotalEtiq,
-      alicuotaCuotaEtiq
+      alicuotaCuotaEtiq, tCliente
     );
     arr.push(newFD);
   }
